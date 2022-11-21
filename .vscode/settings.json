@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "spi.h": "c",
+        "si4463.h": "c",
+        "stdio.h": "c",
+        "cstdio": "c",
+        "main.h": "c",
+        "usart.h": "c",
+        "si446x.h": "c",
+        "radio_config_si4463.h": "c"
+    }
+}

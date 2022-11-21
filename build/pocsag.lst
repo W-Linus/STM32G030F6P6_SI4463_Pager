@@ -1,0 +1,3082 @@
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"pocsag.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "Drivers/POCSAG/pocsag.c"
+  18              		.section	.text.calc_bch_and_parity,"ax",%progbits
+  19              		.align	1
+  20              		.global	calc_bch_and_parity
+  21              		.syntax unified
+  22              		.code	16
+  23              		.thumb_func
+  25              	calc_bch_and_parity:
+  26              	.LVL0:
+  27              	.LFB293:
+   1:Drivers/POCSAG/pocsag.c **** #include <pocsag.h>
+   2:Drivers/POCSAG/pocsag.c **** 
+   3:Drivers/POCSAG/pocsag.c **** uint32_t TxBuff[TXBUFF_SIZE] = {0};//TX发送缓冲区
+   4:Drivers/POCSAG/pocsag.c **** uint8_t Tx_Num;//地址码发射次序
+   5:Drivers/POCSAG/pocsag.c **** uint8_t beep;//功能位，1，2，3，4
+   6:Drivers/POCSAG/pocsag.c **** uint8_t UartBuff[UARTBUFF_SIZE] = "#P12345674HT0001$";//串口缓冲区
+   7:Drivers/POCSAG/pocsag.c **** uint16_t UartCount = 13;//串口接收计数
+   8:Drivers/POCSAG/pocsag.c **** uint8_t UartTmp;
+   9:Drivers/POCSAG/pocsag.c **** uint8_t NewData;
+  10:Drivers/POCSAG/pocsag.c **** uint8_t TM0_FLAG;
+  11:Drivers/POCSAG/pocsag.c **** uint8_t SBUF;
+  12:Drivers/POCSAG/pocsag.c **** uint8_t TI;
+  13:Drivers/POCSAG/pocsag.c **** uint16_t Timer_Counter;
+  14:Drivers/POCSAG/pocsag.c **** 
+  15:Drivers/POCSAG/pocsag.c **** extern uint8_t uartBuffer[255];
+  16:Drivers/POCSAG/pocsag.c **** 
+  17:Drivers/POCSAG/pocsag.c **** uint16_t txSpeed;
+  18:Drivers/POCSAG/pocsag.c **** 
+  19:Drivers/POCSAG/pocsag.c **** uint32_t calc_bch_and_parity(uint32_t cw_e) //BCH校验和奇偶校验函数
+  20:Drivers/POCSAG/pocsag.c **** { 
+  28              		.loc 1 20 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 20 1 is_stmt 0 view .LVU1
+  33 0000 10B5     		push	{r4, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
+  38 0002 0400     		movs	r4, r0
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 2
+
+
+  21:Drivers/POCSAG/pocsag.c ****     uint8_t i;
+  39              		.loc 1 21 5 is_stmt 1 view .LVU2
+  22:Drivers/POCSAG/pocsag.c ****     uint8_t  parity = 0; //奇偶校验计数    
+  40              		.loc 1 22 5 view .LVU3
+  41              	.LVL1:
+  23:Drivers/POCSAG/pocsag.c ****     uint32_t local_cw; //临时存放数      
+  42              		.loc 1 23 5 view .LVU4
+  24:Drivers/POCSAG/pocsag.c ****     local_cw=cw_e;//保存cw_e参数值
+  43              		.loc 1 24 5 view .LVU5
+  25:Drivers/POCSAG/pocsag.c ****     for(i=1;i<=21; i++,cw_e<<=1)       
+  44              		.loc 1 25 5 view .LVU6
+  45              		.loc 1 25 10 is_stmt 0 view .LVU7
+  46 0004 0123     		movs	r3, #1
+  47              		.loc 1 25 5 view .LVU8
+  48 0006 02E0     		b	.L2
+  49              	.LVL2:
+  50              	.L3:
+  51              		.loc 1 25 23 is_stmt 1 discriminator 2 view .LVU9
+  52              		.loc 1 25 21 is_stmt 0 discriminator 2 view .LVU10
+  53 0008 0133     		adds	r3, r3, #1
+  54              	.LVL3:
+  55              		.loc 1 25 21 discriminator 2 view .LVU11
+  56 000a DBB2     		uxtb	r3, r3
+  57              	.LVL4:
+  58              		.loc 1 25 28 discriminator 2 view .LVU12
+  59 000c 4000     		lsls	r0, r0, #1
+  60              	.LVL5:
+  61              	.L2:
+  62              		.loc 1 25 14 is_stmt 1 discriminator 1 view .LVU13
+  63 000e 152B     		cmp	r3, #21
+  64 0010 04D8     		bhi	.L10
+  26:Drivers/POCSAG/pocsag.c ****         if (cw_e & 0x80000000) cw_e ^= 0xED200000;  
+  65              		.loc 1 26 9 view .LVU14
+  66              		.loc 1 26 12 is_stmt 0 view .LVU15
+  67 0012 0028     		cmp	r0, #0
+  68 0014 F8DA     		bge	.L3
+  69              		.loc 1 26 32 is_stmt 1 discriminator 1 view .LVU16
+  70              		.loc 1 26 37 is_stmt 0 discriminator 1 view .LVU17
+  71 0016 0C49     		ldr	r1, .L12
+  72 0018 4840     		eors	r0, r1
+  73              	.LVL6:
+  74              		.loc 1 26 37 discriminator 1 view .LVU18
+  75 001a F5E7     		b	.L3
+  76              	.L10:
+  27:Drivers/POCSAG/pocsag.c ****     cw_e=cw_e&0xFFC00000;//保留前10位，BCH校验值共11位，只保留前10位有效数据   
+  77              		.loc 1 27 5 is_stmt 1 view .LVU19
+  78              	.LVL7:
+  28:Drivers/POCSAG/pocsag.c ****     local_cw |= (cw_e >> 21); //BCH校验数移至第22位到31位，BCH共10位，并和原始数�
+  79              		.loc 1 28 5 view .LVU20
+  80              		.loc 1 28 23 is_stmt 0 view .LVU21
+  81 001c 400D     		lsrs	r0, r0, #21
+  82              	.LVL8:
+  83              		.loc 1 28 23 view .LVU22
+  84 001e 0B4B     		ldr	r3, .L12+4
+  85              	.LVL9:
+  86              		.loc 1 28 23 view .LVU23
+  87 0020 1840     		ands	r0, r3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 3
+
+
+  88              		.loc 1 28 14 view .LVU24
+  89 0022 2043     		orrs	r0, r4
+  90              	.LVL10:
+  29:Drivers/POCSAG/pocsag.c ****     cw_e=local_cw;     
+  91              		.loc 1 29 5 is_stmt 1 view .LVU25
+  30:Drivers/POCSAG/pocsag.c ****     for(i=0; i<31; i++, cw_e<<=1) if(cw_e&0x80000000) parity++;        
+  92              		.loc 1 30 5 view .LVU26
+  29:Drivers/POCSAG/pocsag.c ****     cw_e=local_cw;     
+  93              		.loc 1 29 9 is_stmt 0 view .LVU27
+  94 0024 0200     		movs	r2, r0
+  22:Drivers/POCSAG/pocsag.c ****     uint32_t local_cw; //临时存放数      
+  95              		.loc 1 22 14 view .LVU28
+  96 0026 0021     		movs	r1, #0
+  97              		.loc 1 30 10 view .LVU29
+  98 0028 0023     		movs	r3, #0
+  99              		.loc 1 30 5 view .LVU30
+ 100 002a 02E0     		b	.L5
+ 101              	.LVL11:
+ 102              	.L6:
+ 103              		.loc 1 30 23 is_stmt 1 discriminator 4 view .LVU31
+ 104              		.loc 1 30 21 is_stmt 0 discriminator 4 view .LVU32
+ 105 002c 0133     		adds	r3, r3, #1
+ 106              	.LVL12:
+ 107              		.loc 1 30 21 discriminator 4 view .LVU33
+ 108 002e DBB2     		uxtb	r3, r3
+ 109              	.LVL13:
+ 110              		.loc 1 30 29 discriminator 4 view .LVU34
+ 111 0030 5200     		lsls	r2, r2, #1
+ 112              	.LVL14:
+ 113              	.L5:
+ 114              		.loc 1 30 15 is_stmt 1 discriminator 5 view .LVU35
+ 115 0032 1E2B     		cmp	r3, #30
+ 116 0034 04D8     		bhi	.L11
+ 117              		.loc 1 30 35 discriminator 6 view .LVU36
+ 118              		.loc 1 30 37 is_stmt 0 discriminator 6 view .LVU37
+ 119 0036 002A     		cmp	r2, #0
+ 120 0038 F8DA     		bge	.L6
+ 121              		.loc 1 30 55 is_stmt 1 discriminator 2 view .LVU38
+ 122              		.loc 1 30 61 is_stmt 0 discriminator 2 view .LVU39
+ 123 003a 0131     		adds	r1, r1, #1
+ 124              	.LVL15:
+ 125              		.loc 1 30 61 discriminator 2 view .LVU40
+ 126 003c C9B2     		uxtb	r1, r1
+ 127              	.LVL16:
+ 128              		.loc 1 30 61 discriminator 2 view .LVU41
+ 129 003e F5E7     		b	.L6
+ 130              	.L11:
+  31:Drivers/POCSAG/pocsag.c ****     if(parity%2) local_cw+=1;//从1至31位判断为奇数则后面加1补充为偶数
+ 131              		.loc 1 31 5 is_stmt 1 view .LVU42
+ 132              		.loc 1 31 7 is_stmt 0 view .LVU43
+ 133 0040 C907     		lsls	r1, r1, #31
+ 134 0042 00D5     		bpl	.L1
+ 135              	.LVL17:
+ 136              		.loc 1 31 18 is_stmt 1 discriminator 1 view .LVU44
+ 137              		.loc 1 31 26 is_stmt 0 discriminator 1 view .LVU45
+ 138 0044 0130     		adds	r0, r0, #1
+ 139              	.LVL18:
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 4
+
+
+  32:Drivers/POCSAG/pocsag.c ****     return local_cw;     
+ 140              		.loc 1 32 5 is_stmt 1 discriminator 1 view .LVU46
+ 141              	.L1:
+  33:Drivers/POCSAG/pocsag.c **** }  
+ 142              		.loc 1 33 1 is_stmt 0 view .LVU47
+ 143              		@ sp needed
+ 144 0046 10BD     		pop	{r4, pc}
+ 145              	.L13:
+ 146              		.align	2
+ 147              	.L12:
+ 148 0048 000020ED 		.word	-316669952
+ 149 004c FE070000 		.word	2046
+ 150              		.cfi_endproc
+ 151              	.LFE293:
+ 153              		.section	.text.calc_addr,"ax",%progbits
+ 154              		.align	1
+ 155              		.global	calc_addr
+ 156              		.syntax unified
+ 157              		.code	16
+ 158              		.thumb_func
+ 160              	calc_addr:
+ 161              	.LVL19:
+ 162              	.LFB294:
+  34:Drivers/POCSAG/pocsag.c **** 
+  35:Drivers/POCSAG/pocsag.c **** 
+  36:Drivers/POCSAG/pocsag.c **** uint32_t calc_addr(uint32_t add,uint8_t fun) //地址转换，第1参数为地址，第2参数为�
+  37:Drivers/POCSAG/pocsag.c **** {
+ 163              		.loc 1 37 1 is_stmt 1 view -0
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 0, uses_anonymous_args = 0
+ 167              		@ link register save eliminated.
+  38:Drivers/POCSAG/pocsag.c ****     uint32_t adr;
+ 168              		.loc 1 38 5 view .LVU49
+  39:Drivers/POCSAG/pocsag.c ****     uint32_t tem;    
+ 169              		.loc 1 39 5 view .LVU50
+  40:Drivers/POCSAG/pocsag.c ****     Tx_Num=(uint8_t)(add&0x00000007);//获取地址发射的帧位次，111位第7帧，后3位地�
+ 170              		.loc 1 40 5 view .LVU51
+ 171              		.loc 1 40 12 is_stmt 0 view .LVU52
+ 172 0000 0723     		movs	r3, #7
+ 173 0002 0340     		ands	r3, r0
+ 174              		.loc 1 40 11 view .LVU53
+ 175 0004 034A     		ldr	r2, .L15
+ 176 0006 1370     		strb	r3, [r2]
+  41:Drivers/POCSAG/pocsag.c ****     adr=0x00;
+ 177              		.loc 1 41 5 is_stmt 1 view .LVU54
+ 178              	.LVL20:
+  42:Drivers/POCSAG/pocsag.c ****     adr=add&0xFFFFFFF8;    //去掉地址码后3位
+ 179              		.loc 1 42 5 view .LVU55
+  43:Drivers/POCSAG/pocsag.c ****     adr=adr<<10;  //地址左移10位
+ 180              		.loc 1 43 5 view .LVU56
+ 181              		.loc 1 43 8 is_stmt 0 view .LVU57
+ 182 0008 8002     		lsls	r0, r0, #10
+ 183              	.LVL21:
+ 184              		.loc 1 43 8 view .LVU58
+ 185 000a 400B     		lsrs	r0, r0, #13
+ 186 000c 4003     		lsls	r0, r0, #13
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 5
+
+
+ 187              	.LVL22:
+  44:Drivers/POCSAG/pocsag.c ****     tem=0x00;
+ 188              		.loc 1 44 5 is_stmt 1 view .LVU59
+  45:Drivers/POCSAG/pocsag.c ****     tem=fun;  //功能位
+ 189              		.loc 1 45 5 view .LVU60
+  46:Drivers/POCSAG/pocsag.c ****     tem=tem<<11;//功能位左移11位，功能位为00 01 10 11四种状态，代表4个地址码
+ 190              		.loc 1 46 5 view .LVU61
+ 191              		.loc 1 46 8 is_stmt 0 view .LVU62
+ 192 000e C902     		lsls	r1, r1, #11
+ 193              	.LVL23:
+  47:Drivers/POCSAG/pocsag.c ****     adr=adr|tem; //地址码和功能位合成地址码；
+ 194              		.loc 1 47 5 is_stmt 1 view .LVU63
+ 195              		.loc 1 47 8 is_stmt 0 view .LVU64
+ 196 0010 0843     		orrs	r0, r1
+ 197              	.LVL24:
+  48:Drivers/POCSAG/pocsag.c ****     return adr;
+ 198              		.loc 1 48 5 is_stmt 1 view .LVU65
+  49:Drivers/POCSAG/pocsag.c **** }
+ 199              		.loc 1 49 1 is_stmt 0 view .LVU66
+ 200              		@ sp needed
+ 201 0012 7047     		bx	lr
+ 202              	.L16:
+ 203              		.align	2
+ 204              	.L15:
+ 205 0014 00000000 		.word	Tx_Num
+ 206              		.cfi_endproc
+ 207              	.LFE294:
+ 209              		.section	.text.Send_Num,"ax",%progbits
+ 210              		.align	1
+ 211              		.global	Send_Num
+ 212              		.syntax unified
+ 213              		.code	16
+ 214              		.thumb_func
+ 216              	Send_Num:
+ 217              	.LVL25:
+ 218              	.LFB295:
+  50:Drivers/POCSAG/pocsag.c **** 
+  51:Drivers/POCSAG/pocsag.c **** 
+  52:Drivers/POCSAG/pocsag.c **** void Send_Num(uint32_t s)//发送数据
+  53:Drivers/POCSAG/pocsag.c **** {
+ 219              		.loc 1 53 1 is_stmt 1 view -0
+ 220              		.cfi_startproc
+ 221              		@ args = 0, pretend = 0, frame = 0
+ 222              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223              		@ link register save eliminated.
+  54:Drivers/POCSAG/pocsag.c ****    uint8_t n; 
+ 224              		.loc 1 54 4 view .LVU68
+  55:Drivers/POCSAG/pocsag.c ****    for (n=0;n<32;n++)
+ 225              		.loc 1 55 4 view .LVU69
+ 226              		.loc 1 55 10 is_stmt 0 view .LVU70
+ 227 0000 0023     		movs	r3, #0
+ 228              		.loc 1 55 4 view .LVU71
+ 229 0002 01E0     		b	.L18
+ 230              	.LVL26:
+ 231              	.L19:
+  56:Drivers/POCSAG/pocsag.c ****     {  
+  57:Drivers/POCSAG/pocsag.c ****       if(s&0x80000000)
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 6
+
+
+ 232              		.loc 1 57 7 is_stmt 1 view .LVU72
+  58:Drivers/POCSAG/pocsag.c ****         {
+  59:Drivers/POCSAG/pocsag.c ****             /*if(UartBuff[1] == 'N')//判断正负相位，下同
+  60:Drivers/POCSAG/pocsag.c ****                 //HAL_GPIO_WritePin(TX_PORT,TX_PIN,GPIO_PIN_RESET);
+  61:Drivers/POCSAG/pocsag.c ****                 //TX = LOW;
+  62:Drivers/POCSAG/pocsag.c ****             else
+  63:Drivers/POCSAG/pocsag.c ****                 //HAL_GPIO_WritePin(TX_PORT,TX_PIN,GPIO_PIN_SET);
+  64:Drivers/POCSAG/pocsag.c ****             // TX= HIGH;
+  65:Drivers/POCSAG/pocsag.c ****         }
+  66:Drivers/POCSAG/pocsag.c ****         else
+  67:Drivers/POCSAG/pocsag.c ****         {
+  68:Drivers/POCSAG/pocsag.c ****             if(UartBuff[1] == 'N')
+  69:Drivers/POCSAG/pocsag.c ****                 //HAL_GPIO_WritePin(TX_PORT,TX_PIN,GPIO_PIN_SET);
+  70:Drivers/POCSAG/pocsag.c ****                 //TX = HIGH;
+  71:Drivers/POCSAG/pocsag.c ****             else
+  72:Drivers/POCSAG/pocsag.c ****              HAL_GPIO_WritePin(TX_PORT,TX_PIN,GPIO_PIN_RESET);
+  73:Drivers/POCSAG/pocsag.c ****                 //TX=LOW;*/
+  74:Drivers/POCSAG/pocsag.c ****         }
+ 233              		.loc 1 74 9 view .LVU73
+  75:Drivers/POCSAG/pocsag.c ****         //HAL_Delay_us(txSpeed);
+  76:Drivers/POCSAG/pocsag.c ****       //WaitTF0();//等待延时结束 0.833ms                    
+  77:Drivers/POCSAG/pocsag.c ****       s<<=1;
+ 234              		.loc 1 77 7 view .LVU74
+  55:Drivers/POCSAG/pocsag.c ****     {  
+ 235              		.loc 1 55 19 view .LVU75
+ 236 0004 0133     		adds	r3, r3, #1
+ 237              	.LVL27:
+  55:Drivers/POCSAG/pocsag.c ****     {  
+ 238              		.loc 1 55 19 is_stmt 0 view .LVU76
+ 239 0006 DBB2     		uxtb	r3, r3
+ 240              	.LVL28:
+ 241              	.L18:
+  55:Drivers/POCSAG/pocsag.c ****     {  
+ 242              		.loc 1 55 14 is_stmt 1 discriminator 1 view .LVU77
+ 243 0008 1F2B     		cmp	r3, #31
+ 244 000a FBD9     		bls	.L19
+  78:Drivers/POCSAG/pocsag.c ****     }   
+  79:Drivers/POCSAG/pocsag.c **** }
+ 245              		.loc 1 79 1 is_stmt 0 view .LVU78
+ 246              		@ sp needed
+ 247 000c 7047     		bx	lr
+ 248              		.cfi_endproc
+ 249              	.LFE295:
+ 251              		.section	.text.Empty_Buff,"ax",%progbits
+ 252              		.align	1
+ 253              		.global	Empty_Buff
+ 254              		.syntax unified
+ 255              		.code	16
+ 256              		.thumb_func
+ 258              	Empty_Buff:
+ 259              	.LFB296:
+  80:Drivers/POCSAG/pocsag.c **** 
+  81:Drivers/POCSAG/pocsag.c **** 
+  82:Drivers/POCSAG/pocsag.c **** void Empty_Buff()//清空缓冲区
+  83:Drivers/POCSAG/pocsag.c **** {
+ 260              		.loc 1 83 1 is_stmt 1 view -0
+ 261              		.cfi_startproc
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 7
+
+
+ 262              		@ args = 0, pretend = 0, frame = 0
+ 263              		@ frame_needed = 0, uses_anonymous_args = 0
+ 264              		@ link register save eliminated.
+  84:Drivers/POCSAG/pocsag.c ****     uint16_t i;
+ 265              		.loc 1 84 5 view .LVU80
+  85:Drivers/POCSAG/pocsag.c ****     for(i = TEXT_OR_NUM; i < UARTBUFF_SIZE; i++)
+ 266              		.loc 1 85 5 view .LVU81
+ 267              	.LVL29:
+ 268              		.loc 1 85 11 is_stmt 0 view .LVU82
+ 269 0000 0B23     		movs	r3, #11
+ 270              		.loc 1 85 5 view .LVU83
+ 271 0002 04E0     		b	.L21
+ 272              	.LVL30:
+ 273              	.L22:
+  86:Drivers/POCSAG/pocsag.c ****     {
+  87:Drivers/POCSAG/pocsag.c ****         UartBuff[i] = 0x00000000;
+ 274              		.loc 1 87 9 is_stmt 1 discriminator 3 view .LVU84
+ 275              		.loc 1 87 21 is_stmt 0 discriminator 3 view .LVU85
+ 276 0004 094A     		ldr	r2, .L25
+ 277 0006 0021     		movs	r1, #0
+ 278 0008 D154     		strb	r1, [r2, r3]
+  85:Drivers/POCSAG/pocsag.c ****     for(i = TEXT_OR_NUM; i < UARTBUFF_SIZE; i++)
+ 279              		.loc 1 85 46 is_stmt 1 discriminator 3 view .LVU86
+ 280 000a 0133     		adds	r3, r3, #1
+ 281              	.LVL31:
+  85:Drivers/POCSAG/pocsag.c ****     for(i = TEXT_OR_NUM; i < UARTBUFF_SIZE; i++)
+ 282              		.loc 1 85 46 is_stmt 0 discriminator 3 view .LVU87
+ 283 000c 9BB2     		uxth	r3, r3
+ 284              	.LVL32:
+ 285              	.L21:
+  85:Drivers/POCSAG/pocsag.c ****     for(i = TEXT_OR_NUM; i < UARTBUFF_SIZE; i++)
+ 286              		.loc 1 85 28 is_stmt 1 discriminator 1 view .LVU88
+ 287 000e C822     		movs	r2, #200
+ 288 0010 5200     		lsls	r2, r2, #1
+ 289 0012 9342     		cmp	r3, r2
+ 290 0014 F6D3     		bcc	.L22
+  88:Drivers/POCSAG/pocsag.c ****     }
+  89:Drivers/POCSAG/pocsag.c ****     for(i = TEXT_OR_NUM; i < TXBUFF_SIZE; i++)
+ 291              		.loc 1 89 11 is_stmt 0 view .LVU89
+ 292 0016 0B23     		movs	r3, #11
+ 293              	.LVL33:
+ 294              		.loc 1 89 11 view .LVU90
+ 295 0018 05E0     		b	.L23
+ 296              	.LVL34:
+ 297              	.L24:
+  90:Drivers/POCSAG/pocsag.c ****     {
+  91:Drivers/POCSAG/pocsag.c ****         TxBuff[i] = 0x00000000;
+ 298              		.loc 1 91 9 is_stmt 1 discriminator 3 view .LVU91
+ 299              		.loc 1 91 19 is_stmt 0 discriminator 3 view .LVU92
+ 300 001a 054A     		ldr	r2, .L25+4
+ 301 001c 9900     		lsls	r1, r3, #2
+ 302 001e 0020     		movs	r0, #0
+ 303 0020 8850     		str	r0, [r1, r2]
+  89:Drivers/POCSAG/pocsag.c ****     {
+ 304              		.loc 1 89 44 is_stmt 1 discriminator 3 view .LVU93
+ 305 0022 0133     		adds	r3, r3, #1
+ 306              	.LVL35:
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 8
+
+
+  89:Drivers/POCSAG/pocsag.c ****     {
+ 307              		.loc 1 89 44 is_stmt 0 discriminator 3 view .LVU94
+ 308 0024 9BB2     		uxth	r3, r3
+ 309              	.LVL36:
+ 310              	.L23:
+  89:Drivers/POCSAG/pocsag.c ****     {
+ 311              		.loc 1 89 28 is_stmt 1 discriminator 1 view .LVU95
+ 312 0026 C72B     		cmp	r3, #199
+ 313 0028 F7D9     		bls	.L24
+  92:Drivers/POCSAG/pocsag.c ****     }
+  93:Drivers/POCSAG/pocsag.c **** }
+ 314              		.loc 1 93 1 is_stmt 0 view .LVU96
+ 315              		@ sp needed
+ 316 002a 7047     		bx	lr
+ 317              	.L26:
+ 318              		.align	2
+ 319              	.L25:
+ 320 002c 00000000 		.word	UartBuff
+ 321 0030 00000000 		.word	TxBuff
+ 322              		.cfi_endproc
+ 323              	.LFE296:
+ 325              		.section	.text.GetAddrNumber,"ax",%progbits
+ 326              		.align	1
+ 327              		.global	GetAddrNumber
+ 328              		.syntax unified
+ 329              		.code	16
+ 330              		.thumb_func
+ 332              	GetAddrNumber:
+ 333              	.LFB297:
+  94:Drivers/POCSAG/pocsag.c **** 
+  95:Drivers/POCSAG/pocsag.c **** 
+  96:Drivers/POCSAG/pocsag.c **** void GetAddrNumber()
+  97:Drivers/POCSAG/pocsag.c **** {
+ 334              		.loc 1 97 1 is_stmt 1 view -0
+ 335              		.cfi_startproc
+ 336              		@ args = 0, pretend = 0, frame = 0
+ 337              		@ frame_needed = 0, uses_anonymous_args = 0
+ 338 0000 70B5     		push	{r4, r5, r6, lr}
+ 339              	.LCFI1:
+ 340              		.cfi_def_cfa_offset 16
+ 341              		.cfi_offset 4, -16
+ 342              		.cfi_offset 5, -12
+ 343              		.cfi_offset 6, -8
+ 344              		.cfi_offset 14, -4
+  98:Drivers/POCSAG/pocsag.c ****   uint8_t i;
+ 345              		.loc 1 98 3 view .LVU98
+  99:Drivers/POCSAG/pocsag.c ****     uint32_t tem;
+ 346              		.loc 1 99 5 view .LVU99
+ 100:Drivers/POCSAG/pocsag.c ****     uint32_t addr_tmp;
+ 347              		.loc 1 100 5 view .LVU100
+ 101:Drivers/POCSAG/pocsag.c ****     
+ 102:Drivers/POCSAG/pocsag.c ****     addr_tmp = (UartBuff[2] - '0')*1000000;//提取地址码
+ 348              		.loc 1 102 5 view .LVU101
+ 349              		.loc 1 102 25 is_stmt 0 view .LVU102
+ 350 0002 264A     		ldr	r2, .L34
+ 351 0004 9178     		ldrb	r1, [r2, #2]
+ 352              		.loc 1 102 29 view .LVU103
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 9
+
+
+ 353 0006 3039     		subs	r1, r1, #48
+ 354              		.loc 1 102 35 view .LVU104
+ 355 0008 4801     		lsls	r0, r1, #5
+ 356 000a 401A     		subs	r0, r0, r1
+ 357 000c 8301     		lsls	r3, r0, #6
+ 358 000e 1B1A     		subs	r3, r3, r0
+ 359 0010 DB00     		lsls	r3, r3, #3
+ 360 0012 5B18     		adds	r3, r3, r1
+ 361 0014 9B01     		lsls	r3, r3, #6
+ 362              	.LVL37:
+ 103:Drivers/POCSAG/pocsag.c ****     addr_tmp += (UartBuff[3] - '0')*100000;
+ 363              		.loc 1 103 5 is_stmt 1 view .LVU105
+ 364              		.loc 1 103 26 is_stmt 0 view .LVU106
+ 365 0016 D078     		ldrb	r0, [r2, #3]
+ 366              		.loc 1 103 30 view .LVU107
+ 367 0018 3038     		subs	r0, r0, #48
+ 368              		.loc 1 103 36 view .LVU108
+ 369 001a 2149     		ldr	r1, .L34+4
+ 370 001c 4143     		muls	r1, r0
+ 371              		.loc 1 103 14 view .LVU109
+ 372 001e CB18     		adds	r3, r1, r3
+ 373              	.LVL38:
+ 104:Drivers/POCSAG/pocsag.c ****     addr_tmp += (UartBuff[4] - '0')*10000;
+ 374              		.loc 1 104 5 is_stmt 1 view .LVU110
+ 375              		.loc 1 104 26 is_stmt 0 view .LVU111
+ 376 0020 1079     		ldrb	r0, [r2, #4]
+ 377              		.loc 1 104 30 view .LVU112
+ 378 0022 3038     		subs	r0, r0, #48
+ 379              		.loc 1 104 36 view .LVU113
+ 380 0024 1F49     		ldr	r1, .L34+8
+ 381 0026 4143     		muls	r1, r0
+ 382              		.loc 1 104 14 view .LVU114
+ 383 0028 C918     		adds	r1, r1, r3
+ 384              	.LVL39:
+ 105:Drivers/POCSAG/pocsag.c ****     addr_tmp += (UartBuff[5] - '0')*1000;
+ 385              		.loc 1 105 5 is_stmt 1 view .LVU115
+ 386              		.loc 1 105 26 is_stmt 0 view .LVU116
+ 387 002a 5079     		ldrb	r0, [r2, #5]
+ 388              		.loc 1 105 30 view .LVU117
+ 389 002c 3038     		subs	r0, r0, #48
+ 390              		.loc 1 105 36 view .LVU118
+ 391 002e 4301     		lsls	r3, r0, #5
+ 392 0030 1B1A     		subs	r3, r3, r0
+ 393 0032 9B00     		lsls	r3, r3, #2
+ 394 0034 1B18     		adds	r3, r3, r0
+ 395 0036 DB00     		lsls	r3, r3, #3
+ 396              		.loc 1 105 14 view .LVU119
+ 397 0038 5B18     		adds	r3, r3, r1
+ 398              	.LVL40:
+ 106:Drivers/POCSAG/pocsag.c ****     addr_tmp += (UartBuff[6] - '0')*100;
+ 399              		.loc 1 106 5 is_stmt 1 view .LVU120
+ 400              		.loc 1 106 26 is_stmt 0 view .LVU121
+ 401 003a 9079     		ldrb	r0, [r2, #6]
+ 402              		.loc 1 106 30 view .LVU122
+ 403 003c 3038     		subs	r0, r0, #48
+ 404              		.loc 1 106 36 view .LVU123
+ 405 003e 6421     		movs	r1, #100
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 10
+
+
+ 406 0040 4143     		muls	r1, r0
+ 407              		.loc 1 106 14 view .LVU124
+ 408 0042 C918     		adds	r1, r1, r3
+ 409              	.LVL41:
+ 107:Drivers/POCSAG/pocsag.c ****     addr_tmp += (UartBuff[7] - '0')*10;
+ 410              		.loc 1 107 5 is_stmt 1 view .LVU125
+ 411              		.loc 1 107 26 is_stmt 0 view .LVU126
+ 412 0044 D079     		ldrb	r0, [r2, #7]
+ 413              		.loc 1 107 30 view .LVU127
+ 414 0046 3038     		subs	r0, r0, #48
+ 415              		.loc 1 107 36 view .LVU128
+ 416 0048 8300     		lsls	r3, r0, #2
+ 417 004a 1B18     		adds	r3, r3, r0
+ 418 004c 5B00     		lsls	r3, r3, #1
+ 419              		.loc 1 107 14 view .LVU129
+ 420 004e 5B18     		adds	r3, r3, r1
+ 421              	.LVL42:
+ 108:Drivers/POCSAG/pocsag.c ****     addr_tmp += (UartBuff[8] - '0');
+ 422              		.loc 1 108 5 is_stmt 1 view .LVU130
+ 423              		.loc 1 108 26 is_stmt 0 view .LVU131
+ 424 0050 107A     		ldrb	r0, [r2, #8]
+ 425              		.loc 1 108 14 view .LVU132
+ 426 0052 C018     		adds	r0, r0, r3
+ 427 0054 3038     		subs	r0, r0, #48
+ 428              	.LVL43:
+ 109:Drivers/POCSAG/pocsag.c ****     
+ 110:Drivers/POCSAG/pocsag.c ****     beep = UartBuff[9] - '0';//提取功能位
+ 429              		.loc 1 110 5 is_stmt 1 view .LVU133
+ 430              		.loc 1 110 20 is_stmt 0 view .LVU134
+ 431 0056 517A     		ldrb	r1, [r2, #9]
+ 432              		.loc 1 110 24 view .LVU135
+ 433 0058 3039     		subs	r1, r1, #48
+ 434 005a C9B2     		uxtb	r1, r1
+ 435              		.loc 1 110 10 view .LVU136
+ 436 005c 124B     		ldr	r3, .L34+12
+ 437 005e 1970     		strb	r1, [r3]
+ 111:Drivers/POCSAG/pocsag.c **** 
+ 112:Drivers/POCSAG/pocsag.c ****     tem=calc_addr(addr_tmp,beep);//前面是地址码，后面是BB机内00 01 10 11  代表0，1�
+ 438              		.loc 1 112 5 is_stmt 1 view .LVU137
+ 439              		.loc 1 112 9 is_stmt 0 view .LVU138
+ 440 0060 FFF7FEFF 		bl	calc_addr
+ 441              	.LVL44:
+ 442              		.loc 1 112 9 view .LVU139
+ 443 0064 0500     		movs	r5, r0
+ 444              	.LVL45:
+ 113:Drivers/POCSAG/pocsag.c ****     
+ 114:Drivers/POCSAG/pocsag.c ****     for(i = 0; i < 8; i++)
+ 445              		.loc 1 114 5 is_stmt 1 view .LVU140
+ 446              		.loc 1 114 11 is_stmt 0 view .LVU141
+ 447 0066 0024     		movs	r4, #0
+ 448              		.loc 1 114 5 view .LVU142
+ 449 0068 07E0     		b	.L28
+ 450              	.LVL46:
+ 451              	.L33:
+ 115:Drivers/POCSAG/pocsag.c ****     {
+ 116:Drivers/POCSAG/pocsag.c ****         if(i == Tx_Num)//地址码放入对应的帧中
+ 117:Drivers/POCSAG/pocsag.c ****             TxBuff[i*2] = calc_bch_and_parity(tem);//取得BCH校验后的地址码序列 
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 11
+
+
+ 452              		.loc 1 117 13 is_stmt 1 view .LVU143
+ 453              		.loc 1 117 27 is_stmt 0 view .LVU144
+ 454 006a 2800     		movs	r0, r5
+ 455 006c FFF7FEFF 		bl	calc_bch_and_parity
+ 456              	.LVL47:
+ 457              		.loc 1 117 25 view .LVU145
+ 458 0070 0E4B     		ldr	r3, .L34+16
+ 459 0072 E200     		lsls	r2, r4, #3
+ 460 0074 9850     		str	r0, [r3, r2]
+ 461              	.L30:
+ 114:Drivers/POCSAG/pocsag.c ****     {
+ 462              		.loc 1 114 24 is_stmt 1 discriminator 2 view .LVU146
+ 463 0076 0134     		adds	r4, r4, #1
+ 464              	.LVL48:
+ 114:Drivers/POCSAG/pocsag.c ****     {
+ 465              		.loc 1 114 24 is_stmt 0 discriminator 2 view .LVU147
+ 466 0078 E4B2     		uxtb	r4, r4
+ 467              	.LVL49:
+ 468              	.L28:
+ 114:Drivers/POCSAG/pocsag.c ****     {
+ 469              		.loc 1 114 18 is_stmt 1 discriminator 1 view .LVU148
+ 470 007a 072C     		cmp	r4, #7
+ 471 007c 0CD8     		bhi	.L32
+ 116:Drivers/POCSAG/pocsag.c ****             TxBuff[i*2] = calc_bch_and_parity(tem);//取得BCH校验后的地址码序列 
+ 472              		.loc 1 116 9 view .LVU149
+ 116:Drivers/POCSAG/pocsag.c ****             TxBuff[i*2] = calc_bch_and_parity(tem);//取得BCH校验后的地址码序列 
+ 473              		.loc 1 116 14 is_stmt 0 view .LVU150
+ 474 007e 0C4B     		ldr	r3, .L34+20
+ 475 0080 1B78     		ldrb	r3, [r3]
+ 116:Drivers/POCSAG/pocsag.c ****             TxBuff[i*2] = calc_bch_and_parity(tem);//取得BCH校验后的地址码序列 
+ 476              		.loc 1 116 11 view .LVU151
+ 477 0082 A342     		cmp	r3, r4
+ 478 0084 F1D0     		beq	.L33
+ 118:Drivers/POCSAG/pocsag.c ****         else
+ 119:Drivers/POCSAG/pocsag.c ****         {
+ 120:Drivers/POCSAG/pocsag.c ****             TxBuff[i*2] = NILL_DATA;//其他帧填充闲置码
+ 479              		.loc 1 120 13 is_stmt 1 view .LVU152
+ 480              		.loc 1 120 21 is_stmt 0 view .LVU153
+ 481 0086 6300     		lsls	r3, r4, #1
+ 482              		.loc 1 120 25 view .LVU154
+ 483 0088 084A     		ldr	r2, .L34+16
+ 484 008a E100     		lsls	r1, r4, #3
+ 485 008c 0948     		ldr	r0, .L34+24
+ 486 008e 8850     		str	r0, [r1, r2]
+ 121:Drivers/POCSAG/pocsag.c ****             TxBuff[i*2+1] = NILL_DATA;
+ 487              		.loc 1 121 13 is_stmt 1 view .LVU155
+ 488              		.loc 1 121 23 is_stmt 0 view .LVU156
+ 489 0090 0133     		adds	r3, r3, #1
+ 490              		.loc 1 121 27 view .LVU157
+ 491 0092 9B00     		lsls	r3, r3, #2
+ 492 0094 9850     		str	r0, [r3, r2]
+ 493 0096 EEE7     		b	.L30
+ 494              	.L32:
+ 122:Drivers/POCSAG/pocsag.c ****         }
+ 123:Drivers/POCSAG/pocsag.c ****     }
+ 124:Drivers/POCSAG/pocsag.c **** }
+ 495              		.loc 1 124 1 view .LVU158
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 12
+
+
+ 496              		@ sp needed
+ 497              	.LVL50:
+ 498              	.LVL51:
+ 499              		.loc 1 124 1 view .LVU159
+ 500 0098 70BD     		pop	{r4, r5, r6, pc}
+ 501              	.L35:
+ 502 009a C046     		.align	2
+ 503              	.L34:
+ 504 009c 00000000 		.word	UartBuff
+ 505 00a0 A0860100 		.word	100000
+ 506 00a4 10270000 		.word	10000
+ 507 00a8 00000000 		.word	beep
+ 508 00ac 00000000 		.word	TxBuff
+ 509 00b0 00000000 		.word	Tx_Num
+ 510 00b4 97C1897A 		.word	2055848343
+ 511              		.cfi_endproc
+ 512              	.LFE297:
+ 514              		.global	__aeabi_i2f
+ 515              		.global	__aeabi_fcmple
+ 516              		.global	__aeabi_fadd
+ 517              		.section	.text.calc_NumberData,"ax",%progbits
+ 518              		.align	1
+ 519              		.global	calc_NumberData
+ 520              		.syntax unified
+ 521              		.code	16
+ 522              		.thumb_func
+ 524              	calc_NumberData:
+ 525              	.LFB298:
+ 125:Drivers/POCSAG/pocsag.c **** 
+ 126:Drivers/POCSAG/pocsag.c **** 
+ 127:Drivers/POCSAG/pocsag.c **** void calc_NumberData() //计算数值数据（数字机）
+ 128:Drivers/POCSAG/pocsag.c **** {
+ 526              		.loc 1 128 1 is_stmt 1 view -0
+ 527              		.cfi_startproc
+ 528              		@ args = 0, pretend = 0, frame = 1624
+ 529              		@ frame_needed = 0, uses_anonymous_args = 0
+ 530 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 531              	.LCFI2:
+ 532              		.cfi_def_cfa_offset 20
+ 533              		.cfi_offset 4, -20
+ 534              		.cfi_offset 5, -16
+ 535              		.cfi_offset 6, -12
+ 536              		.cfi_offset 7, -8
+ 537              		.cfi_offset 14, -4
+ 538 0002 8A4C     		ldr	r4, .L69
+ 539 0004 A544     		add	sp, sp, r4
+ 540              	.LCFI3:
+ 541              		.cfi_def_cfa_offset 1648
+ 129:Drivers/POCSAG/pocsag.c ****         uint32_t Num_Negate[UARTBUFF_SIZE] = {0};
+ 542              		.loc 1 129 9 view .LVU161
+ 543              		.loc 1 129 18 is_stmt 0 view .LVU162
+ 544 0006 C822     		movs	r2, #200
+ 545 0008 D200     		lsls	r2, r2, #3
+ 546 000a 0021     		movs	r1, #0
+ 547 000c 06A8     		add	r0, sp, #24
+ 548 000e FFF7FEFF 		bl	memset
+ 549              	.LVL52:
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 13
+
+
+ 130:Drivers/POCSAG/pocsag.c ****     uint16_t i, j, k, n;
+ 550              		.loc 1 130 5 is_stmt 1 view .LVU163
+ 131:Drivers/POCSAG/pocsag.c ****     uint8_t byte_tmp[10], byte_tmp_negate[10];
+ 551              		.loc 1 131 5 view .LVU164
+ 132:Drivers/POCSAG/pocsag.c ****     float TxCount = 0.0;
+ 552              		.loc 1 132 5 view .LVU165
+ 133:Drivers/POCSAG/pocsag.c ****     
+ 134:Drivers/POCSAG/pocsag.c ****     for(i = DATA_START; i < UARTBUFF_SIZE; i++)  //表意字符替换
+ 553              		.loc 1 134 5 view .LVU166
+ 554              		.loc 1 134 11 is_stmt 0 view .LVU167
+ 555 0012 0C22     		movs	r2, #12
+ 556              		.loc 1 134 5 view .LVU168
+ 557 0014 15E0     		b	.L37
+ 558              	.LVL53:
+ 559              	.L61:
+ 135:Drivers/POCSAG/pocsag.c ****     {
+ 136:Drivers/POCSAG/pocsag.c ****         if(UartBuff[i] == 'A')
+ 137:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0A;
+ 560              		.loc 1 137 13 is_stmt 1 view .LVU169
+ 561              		.loc 1 137 25 is_stmt 0 view .LVU170
+ 562 0016 8649     		ldr	r1, .L69+4
+ 563 0018 0A20     		movs	r0, #10
+ 564 001a 8854     		strb	r0, [r1, r2]
+ 565 001c 1AE0     		b	.L38
+ 566              	.L62:
+ 138:Drivers/POCSAG/pocsag.c ****         if(UartBuff[i] == 'B')
+ 139:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0B;
+ 567              		.loc 1 139 13 is_stmt 1 view .LVU171
+ 568              		.loc 1 139 25 is_stmt 0 view .LVU172
+ 569 001e 8449     		ldr	r1, .L69+4
+ 570 0020 0B20     		movs	r0, #11
+ 571 0022 C854     		strb	r0, [r1, r3]
+ 572 0024 1AE0     		b	.L39
+ 573              	.L63:
+ 140:Drivers/POCSAG/pocsag.c ****         if(UartBuff[i] == 'C')
+ 141:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0C;
+ 574              		.loc 1 141 13 is_stmt 1 view .LVU173
+ 575              		.loc 1 141 25 is_stmt 0 view .LVU174
+ 576 0026 8249     		ldr	r1, .L69+4
+ 577 0028 0C20     		movs	r0, #12
+ 578 002a C854     		strb	r0, [r1, r3]
+ 579 002c 1AE0     		b	.L40
+ 580              	.L64:
+ 142:Drivers/POCSAG/pocsag.c ****         if(UartBuff[i] == 'D')
+ 143:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0D;
+ 581              		.loc 1 143 13 is_stmt 1 view .LVU175
+ 582              		.loc 1 143 25 is_stmt 0 view .LVU176
+ 583 002e 8049     		ldr	r1, .L69+4
+ 584 0030 0D20     		movs	r0, #13
+ 585 0032 C854     		strb	r0, [r1, r3]
+ 586 0034 1AE0     		b	.L41
+ 587              	.L65:
+ 144:Drivers/POCSAG/pocsag.c ****         if(UartBuff[i] == 'E')
+ 145:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0E;
+ 588              		.loc 1 145 13 is_stmt 1 view .LVU177
+ 589              		.loc 1 145 25 is_stmt 0 view .LVU178
+ 590 0036 7E49     		ldr	r1, .L69+4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 14
+
+
+ 591 0038 0E20     		movs	r0, #14
+ 592 003a C854     		strb	r0, [r1, r3]
+ 593 003c 1AE0     		b	.L42
+ 594              	.L43:
+ 134:Drivers/POCSAG/pocsag.c ****     {
+ 595              		.loc 1 134 45 is_stmt 1 discriminator 2 view .LVU179
+ 596 003e 0132     		adds	r2, r2, #1
+ 597              	.LVL54:
+ 134:Drivers/POCSAG/pocsag.c ****     {
+ 598              		.loc 1 134 45 is_stmt 0 discriminator 2 view .LVU180
+ 599 0040 92B2     		uxth	r2, r2
+ 600              	.LVL55:
+ 601              	.L37:
+ 134:Drivers/POCSAG/pocsag.c ****     {
+ 602              		.loc 1 134 27 is_stmt 1 discriminator 1 view .LVU181
+ 603 0042 C823     		movs	r3, #200
+ 604 0044 5B00     		lsls	r3, r3, #1
+ 605 0046 9A42     		cmp	r2, r3
+ 606 0048 1CD2     		bcs	.L60
+ 136:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0A;
+ 607              		.loc 1 136 9 view .LVU182
+ 136:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0A;
+ 608              		.loc 1 136 20 is_stmt 0 view .LVU183
+ 609 004a 1300     		movs	r3, r2
+ 610 004c 7849     		ldr	r1, .L69+4
+ 611 004e 895C     		ldrb	r1, [r1, r2]
+ 136:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0A;
+ 612              		.loc 1 136 11 view .LVU184
+ 613 0050 4129     		cmp	r1, #65
+ 614 0052 E0D0     		beq	.L61
+ 615              	.L38:
+ 138:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0B;
+ 616              		.loc 1 138 9 is_stmt 1 view .LVU185
+ 138:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0B;
+ 617              		.loc 1 138 20 is_stmt 0 view .LVU186
+ 618 0054 7649     		ldr	r1, .L69+4
+ 619 0056 C95C     		ldrb	r1, [r1, r3]
+ 138:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0B;
+ 620              		.loc 1 138 11 view .LVU187
+ 621 0058 4229     		cmp	r1, #66
+ 622 005a E0D0     		beq	.L62
+ 623              	.L39:
+ 140:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0C;
+ 624              		.loc 1 140 9 is_stmt 1 view .LVU188
+ 140:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0C;
+ 625              		.loc 1 140 20 is_stmt 0 view .LVU189
+ 626 005c 7449     		ldr	r1, .L69+4
+ 627 005e C95C     		ldrb	r1, [r1, r3]
+ 140:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0C;
+ 628              		.loc 1 140 11 view .LVU190
+ 629 0060 4329     		cmp	r1, #67
+ 630 0062 E0D0     		beq	.L63
+ 631              	.L40:
+ 142:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0D;
+ 632              		.loc 1 142 9 is_stmt 1 view .LVU191
+ 142:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0D;
+ 633              		.loc 1 142 20 is_stmt 0 view .LVU192
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 15
+
+
+ 634 0064 7249     		ldr	r1, .L69+4
+ 635 0066 C95C     		ldrb	r1, [r1, r3]
+ 142:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0D;
+ 636              		.loc 1 142 11 view .LVU193
+ 637 0068 4429     		cmp	r1, #68
+ 638 006a E0D0     		beq	.L64
+ 639              	.L41:
+ 144:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0E;
+ 640              		.loc 1 144 9 is_stmt 1 view .LVU194
+ 144:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0E;
+ 641              		.loc 1 144 20 is_stmt 0 view .LVU195
+ 642 006c 7049     		ldr	r1, .L69+4
+ 643 006e C95C     		ldrb	r1, [r1, r3]
+ 144:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0E;
+ 644              		.loc 1 144 11 view .LVU196
+ 645 0070 4529     		cmp	r1, #69
+ 646 0072 E0D0     		beq	.L65
+ 647              	.L42:
+ 146:Drivers/POCSAG/pocsag.c ****         if(UartBuff[i] == 'F')
+ 648              		.loc 1 146 9 is_stmt 1 view .LVU197
+ 649              		.loc 1 146 20 is_stmt 0 view .LVU198
+ 650 0074 6E49     		ldr	r1, .L69+4
+ 651 0076 C95C     		ldrb	r1, [r1, r3]
+ 652              		.loc 1 146 11 view .LVU199
+ 653 0078 4629     		cmp	r1, #70
+ 654 007a E0D1     		bne	.L43
+ 147:Drivers/POCSAG/pocsag.c ****             UartBuff[i] = 0x0F;
+ 655              		.loc 1 147 13 is_stmt 1 view .LVU200
+ 656              		.loc 1 147 25 is_stmt 0 view .LVU201
+ 657 007c 6C49     		ldr	r1, .L69+4
+ 658 007e 0F20     		movs	r0, #15
+ 659 0080 C854     		strb	r0, [r1, r3]
+ 660 0082 DCE7     		b	.L43
+ 661              	.L60:
+ 148:Drivers/POCSAG/pocsag.c ****     }
+ 149:Drivers/POCSAG/pocsag.c ****     
+ 150:Drivers/POCSAG/pocsag.c ****     n = DATA_START;
+ 662              		.loc 1 150 7 view .LVU202
+ 663 0084 0C21     		movs	r1, #12
+ 151:Drivers/POCSAG/pocsag.c ****     for(i = DATA_START; i < UARTBUFF_SIZE; i++)      //数字的ASIIC码只用到第四位，所以
+ 664              		.loc 1 151 11 view .LVU203
+ 665 0086 853B     		subs	r3, r3, #133
+ 666 0088 FF3B     		subs	r3, r3, #255
+ 667 008a 0AE0     		b	.L45
+ 668              	.LVL56:
+ 669              	.L46:
+ 152:Drivers/POCSAG/pocsag.c ****     {
+ 153:Drivers/POCSAG/pocsag.c ****         if(i % 2 == 0)
+ 154:Drivers/POCSAG/pocsag.c ****             UartBuff[n] = UartBuff[i] << 4;
+ 155:Drivers/POCSAG/pocsag.c ****         else
+ 156:Drivers/POCSAG/pocsag.c ****         {
+ 157:Drivers/POCSAG/pocsag.c ****             UartBuff[n] |= UartBuff[i] & 0x0f;
+ 670              		.loc 1 157 13 is_stmt 1 view .LVU204
+ 671              		.loc 1 157 21 is_stmt 0 view .LVU205
+ 672 008c 684A     		ldr	r2, .L69+4
+ 673 008e 505C     		ldrb	r0, [r2, r1]
+ 674              		.loc 1 157 36 view .LVU206
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 16
+
+
+ 675 0090 D55C     		ldrb	r5, [r2, r3]
+ 676              		.loc 1 157 25 view .LVU207
+ 677 0092 0F24     		movs	r4, #15
+ 678 0094 2C40     		ands	r4, r5
+ 679 0096 2043     		orrs	r0, r4
+ 680 0098 5054     		strb	r0, [r2, r1]
+ 158:Drivers/POCSAG/pocsag.c ****             n++;
+ 681              		.loc 1 158 13 is_stmt 1 view .LVU208
+ 682              		.loc 1 158 14 is_stmt 0 view .LVU209
+ 683 009a 0131     		adds	r1, r1, #1
+ 684              	.LVL57:
+ 685              		.loc 1 158 14 view .LVU210
+ 686 009c 89B2     		uxth	r1, r1
+ 687              	.LVL58:
+ 688              	.L47:
+ 151:Drivers/POCSAG/pocsag.c ****     for(i = DATA_START; i < UARTBUFF_SIZE; i++)      //数字的ASIIC码只用到第四位，所以
+ 689              		.loc 1 151 45 is_stmt 1 discriminator 2 view .LVU211
+ 690 009e 0133     		adds	r3, r3, #1
+ 691              	.LVL59:
+ 151:Drivers/POCSAG/pocsag.c ****     for(i = DATA_START; i < UARTBUFF_SIZE; i++)      //数字的ASIIC码只用到第四位，所以
+ 692              		.loc 1 151 45 is_stmt 0 discriminator 2 view .LVU212
+ 693 00a0 9BB2     		uxth	r3, r3
+ 694              	.LVL60:
+ 695              	.L45:
+ 151:Drivers/POCSAG/pocsag.c ****     for(i = DATA_START; i < UARTBUFF_SIZE; i++)      //数字的ASIIC码只用到第四位，所以
+ 696              		.loc 1 151 27 is_stmt 1 discriminator 1 view .LVU213
+ 697 00a2 C822     		movs	r2, #200
+ 698 00a4 5200     		lsls	r2, r2, #1
+ 699 00a6 9342     		cmp	r3, r2
+ 700 00a8 06D2     		bcs	.L66
+ 153:Drivers/POCSAG/pocsag.c ****             UartBuff[n] = UartBuff[i] << 4;
+ 701              		.loc 1 153 9 view .LVU214
+ 153:Drivers/POCSAG/pocsag.c ****             UartBuff[n] = UartBuff[i] << 4;
+ 702              		.loc 1 153 11 is_stmt 0 view .LVU215
+ 703 00aa DA07     		lsls	r2, r3, #31
+ 704 00ac EED4     		bmi	.L46
+ 154:Drivers/POCSAG/pocsag.c ****         else
+ 705              		.loc 1 154 13 is_stmt 1 view .LVU216
+ 154:Drivers/POCSAG/pocsag.c ****         else
+ 706              		.loc 1 154 35 is_stmt 0 view .LVU217
+ 707 00ae 6048     		ldr	r0, .L69+4
+ 708 00b0 C25C     		ldrb	r2, [r0, r3]
+ 154:Drivers/POCSAG/pocsag.c ****         else
+ 709              		.loc 1 154 39 view .LVU218
+ 710 00b2 1201     		lsls	r2, r2, #4
+ 154:Drivers/POCSAG/pocsag.c ****         else
+ 711              		.loc 1 154 25 view .LVU219
+ 712 00b4 4254     		strb	r2, [r0, r1]
+ 713 00b6 F2E7     		b	.L47
+ 714              	.L66:
+ 159:Drivers/POCSAG/pocsag.c ****         }
+ 160:Drivers/POCSAG/pocsag.c ****     }
+ 161:Drivers/POCSAG/pocsag.c ****     
+ 162:Drivers/POCSAG/pocsag.c ****     k = Tx_Num * 2 + 1;                               //定位到地址码后数据所在的位置
+ 715              		.loc 1 162 5 is_stmt 1 view .LVU220
+ 716              		.loc 1 162 20 is_stmt 0 view .LVU221
+ 717 00b8 5E4B     		ldr	r3, .L69+8
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 17
+
+
+ 718              	.LVL61:
+ 719              		.loc 1 162 20 view .LVU222
+ 720 00ba 1C78     		ldrb	r4, [r3]
+ 721 00bc 6400     		lsls	r4, r4, #1
+ 722              		.loc 1 162 7 view .LVU223
+ 723 00be 0134     		adds	r4, r4, #1
+ 724              	.LVL62:
+ 163:Drivers/POCSAG/pocsag.c ****     for(i = DATA_START; i < UARTBUFF_SIZE; i += 5)                      //按四位取出并放在�
+ 725              		.loc 1 163 5 is_stmt 1 view .LVU224
+ 162:Drivers/POCSAG/pocsag.c ****     for(i = DATA_START; i < UARTBUFF_SIZE; i += 5)                      //按四位取出并放在�
+ 726              		.loc 1 162 7 is_stmt 0 view .LVU225
+ 727 00c0 2700     		movs	r7, r4
+ 728              		.loc 1 163 11 view .LVU226
+ 729 00c2 0C26     		movs	r6, #12
+ 730              		.loc 1 163 5 view .LVU227
+ 731 00c4 55E0     		b	.L49
+ 732              	.LVL63:
+ 733              	.L51:
+ 164:Drivers/POCSAG/pocsag.c ****     {
+ 165:Drivers/POCSAG/pocsag.c ****         byte_tmp[0] = (UartBuff[i] & 0xf0);
+ 166:Drivers/POCSAG/pocsag.c ****         byte_tmp[1] = (UartBuff[i] & 0x0f) << 4;
+ 167:Drivers/POCSAG/pocsag.c ****         byte_tmp[2] = (UartBuff[i + 1] & 0xf0);
+ 168:Drivers/POCSAG/pocsag.c ****         byte_tmp[3] = (UartBuff[i + 1] & 0x0f) << 4;
+ 169:Drivers/POCSAG/pocsag.c ****         byte_tmp[4] = (UartBuff[i + 2] & 0xf0);
+ 170:Drivers/POCSAG/pocsag.c ****         byte_tmp[5] = (UartBuff[i + 2] & 0x0f) << 4;
+ 171:Drivers/POCSAG/pocsag.c ****         byte_tmp[6] = (UartBuff[i + 3] & 0xf0);
+ 172:Drivers/POCSAG/pocsag.c ****         byte_tmp[7] = (UartBuff[i + 3] & 0x0f) << 4;
+ 173:Drivers/POCSAG/pocsag.c ****         byte_tmp[8] = (UartBuff[i + 4] & 0xf0);
+ 174:Drivers/POCSAG/pocsag.c ****         byte_tmp[9] = (UartBuff[i + 4] & 0x0f) << 4;
+ 175:Drivers/POCSAG/pocsag.c ****         
+ 176:Drivers/POCSAG/pocsag.c ****         for(j = 0; j < 10; j++)                           //倒序
+ 177:Drivers/POCSAG/pocsag.c ****         {
+ 178:Drivers/POCSAG/pocsag.c ****             for(n = 0; n < 8; n++)
+ 179:Drivers/POCSAG/pocsag.c ****             {
+ 180:Drivers/POCSAG/pocsag.c ****                 byte_tmp_negate[j] <<= 1;
+ 734              		.loc 1 180 17 is_stmt 1 discriminator 3 view .LVU228
+ 735              		.loc 1 180 32 is_stmt 0 discriminator 3 view .LVU229
+ 736 00c6 6B46     		mov	r3, sp
+ 737 00c8 5B5C     		ldrb	r3, [r3, r1]
+ 738              		.loc 1 180 36 discriminator 3 view .LVU230
+ 739 00ca 5B00     		lsls	r3, r3, #1
+ 740 00cc DBB2     		uxtb	r3, r3
+ 741 00ce 6846     		mov	r0, sp
+ 742 00d0 4354     		strb	r3, [r0, r1]
+ 181:Drivers/POCSAG/pocsag.c ****                 byte_tmp_negate[j] |= (byte_tmp[j] >> n) & 0x01;
+ 743              		.loc 1 181 17 is_stmt 1 discriminator 3 view .LVU231
+ 744              		.loc 1 181 48 is_stmt 0 discriminator 3 view .LVU232
+ 745 00d2 03A8     		add	r0, sp, #12
+ 746 00d4 455C     		ldrb	r5, [r0, r1]
+ 747              		.loc 1 181 52 discriminator 3 view .LVU233
+ 748 00d6 1541     		asrs	r5, r5, r2
+ 749              		.loc 1 181 58 discriminator 3 view .LVU234
+ 750 00d8 0120     		movs	r0, #1
+ 751 00da 2840     		ands	r0, r5
+ 752              		.loc 1 181 36 discriminator 3 view .LVU235
+ 753 00dc 0343     		orrs	r3, r0
+ 754 00de 6846     		mov	r0, sp
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 18
+
+
+ 755 00e0 4354     		strb	r3, [r0, r1]
+ 178:Drivers/POCSAG/pocsag.c ****             {
+ 756              		.loc 1 178 32 is_stmt 1 discriminator 3 view .LVU236
+ 757 00e2 0132     		adds	r2, r2, #1
+ 758              	.LVL64:
+ 178:Drivers/POCSAG/pocsag.c ****             {
+ 759              		.loc 1 178 32 is_stmt 0 discriminator 3 view .LVU237
+ 760 00e4 92B2     		uxth	r2, r2
+ 761              	.LVL65:
+ 762              	.L52:
+ 178:Drivers/POCSAG/pocsag.c ****             {
+ 763              		.loc 1 178 26 is_stmt 1 discriminator 1 view .LVU238
+ 764 00e6 072A     		cmp	r2, #7
+ 765 00e8 EDD9     		bls	.L51
+ 176:Drivers/POCSAG/pocsag.c ****         {
+ 766              		.loc 1 176 29 discriminator 2 view .LVU239
+ 767 00ea 0131     		adds	r1, r1, #1
+ 768              	.LVL66:
+ 176:Drivers/POCSAG/pocsag.c ****         {
+ 769              		.loc 1 176 29 is_stmt 0 discriminator 2 view .LVU240
+ 770 00ec 89B2     		uxth	r1, r1
+ 771              	.LVL67:
+ 772              	.L50:
+ 176:Drivers/POCSAG/pocsag.c ****         {
+ 773              		.loc 1 176 22 is_stmt 1 discriminator 1 view .LVU241
+ 774 00ee 0929     		cmp	r1, #9
+ 775 00f0 01D8     		bhi	.L67
+ 178:Drivers/POCSAG/pocsag.c ****             {
+ 776              		.loc 1 178 19 is_stmt 0 view .LVU242
+ 777 00f2 0022     		movs	r2, #0
+ 778 00f4 F7E7     		b	.L52
+ 779              	.L67:
+ 182:Drivers/POCSAG/pocsag.c ****             }
+ 183:Drivers/POCSAG/pocsag.c ****         }
+ 184:Drivers/POCSAG/pocsag.c ****         
+ 185:Drivers/POCSAG/pocsag.c ****         Num_Negate[k] = 0x80000000;                                        //重新组合
+ 780              		.loc 1 185 9 is_stmt 1 discriminator 2 view .LVU243
+ 781              		.loc 1 185 23 is_stmt 0 discriminator 2 view .LVU244
+ 782 00f6 06AA     		add	r2, sp, #24
+ 783 00f8 B800     		lsls	r0, r7, #2
+ 784 00fa 8023     		movs	r3, #128
+ 785 00fc 1B06     		lsls	r3, r3, #24
+ 786 00fe 8350     		str	r3, [r0, r2]
+ 186:Drivers/POCSAG/pocsag.c ****         Num_Negate[k] |= (uint32_t)byte_tmp_negate[0] << 27;
+ 787              		.loc 1 186 9 is_stmt 1 discriminator 2 view .LVU245
+ 788              		.loc 1 186 51 is_stmt 0 discriminator 2 view .LVU246
+ 789 0100 6946     		mov	r1, sp
+ 790              	.LVL68:
+ 791              		.loc 1 186 51 discriminator 2 view .LVU247
+ 792 0102 0978     		ldrb	r1, [r1]
+ 793              		.loc 1 186 55 discriminator 2 view .LVU248
+ 794 0104 C906     		lsls	r1, r1, #27
+ 795              		.loc 1 186 23 discriminator 2 view .LVU249
+ 796 0106 1943     		orrs	r1, r3
+ 797 0108 8150     		str	r1, [r0, r2]
+ 187:Drivers/POCSAG/pocsag.c ****         Num_Negate[k] |= (uint32_t)byte_tmp_negate[1] << 23;
+ 798              		.loc 1 187 9 is_stmt 1 discriminator 2 view .LVU250
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 19
+
+
+ 799              		.loc 1 187 51 is_stmt 0 discriminator 2 view .LVU251
+ 800 010a 6D46     		mov	r5, sp
+ 801 010c 6D78     		ldrb	r5, [r5, #1]
+ 802              		.loc 1 187 55 discriminator 2 view .LVU252
+ 803 010e ED05     		lsls	r5, r5, #23
+ 804              		.loc 1 187 23 discriminator 2 view .LVU253
+ 805 0110 2943     		orrs	r1, r5
+ 806 0112 8150     		str	r1, [r0, r2]
+ 188:Drivers/POCSAG/pocsag.c ****         Num_Negate[k] |= (uint32_t)byte_tmp_negate[2] << 19;
+ 807              		.loc 1 188 9 is_stmt 1 discriminator 2 view .LVU254
+ 808              		.loc 1 188 51 is_stmt 0 discriminator 2 view .LVU255
+ 809 0114 6D46     		mov	r5, sp
+ 810 0116 AD78     		ldrb	r5, [r5, #2]
+ 811              		.loc 1 188 55 discriminator 2 view .LVU256
+ 812 0118 ED04     		lsls	r5, r5, #19
+ 813              		.loc 1 188 23 discriminator 2 view .LVU257
+ 814 011a 2943     		orrs	r1, r5
+ 815 011c 8150     		str	r1, [r0, r2]
+ 189:Drivers/POCSAG/pocsag.c ****         Num_Negate[k] |= (uint32_t)byte_tmp_negate[3] << 15;
+ 816              		.loc 1 189 9 is_stmt 1 discriminator 2 view .LVU258
+ 817              		.loc 1 189 51 is_stmt 0 discriminator 2 view .LVU259
+ 818 011e 6D46     		mov	r5, sp
+ 819 0120 ED78     		ldrb	r5, [r5, #3]
+ 820              		.loc 1 189 55 discriminator 2 view .LVU260
+ 821 0122 ED03     		lsls	r5, r5, #15
+ 822              		.loc 1 189 23 discriminator 2 view .LVU261
+ 823 0124 2943     		orrs	r1, r5
+ 824 0126 8150     		str	r1, [r0, r2]
+ 190:Drivers/POCSAG/pocsag.c ****         Num_Negate[k] |= (uint32_t)byte_tmp_negate[4] << 11;
+ 825              		.loc 1 190 9 is_stmt 1 discriminator 2 view .LVU262
+ 826              		.loc 1 190 51 is_stmt 0 discriminator 2 view .LVU263
+ 827 0128 6D46     		mov	r5, sp
+ 828 012a 2D79     		ldrb	r5, [r5, #4]
+ 829              		.loc 1 190 55 discriminator 2 view .LVU264
+ 830 012c ED02     		lsls	r5, r5, #11
+ 831              		.loc 1 190 23 discriminator 2 view .LVU265
+ 832 012e 2943     		orrs	r1, r5
+ 833 0130 8150     		str	r1, [r0, r2]
+ 191:Drivers/POCSAG/pocsag.c ****         Num_Negate[k + 1] = 0x80000000;
+ 834              		.loc 1 191 9 is_stmt 1 discriminator 2 view .LVU266
+ 835              		.loc 1 191 22 is_stmt 0 discriminator 2 view .LVU267
+ 836 0132 791C     		adds	r1, r7, #1
+ 837              		.loc 1 191 27 discriminator 2 view .LVU268
+ 838 0134 8900     		lsls	r1, r1, #2
+ 839 0136 8B50     		str	r3, [r1, r2]
+ 192:Drivers/POCSAG/pocsag.c ****         Num_Negate[k + 1] |= (uint32_t)byte_tmp_negate[5] << 27;
+ 840              		.loc 1 192 9 is_stmt 1 discriminator 2 view .LVU269
+ 841              		.loc 1 192 55 is_stmt 0 discriminator 2 view .LVU270
+ 842 0138 6846     		mov	r0, sp
+ 843 013a 4079     		ldrb	r0, [r0, #5]
+ 844              		.loc 1 192 59 discriminator 2 view .LVU271
+ 845 013c C006     		lsls	r0, r0, #27
+ 846              		.loc 1 192 27 discriminator 2 view .LVU272
+ 847 013e 0343     		orrs	r3, r0
+ 848 0140 8B50     		str	r3, [r1, r2]
+ 193:Drivers/POCSAG/pocsag.c ****         Num_Negate[k + 1] |= (uint32_t)byte_tmp_negate[6] << 23;
+ 849              		.loc 1 193 9 is_stmt 1 discriminator 2 view .LVU273
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 20
+
+
+ 850              		.loc 1 193 55 is_stmt 0 discriminator 2 view .LVU274
+ 851 0142 6846     		mov	r0, sp
+ 852 0144 8079     		ldrb	r0, [r0, #6]
+ 853              		.loc 1 193 59 discriminator 2 view .LVU275
+ 854 0146 C005     		lsls	r0, r0, #23
+ 855              		.loc 1 193 27 discriminator 2 view .LVU276
+ 856 0148 0343     		orrs	r3, r0
+ 857 014a 8B50     		str	r3, [r1, r2]
+ 194:Drivers/POCSAG/pocsag.c ****         Num_Negate[k + 1] |= (uint32_t)byte_tmp_negate[7] << 19;
+ 858              		.loc 1 194 9 is_stmt 1 discriminator 2 view .LVU277
+ 859              		.loc 1 194 55 is_stmt 0 discriminator 2 view .LVU278
+ 860 014c 6846     		mov	r0, sp
+ 861 014e C079     		ldrb	r0, [r0, #7]
+ 862              		.loc 1 194 59 discriminator 2 view .LVU279
+ 863 0150 C004     		lsls	r0, r0, #19
+ 864              		.loc 1 194 27 discriminator 2 view .LVU280
+ 865 0152 0343     		orrs	r3, r0
+ 866 0154 8B50     		str	r3, [r1, r2]
+ 195:Drivers/POCSAG/pocsag.c ****         Num_Negate[k + 1] |= (uint32_t)byte_tmp_negate[8] << 15;
+ 867              		.loc 1 195 9 is_stmt 1 discriminator 2 view .LVU281
+ 868              		.loc 1 195 55 is_stmt 0 discriminator 2 view .LVU282
+ 869 0156 6846     		mov	r0, sp
+ 870 0158 007A     		ldrb	r0, [r0, #8]
+ 871              		.loc 1 195 59 discriminator 2 view .LVU283
+ 872 015a C003     		lsls	r0, r0, #15
+ 873              		.loc 1 195 27 discriminator 2 view .LVU284
+ 874 015c 0343     		orrs	r3, r0
+ 875 015e 8B50     		str	r3, [r1, r2]
+ 196:Drivers/POCSAG/pocsag.c ****         Num_Negate[k + 1] |= (uint32_t)byte_tmp_negate[9] << 11;
+ 876              		.loc 1 196 9 is_stmt 1 discriminator 2 view .LVU285
+ 877              		.loc 1 196 55 is_stmt 0 discriminator 2 view .LVU286
+ 878 0160 6846     		mov	r0, sp
+ 879 0162 407A     		ldrb	r0, [r0, #9]
+ 880              		.loc 1 196 59 discriminator 2 view .LVU287
+ 881 0164 C002     		lsls	r0, r0, #11
+ 882              		.loc 1 196 27 discriminator 2 view .LVU288
+ 883 0166 0343     		orrs	r3, r0
+ 884 0168 8B50     		str	r3, [r1, r2]
+ 197:Drivers/POCSAG/pocsag.c ****         k = k + 2;
+ 885              		.loc 1 197 9 is_stmt 1 discriminator 2 view .LVU289
+ 886              		.loc 1 197 11 is_stmt 0 discriminator 2 view .LVU290
+ 887 016a 0237     		adds	r7, r7, #2
+ 888              	.LVL69:
+ 889              		.loc 1 197 11 discriminator 2 view .LVU291
+ 890 016c BFB2     		uxth	r7, r7
+ 891              	.LVL70:
+ 163:Drivers/POCSAG/pocsag.c ****     {
+ 892              		.loc 1 163 46 is_stmt 1 discriminator 2 view .LVU292
+ 893 016e 0536     		adds	r6, r6, #5
+ 894              	.LVL71:
+ 163:Drivers/POCSAG/pocsag.c ****     {
+ 895              		.loc 1 163 46 is_stmt 0 discriminator 2 view .LVU293
+ 896 0170 B6B2     		uxth	r6, r6
+ 897              	.LVL72:
+ 898              	.L49:
+ 163:Drivers/POCSAG/pocsag.c ****     {
+ 899              		.loc 1 163 27 is_stmt 1 discriminator 1 view .LVU294
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 21
+
+
+ 900 0172 C823     		movs	r3, #200
+ 901 0174 5B00     		lsls	r3, r3, #1
+ 902 0176 9E42     		cmp	r6, r3
+ 903 0178 26D2     		bcs	.L68
+ 165:Drivers/POCSAG/pocsag.c ****         byte_tmp[1] = (UartBuff[i] & 0x0f) << 4;
+ 904              		.loc 1 165 9 view .LVU295
+ 165:Drivers/POCSAG/pocsag.c ****         byte_tmp[1] = (UartBuff[i] & 0x0f) << 4;
+ 905              		.loc 1 165 32 is_stmt 0 view .LVU296
+ 906 017a 2D49     		ldr	r1, .L69+4
+ 907 017c 885D     		ldrb	r0, [r1, r6]
+ 165:Drivers/POCSAG/pocsag.c ****         byte_tmp[1] = (UartBuff[i] & 0x0f) << 4;
+ 908              		.loc 1 165 36 view .LVU297
+ 909 017e 0F22     		movs	r2, #15
+ 910 0180 0500     		movs	r5, r0
+ 911 0182 9543     		bics	r5, r2
+ 165:Drivers/POCSAG/pocsag.c ****         byte_tmp[1] = (UartBuff[i] & 0x0f) << 4;
+ 912              		.loc 1 165 21 view .LVU298
+ 913 0184 03AB     		add	r3, sp, #12
+ 914 0186 1D70     		strb	r5, [r3]
+ 166:Drivers/POCSAG/pocsag.c ****         byte_tmp[2] = (UartBuff[i + 1] & 0xf0);
+ 915              		.loc 1 166 9 is_stmt 1 view .LVU299
+ 166:Drivers/POCSAG/pocsag.c ****         byte_tmp[2] = (UartBuff[i + 1] & 0xf0);
+ 916              		.loc 1 166 44 is_stmt 0 view .LVU300
+ 917 0188 0001     		lsls	r0, r0, #4
+ 166:Drivers/POCSAG/pocsag.c ****         byte_tmp[2] = (UartBuff[i + 1] & 0xf0);
+ 918              		.loc 1 166 21 view .LVU301
+ 919 018a 5870     		strb	r0, [r3, #1]
+ 167:Drivers/POCSAG/pocsag.c ****         byte_tmp[3] = (UartBuff[i + 1] & 0x0f) << 4;
+ 920              		.loc 1 167 9 is_stmt 1 view .LVU302
+ 167:Drivers/POCSAG/pocsag.c ****         byte_tmp[3] = (UartBuff[i + 1] & 0x0f) << 4;
+ 921              		.loc 1 167 35 is_stmt 0 view .LVU303
+ 922 018c 701C     		adds	r0, r6, #1
+ 167:Drivers/POCSAG/pocsag.c ****         byte_tmp[3] = (UartBuff[i + 1] & 0x0f) << 4;
+ 923              		.loc 1 167 32 view .LVU304
+ 924 018e 085C     		ldrb	r0, [r1, r0]
+ 167:Drivers/POCSAG/pocsag.c ****         byte_tmp[3] = (UartBuff[i + 1] & 0x0f) << 4;
+ 925              		.loc 1 167 40 view .LVU305
+ 926 0190 0500     		movs	r5, r0
+ 927 0192 9543     		bics	r5, r2
+ 167:Drivers/POCSAG/pocsag.c ****         byte_tmp[3] = (UartBuff[i + 1] & 0x0f) << 4;
+ 928              		.loc 1 167 21 view .LVU306
+ 929 0194 9D70     		strb	r5, [r3, #2]
+ 168:Drivers/POCSAG/pocsag.c ****         byte_tmp[4] = (UartBuff[i + 2] & 0xf0);
+ 930              		.loc 1 168 9 is_stmt 1 view .LVU307
+ 168:Drivers/POCSAG/pocsag.c ****         byte_tmp[4] = (UartBuff[i + 2] & 0xf0);
+ 931              		.loc 1 168 48 is_stmt 0 view .LVU308
+ 932 0196 0001     		lsls	r0, r0, #4
+ 168:Drivers/POCSAG/pocsag.c ****         byte_tmp[4] = (UartBuff[i + 2] & 0xf0);
+ 933              		.loc 1 168 21 view .LVU309
+ 934 0198 D870     		strb	r0, [r3, #3]
+ 169:Drivers/POCSAG/pocsag.c ****         byte_tmp[5] = (UartBuff[i + 2] & 0x0f) << 4;
+ 935              		.loc 1 169 9 is_stmt 1 view .LVU310
+ 169:Drivers/POCSAG/pocsag.c ****         byte_tmp[5] = (UartBuff[i + 2] & 0x0f) << 4;
+ 936              		.loc 1 169 35 is_stmt 0 view .LVU311
+ 937 019a B01C     		adds	r0, r6, #2
+ 169:Drivers/POCSAG/pocsag.c ****         byte_tmp[5] = (UartBuff[i + 2] & 0x0f) << 4;
+ 938              		.loc 1 169 32 view .LVU312
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 22
+
+
+ 939 019c 085C     		ldrb	r0, [r1, r0]
+ 169:Drivers/POCSAG/pocsag.c ****         byte_tmp[5] = (UartBuff[i + 2] & 0x0f) << 4;
+ 940              		.loc 1 169 40 view .LVU313
+ 941 019e 0500     		movs	r5, r0
+ 942 01a0 9543     		bics	r5, r2
+ 169:Drivers/POCSAG/pocsag.c ****         byte_tmp[5] = (UartBuff[i + 2] & 0x0f) << 4;
+ 943              		.loc 1 169 21 view .LVU314
+ 944 01a2 1D71     		strb	r5, [r3, #4]
+ 170:Drivers/POCSAG/pocsag.c ****         byte_tmp[6] = (UartBuff[i + 3] & 0xf0);
+ 945              		.loc 1 170 9 is_stmt 1 view .LVU315
+ 170:Drivers/POCSAG/pocsag.c ****         byte_tmp[6] = (UartBuff[i + 3] & 0xf0);
+ 946              		.loc 1 170 48 is_stmt 0 view .LVU316
+ 947 01a4 0001     		lsls	r0, r0, #4
+ 170:Drivers/POCSAG/pocsag.c ****         byte_tmp[6] = (UartBuff[i + 3] & 0xf0);
+ 948              		.loc 1 170 21 view .LVU317
+ 949 01a6 5871     		strb	r0, [r3, #5]
+ 171:Drivers/POCSAG/pocsag.c ****         byte_tmp[7] = (UartBuff[i + 3] & 0x0f) << 4;
+ 950              		.loc 1 171 9 is_stmt 1 view .LVU318
+ 171:Drivers/POCSAG/pocsag.c ****         byte_tmp[7] = (UartBuff[i + 3] & 0x0f) << 4;
+ 951              		.loc 1 171 35 is_stmt 0 view .LVU319
+ 952 01a8 F01C     		adds	r0, r6, #3
+ 171:Drivers/POCSAG/pocsag.c ****         byte_tmp[7] = (UartBuff[i + 3] & 0x0f) << 4;
+ 953              		.loc 1 171 32 view .LVU320
+ 954 01aa 085C     		ldrb	r0, [r1, r0]
+ 171:Drivers/POCSAG/pocsag.c ****         byte_tmp[7] = (UartBuff[i + 3] & 0x0f) << 4;
+ 955              		.loc 1 171 40 view .LVU321
+ 956 01ac 0500     		movs	r5, r0
+ 957 01ae 9543     		bics	r5, r2
+ 171:Drivers/POCSAG/pocsag.c ****         byte_tmp[7] = (UartBuff[i + 3] & 0x0f) << 4;
+ 958              		.loc 1 171 21 view .LVU322
+ 959 01b0 9D71     		strb	r5, [r3, #6]
+ 172:Drivers/POCSAG/pocsag.c ****         byte_tmp[8] = (UartBuff[i + 4] & 0xf0);
+ 960              		.loc 1 172 9 is_stmt 1 view .LVU323
+ 172:Drivers/POCSAG/pocsag.c ****         byte_tmp[8] = (UartBuff[i + 4] & 0xf0);
+ 961              		.loc 1 172 48 is_stmt 0 view .LVU324
+ 962 01b2 0001     		lsls	r0, r0, #4
+ 172:Drivers/POCSAG/pocsag.c ****         byte_tmp[8] = (UartBuff[i + 4] & 0xf0);
+ 963              		.loc 1 172 21 view .LVU325
+ 964 01b4 D871     		strb	r0, [r3, #7]
+ 173:Drivers/POCSAG/pocsag.c ****         byte_tmp[9] = (UartBuff[i + 4] & 0x0f) << 4;
+ 965              		.loc 1 173 9 is_stmt 1 view .LVU326
+ 173:Drivers/POCSAG/pocsag.c ****         byte_tmp[9] = (UartBuff[i + 4] & 0x0f) << 4;
+ 966              		.loc 1 173 35 is_stmt 0 view .LVU327
+ 967 01b6 301D     		adds	r0, r6, #4
+ 173:Drivers/POCSAG/pocsag.c ****         byte_tmp[9] = (UartBuff[i + 4] & 0x0f) << 4;
+ 968              		.loc 1 173 32 view .LVU328
+ 969 01b8 095C     		ldrb	r1, [r1, r0]
+ 173:Drivers/POCSAG/pocsag.c ****         byte_tmp[9] = (UartBuff[i + 4] & 0x0f) << 4;
+ 970              		.loc 1 173 40 view .LVU329
+ 971 01ba 0800     		movs	r0, r1
+ 972 01bc 9043     		bics	r0, r2
+ 173:Drivers/POCSAG/pocsag.c ****         byte_tmp[9] = (UartBuff[i + 4] & 0x0f) << 4;
+ 973              		.loc 1 173 21 view .LVU330
+ 974 01be 1872     		strb	r0, [r3, #8]
+ 174:Drivers/POCSAG/pocsag.c ****         
+ 975              		.loc 1 174 9 is_stmt 1 view .LVU331
+ 174:Drivers/POCSAG/pocsag.c ****         
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 23
+
+
+ 976              		.loc 1 174 48 is_stmt 0 view .LVU332
+ 977 01c0 0901     		lsls	r1, r1, #4
+ 174:Drivers/POCSAG/pocsag.c ****         
+ 978              		.loc 1 174 21 view .LVU333
+ 979 01c2 5972     		strb	r1, [r3, #9]
+ 176:Drivers/POCSAG/pocsag.c ****         {
+ 980              		.loc 1 176 9 is_stmt 1 view .LVU334
+ 981              	.LVL73:
+ 176:Drivers/POCSAG/pocsag.c ****         {
+ 982              		.loc 1 176 15 is_stmt 0 view .LVU335
+ 983 01c4 0021     		movs	r1, #0
+ 176:Drivers/POCSAG/pocsag.c ****         {
+ 984              		.loc 1 176 9 view .LVU336
+ 985 01c6 92E7     		b	.L50
+ 986              	.LVL74:
+ 987              	.L68:
+ 198:Drivers/POCSAG/pocsag.c ****         
+ 199:Drivers/POCSAG/pocsag.c ****     }
+ 200:Drivers/POCSAG/pocsag.c ****     
+ 201:Drivers/POCSAG/pocsag.c ****     //UartCount = 25;
+ 202:Drivers/POCSAG/pocsag.c ****     n = Tx_Num * 2 + 1;                                                   //将数据合并到Tx发
+ 988              		.loc 1 202 7 view .LVU337
+ 989 01c8 2500     		movs	r5, r4
+ 203:Drivers/POCSAG/pocsag.c ****     TxCount = 0.0;
+ 990              		.loc 1 203 13 view .LVU338
+ 991 01ca 0026     		movs	r6, #0
+ 992              	.LVL75:
+ 993              		.loc 1 203 13 view .LVU339
+ 994 01cc 13E0     		b	.L54
+ 995              	.LVL76:
+ 996              	.L56:
+ 204:Drivers/POCSAG/pocsag.c ****     for(i = Tx_Num * 2 + 1; i < UARTBUFF_SIZE; i++)
+ 205:Drivers/POCSAG/pocsag.c ****     {
+ 206:Drivers/POCSAG/pocsag.c ****         if(TxCount >= (UartCount - DATA_START - 1))
+ 207:Drivers/POCSAG/pocsag.c ****             break;
+ 208:Drivers/POCSAG/pocsag.c ****         if(i % 16 == 0)                                                     //每8帧（16个码字
+ 209:Drivers/POCSAG/pocsag.c ****             TxBuff[n++] = SYNC_DATA;
+ 210:Drivers/POCSAG/pocsag.c ****         TxBuff[n++] = calc_bch_and_parity( Num_Negate[i]);
+ 997              		.loc 1 210 9 is_stmt 1 view .LVU340
+ 998              		.loc 1 210 17 is_stmt 0 view .LVU341
+ 999 01ce 6F1C     		adds	r7, r5, #1
+ 1000 01d0 BFB2     		uxth	r7, r7
+ 1001              	.LVL77:
+ 1002              		.loc 1 210 23 view .LVU342
+ 1003 01d2 A300     		lsls	r3, r4, #2
+ 1004 01d4 06AA     		add	r2, sp, #24
+ 1005 01d6 9858     		ldr	r0, [r3, r2]
+ 1006 01d8 FFF7FEFF 		bl	calc_bch_and_parity
+ 1007              	.LVL78:
+ 1008              		.loc 1 210 21 view .LVU343
+ 1009 01dc 164B     		ldr	r3, .L69+12
+ 1010 01de AD00     		lsls	r5, r5, #2
+ 1011 01e0 5851     		str	r0, [r3, r5]
+ 211:Drivers/POCSAG/pocsag.c ****         TxCount += 5;                                                     //串口接收5个数字�
+ 1012              		.loc 1 211 9 is_stmt 1 view .LVU344
+ 1013              		.loc 1 211 17 is_stmt 0 view .LVU345
+ 1014 01e2 1649     		ldr	r1, .L69+16
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 24
+
+
+ 1015 01e4 301C     		adds	r0, r6, #0
+ 1016 01e6 FFF7FEFF 		bl	__aeabi_fadd
+ 1017              	.LVL79:
+ 1018 01ea 061C     		adds	r6, r0, #0
+ 1019              	.LVL80:
+ 212:Drivers/POCSAG/pocsag.c ****         if(n >= TXBUFF_SIZE || i >= UARTBUFF_SIZE)                        //超出缓冲区退出
+ 1020              		.loc 1 212 9 is_stmt 1 view .LVU346
+ 1021              		.loc 1 212 11 is_stmt 0 view .LVU347
+ 1022 01ec C72F     		cmp	r7, #199
+ 1023 01ee 19D8     		bhi	.L36
+ 204:Drivers/POCSAG/pocsag.c ****     for(i = Tx_Num * 2 + 1; i < UARTBUFF_SIZE; i++)
+ 1024              		.loc 1 204 49 is_stmt 1 discriminator 2 view .LVU348
+ 1025 01f0 0134     		adds	r4, r4, #1
+ 1026              	.LVL81:
+ 204:Drivers/POCSAG/pocsag.c ****     for(i = Tx_Num * 2 + 1; i < UARTBUFF_SIZE; i++)
+ 1027              		.loc 1 204 49 is_stmt 0 discriminator 2 view .LVU349
+ 1028 01f2 A4B2     		uxth	r4, r4
+ 1029              	.LVL82:
+ 210:Drivers/POCSAG/pocsag.c ****         TxCount += 5;                                                     //串口接收5个数字�
+ 1030              		.loc 1 210 17 discriminator 2 view .LVU350
+ 1031 01f4 3D00     		movs	r5, r7
+ 1032              	.LVL83:
+ 1033              	.L54:
+ 204:Drivers/POCSAG/pocsag.c ****     {
+ 1034              		.loc 1 204 31 is_stmt 1 discriminator 1 view .LVU351
+ 1035 01f6 C823     		movs	r3, #200
+ 1036 01f8 5B00     		lsls	r3, r3, #1
+ 1037 01fa 9C42     		cmp	r4, r3
+ 1038 01fc 12D2     		bcs	.L36
+ 206:Drivers/POCSAG/pocsag.c ****             break;
+ 1039              		.loc 1 206 9 view .LVU352
+ 206:Drivers/POCSAG/pocsag.c ****             break;
+ 1040              		.loc 1 206 47 is_stmt 0 view .LVU353
+ 1041 01fe 104B     		ldr	r3, .L69+20
+ 1042 0200 1888     		ldrh	r0, [r3]
+ 1043 0202 0D38     		subs	r0, r0, #13
+ 206:Drivers/POCSAG/pocsag.c ****             break;
+ 1044              		.loc 1 206 20 view .LVU354
+ 1045 0204 FFF7FEFF 		bl	__aeabi_i2f
+ 1046              	.LVL84:
+ 206:Drivers/POCSAG/pocsag.c ****             break;
+ 1047              		.loc 1 206 11 view .LVU355
+ 1048 0208 311C     		adds	r1, r6, #0
+ 1049 020a FFF7FEFF 		bl	__aeabi_fcmple
+ 1050              	.LVL85:
+ 1051 020e 0028     		cmp	r0, #0
+ 1052 0210 08D1     		bne	.L36
+ 208:Drivers/POCSAG/pocsag.c ****             TxBuff[n++] = SYNC_DATA;
+ 1053              		.loc 1 208 9 is_stmt 1 view .LVU356
+ 208:Drivers/POCSAG/pocsag.c ****             TxBuff[n++] = SYNC_DATA;
+ 1054              		.loc 1 208 11 is_stmt 0 view .LVU357
+ 1055 0212 2307     		lsls	r3, r4, #28
+ 1056 0214 DBD1     		bne	.L56
+ 209:Drivers/POCSAG/pocsag.c ****         TxBuff[n++] = calc_bch_and_parity( Num_Negate[i]);
+ 1057              		.loc 1 209 13 is_stmt 1 view .LVU358
+ 209:Drivers/POCSAG/pocsag.c ****         TxBuff[n++] = calc_bch_and_parity( Num_Negate[i]);
+ 1058              		.loc 1 209 21 is_stmt 0 view .LVU359
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 25
+
+
+ 1059 0216 6A1C     		adds	r2, r5, #1
+ 1060              	.LVL86:
+ 209:Drivers/POCSAG/pocsag.c ****         TxBuff[n++] = calc_bch_and_parity( Num_Negate[i]);
+ 1061              		.loc 1 209 25 view .LVU360
+ 1062 0218 074B     		ldr	r3, .L69+12
+ 1063 021a AD00     		lsls	r5, r5, #2
+ 1064 021c 0949     		ldr	r1, .L69+24
+ 1065 021e E950     		str	r1, [r5, r3]
+ 209:Drivers/POCSAG/pocsag.c ****         TxBuff[n++] = calc_bch_and_parity( Num_Negate[i]);
+ 1066              		.loc 1 209 21 view .LVU361
+ 1067 0220 95B2     		uxth	r5, r2
+ 1068 0222 D4E7     		b	.L56
+ 1069              	.LVL87:
+ 1070              	.L36:
+ 213:Drivers/POCSAG/pocsag.c ****             break;
+ 214:Drivers/POCSAG/pocsag.c ****     }
+ 215:Drivers/POCSAG/pocsag.c ****     
+ 216:Drivers/POCSAG/pocsag.c **** 
+ 217:Drivers/POCSAG/pocsag.c **** }
+ 1071              		.loc 1 217 1 view .LVU362
+ 1072 0224 084B     		ldr	r3, .L69+28
+ 1073 0226 9D44     		add	sp, sp, r3
+ 1074              		@ sp needed
+ 1075              	.LVL88:
+ 1076              	.LVL89:
+ 1077              		.loc 1 217 1 view .LVU363
+ 1078 0228 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1079              	.L70:
+ 1080 022a C046     		.align	2
+ 1081              	.L69:
+ 1082 022c A4F9FFFF 		.word	-1628
+ 1083 0230 00000000 		.word	UartBuff
+ 1084 0234 00000000 		.word	Tx_Num
+ 1085 0238 00000000 		.word	TxBuff
+ 1086 023c 0000A040 		.word	1084227584
+ 1087 0240 00000000 		.word	UartCount
+ 1088 0244 D815D27C 		.word	2094142936
+ 1089 0248 5C060000 		.word	1628
+ 1090              		.cfi_endproc
+ 1091              	.LFE298:
+ 1093              		.global	__aeabi_f2d
+ 1094              		.global	__aeabi_dadd
+ 1095              		.global	__aeabi_d2f
+ 1096              		.section	.text.calc_TextData,"ax",%progbits
+ 1097              		.align	1
+ 1098              		.global	calc_TextData
+ 1099              		.syntax unified
+ 1100              		.code	16
+ 1101              		.thumb_func
+ 1103              	calc_TextData:
+ 1104              	.LFB299:
+ 218:Drivers/POCSAG/pocsag.c **** 
+ 219:Drivers/POCSAG/pocsag.c **** void calc_TextData()  //计算汉字数据
+ 220:Drivers/POCSAG/pocsag.c **** {
+ 1105              		.loc 1 220 1 is_stmt 1 view -0
+ 1106              		.cfi_startproc
+ 1107              		@ args = 0, pretend = 0, frame = 1600
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 26
+
+
+ 1108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1109 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1110              	.LCFI4:
+ 1111              		.cfi_def_cfa_offset 20
+ 1112              		.cfi_offset 4, -20
+ 1113              		.cfi_offset 5, -16
+ 1114              		.cfi_offset 6, -12
+ 1115              		.cfi_offset 7, -8
+ 1116              		.cfi_offset 14, -4
+ 1117 0002 C646     		mov	lr, r8
+ 1118 0004 00B5     		push	{lr}
+ 1119              	.LCFI5:
+ 1120              		.cfi_def_cfa_offset 24
+ 1121              		.cfi_offset 8, -24
+ 1122 0006 A64C     		ldr	r4, .L84
+ 1123 0008 A544     		add	sp, sp, r4
+ 1124              	.LCFI6:
+ 1125              		.cfi_def_cfa_offset 1624
+ 221:Drivers/POCSAG/pocsag.c ****     uint32_t Text_Negate[UARTBUFF_SIZE] = {0};
+ 1126              		.loc 1 221 5 view .LVU365
+ 1127              		.loc 1 221 14 is_stmt 0 view .LVU366
+ 1128 000a C822     		movs	r2, #200
+ 1129 000c D200     		lsls	r2, r2, #3
+ 1130 000e 0021     		movs	r1, #0
+ 1131 0010 6846     		mov	r0, sp
+ 1132 0012 FFF7FEFF 		bl	memset
+ 1133              	.LVL90:
+ 222:Drivers/POCSAG/pocsag.c ****     uint16_t n, i, k, byte_tmp;
+ 1134              		.loc 1 222 5 is_stmt 1 view .LVU367
+ 223:Drivers/POCSAG/pocsag.c ****     float TxCount = 0.0;
+ 1135              		.loc 1 223 5 view .LVU368
+ 224:Drivers/POCSAG/pocsag.c ****     for(k = DATA_START; k < UARTBUFF_SIZE; k++)         //字节按位倒序
+ 1136              		.loc 1 224 5 view .LVU369
+ 1137              		.loc 1 224 11 is_stmt 0 view .LVU370
+ 1138 0016 0C27     		movs	r7, #12
+ 1139              		.loc 1 224 5 view .LVU371
+ 1140 0018 15E0     		b	.L72
+ 1141              	.LVL91:
+ 1142              	.L74:
+ 225:Drivers/POCSAG/pocsag.c ****     {
+ 226:Drivers/POCSAG/pocsag.c ****         byte_tmp = UartBuff[k];
+ 227:Drivers/POCSAG/pocsag.c ****         UartBuff[k] = 0;
+ 228:Drivers/POCSAG/pocsag.c ****         for(n = 0; n < 8; n++)   //倒序
+ 229:Drivers/POCSAG/pocsag.c ****         {
+ 230:Drivers/POCSAG/pocsag.c ****             UartBuff[k] <<= 1;
+ 1143              		.loc 1 230 13 is_stmt 1 discriminator 3 view .LVU372
+ 1144              		.loc 1 230 21 is_stmt 0 discriminator 3 view .LVU373
+ 1145 001a A249     		ldr	r1, .L84+4
+ 1146 001c 0B5D     		ldrb	r3, [r1, r4]
+ 1147              		.loc 1 230 25 discriminator 3 view .LVU374
+ 1148 001e 5B00     		lsls	r3, r3, #1
+ 1149 0020 DBB2     		uxtb	r3, r3
+ 1150 0022 0B55     		strb	r3, [r1, r4]
+ 231:Drivers/POCSAG/pocsag.c ****             UartBuff[k] |= (byte_tmp >> n) & 0x01;
+ 1151              		.loc 1 231 13 is_stmt 1 discriminator 3 view .LVU375
+ 1152              		.loc 1 231 38 is_stmt 0 discriminator 3 view .LVU376
+ 1153 0024 3500     		movs	r5, r6
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 27
+
+
+ 1154 0026 1541     		asrs	r5, r5, r2
+ 1155              		.loc 1 231 44 discriminator 3 view .LVU377
+ 1156 0028 0120     		movs	r0, #1
+ 1157 002a 2840     		ands	r0, r5
+ 1158              		.loc 1 231 25 discriminator 3 view .LVU378
+ 1159 002c 0343     		orrs	r3, r0
+ 1160 002e 0B55     		strb	r3, [r1, r4]
+ 228:Drivers/POCSAG/pocsag.c ****         {
+ 1161              		.loc 1 228 28 is_stmt 1 discriminator 3 view .LVU379
+ 1162 0030 0132     		adds	r2, r2, #1
+ 1163              	.LVL92:
+ 228:Drivers/POCSAG/pocsag.c ****         {
+ 1164              		.loc 1 228 28 is_stmt 0 discriminator 3 view .LVU380
+ 1165 0032 92B2     		uxth	r2, r2
+ 1166              	.LVL93:
+ 1167              	.L73:
+ 228:Drivers/POCSAG/pocsag.c ****         {
+ 1168              		.loc 1 228 22 is_stmt 1 discriminator 1 view .LVU381
+ 1169 0034 072A     		cmp	r2, #7
+ 1170 0036 F0D9     		bls	.L74
+ 232:Drivers/POCSAG/pocsag.c ****         }
+ 233:Drivers/POCSAG/pocsag.c ****         UartBuff[k] &= 0xFE;    //倒序后丢弃最低位
+ 1171              		.loc 1 233 9 discriminator 2 view .LVU382
+ 1172              		.loc 1 233 17 is_stmt 0 discriminator 2 view .LVU383
+ 1173 0038 9A4A     		ldr	r2, .L84+4
+ 1174              	.LVL94:
+ 1175              		.loc 1 233 17 discriminator 2 view .LVU384
+ 1176 003a 135D     		ldrb	r3, [r2, r4]
+ 1177              		.loc 1 233 21 discriminator 2 view .LVU385
+ 1178 003c 0121     		movs	r1, #1
+ 1179 003e 8B43     		bics	r3, r1
+ 1180 0040 1355     		strb	r3, [r2, r4]
+ 224:Drivers/POCSAG/pocsag.c ****     {
+ 1181              		.loc 1 224 45 is_stmt 1 discriminator 2 view .LVU386
+ 1182 0042 0137     		adds	r7, r7, #1
+ 1183              	.LVL95:
+ 224:Drivers/POCSAG/pocsag.c ****     {
+ 1184              		.loc 1 224 45 is_stmt 0 discriminator 2 view .LVU387
+ 1185 0044 BFB2     		uxth	r7, r7
+ 1186              	.LVL96:
+ 1187              	.L72:
+ 224:Drivers/POCSAG/pocsag.c ****     {
+ 1188              		.loc 1 224 27 is_stmt 1 discriminator 1 view .LVU388
+ 1189 0046 C823     		movs	r3, #200
+ 1190 0048 5B00     		lsls	r3, r3, #1
+ 1191 004a 9F42     		cmp	r7, r3
+ 1192 004c 05D2     		bcs	.L83
+ 226:Drivers/POCSAG/pocsag.c ****         UartBuff[k] = 0;
+ 1193              		.loc 1 226 9 view .LVU389
+ 226:Drivers/POCSAG/pocsag.c ****         UartBuff[k] = 0;
+ 1194              		.loc 1 226 28 is_stmt 0 view .LVU390
+ 1195 004e 3C00     		movs	r4, r7
+ 1196 0050 944B     		ldr	r3, .L84+4
+ 1197 0052 DE5D     		ldrb	r6, [r3, r7]
+ 1198              	.LVL97:
+ 227:Drivers/POCSAG/pocsag.c ****         for(n = 0; n < 8; n++)   //倒序
+ 1199              		.loc 1 227 9 is_stmt 1 view .LVU391
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 28
+
+
+ 227:Drivers/POCSAG/pocsag.c ****         for(n = 0; n < 8; n++)   //倒序
+ 1200              		.loc 1 227 21 is_stmt 0 view .LVU392
+ 1201 0054 0022     		movs	r2, #0
+ 1202 0056 DA55     		strb	r2, [r3, r7]
+ 228:Drivers/POCSAG/pocsag.c ****         {
+ 1203              		.loc 1 228 9 is_stmt 1 view .LVU393
+ 1204              	.LVL98:
+ 228:Drivers/POCSAG/pocsag.c ****         {
+ 1205              		.loc 1 228 9 is_stmt 0 view .LVU394
+ 1206 0058 ECE7     		b	.L73
+ 1207              	.LVL99:
+ 1208              	.L83:
+ 234:Drivers/POCSAG/pocsag.c ****     }
+ 235:Drivers/POCSAG/pocsag.c **** 
+ 236:Drivers/POCSAG/pocsag.c ****     k = Tx_Num * 2 + 1;
+ 1209              		.loc 1 236 5 is_stmt 1 view .LVU395
+ 1210              		.loc 1 236 20 is_stmt 0 view .LVU396
+ 1211 005a 934B     		ldr	r3, .L84+8
+ 1212 005c 1C78     		ldrb	r4, [r3]
+ 1213 005e 6400     		lsls	r4, r4, #1
+ 1214              		.loc 1 236 7 view .LVU397
+ 1215 0060 631C     		adds	r3, r4, #1
+ 1216 0062 9846     		mov	r8, r3
+ 1217              	.LVL100:
+ 237:Drivers/POCSAG/pocsag.c ****     for(n = DATA_START; n < UARTBUFF_SIZE; n += 20)                 //移位，20个字节一循环
+ 1218              		.loc 1 237 5 is_stmt 1 view .LVU398
+ 236:Drivers/POCSAG/pocsag.c ****     for(n = DATA_START; n < UARTBUFF_SIZE; n += 20)                 //移位，20个字节一循环
+ 1219              		.loc 1 236 7 is_stmt 0 view .LVU399
+ 1220 0064 1800     		movs	r0, r3
+ 1221              		.loc 1 237 11 view .LVU400
+ 1222 0066 0C21     		movs	r1, #12
+ 1223              		.loc 1 237 5 view .LVU401
+ 1224 0068 D6E0     		b	.L76
+ 1225              	.LVL101:
+ 1226              	.L77:
+ 238:Drivers/POCSAG/pocsag.c ****     {
+ 239:Drivers/POCSAG/pocsag.c ****         Text_Negate[k] = 0x80000000;
+ 1227              		.loc 1 239 9 is_stmt 1 discriminator 3 view .LVU402
+ 1228              		.loc 1 239 24 is_stmt 0 discriminator 3 view .LVU403
+ 1229 006a 8700     		lsls	r7, r0, #2
+ 1230 006c 8023     		movs	r3, #128
+ 1231 006e 1B06     		lsls	r3, r3, #24
+ 1232 0070 6A46     		mov	r2, sp
+ 1233 0072 BB50     		str	r3, [r7, r2]
+ 240:Drivers/POCSAG/pocsag.c ****         Text_Negate[k] |= (uint32_t)UartBuff[n] << 23;
+ 1234              		.loc 1 240 9 is_stmt 1 discriminator 3 view .LVU404
+ 1235              		.loc 1 240 45 is_stmt 0 discriminator 3 view .LVU405
+ 1236 0074 8B4D     		ldr	r5, .L84+4
+ 1237 0076 6E5C     		ldrb	r6, [r5, r1]
+ 1238              		.loc 1 240 49 discriminator 3 view .LVU406
+ 1239 0078 F605     		lsls	r6, r6, #23
+ 1240              		.loc 1 240 24 discriminator 3 view .LVU407
+ 1241 007a 1E43     		orrs	r6, r3
+ 1242 007c BE50     		str	r6, [r7, r2]
+ 241:Drivers/POCSAG/pocsag.c ****         Text_Negate[k] |= (uint32_t)UartBuff[n + 1] << 16;
+ 1243              		.loc 1 241 9 is_stmt 1 discriminator 3 view .LVU408
+ 1244              		.loc 1 241 48 is_stmt 0 discriminator 3 view .LVU409
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 29
+
+
+ 1245 007e 4A1C     		adds	r2, r1, #1
+ 1246              		.loc 1 241 45 discriminator 3 view .LVU410
+ 1247 0080 AA5C     		ldrb	r2, [r5, r2]
+ 1248              		.loc 1 241 53 discriminator 3 view .LVU411
+ 1249 0082 1204     		lsls	r2, r2, #16
+ 1250              		.loc 1 241 24 discriminator 3 view .LVU412
+ 1251 0084 1643     		orrs	r6, r2
+ 1252 0086 6A46     		mov	r2, sp
+ 1253 0088 BE50     		str	r6, [r7, r2]
+ 242:Drivers/POCSAG/pocsag.c ****         Text_Negate[k] |= (uint32_t)UartBuff[n + 2] << 9;
+ 1254              		.loc 1 242 9 is_stmt 1 discriminator 3 view .LVU413
+ 1255              		.loc 1 242 48 is_stmt 0 discriminator 3 view .LVU414
+ 1256 008a 8A1C     		adds	r2, r1, #2
+ 1257              		.loc 1 242 45 discriminator 3 view .LVU415
+ 1258 008c AA5C     		ldrb	r2, [r5, r2]
+ 1259              		.loc 1 242 53 discriminator 3 view .LVU416
+ 1260 008e 5402     		lsls	r4, r2, #9
+ 1261              		.loc 1 242 24 discriminator 3 view .LVU417
+ 1262 0090 2643     		orrs	r6, r4
+ 1263 0092 6C46     		mov	r4, sp
+ 1264 0094 3E51     		str	r6, [r7, r4]
+ 243:Drivers/POCSAG/pocsag.c ****         Text_Negate[k] &= 0xfffff800;
+ 1265              		.loc 1 243 9 is_stmt 1 discriminator 3 view .LVU418
+ 1266              		.loc 1 243 24 is_stmt 0 discriminator 3 view .LVU419
+ 1267 0096 F60A     		lsrs	r6, r6, #11
+ 1268 0098 F602     		lsls	r6, r6, #11
+ 1269 009a 3E51     		str	r6, [r7, r4]
+ 244:Drivers/POCSAG/pocsag.c ****         
+ 245:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 1] = 0x80000000;
+ 1270              		.loc 1 245 9 is_stmt 1 discriminator 3 view .LVU420
+ 1271              		.loc 1 245 23 is_stmt 0 discriminator 3 view .LVU421
+ 1272 009c 471C     		adds	r7, r0, #1
+ 1273              		.loc 1 245 28 discriminator 3 view .LVU422
+ 1274 009e BF00     		lsls	r7, r7, #2
+ 1275 00a0 3B51     		str	r3, [r7, r4]
+ 246:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 1] |= (uint32_t)UartBuff[n + 2] << 29;
+ 1276              		.loc 1 246 9 is_stmt 1 discriminator 3 view .LVU423
+ 1277              		.loc 1 246 57 is_stmt 0 discriminator 3 view .LVU424
+ 1278 00a2 5207     		lsls	r2, r2, #29
+ 1279              		.loc 1 246 28 discriminator 3 view .LVU425
+ 1280 00a4 1E00     		movs	r6, r3
+ 1281 00a6 1643     		orrs	r6, r2
+ 1282 00a8 3E51     		str	r6, [r7, r4]
+ 247:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 1] &= 0xC0000000;
+ 1283              		.loc 1 247 9 is_stmt 1 discriminator 3 view .LVU426
+ 1284              		.loc 1 247 28 is_stmt 0 discriminator 3 view .LVU427
+ 1285 00aa 960F     		lsrs	r6, r2, #30
+ 1286 00ac B607     		lsls	r6, r6, #30
+ 1287 00ae 1E43     		orrs	r6, r3
+ 1288 00b0 3E51     		str	r6, [r7, r4]
+ 248:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 1] |= (uint32_t)UartBuff[n + 3] << 22;
+ 1289              		.loc 1 248 9 is_stmt 1 discriminator 3 view .LVU428
+ 1290              		.loc 1 248 52 is_stmt 0 discriminator 3 view .LVU429
+ 1291 00b2 CA1C     		adds	r2, r1, #3
+ 1292              		.loc 1 248 49 discriminator 3 view .LVU430
+ 1293 00b4 AA5C     		ldrb	r2, [r5, r2]
+ 1294              		.loc 1 248 57 discriminator 3 view .LVU431
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 30
+
+
+ 1295 00b6 9205     		lsls	r2, r2, #22
+ 1296              		.loc 1 248 28 discriminator 3 view .LVU432
+ 1297 00b8 1643     		orrs	r6, r2
+ 1298 00ba 3E51     		str	r6, [r7, r4]
+ 249:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 1] |= (uint32_t)UartBuff[n + 4] << 15;
+ 1299              		.loc 1 249 9 is_stmt 1 discriminator 3 view .LVU433
+ 1300              		.loc 1 249 52 is_stmt 0 discriminator 3 view .LVU434
+ 1301 00bc 0A1D     		adds	r2, r1, #4
+ 1302              		.loc 1 249 49 discriminator 3 view .LVU435
+ 1303 00be AA5C     		ldrb	r2, [r5, r2]
+ 1304              		.loc 1 249 57 discriminator 3 view .LVU436
+ 1305 00c0 D203     		lsls	r2, r2, #15
+ 1306              		.loc 1 249 28 discriminator 3 view .LVU437
+ 1307 00c2 1643     		orrs	r6, r2
+ 1308 00c4 3E51     		str	r6, [r7, r4]
+ 250:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 1] |= (uint32_t)UartBuff[n + 5] << 8;
+ 1309              		.loc 1 250 9 is_stmt 1 discriminator 3 view .LVU438
+ 1310              		.loc 1 250 52 is_stmt 0 discriminator 3 view .LVU439
+ 1311 00c6 4A1D     		adds	r2, r1, #5
+ 1312              		.loc 1 250 49 discriminator 3 view .LVU440
+ 1313 00c8 AA5C     		ldrb	r2, [r5, r2]
+ 1314              		.loc 1 250 57 discriminator 3 view .LVU441
+ 1315 00ca 1402     		lsls	r4, r2, #8
+ 1316              		.loc 1 250 28 discriminator 3 view .LVU442
+ 1317 00cc 2643     		orrs	r6, r4
+ 1318 00ce 6C46     		mov	r4, sp
+ 1319 00d0 3E51     		str	r6, [r7, r4]
+ 251:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 1] &= 0xfffff800;
+ 1320              		.loc 1 251 9 is_stmt 1 discriminator 3 view .LVU443
+ 1321              		.loc 1 251 28 is_stmt 0 discriminator 3 view .LVU444
+ 1322 00d2 F60A     		lsrs	r6, r6, #11
+ 1323 00d4 F602     		lsls	r6, r6, #11
+ 1324 00d6 3E51     		str	r6, [r7, r4]
+ 252:Drivers/POCSAG/pocsag.c ****         
+ 253:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 2] = 0x80000000;
+ 1325              		.loc 1 253 9 is_stmt 1 discriminator 3 view .LVU445
+ 1326              		.loc 1 253 23 is_stmt 0 discriminator 3 view .LVU446
+ 1327 00d8 871C     		adds	r7, r0, #2
+ 1328              		.loc 1 253 28 discriminator 3 view .LVU447
+ 1329 00da BF00     		lsls	r7, r7, #2
+ 1330 00dc 3B51     		str	r3, [r7, r4]
+ 254:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 2] |= (uint32_t)UartBuff[n + 5] << 28;
+ 1331              		.loc 1 254 9 is_stmt 1 discriminator 3 view .LVU448
+ 1332              		.loc 1 254 57 is_stmt 0 discriminator 3 view .LVU449
+ 1333 00de 1207     		lsls	r2, r2, #28
+ 1334              		.loc 1 254 28 discriminator 3 view .LVU450
+ 1335 00e0 1E00     		movs	r6, r3
+ 1336 00e2 1643     		orrs	r6, r2
+ 1337 00e4 3E51     		str	r6, [r7, r4]
+ 255:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 2] &= 0xE0000000;
+ 1338              		.loc 1 255 9 is_stmt 1 discriminator 3 view .LVU451
+ 1339              		.loc 1 255 28 is_stmt 0 discriminator 3 view .LVU452
+ 1340 00e6 560F     		lsrs	r6, r2, #29
+ 1341 00e8 7607     		lsls	r6, r6, #29
+ 1342 00ea 1E43     		orrs	r6, r3
+ 1343 00ec 3E51     		str	r6, [r7, r4]
+ 256:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 2] |= (uint32_t)UartBuff[n + 6] << 21;
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 31
+
+
+ 1344              		.loc 1 256 9 is_stmt 1 discriminator 3 view .LVU453
+ 1345              		.loc 1 256 52 is_stmt 0 discriminator 3 view .LVU454
+ 1346 00ee 8A1D     		adds	r2, r1, #6
+ 1347              		.loc 1 256 49 discriminator 3 view .LVU455
+ 1348 00f0 AA5C     		ldrb	r2, [r5, r2]
+ 1349              		.loc 1 256 57 discriminator 3 view .LVU456
+ 1350 00f2 5205     		lsls	r2, r2, #21
+ 1351              		.loc 1 256 28 discriminator 3 view .LVU457
+ 1352 00f4 1643     		orrs	r6, r2
+ 1353 00f6 3E51     		str	r6, [r7, r4]
+ 257:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 2] |= (uint32_t)UartBuff[n + 7] << 14;
+ 1354              		.loc 1 257 9 is_stmt 1 discriminator 3 view .LVU458
+ 1355              		.loc 1 257 52 is_stmt 0 discriminator 3 view .LVU459
+ 1356 00f8 CA1D     		adds	r2, r1, #7
+ 1357              		.loc 1 257 49 discriminator 3 view .LVU460
+ 1358 00fa AA5C     		ldrb	r2, [r5, r2]
+ 1359              		.loc 1 257 57 discriminator 3 view .LVU461
+ 1360 00fc 9203     		lsls	r2, r2, #14
+ 1361              		.loc 1 257 28 discriminator 3 view .LVU462
+ 1362 00fe 1643     		orrs	r6, r2
+ 1363 0100 3E51     		str	r6, [r7, r4]
+ 258:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 2] |= (uint32_t)UartBuff[n + 8] << 7;
+ 1364              		.loc 1 258 9 is_stmt 1 discriminator 3 view .LVU463
+ 1365              		.loc 1 258 52 is_stmt 0 discriminator 3 view .LVU464
+ 1366 0102 0A00     		movs	r2, r1
+ 1367 0104 0832     		adds	r2, r2, #8
+ 1368              		.loc 1 258 49 discriminator 3 view .LVU465
+ 1369 0106 AA5C     		ldrb	r2, [r5, r2]
+ 1370              		.loc 1 258 57 discriminator 3 view .LVU466
+ 1371 0108 D401     		lsls	r4, r2, #7
+ 1372              		.loc 1 258 28 discriminator 3 view .LVU467
+ 1373 010a 2643     		orrs	r6, r4
+ 1374 010c 6C46     		mov	r4, sp
+ 1375 010e 3E51     		str	r6, [r7, r4]
+ 259:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 2] &= 0xfffff800;
+ 1376              		.loc 1 259 9 is_stmt 1 discriminator 3 view .LVU468
+ 1377              		.loc 1 259 28 is_stmt 0 discriminator 3 view .LVU469
+ 1378 0110 F60A     		lsrs	r6, r6, #11
+ 1379 0112 F602     		lsls	r6, r6, #11
+ 1380 0114 3E51     		str	r6, [r7, r4]
+ 260:Drivers/POCSAG/pocsag.c ****         
+ 261:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 3] = 0x80000000;
+ 1381              		.loc 1 261 9 is_stmt 1 discriminator 3 view .LVU470
+ 1382              		.loc 1 261 23 is_stmt 0 discriminator 3 view .LVU471
+ 1383 0116 C71C     		adds	r7, r0, #3
+ 1384              		.loc 1 261 28 discriminator 3 view .LVU472
+ 1385 0118 BF00     		lsls	r7, r7, #2
+ 1386 011a 3B51     		str	r3, [r7, r4]
+ 262:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 3] |= (uint32_t)UartBuff[n + 8] << 27;
+ 1387              		.loc 1 262 9 is_stmt 1 discriminator 3 view .LVU473
+ 1388              		.loc 1 262 57 is_stmt 0 discriminator 3 view .LVU474
+ 1389 011c D206     		lsls	r2, r2, #27
+ 1390              		.loc 1 262 28 discriminator 3 view .LVU475
+ 1391 011e 1E00     		movs	r6, r3
+ 1392 0120 1643     		orrs	r6, r2
+ 1393 0122 3E51     		str	r6, [r7, r4]
+ 263:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 3] &= 0xF0000000;
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 32
+
+
+ 1394              		.loc 1 263 9 is_stmt 1 discriminator 3 view .LVU476
+ 1395              		.loc 1 263 28 is_stmt 0 discriminator 3 view .LVU477
+ 1396 0124 160F     		lsrs	r6, r2, #28
+ 1397 0126 3607     		lsls	r6, r6, #28
+ 1398 0128 1E43     		orrs	r6, r3
+ 1399 012a 3E51     		str	r6, [r7, r4]
+ 264:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 3] |= (uint32_t)UartBuff[n + 9] << 20;
+ 1400              		.loc 1 264 9 is_stmt 1 discriminator 3 view .LVU478
+ 1401              		.loc 1 264 52 is_stmt 0 discriminator 3 view .LVU479
+ 1402 012c 0A00     		movs	r2, r1
+ 1403 012e 0932     		adds	r2, r2, #9
+ 1404              		.loc 1 264 49 discriminator 3 view .LVU480
+ 1405 0130 AA5C     		ldrb	r2, [r5, r2]
+ 1406              		.loc 1 264 57 discriminator 3 view .LVU481
+ 1407 0132 1205     		lsls	r2, r2, #20
+ 1408              		.loc 1 264 28 discriminator 3 view .LVU482
+ 1409 0134 1643     		orrs	r6, r2
+ 1410 0136 3E51     		str	r6, [r7, r4]
+ 265:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 3] |= (uint32_t)UartBuff[n + 10] << 13;
+ 1411              		.loc 1 265 9 is_stmt 1 discriminator 3 view .LVU483
+ 1412              		.loc 1 265 52 is_stmt 0 discriminator 3 view .LVU484
+ 1413 0138 0A00     		movs	r2, r1
+ 1414 013a 0A32     		adds	r2, r2, #10
+ 1415              		.loc 1 265 49 discriminator 3 view .LVU485
+ 1416 013c AA5C     		ldrb	r2, [r5, r2]
+ 1417              		.loc 1 265 58 discriminator 3 view .LVU486
+ 1418 013e 5203     		lsls	r2, r2, #13
+ 1419              		.loc 1 265 28 discriminator 3 view .LVU487
+ 1420 0140 1643     		orrs	r6, r2
+ 1421 0142 3E51     		str	r6, [r7, r4]
+ 266:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 3] |= (uint32_t)UartBuff[n + 11] << 6;
+ 1422              		.loc 1 266 9 is_stmt 1 discriminator 3 view .LVU488
+ 1423              		.loc 1 266 52 is_stmt 0 discriminator 3 view .LVU489
+ 1424 0144 0A00     		movs	r2, r1
+ 1425 0146 0B32     		adds	r2, r2, #11
+ 1426              		.loc 1 266 49 discriminator 3 view .LVU490
+ 1427 0148 AA5C     		ldrb	r2, [r5, r2]
+ 1428              		.loc 1 266 58 discriminator 3 view .LVU491
+ 1429 014a 9401     		lsls	r4, r2, #6
+ 1430              		.loc 1 266 28 discriminator 3 view .LVU492
+ 1431 014c 2643     		orrs	r6, r4
+ 1432 014e 6C46     		mov	r4, sp
+ 1433 0150 3E51     		str	r6, [r7, r4]
+ 267:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 3] &= 0xfffff800;
+ 1434              		.loc 1 267 9 is_stmt 1 discriminator 3 view .LVU493
+ 1435              		.loc 1 267 28 is_stmt 0 discriminator 3 view .LVU494
+ 1436 0152 F60A     		lsrs	r6, r6, #11
+ 1437 0154 F602     		lsls	r6, r6, #11
+ 1438 0156 3E51     		str	r6, [r7, r4]
+ 268:Drivers/POCSAG/pocsag.c ****         
+ 269:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 4] = 0x80000000;
+ 1439              		.loc 1 269 9 is_stmt 1 discriminator 3 view .LVU495
+ 1440              		.loc 1 269 23 is_stmt 0 discriminator 3 view .LVU496
+ 1441 0158 071D     		adds	r7, r0, #4
+ 1442              		.loc 1 269 28 discriminator 3 view .LVU497
+ 1443 015a BF00     		lsls	r7, r7, #2
+ 1444 015c 3B51     		str	r3, [r7, r4]
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 33
+
+
+ 270:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 4] |= (uint32_t)UartBuff[n + 11] << 26;
+ 1445              		.loc 1 270 9 is_stmt 1 discriminator 3 view .LVU498
+ 1446              		.loc 1 270 58 is_stmt 0 discriminator 3 view .LVU499
+ 1447 015e 9206     		lsls	r2, r2, #26
+ 1448              		.loc 1 270 28 discriminator 3 view .LVU500
+ 1449 0160 1E00     		movs	r6, r3
+ 1450 0162 1643     		orrs	r6, r2
+ 1451 0164 3E51     		str	r6, [r7, r4]
+ 271:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 4] &= 0xF8000000;
+ 1452              		.loc 1 271 9 is_stmt 1 discriminator 3 view .LVU501
+ 1453              		.loc 1 271 28 is_stmt 0 discriminator 3 view .LVU502
+ 1454 0166 D60E     		lsrs	r6, r2, #27
+ 1455 0168 F606     		lsls	r6, r6, #27
+ 1456 016a 1E43     		orrs	r6, r3
+ 1457 016c 3E51     		str	r6, [r7, r4]
+ 272:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 4] |= (uint32_t)UartBuff[n + 12] << 19;
+ 1458              		.loc 1 272 9 is_stmt 1 discriminator 3 view .LVU503
+ 1459              		.loc 1 272 52 is_stmt 0 discriminator 3 view .LVU504
+ 1460 016e 0A00     		movs	r2, r1
+ 1461 0170 0C32     		adds	r2, r2, #12
+ 1462              		.loc 1 272 49 discriminator 3 view .LVU505
+ 1463 0172 AA5C     		ldrb	r2, [r5, r2]
+ 1464              		.loc 1 272 58 discriminator 3 view .LVU506
+ 1465 0174 D204     		lsls	r2, r2, #19
+ 1466              		.loc 1 272 28 discriminator 3 view .LVU507
+ 1467 0176 1643     		orrs	r6, r2
+ 1468 0178 3E51     		str	r6, [r7, r4]
+ 273:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 4] |= (uint32_t)UartBuff[n + 13] << 12;
+ 1469              		.loc 1 273 9 is_stmt 1 discriminator 3 view .LVU508
+ 1470              		.loc 1 273 52 is_stmt 0 discriminator 3 view .LVU509
+ 1471 017a 0A00     		movs	r2, r1
+ 1472 017c 0D32     		adds	r2, r2, #13
+ 1473              		.loc 1 273 49 discriminator 3 view .LVU510
+ 1474 017e AA5C     		ldrb	r2, [r5, r2]
+ 1475              		.loc 1 273 58 discriminator 3 view .LVU511
+ 1476 0180 1203     		lsls	r2, r2, #12
+ 1477              		.loc 1 273 28 discriminator 3 view .LVU512
+ 1478 0182 1643     		orrs	r6, r2
+ 1479 0184 3E51     		str	r6, [r7, r4]
+ 274:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 4] |= (uint32_t)UartBuff[n + 14] << 5;
+ 1480              		.loc 1 274 9 is_stmt 1 discriminator 3 view .LVU513
+ 1481              		.loc 1 274 52 is_stmt 0 discriminator 3 view .LVU514
+ 1482 0186 0A00     		movs	r2, r1
+ 1483 0188 0E32     		adds	r2, r2, #14
+ 1484              		.loc 1 274 49 discriminator 3 view .LVU515
+ 1485 018a AA5C     		ldrb	r2, [r5, r2]
+ 1486              		.loc 1 274 58 discriminator 3 view .LVU516
+ 1487 018c 5401     		lsls	r4, r2, #5
+ 1488              		.loc 1 274 28 discriminator 3 view .LVU517
+ 1489 018e 2643     		orrs	r6, r4
+ 1490 0190 6C46     		mov	r4, sp
+ 1491 0192 3E51     		str	r6, [r7, r4]
+ 275:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 4] &= 0xfffff800;
+ 1492              		.loc 1 275 9 is_stmt 1 discriminator 3 view .LVU518
+ 1493              		.loc 1 275 28 is_stmt 0 discriminator 3 view .LVU519
+ 1494 0194 F60A     		lsrs	r6, r6, #11
+ 1495 0196 F602     		lsls	r6, r6, #11
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 34
+
+
+ 1496 0198 3E51     		str	r6, [r7, r4]
+ 276:Drivers/POCSAG/pocsag.c ****         
+ 277:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 5] = 0x80000000;
+ 1497              		.loc 1 277 9 is_stmt 1 discriminator 3 view .LVU520
+ 1498              		.loc 1 277 23 is_stmt 0 discriminator 3 view .LVU521
+ 1499 019a 461D     		adds	r6, r0, #5
+ 1500              		.loc 1 277 28 discriminator 3 view .LVU522
+ 1501 019c B600     		lsls	r6, r6, #2
+ 1502 019e 3351     		str	r3, [r6, r4]
+ 278:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 5] |= (uint32_t)UartBuff[n + 14] << 25;
+ 1503              		.loc 1 278 9 is_stmt 1 discriminator 3 view .LVU523
+ 1504              		.loc 1 278 58 is_stmt 0 discriminator 3 view .LVU524
+ 1505 01a0 5206     		lsls	r2, r2, #25
+ 1506              		.loc 1 278 28 discriminator 3 view .LVU525
+ 1507 01a2 1F00     		movs	r7, r3
+ 1508 01a4 1743     		orrs	r7, r2
+ 1509 01a6 3751     		str	r7, [r6, r4]
+ 279:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 5] &= 0xFC000000;
+ 1510              		.loc 1 279 9 is_stmt 1 discriminator 3 view .LVU526
+ 1511              		.loc 1 279 28 is_stmt 0 discriminator 3 view .LVU527
+ 1512 01a8 920E     		lsrs	r2, r2, #26
+ 1513 01aa 9206     		lsls	r2, r2, #26
+ 1514 01ac 1A43     		orrs	r2, r3
+ 1515 01ae 3251     		str	r2, [r6, r4]
+ 280:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 5] |= (uint32_t)UartBuff[n + 15] << 18;
+ 1516              		.loc 1 280 9 is_stmt 1 discriminator 3 view .LVU528
+ 1517              		.loc 1 280 52 is_stmt 0 discriminator 3 view .LVU529
+ 1518 01b0 0F00     		movs	r7, r1
+ 1519 01b2 0F37     		adds	r7, r7, #15
+ 1520              		.loc 1 280 49 discriminator 3 view .LVU530
+ 1521 01b4 EF5D     		ldrb	r7, [r5, r7]
+ 1522              		.loc 1 280 58 discriminator 3 view .LVU531
+ 1523 01b6 BF04     		lsls	r7, r7, #18
+ 1524              		.loc 1 280 28 discriminator 3 view .LVU532
+ 1525 01b8 3A43     		orrs	r2, r7
+ 1526 01ba 3251     		str	r2, [r6, r4]
+ 281:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 5] |= (uint32_t)UartBuff[n + 16] << 11;
+ 1527              		.loc 1 281 9 is_stmt 1 discriminator 3 view .LVU533
+ 1528              		.loc 1 281 52 is_stmt 0 discriminator 3 view .LVU534
+ 1529 01bc 0F00     		movs	r7, r1
+ 1530 01be 1037     		adds	r7, r7, #16
+ 1531              		.loc 1 281 49 discriminator 3 view .LVU535
+ 1532 01c0 EF5D     		ldrb	r7, [r5, r7]
+ 1533              		.loc 1 281 58 discriminator 3 view .LVU536
+ 1534 01c2 FF02     		lsls	r7, r7, #11
+ 1535              		.loc 1 281 28 discriminator 3 view .LVU537
+ 1536 01c4 3A43     		orrs	r2, r7
+ 1537 01c6 3251     		str	r2, [r6, r4]
+ 282:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 5] |= (uint32_t)UartBuff[n + 17] << 4;
+ 1538              		.loc 1 282 9 is_stmt 1 discriminator 3 view .LVU538
+ 1539              		.loc 1 282 52 is_stmt 0 discriminator 3 view .LVU539
+ 1540 01c8 0F00     		movs	r7, r1
+ 1541 01ca 1137     		adds	r7, r7, #17
+ 1542              		.loc 1 282 49 discriminator 3 view .LVU540
+ 1543 01cc EF5D     		ldrb	r7, [r5, r7]
+ 1544              		.loc 1 282 58 discriminator 3 view .LVU541
+ 1545 01ce 3C01     		lsls	r4, r7, #4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 35
+
+
+ 1546              		.loc 1 282 28 discriminator 3 view .LVU542
+ 1547 01d0 2243     		orrs	r2, r4
+ 1548 01d2 6C46     		mov	r4, sp
+ 1549 01d4 3251     		str	r2, [r6, r4]
+ 283:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 5] &= 0xfffff800;
+ 1550              		.loc 1 283 9 is_stmt 1 discriminator 3 view .LVU543
+ 1551              		.loc 1 283 28 is_stmt 0 discriminator 3 view .LVU544
+ 1552 01d6 D20A     		lsrs	r2, r2, #11
+ 1553 01d8 D202     		lsls	r2, r2, #11
+ 1554 01da 3251     		str	r2, [r6, r4]
+ 284:Drivers/POCSAG/pocsag.c ****         
+ 285:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 6] = 0x80000000;
+ 1555              		.loc 1 285 9 is_stmt 1 discriminator 3 view .LVU545
+ 1556              		.loc 1 285 23 is_stmt 0 discriminator 3 view .LVU546
+ 1557 01dc 861D     		adds	r6, r0, #6
+ 1558              		.loc 1 285 28 discriminator 3 view .LVU547
+ 1559 01de B600     		lsls	r6, r6, #2
+ 1560 01e0 3351     		str	r3, [r6, r4]
+ 286:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 6] |= (uint32_t)UartBuff[n + 17] << 24;
+ 1561              		.loc 1 286 9 is_stmt 1 discriminator 3 view .LVU548
+ 1562              		.loc 1 286 58 is_stmt 0 discriminator 3 view .LVU549
+ 1563 01e2 3A06     		lsls	r2, r7, #24
+ 1564              		.loc 1 286 28 discriminator 3 view .LVU550
+ 1565 01e4 1F00     		movs	r7, r3
+ 1566 01e6 1743     		orrs	r7, r2
+ 1567 01e8 3751     		str	r7, [r6, r4]
+ 287:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 6] &= 0xFE000000;
+ 1568              		.loc 1 287 9 is_stmt 1 discriminator 3 view .LVU551
+ 1569              		.loc 1 287 28 is_stmt 0 discriminator 3 view .LVU552
+ 1570 01ea 520E     		lsrs	r2, r2, #25
+ 1571 01ec 5206     		lsls	r2, r2, #25
+ 1572 01ee 1343     		orrs	r3, r2
+ 1573 01f0 3351     		str	r3, [r6, r4]
+ 288:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 6] |= (uint32_t)UartBuff[n + 18] << 17;
+ 1574              		.loc 1 288 9 is_stmt 1 discriminator 3 view .LVU553
+ 1575              		.loc 1 288 52 is_stmt 0 discriminator 3 view .LVU554
+ 1576 01f2 0A00     		movs	r2, r1
+ 1577 01f4 1232     		adds	r2, r2, #18
+ 1578              		.loc 1 288 49 discriminator 3 view .LVU555
+ 1579 01f6 AA5C     		ldrb	r2, [r5, r2]
+ 1580              		.loc 1 288 58 discriminator 3 view .LVU556
+ 1581 01f8 5204     		lsls	r2, r2, #17
+ 1582              		.loc 1 288 28 discriminator 3 view .LVU557
+ 1583 01fa 1343     		orrs	r3, r2
+ 1584 01fc 3351     		str	r3, [r6, r4]
+ 289:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 6] |= (uint32_t)UartBuff[n + 19] << 10;
+ 1585              		.loc 1 289 9 is_stmt 1 discriminator 3 view .LVU558
+ 1586              		.loc 1 289 52 is_stmt 0 discriminator 3 view .LVU559
+ 1587 01fe 0A00     		movs	r2, r1
+ 1588 0200 1332     		adds	r2, r2, #19
+ 1589              		.loc 1 289 49 discriminator 3 view .LVU560
+ 1590 0202 AA5C     		ldrb	r2, [r5, r2]
+ 1591              		.loc 1 289 58 discriminator 3 view .LVU561
+ 1592 0204 9202     		lsls	r2, r2, #10
+ 1593              		.loc 1 289 28 discriminator 3 view .LVU562
+ 1594 0206 1343     		orrs	r3, r2
+ 1595 0208 3351     		str	r3, [r6, r4]
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 36
+
+
+ 290:Drivers/POCSAG/pocsag.c ****         Text_Negate[k + 6] &= 0xfffff800;
+ 1596              		.loc 1 290 9 is_stmt 1 discriminator 3 view .LVU563
+ 1597              		.loc 1 290 28 is_stmt 0 discriminator 3 view .LVU564
+ 1598 020a DB0A     		lsrs	r3, r3, #11
+ 1599 020c DB02     		lsls	r3, r3, #11
+ 1600 020e 3351     		str	r3, [r6, r4]
+ 291:Drivers/POCSAG/pocsag.c ****         
+ 292:Drivers/POCSAG/pocsag.c ****         k += 7;
+ 1601              		.loc 1 292 9 is_stmt 1 discriminator 3 view .LVU565
+ 1602              		.loc 1 292 11 is_stmt 0 discriminator 3 view .LVU566
+ 1603 0210 0730     		adds	r0, r0, #7
+ 1604              	.LVL102:
+ 1605              		.loc 1 292 11 discriminator 3 view .LVU567
+ 1606 0212 80B2     		uxth	r0, r0
+ 1607              	.LVL103:
+ 237:Drivers/POCSAG/pocsag.c ****     {
+ 1608              		.loc 1 237 46 is_stmt 1 discriminator 3 view .LVU568
+ 1609 0214 1431     		adds	r1, r1, #20
+ 1610              	.LVL104:
+ 237:Drivers/POCSAG/pocsag.c ****     {
+ 1611              		.loc 1 237 46 is_stmt 0 discriminator 3 view .LVU569
+ 1612 0216 89B2     		uxth	r1, r1
+ 1613              	.LVL105:
+ 1614              	.L76:
+ 237:Drivers/POCSAG/pocsag.c ****     {
+ 1615              		.loc 1 237 27 is_stmt 1 discriminator 1 view .LVU570
+ 1616 0218 C823     		movs	r3, #200
+ 1617 021a 5B00     		lsls	r3, r3, #1
+ 1618 021c 9942     		cmp	r1, r3
+ 1619 021e 00D2     		bcs	.LCB1383
+ 1620 0220 23E7     		b	.L77	@long jump
+ 1621              	.LCB1383:
+ 293:Drivers/POCSAG/pocsag.c ****     }
+ 294:Drivers/POCSAG/pocsag.c ****     
+ 295:Drivers/POCSAG/pocsag.c ****     n = Tx_Num * 2 + 1;
+ 296:Drivers/POCSAG/pocsag.c ****     TxCount = 0.0;
+ 297:Drivers/POCSAG/pocsag.c ****     for(i = Tx_Num * 2 + 1; i < UARTBUFF_SIZE; i++)                       //将数据合并到Tx发
+ 1622              		.loc 1 297 11 is_stmt 0 view .LVU571
+ 1623 0222 4546     		mov	r5, r8
+ 296:Drivers/POCSAG/pocsag.c ****     for(i = Tx_Num * 2 + 1; i < UARTBUFF_SIZE; i++)                       //将数据合并到Tx发
+ 1624              		.loc 1 296 13 view .LVU572
+ 1625 0224 0026     		movs	r6, #0
+ 1626 0226 1AE0     		b	.L78
+ 1627              	.LVL106:
+ 1628              	.L80:
+ 298:Drivers/POCSAG/pocsag.c ****     {
+ 299:Drivers/POCSAG/pocsag.c ****         if(TxCount >= (UartCount - DATA_START - 1))
+ 300:Drivers/POCSAG/pocsag.c ****             break;
+ 301:Drivers/POCSAG/pocsag.c ****         if(i % 16 == 0)                                                     //每8帧（16个码字
+ 302:Drivers/POCSAG/pocsag.c ****             TxBuff[n++] = SYNC_DATA;
+ 303:Drivers/POCSAG/pocsag.c ****         TxBuff[n++] = calc_bch_and_parity( Text_Negate[i]);
+ 1629              		.loc 1 303 9 is_stmt 1 view .LVU573
+ 1630              		.loc 1 303 17 is_stmt 0 view .LVU574
+ 1631 0228 4346     		mov	r3, r8
+ 1632 022a 5F1C     		adds	r7, r3, #1
+ 1633 022c BFB2     		uxth	r7, r7
+ 1634              	.LVL107:
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 37
+
+
+ 1635              		.loc 1 303 23 view .LVU575
+ 1636 022e AB00     		lsls	r3, r5, #2
+ 1637 0230 6A46     		mov	r2, sp
+ 1638 0232 9858     		ldr	r0, [r3, r2]
+ 1639 0234 FFF7FEFF 		bl	calc_bch_and_parity
+ 1640              	.LVL108:
+ 1641              		.loc 1 303 21 view .LVU576
+ 1642 0238 1C4B     		ldr	r3, .L84+12
+ 1643 023a 4246     		mov	r2, r8
+ 1644 023c 9400     		lsls	r4, r2, #2
+ 1645 023e 1851     		str	r0, [r3, r4]
+ 304:Drivers/POCSAG/pocsag.c ****         TxCount += 2.8571428571;                                            //串口接收2.8571428
+ 1646              		.loc 1 304 9 is_stmt 1 view .LVU577
+ 1647              		.loc 1 304 17 is_stmt 0 view .LVU578
+ 1648 0240 301C     		adds	r0, r6, #0
+ 1649 0242 FFF7FEFF 		bl	__aeabi_f2d
+ 1650              	.LVL109:
+ 1651 0246 1A4A     		ldr	r2, .L84+16
+ 1652 0248 1A4B     		ldr	r3, .L84+20
+ 1653 024a FFF7FEFF 		bl	__aeabi_dadd
+ 1654              	.LVL110:
+ 1655 024e FFF7FEFF 		bl	__aeabi_d2f
+ 1656              	.LVL111:
+ 1657 0252 061C     		adds	r6, r0, #0
+ 1658              	.LVL112:
+ 305:Drivers/POCSAG/pocsag.c ****         if(n >= TXBUFF_SIZE || i >= UARTBUFF_SIZE)
+ 1659              		.loc 1 305 9 is_stmt 1 view .LVU579
+ 1660              		.loc 1 305 11 is_stmt 0 view .LVU580
+ 1661 0254 C72F     		cmp	r7, #199
+ 1662 0256 1CD8     		bhi	.L71
+ 297:Drivers/POCSAG/pocsag.c ****     {
+ 1663              		.loc 1 297 49 is_stmt 1 discriminator 2 view .LVU581
+ 1664 0258 0135     		adds	r5, r5, #1
+ 1665              	.LVL113:
+ 297:Drivers/POCSAG/pocsag.c ****     {
+ 1666              		.loc 1 297 49 is_stmt 0 discriminator 2 view .LVU582
+ 1667 025a ADB2     		uxth	r5, r5
+ 1668              	.LVL114:
+ 303:Drivers/POCSAG/pocsag.c ****         TxCount += 2.8571428571;                                            //串口接收2.8571428
+ 1669              		.loc 1 303 17 discriminator 2 view .LVU583
+ 1670 025c B846     		mov	r8, r7
+ 1671              	.LVL115:
+ 1672              	.L78:
+ 297:Drivers/POCSAG/pocsag.c ****     {
+ 1673              		.loc 1 297 31 is_stmt 1 discriminator 1 view .LVU584
+ 1674 025e C823     		movs	r3, #200
+ 1675 0260 5B00     		lsls	r3, r3, #1
+ 1676 0262 9D42     		cmp	r5, r3
+ 1677 0264 15D2     		bcs	.L71
+ 299:Drivers/POCSAG/pocsag.c ****             break;
+ 1678              		.loc 1 299 9 view .LVU585
+ 299:Drivers/POCSAG/pocsag.c ****             break;
+ 1679              		.loc 1 299 47 is_stmt 0 view .LVU586
+ 1680 0266 144B     		ldr	r3, .L84+24
+ 1681 0268 1888     		ldrh	r0, [r3]
+ 1682 026a 0D38     		subs	r0, r0, #13
+ 299:Drivers/POCSAG/pocsag.c ****             break;
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 38
+
+
+ 1683              		.loc 1 299 20 view .LVU587
+ 1684 026c FFF7FEFF 		bl	__aeabi_i2f
+ 1685              	.LVL116:
+ 299:Drivers/POCSAG/pocsag.c ****             break;
+ 1686              		.loc 1 299 11 view .LVU588
+ 1687 0270 311C     		adds	r1, r6, #0
+ 1688 0272 FFF7FEFF 		bl	__aeabi_fcmple
+ 1689              	.LVL117:
+ 1690 0276 0028     		cmp	r0, #0
+ 1691 0278 0BD1     		bne	.L71
+ 301:Drivers/POCSAG/pocsag.c ****             TxBuff[n++] = SYNC_DATA;
+ 1692              		.loc 1 301 9 is_stmt 1 view .LVU589
+ 301:Drivers/POCSAG/pocsag.c ****             TxBuff[n++] = SYNC_DATA;
+ 1693              		.loc 1 301 11 is_stmt 0 view .LVU590
+ 1694 027a 2B07     		lsls	r3, r5, #28
+ 1695 027c D4D1     		bne	.L80
+ 302:Drivers/POCSAG/pocsag.c ****         TxBuff[n++] = calc_bch_and_parity( Text_Negate[i]);
+ 1696              		.loc 1 302 13 is_stmt 1 view .LVU591
+ 302:Drivers/POCSAG/pocsag.c ****         TxBuff[n++] = calc_bch_and_parity( Text_Negate[i]);
+ 1697              		.loc 1 302 21 is_stmt 0 view .LVU592
+ 1698 027e 4346     		mov	r3, r8
+ 1699 0280 5A1C     		adds	r2, r3, #1
+ 1700              	.LVL118:
+ 302:Drivers/POCSAG/pocsag.c ****         TxBuff[n++] = calc_bch_and_parity( Text_Negate[i]);
+ 1701              		.loc 1 302 25 view .LVU593
+ 1702 0282 0A4B     		ldr	r3, .L84+12
+ 1703 0284 4146     		mov	r1, r8
+ 1704 0286 8C00     		lsls	r4, r1, #2
+ 1705 0288 0C49     		ldr	r1, .L84+28
+ 1706 028a E150     		str	r1, [r4, r3]
+ 302:Drivers/POCSAG/pocsag.c ****         TxBuff[n++] = calc_bch_and_parity( Text_Negate[i]);
+ 1707              		.loc 1 302 21 view .LVU594
+ 1708 028c 93B2     		uxth	r3, r2
+ 1709 028e 9846     		mov	r8, r3
+ 1710 0290 CAE7     		b	.L80
+ 1711              	.LVL119:
+ 1712              	.L71:
+ 306:Drivers/POCSAG/pocsag.c ****             break;
+ 307:Drivers/POCSAG/pocsag.c ****     }
+ 308:Drivers/POCSAG/pocsag.c **** }
+ 1713              		.loc 1 308 1 view .LVU595
+ 1714 0292 C823     		movs	r3, #200
+ 1715 0294 DB00     		lsls	r3, r3, #3
+ 1716 0296 9D44     		add	sp, sp, r3
+ 1717              		@ sp needed
+ 1718              	.LVL120:
+ 1719              	.LVL121:
+ 1720              		.loc 1 308 1 view .LVU596
+ 1721 0298 80BC     		pop	{r7}
+ 1722 029a B846     		mov	r8, r7
+ 1723 029c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1724              	.L85:
+ 1725 029e C046     		.align	2
+ 1726              	.L84:
+ 1727 02a0 C0F9FFFF 		.word	-1600
+ 1728 02a4 00000000 		.word	UartBuff
+ 1729 02a8 00000000 		.word	Tx_Num
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 39
+
+
+ 1730 02ac 00000000 		.word	TxBuff
+ 1731 02b0 BDF4D9B6 		.word	-1227230019
+ 1732 02b4 6DDB0640 		.word	1074191213
+ 1733 02b8 00000000 		.word	UartCount
+ 1734 02bc D815D27C 		.word	2094142936
+ 1735              		.cfi_endproc
+ 1736              	.LFE299:
+ 1738              		.section	.text.Delay200ms,"ax",%progbits
+ 1739              		.align	1
+ 1740              		.global	Delay200ms
+ 1741              		.syntax unified
+ 1742              		.code	16
+ 1743              		.thumb_func
+ 1745              	Delay200ms:
+ 1746              	.LFB301:
+ 309:Drivers/POCSAG/pocsag.c **** 
+ 310:Drivers/POCSAG/pocsag.c **** void SendTxBuff()
+ 311:Drivers/POCSAG/pocsag.c **** {
+ 312:Drivers/POCSAG/pocsag.c ****     //HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,GPIO_PIN_RESET);
+ 313:Drivers/POCSAG/pocsag.c **** 
+ 314:Drivers/POCSAG/pocsag.c ****     UartSendString("UartCount=",10);
+ 315:Drivers/POCSAG/pocsag.c ****     SBUF = UartCount / 100 + '0';
+ 316:Drivers/POCSAG/pocsag.c ****     printf("%d",SBUF);
+ 317:Drivers/POCSAG/pocsag.c ****     while(TI == 0);
+ 318:Drivers/POCSAG/pocsag.c ****     TI = 0;
+ 319:Drivers/POCSAG/pocsag.c ****     SBUF = (UartCount / 10) % 10 + '0';
+ 320:Drivers/POCSAG/pocsag.c ****     printf("%d",SBUF);
+ 321:Drivers/POCSAG/pocsag.c ****     while(TI == 0);
+ 322:Drivers/POCSAG/pocsag.c ****     TI = 0;
+ 323:Drivers/POCSAG/pocsag.c ****     SBUF = UartCount % 10 + '0';
+ 324:Drivers/POCSAG/pocsag.c ****     printf("%d",SBUF);
+ 325:Drivers/POCSAG/pocsag.c ****     while(TI == 0);
+ 326:Drivers/POCSAG/pocsag.c ****     TI = 0;
+ 327:Drivers/POCSAG/pocsag.c ****     UartSendString("\r\n",2);
+ 328:Drivers/POCSAG/pocsag.c **** 
+ 329:Drivers/POCSAG/pocsag.c ****     uint16_t i;
+ 330:Drivers/POCSAG/pocsag.c ****     
+ 331:Drivers/POCSAG/pocsag.c ****     //HAL_GPIO_WritePin(PTT_PORT,PTT_PIN,GPIO_PIN_RESET);
+ 332:Drivers/POCSAG/pocsag.c ****     //PTT = 0;                    //触发PTT
+ 333:Drivers/POCSAG/pocsag.c ****     Delay200ms();                  //PTT延时，根据对讲机不同进行调整
+ 334:Drivers/POCSAG/pocsag.c ****     if(UartBuff[SPEED] == 'L')
+ 335:Drivers/POCSAG/pocsag.c ****     {
+ 336:Drivers/POCSAG/pocsag.c ****         /*TL0 = LOWSPEED_TIMER_L;        //设置定时初值
+ 337:Drivers/POCSAG/pocsag.c ****         TH0 = LOWSPEED_TIMER_H;*/
+ 338:Drivers/POCSAG/pocsag.c ****         Timer_Counter=LOWSPEED_TIMER;
+ 339:Drivers/POCSAG/pocsag.c ****         txSpeed=BPS_512;
+ 340:Drivers/POCSAG/pocsag.c ****     }
+ 341:Drivers/POCSAG/pocsag.c ****     if(UartBuff[SPEED] == 'H')
+ 342:Drivers/POCSAG/pocsag.c ****     {
+ 343:Drivers/POCSAG/pocsag.c ****         /*TL0 = HIGHTSPEED_TIMER_L;        //设置定时初值
+ 344:Drivers/POCSAG/pocsag.c ****         TH0 = HIGHTSPEED_TIMER_H;*/
+ 345:Drivers/POCSAG/pocsag.c ****         Timer_Counter=HIGHSPEED_TIMER;
+ 346:Drivers/POCSAG/pocsag.c ****         txSpeed=BPS_1200;
+ 347:Drivers/POCSAG/pocsag.c ****     }
+ 348:Drivers/POCSAG/pocsag.c ****     if(UartBuff[SPEED]=='S'){
+ 349:Drivers/POCSAG/pocsag.c ****         txSpeed=BPS_2400;
+ 350:Drivers/POCSAG/pocsag.c ****     }
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 40
+
+
+ 351:Drivers/POCSAG/pocsag.c ****     //TR0 = 1; //启动定时器
+ 352:Drivers/POCSAG/pocsag.c ****     //TIM16->CNT=Timer_Counter;
+ 353:Drivers/POCSAG/pocsag.c ****     //HAL_TIM_Base_Start_IT(&htim16);
+ 354:Drivers/POCSAG/pocsag.c ****     
+ 355:Drivers/POCSAG/pocsag.c ****     for(i = 0; i < 18; i++)//至少发送576个前导码，只能多，不能少
+ 356:Drivers/POCSAG/pocsag.c ****     {
+ 357:Drivers/POCSAG/pocsag.c ****         Send_Num(0xAAAAAAAA);
+ 358:Drivers/POCSAG/pocsag.c ****     }
+ 359:Drivers/POCSAG/pocsag.c ****     
+ 360:Drivers/POCSAG/pocsag.c ****     Send_Num(SYNC_DATA);//发送同步码
+ 361:Drivers/POCSAG/pocsag.c **** 
+ 362:Drivers/POCSAG/pocsag.c ****     for(i = 0; i < TXBUFF_SIZE; i++)//将TX发送缓冲区中的数据发出
+ 363:Drivers/POCSAG/pocsag.c ****     {
+ 364:Drivers/POCSAG/pocsag.c ****         if(TxBuff[i] == 0x00000000 || TxBuff[i] == 0xffffffff)//如果缓冲区中数据为全0或�
+ 365:Drivers/POCSAG/pocsag.c ****             break;
+ 366:Drivers/POCSAG/pocsag.c ****         Send_Num(TxBuff[i]);
+ 367:Drivers/POCSAG/pocsag.c ****     }
+ 368:Drivers/POCSAG/pocsag.c ****     
+ 369:Drivers/POCSAG/pocsag.c ****     //TX=LOW; 
+ 370:Drivers/POCSAG/pocsag.c ****     //HAL_GPIO_WritePin(TX_PORT,TX_PIN,GPIO_PIN_RESET);
+ 371:Drivers/POCSAG/pocsag.c **** 
+ 372:Drivers/POCSAG/pocsag.c ****     //HAL_TIM_Base_Start_IT(&htim16);
+ 373:Drivers/POCSAG/pocsag.c ****     Delay200ms();                       //发送完毕PTT延时，根据对讲机不同进行调整
+ 374:Drivers/POCSAG/pocsag.c ****     Delay200ms();
+ 375:Drivers/POCSAG/pocsag.c ****     Delay200ms();
+ 376:Drivers/POCSAG/pocsag.c ****     //HAL_GPIO_WritePin(PTT_PORT,PTT_PIN,GPIO_PIN_SET);
+ 377:Drivers/POCSAG/pocsag.c ****     //PTT = 1;
+ 378:Drivers/POCSAG/pocsag.c **** 
+ 379:Drivers/POCSAG/pocsag.c ****     UartSendString("OK\r\n",4);          //串口输出调试信息
+ 380:Drivers/POCSAG/pocsag.c ****     HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,GPIO_PIN_SET);
+ 381:Drivers/POCSAG/pocsag.c **** 
+ 382:Drivers/POCSAG/pocsag.c **** }
+ 383:Drivers/POCSAG/pocsag.c **** 
+ 384:Drivers/POCSAG/pocsag.c **** 
+ 385:Drivers/POCSAG/pocsag.c **** void Delay200ms(){
+ 1747              		.loc 1 385 18 is_stmt 1 view -0
+ 1748              		.cfi_startproc
+ 1749              		@ args = 0, pretend = 0, frame = 0
+ 1750              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1751 0000 10B5     		push	{r4, lr}
+ 1752              	.LCFI7:
+ 1753              		.cfi_def_cfa_offset 8
+ 1754              		.cfi_offset 4, -8
+ 1755              		.cfi_offset 14, -4
+ 386:Drivers/POCSAG/pocsag.c ****     HAL_Delay(200);
+ 1756              		.loc 1 386 5 view .LVU598
+ 1757 0002 C820     		movs	r0, #200
+ 1758 0004 FFF7FEFF 		bl	HAL_Delay
+ 1759              	.LVL122:
+ 387:Drivers/POCSAG/pocsag.c **** }
+ 1760              		.loc 1 387 1 is_stmt 0 view .LVU599
+ 1761              		@ sp needed
+ 1762 0008 10BD     		pop	{r4, pc}
+ 1763              		.cfi_endproc
+ 1764              	.LFE301:
+ 1766              		.section	.rodata.UartSendString.str1.4,"aMS",%progbits,1
+ 1767              		.align	2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 41
+
+
+ 1768              	.LC15:
+ 1769 0000 257300   		.ascii	"%s\000"
+ 1770              		.section	.text.UartSendString,"ax",%progbits
+ 1771              		.align	1
+ 1772              		.global	UartSendString
+ 1773              		.syntax unified
+ 1774              		.code	16
+ 1775              		.thumb_func
+ 1777              	UartSendString:
+ 1778              	.LVL123:
+ 1779              	.LFB302:
+ 388:Drivers/POCSAG/pocsag.c **** 
+ 389:Drivers/POCSAG/pocsag.c **** 
+ 390:Drivers/POCSAG/pocsag.c **** 
+ 391:Drivers/POCSAG/pocsag.c **** 
+ 392:Drivers/POCSAG/pocsag.c **** void UartSendString(unsigned char* ch, unsigned char n)  //串口发送字符串函数
+ 393:Drivers/POCSAG/pocsag.c **** {
+ 1780              		.loc 1 393 1 is_stmt 1 view -0
+ 1781              		.cfi_startproc
+ 1782              		@ args = 0, pretend = 0, frame = 0
+ 1783              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1784              		.loc 1 393 1 is_stmt 0 view .LVU601
+ 1785 0000 10B5     		push	{r4, lr}
+ 1786              	.LCFI8:
+ 1787              		.cfi_def_cfa_offset 8
+ 1788              		.cfi_offset 4, -8
+ 1789              		.cfi_offset 14, -4
+ 1790 0002 0100     		movs	r1, r0
+ 1791              	.LVL124:
+ 394:Drivers/POCSAG/pocsag.c ****     printf("%s",ch);
+ 1792              		.loc 1 394 5 is_stmt 1 view .LVU602
+ 1793 0004 024B     		ldr	r3, .L88
+ 1794 0006 1800     		movs	r0, r3
+ 1795              	.LVL125:
+ 1796              		.loc 1 394 5 is_stmt 0 view .LVU603
+ 1797 0008 FFF7FEFF 		bl	printf
+ 1798              	.LVL126:
+ 395:Drivers/POCSAG/pocsag.c **** }
+ 1799              		.loc 1 395 1 view .LVU604
+ 1800              		@ sp needed
+ 1801 000c 10BD     		pop	{r4, pc}
+ 1802              	.L89:
+ 1803 000e C046     		.align	2
+ 1804              	.L88:
+ 1805 0010 00000000 		.word	.LC15
+ 1806              		.cfi_endproc
+ 1807              	.LFE302:
+ 1809              		.section	.rodata.SendTxBuff.str1.4,"aMS",%progbits,1
+ 1810              		.align	2
+ 1811              	.LC17:
+ 1812 0000 55617274 		.ascii	"UartCount=\000"
+ 1812      436F756E 
+ 1812      743D00
+ 1813              		.global	__aeabi_uidiv
+ 1814 000b 00       		.align	2
+ 1815              	.LC21:
+ 1816 000c 256400   		.ascii	"%d\000"
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 42
+
+
+ 1817              		.global	__aeabi_uidivmod
+ 1818 000f 00       		.align	2
+ 1819              	.LC24:
+ 1820 0010 0D0A00   		.ascii	"\015\012\000"
+ 1821 0013 00       		.align	2
+ 1822              	.LC30:
+ 1823 0014 4F4B0D0A 		.ascii	"OK\015\012\000"
+ 1823      00
+ 1824              		.section	.text.SendTxBuff,"ax",%progbits
+ 1825              		.align	1
+ 1826              		.global	SendTxBuff
+ 1827              		.syntax unified
+ 1828              		.code	16
+ 1829              		.thumb_func
+ 1831              	SendTxBuff:
+ 1832              	.LFB300:
+ 311:Drivers/POCSAG/pocsag.c ****     //HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,GPIO_PIN_RESET);
+ 1833              		.loc 1 311 1 is_stmt 1 view -0
+ 1834              		.cfi_startproc
+ 1835              		@ args = 0, pretend = 0, frame = 0
+ 1836              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1837 0000 10B5     		push	{r4, lr}
+ 1838              	.LCFI9:
+ 1839              		.cfi_def_cfa_offset 8
+ 1840              		.cfi_offset 4, -8
+ 1841              		.cfi_offset 14, -4
+ 314:Drivers/POCSAG/pocsag.c ****     SBUF = UartCount / 100 + '0';
+ 1842              		.loc 1 314 5 view .LVU606
+ 1843 0002 4248     		ldr	r0, .L107
+ 1844 0004 0A21     		movs	r1, #10
+ 1845 0006 FFF7FEFF 		bl	UartSendString
+ 1846              	.LVL127:
+ 315:Drivers/POCSAG/pocsag.c ****     printf("%d",SBUF);
+ 1847              		.loc 1 315 5 view .LVU607
+ 315:Drivers/POCSAG/pocsag.c ****     printf("%d",SBUF);
+ 1848              		.loc 1 315 28 is_stmt 0 view .LVU608
+ 1849 000a 414B     		ldr	r3, .L107+4
+ 1850 000c 1888     		ldrh	r0, [r3]
+ 1851 000e 6421     		movs	r1, #100
+ 1852 0010 FFF7FEFF 		bl	__aeabi_uidiv
+ 1853              	.LVL128:
+ 1854 0014 3030     		adds	r0, r0, #48
+ 1855 0016 C1B2     		uxtb	r1, r0
+ 315:Drivers/POCSAG/pocsag.c ****     printf("%d",SBUF);
+ 1856              		.loc 1 315 10 view .LVU609
+ 1857 0018 3E4B     		ldr	r3, .L107+8
+ 1858 001a 1970     		strb	r1, [r3]
+ 316:Drivers/POCSAG/pocsag.c ****     while(TI == 0);
+ 1859              		.loc 1 316 5 is_stmt 1 view .LVU610
+ 1860 001c 3E48     		ldr	r0, .L107+12
+ 1861 001e FFF7FEFF 		bl	printf
+ 1862              	.LVL129:
+ 317:Drivers/POCSAG/pocsag.c ****     TI = 0;
+ 1863              		.loc 1 317 5 view .LVU611
+ 1864              	.L91:
+ 317:Drivers/POCSAG/pocsag.c ****     TI = 0;
+ 1865              		.loc 1 317 14 discriminator 1 view .LVU612
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 43
+
+
+ 1866 0022 3E4B     		ldr	r3, .L107+16
+ 1867 0024 1B78     		ldrb	r3, [r3]
+ 1868 0026 002B     		cmp	r3, #0
+ 1869 0028 FBD0     		beq	.L91
+ 318:Drivers/POCSAG/pocsag.c ****     SBUF = (UartCount / 10) % 10 + '0';
+ 1870              		.loc 1 318 5 view .LVU613
+ 318:Drivers/POCSAG/pocsag.c ****     SBUF = (UartCount / 10) % 10 + '0';
+ 1871              		.loc 1 318 8 is_stmt 0 view .LVU614
+ 1872 002a 3C4B     		ldr	r3, .L107+16
+ 1873 002c 0022     		movs	r2, #0
+ 1874 002e 1A70     		strb	r2, [r3]
+ 319:Drivers/POCSAG/pocsag.c ****     printf("%d",SBUF);
+ 1875              		.loc 1 319 5 is_stmt 1 view .LVU615
+ 319:Drivers/POCSAG/pocsag.c ****     printf("%d",SBUF);
+ 1876              		.loc 1 319 34 is_stmt 0 view .LVU616
+ 1877 0030 374B     		ldr	r3, .L107+4
+ 1878 0032 1888     		ldrh	r0, [r3]
+ 1879 0034 0A21     		movs	r1, #10
+ 1880 0036 FFF7FEFF 		bl	__aeabi_uidiv
+ 1881              	.LVL130:
+ 1882 003a 80B2     		uxth	r0, r0
+ 1883 003c 0A21     		movs	r1, #10
+ 1884 003e FFF7FEFF 		bl	__aeabi_uidivmod
+ 1885              	.LVL131:
+ 1886 0042 3031     		adds	r1, r1, #48
+ 1887 0044 C9B2     		uxtb	r1, r1
+ 319:Drivers/POCSAG/pocsag.c ****     printf("%d",SBUF);
+ 1888              		.loc 1 319 10 view .LVU617
+ 1889 0046 334B     		ldr	r3, .L107+8
+ 1890 0048 1970     		strb	r1, [r3]
+ 320:Drivers/POCSAG/pocsag.c ****     while(TI == 0);
+ 1891              		.loc 1 320 5 is_stmt 1 view .LVU618
+ 1892 004a 3348     		ldr	r0, .L107+12
+ 1893 004c FFF7FEFF 		bl	printf
+ 1894              	.LVL132:
+ 321:Drivers/POCSAG/pocsag.c ****     TI = 0;
+ 1895              		.loc 1 321 5 view .LVU619
+ 1896              	.L92:
+ 321:Drivers/POCSAG/pocsag.c ****     TI = 0;
+ 1897              		.loc 1 321 14 discriminator 1 view .LVU620
+ 1898 0050 324B     		ldr	r3, .L107+16
+ 1899 0052 1B78     		ldrb	r3, [r3]
+ 1900 0054 002B     		cmp	r3, #0
+ 1901 0056 FBD0     		beq	.L92
+ 322:Drivers/POCSAG/pocsag.c ****     SBUF = UartCount % 10 + '0';
+ 1902              		.loc 1 322 5 view .LVU621
+ 322:Drivers/POCSAG/pocsag.c ****     SBUF = UartCount % 10 + '0';
+ 1903              		.loc 1 322 8 is_stmt 0 view .LVU622
+ 1904 0058 304B     		ldr	r3, .L107+16
+ 1905 005a 0022     		movs	r2, #0
+ 1906 005c 1A70     		strb	r2, [r3]
+ 323:Drivers/POCSAG/pocsag.c ****     printf("%d",SBUF);
+ 1907              		.loc 1 323 5 is_stmt 1 view .LVU623
+ 323:Drivers/POCSAG/pocsag.c ****     printf("%d",SBUF);
+ 1908              		.loc 1 323 27 is_stmt 0 view .LVU624
+ 1909 005e 2C4B     		ldr	r3, .L107+4
+ 1910 0060 1888     		ldrh	r0, [r3]
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 44
+
+
+ 1911 0062 0A21     		movs	r1, #10
+ 1912 0064 FFF7FEFF 		bl	__aeabi_uidivmod
+ 1913              	.LVL133:
+ 1914 0068 3031     		adds	r1, r1, #48
+ 1915 006a C9B2     		uxtb	r1, r1
+ 323:Drivers/POCSAG/pocsag.c ****     printf("%d",SBUF);
+ 1916              		.loc 1 323 10 view .LVU625
+ 1917 006c 294B     		ldr	r3, .L107+8
+ 1918 006e 1970     		strb	r1, [r3]
+ 324:Drivers/POCSAG/pocsag.c ****     while(TI == 0);
+ 1919              		.loc 1 324 5 is_stmt 1 view .LVU626
+ 1920 0070 2948     		ldr	r0, .L107+12
+ 1921 0072 FFF7FEFF 		bl	printf
+ 1922              	.LVL134:
+ 325:Drivers/POCSAG/pocsag.c ****     TI = 0;
+ 1923              		.loc 1 325 5 view .LVU627
+ 1924              	.L93:
+ 325:Drivers/POCSAG/pocsag.c ****     TI = 0;
+ 1925              		.loc 1 325 14 discriminator 1 view .LVU628
+ 1926 0076 294B     		ldr	r3, .L107+16
+ 1927 0078 1B78     		ldrb	r3, [r3]
+ 1928 007a 002B     		cmp	r3, #0
+ 1929 007c FBD0     		beq	.L93
+ 326:Drivers/POCSAG/pocsag.c ****     UartSendString("\r\n",2);
+ 1930              		.loc 1 326 5 view .LVU629
+ 326:Drivers/POCSAG/pocsag.c ****     UartSendString("\r\n",2);
+ 1931              		.loc 1 326 8 is_stmt 0 view .LVU630
+ 1932 007e 274B     		ldr	r3, .L107+16
+ 1933 0080 0022     		movs	r2, #0
+ 1934 0082 1A70     		strb	r2, [r3]
+ 327:Drivers/POCSAG/pocsag.c **** 
+ 1935              		.loc 1 327 5 is_stmt 1 view .LVU631
+ 1936 0084 2648     		ldr	r0, .L107+20
+ 1937 0086 0221     		movs	r1, #2
+ 1938 0088 FFF7FEFF 		bl	UartSendString
+ 1939              	.LVL135:
+ 329:Drivers/POCSAG/pocsag.c ****     
+ 1940              		.loc 1 329 5 view .LVU632
+ 333:Drivers/POCSAG/pocsag.c ****     if(UartBuff[SPEED] == 'L')
+ 1941              		.loc 1 333 5 view .LVU633
+ 1942 008c FFF7FEFF 		bl	Delay200ms
+ 1943              	.LVL136:
+ 334:Drivers/POCSAG/pocsag.c ****     {
+ 1944              		.loc 1 334 5 view .LVU634
+ 334:Drivers/POCSAG/pocsag.c ****     {
+ 1945              		.loc 1 334 16 is_stmt 0 view .LVU635
+ 1946 0090 244B     		ldr	r3, .L107+24
+ 1947 0092 9B7A     		ldrb	r3, [r3, #10]
+ 334:Drivers/POCSAG/pocsag.c ****     {
+ 1948              		.loc 1 334 7 view .LVU636
+ 1949 0094 4C2B     		cmp	r3, #76
+ 1950 0096 05D0     		beq	.L103
+ 1951              	.L94:
+ 341:Drivers/POCSAG/pocsag.c ****     {
+ 1952              		.loc 1 341 5 is_stmt 1 view .LVU637
+ 341:Drivers/POCSAG/pocsag.c ****     {
+ 1953              		.loc 1 341 7 is_stmt 0 view .LVU638
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 45
+
+
+ 1954 0098 482B     		cmp	r3, #72
+ 1955 009a 0BD0     		beq	.L104
+ 1956              	.L95:
+ 348:Drivers/POCSAG/pocsag.c ****         txSpeed=BPS_2400;
+ 1957              		.loc 1 348 5 is_stmt 1 view .LVU639
+ 348:Drivers/POCSAG/pocsag.c ****         txSpeed=BPS_2400;
+ 1958              		.loc 1 348 7 is_stmt 0 view .LVU640
+ 1959 009c 532B     		cmp	r3, #83
+ 1960 009e 10D0     		beq	.L105
+ 1961              	.L96:
+ 311:Drivers/POCSAG/pocsag.c ****     //HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,GPIO_PIN_RESET);
+ 1962              		.loc 1 311 1 discriminator 1 view .LVU641
+ 1963 00a0 0023     		movs	r3, #0
+ 1964 00a2 15E0     		b	.L97
+ 1965              	.L103:
+ 338:Drivers/POCSAG/pocsag.c ****         txSpeed=BPS_512;
+ 1966              		.loc 1 338 9 is_stmt 1 view .LVU642
+ 338:Drivers/POCSAG/pocsag.c ****         txSpeed=BPS_512;
+ 1967              		.loc 1 338 22 is_stmt 0 view .LVU643
+ 1968 00a4 204A     		ldr	r2, .L107+28
+ 1969 00a6 2149     		ldr	r1, .L107+32
+ 1970 00a8 1180     		strh	r1, [r2]
+ 339:Drivers/POCSAG/pocsag.c ****     }
+ 1971              		.loc 1 339 9 is_stmt 1 view .LVU644
+ 339:Drivers/POCSAG/pocsag.c ****     }
+ 1972              		.loc 1 339 16 is_stmt 0 view .LVU645
+ 1973 00aa 214A     		ldr	r2, .L107+36
+ 1974 00ac F421     		movs	r1, #244
+ 1975 00ae C900     		lsls	r1, r1, #3
+ 1976 00b0 1180     		strh	r1, [r2]
+ 1977 00b2 F1E7     		b	.L94
+ 1978              	.L104:
+ 345:Drivers/POCSAG/pocsag.c ****         txSpeed=BPS_1200;
+ 1979              		.loc 1 345 9 is_stmt 1 view .LVU646
+ 345:Drivers/POCSAG/pocsag.c ****         txSpeed=BPS_1200;
+ 1980              		.loc 1 345 22 is_stmt 0 view .LVU647
+ 1981 00b4 1C4A     		ldr	r2, .L107+28
+ 1982 00b6 1F49     		ldr	r1, .L107+40
+ 1983 00b8 1180     		strh	r1, [r2]
+ 346:Drivers/POCSAG/pocsag.c ****     }
+ 1984              		.loc 1 346 9 is_stmt 1 view .LVU648
+ 346:Drivers/POCSAG/pocsag.c ****     }
+ 1985              		.loc 1 346 16 is_stmt 0 view .LVU649
+ 1986 00ba 1D4A     		ldr	r2, .L107+36
+ 1987 00bc 1E49     		ldr	r1, .L107+44
+ 1988 00be 1180     		strh	r1, [r2]
+ 1989 00c0 ECE7     		b	.L95
+ 1990              	.L105:
+ 349:Drivers/POCSAG/pocsag.c ****     }
+ 1991              		.loc 1 349 9 is_stmt 1 view .LVU650
+ 349:Drivers/POCSAG/pocsag.c ****     }
+ 1992              		.loc 1 349 16 is_stmt 0 view .LVU651
+ 1993 00c2 1B4B     		ldr	r3, .L107+36
+ 1994 00c4 D022     		movs	r2, #208
+ 1995 00c6 5200     		lsls	r2, r2, #1
+ 1996 00c8 1A80     		strh	r2, [r3]
+ 1997 00ca E9E7     		b	.L96
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 46
+
+
+ 1998              	.LVL137:
+ 1999              	.L98:
+ 357:Drivers/POCSAG/pocsag.c ****     }
+ 2000              		.loc 1 357 9 is_stmt 1 discriminator 3 view .LVU652
+ 355:Drivers/POCSAG/pocsag.c ****     {
+ 2001              		.loc 1 355 25 discriminator 3 view .LVU653
+ 2002 00cc 0133     		adds	r3, r3, #1
+ 2003              	.LVL138:
+ 355:Drivers/POCSAG/pocsag.c ****     {
+ 2004              		.loc 1 355 25 is_stmt 0 discriminator 3 view .LVU654
+ 2005 00ce 9BB2     		uxth	r3, r3
+ 2006              	.LVL139:
+ 2007              	.L97:
+ 355:Drivers/POCSAG/pocsag.c ****     {
+ 2008              		.loc 1 355 18 is_stmt 1 discriminator 1 view .LVU655
+ 2009 00d0 112B     		cmp	r3, #17
+ 2010 00d2 FBD9     		bls	.L98
+ 362:Drivers/POCSAG/pocsag.c ****     {
+ 2011              		.loc 1 362 11 is_stmt 0 view .LVU656
+ 2012 00d4 0023     		movs	r3, #0
+ 2013              	.LVL140:
+ 362:Drivers/POCSAG/pocsag.c ****     {
+ 2014              		.loc 1 362 11 view .LVU657
+ 2015 00d6 01E0     		b	.L99
+ 2016              	.LVL141:
+ 2017              	.L106:
+ 366:Drivers/POCSAG/pocsag.c ****     }
+ 2018              		.loc 1 366 9 is_stmt 1 discriminator 2 view .LVU658
+ 362:Drivers/POCSAG/pocsag.c ****     {
+ 2019              		.loc 1 362 34 discriminator 2 view .LVU659
+ 2020 00d8 0133     		adds	r3, r3, #1
+ 2021              	.LVL142:
+ 362:Drivers/POCSAG/pocsag.c ****     {
+ 2022              		.loc 1 362 34 is_stmt 0 discriminator 2 view .LVU660
+ 2023 00da 9BB2     		uxth	r3, r3
+ 2024              	.LVL143:
+ 2025              	.L99:
+ 362:Drivers/POCSAG/pocsag.c ****     {
+ 2026              		.loc 1 362 18 is_stmt 1 discriminator 1 view .LVU661
+ 2027 00dc C72B     		cmp	r3, #199
+ 2028 00de 05D8     		bhi	.L100
+ 364:Drivers/POCSAG/pocsag.c ****             break;
+ 2029              		.loc 1 364 9 view .LVU662
+ 364:Drivers/POCSAG/pocsag.c ****             break;
+ 2030              		.loc 1 364 18 is_stmt 0 view .LVU663
+ 2031 00e0 164A     		ldr	r2, .L107+48
+ 2032 00e2 9900     		lsls	r1, r3, #2
+ 2033 00e4 8A58     		ldr	r2, [r1, r2]
+ 364:Drivers/POCSAG/pocsag.c ****             break;
+ 2034              		.loc 1 364 36 view .LVU664
+ 2035 00e6 013A     		subs	r2, r2, #1
+ 364:Drivers/POCSAG/pocsag.c ****             break;
+ 2036              		.loc 1 364 11 view .LVU665
+ 2037 00e8 0332     		adds	r2, r2, #3
+ 2038 00ea F5D9     		bls	.L106
+ 2039              	.L100:
+ 373:Drivers/POCSAG/pocsag.c ****     Delay200ms();
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 47
+
+
+ 2040              		.loc 1 373 5 is_stmt 1 view .LVU666
+ 2041 00ec FFF7FEFF 		bl	Delay200ms
+ 2042              	.LVL144:
+ 374:Drivers/POCSAG/pocsag.c ****     Delay200ms();
+ 2043              		.loc 1 374 5 view .LVU667
+ 2044 00f0 FFF7FEFF 		bl	Delay200ms
+ 2045              	.LVL145:
+ 375:Drivers/POCSAG/pocsag.c ****     //HAL_GPIO_WritePin(PTT_PORT,PTT_PIN,GPIO_PIN_SET);
+ 2046              		.loc 1 375 5 view .LVU668
+ 2047 00f4 FFF7FEFF 		bl	Delay200ms
+ 2048              	.LVL146:
+ 379:Drivers/POCSAG/pocsag.c ****     HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,GPIO_PIN_SET);
+ 2049              		.loc 1 379 5 view .LVU669
+ 2050 00f8 1148     		ldr	r0, .L107+52
+ 2051 00fa 0421     		movs	r1, #4
+ 2052 00fc FFF7FEFF 		bl	UartSendString
+ 2053              	.LVL147:
+ 380:Drivers/POCSAG/pocsag.c **** 
+ 2054              		.loc 1 380 5 view .LVU670
+ 2055 0100 0122     		movs	r2, #1
+ 2056 0102 0121     		movs	r1, #1
+ 2057 0104 0F48     		ldr	r0, .L107+56
+ 2058 0106 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 2059              	.LVL148:
+ 382:Drivers/POCSAG/pocsag.c **** 
+ 2060              		.loc 1 382 1 is_stmt 0 view .LVU671
+ 2061              		@ sp needed
+ 2062 010a 10BD     		pop	{r4, pc}
+ 2063              	.L108:
+ 2064              		.align	2
+ 2065              	.L107:
+ 2066 010c 00000000 		.word	.LC17
+ 2067 0110 00000000 		.word	UartCount
+ 2068 0114 00000000 		.word	SBUF
+ 2069 0118 0C000000 		.word	.LC21
+ 2070 011c 00000000 		.word	TI
+ 2071 0120 10000000 		.word	.LC24
+ 2072 0124 00000000 		.word	UartBuff
+ 2073 0128 00000000 		.word	Timer_Counter
+ 2074 012c AAB3FFFF 		.word	-19542
+ 2075 0130 00000000 		.word	txSpeed
+ 2076 0134 71DFFFFF 		.word	-8335
+ 2077 0138 41030000 		.word	833
+ 2078 013c 00000000 		.word	TxBuff
+ 2079 0140 14000000 		.word	.LC30
+ 2080 0144 00040050 		.word	1342178304
+ 2081              		.cfi_endproc
+ 2082              	.LFE300:
+ 2084              		.section	.text.UART_RxData,"ax",%progbits
+ 2085              		.align	1
+ 2086              		.global	UART_RxData
+ 2087              		.syntax unified
+ 2088              		.code	16
+ 2089              		.thumb_func
+ 2091              	UART_RxData:
+ 2092              	.LFB303:
+ 396:Drivers/POCSAG/pocsag.c **** 
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 48
+
+
+ 397:Drivers/POCSAG/pocsag.c **** 
+ 398:Drivers/POCSAG/pocsag.c **** void UART_RxData()  //串口接收中断函数
+ 399:Drivers/POCSAG/pocsag.c **** {
+ 2093              		.loc 1 399 1 is_stmt 1 view -0
+ 2094              		.cfi_startproc
+ 2095              		@ args = 0, pretend = 0, frame = 0
+ 2096              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2097              		@ link register save eliminated.
+ 400:Drivers/POCSAG/pocsag.c ****         if(UartTmp == '#')              //串口开头
+ 2098              		.loc 1 400 9 view .LVU673
+ 2099              		.loc 1 400 20 is_stmt 0 view .LVU674
+ 2100 0000 104B     		ldr	r3, .L115
+ 2101 0002 1B78     		ldrb	r3, [r3]
+ 2102              		.loc 1 400 11 view .LVU675
+ 2103 0004 232B     		cmp	r3, #35
+ 2104 0006 11D0     		beq	.L113
+ 2105              	.L110:
+ 401:Drivers/POCSAG/pocsag.c ****             UartCount = 0;
+ 402:Drivers/POCSAG/pocsag.c ****         if(UartTmp == '$')              //串口结尾
+ 2106              		.loc 1 402 9 is_stmt 1 view .LVU676
+ 2107              		.loc 1 402 11 is_stmt 0 view .LVU677
+ 2108 0008 242B     		cmp	r3, #36
+ 2109 000a 13D0     		beq	.L114
+ 2110              	.L111:
+ 403:Drivers/POCSAG/pocsag.c ****         {
+ 404:Drivers/POCSAG/pocsag.c ****             UartTmp = 0x00;
+ 405:Drivers/POCSAG/pocsag.c ****             NewData = 1;
+ 406:Drivers/POCSAG/pocsag.c ****         }
+ 407:Drivers/POCSAG/pocsag.c ****         UartBuff[UartCount] = UartTmp;
+ 2111              		.loc 1 407 9 is_stmt 1 view .LVU678
+ 2112              		.loc 1 407 17 is_stmt 0 view .LVU679
+ 2113 000c 0E49     		ldr	r1, .L115+4
+ 2114 000e 0B88     		ldrh	r3, [r1]
+ 2115              		.loc 1 407 29 view .LVU680
+ 2116 0010 0E4A     		ldr	r2, .L115+8
+ 2117 0012 0C48     		ldr	r0, .L115
+ 2118 0014 0078     		ldrb	r0, [r0]
+ 2119 0016 D054     		strb	r0, [r2, r3]
+ 408:Drivers/POCSAG/pocsag.c ****         UartCount++;                     //串口计数
+ 2120              		.loc 1 408 9 is_stmt 1 view .LVU681
+ 2121              		.loc 1 408 18 is_stmt 0 view .LVU682
+ 2122 0018 0133     		adds	r3, r3, #1
+ 2123 001a 9BB2     		uxth	r3, r3
+ 2124 001c 0B80     		strh	r3, [r1]
+ 409:Drivers/POCSAG/pocsag.c ****         if(UartCount >= UARTBUFF_SIZE)   //超出缓冲区归零
+ 2125              		.loc 1 409 9 is_stmt 1 view .LVU683
+ 2126              		.loc 1 409 11 is_stmt 0 view .LVU684
+ 2127 001e C822     		movs	r2, #200
+ 2128 0020 5200     		lsls	r2, r2, #1
+ 2129 0022 9342     		cmp	r3, r2
+ 2130 0024 01D3     		bcc	.L109
+ 410:Drivers/POCSAG/pocsag.c ****             UartCount = 0;
+ 2131              		.loc 1 410 13 is_stmt 1 view .LVU685
+ 2132              		.loc 1 410 23 is_stmt 0 view .LVU686
+ 2133 0026 0022     		movs	r2, #0
+ 2134 0028 0A80     		strh	r2, [r1]
+ 2135              	.L109:
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 49
+
+
+ 411:Drivers/POCSAG/pocsag.c **** }
+ 2136              		.loc 1 411 1 view .LVU687
+ 2137              		@ sp needed
+ 2138 002a 7047     		bx	lr
+ 2139              	.L113:
+ 401:Drivers/POCSAG/pocsag.c ****         if(UartTmp == '$')              //串口结尾
+ 2140              		.loc 1 401 13 is_stmt 1 view .LVU688
+ 401:Drivers/POCSAG/pocsag.c ****         if(UartTmp == '$')              //串口结尾
+ 2141              		.loc 1 401 23 is_stmt 0 view .LVU689
+ 2142 002c 064A     		ldr	r2, .L115+4
+ 2143 002e 0021     		movs	r1, #0
+ 2144 0030 1180     		strh	r1, [r2]
+ 2145 0032 E9E7     		b	.L110
+ 2146              	.L114:
+ 404:Drivers/POCSAG/pocsag.c ****             NewData = 1;
+ 2147              		.loc 1 404 13 is_stmt 1 view .LVU690
+ 404:Drivers/POCSAG/pocsag.c ****             NewData = 1;
+ 2148              		.loc 1 404 21 is_stmt 0 view .LVU691
+ 2149 0034 034B     		ldr	r3, .L115
+ 2150 0036 0022     		movs	r2, #0
+ 2151 0038 1A70     		strb	r2, [r3]
+ 405:Drivers/POCSAG/pocsag.c ****         }
+ 2152              		.loc 1 405 13 is_stmt 1 view .LVU692
+ 405:Drivers/POCSAG/pocsag.c ****         }
+ 2153              		.loc 1 405 21 is_stmt 0 view .LVU693
+ 2154 003a 054B     		ldr	r3, .L115+12
+ 2155 003c 0132     		adds	r2, r2, #1
+ 2156 003e 1A70     		strb	r2, [r3]
+ 2157 0040 E4E7     		b	.L111
+ 2158              	.L116:
+ 2159 0042 C046     		.align	2
+ 2160              	.L115:
+ 2161 0044 00000000 		.word	UartTmp
+ 2162 0048 00000000 		.word	UartCount
+ 2163 004c 00000000 		.word	UartBuff
+ 2164 0050 00000000 		.word	NewData
+ 2165              		.cfi_endproc
+ 2166              	.LFE303:
+ 2168              		.global	txSpeed
+ 2169              		.section	.bss.txSpeed,"aw",%nobits
+ 2170              		.align	1
+ 2173              	txSpeed:
+ 2174 0000 0000     		.space	2
+ 2175              		.global	Timer_Counter
+ 2176              		.section	.bss.Timer_Counter,"aw",%nobits
+ 2177              		.align	1
+ 2180              	Timer_Counter:
+ 2181 0000 0000     		.space	2
+ 2182              		.global	TI
+ 2183              		.section	.bss.TI,"aw",%nobits
+ 2186              	TI:
+ 2187 0000 00       		.space	1
+ 2188              		.global	SBUF
+ 2189              		.section	.bss.SBUF,"aw",%nobits
+ 2192              	SBUF:
+ 2193 0000 00       		.space	1
+ 2194              		.global	TM0_FLAG
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 50
+
+
+ 2195              		.section	.bss.TM0_FLAG,"aw",%nobits
+ 2198              	TM0_FLAG:
+ 2199 0000 00       		.space	1
+ 2200              		.global	NewData
+ 2201              		.section	.bss.NewData,"aw",%nobits
+ 2204              	NewData:
+ 2205 0000 00       		.space	1
+ 2206              		.global	UartTmp
+ 2207              		.section	.bss.UartTmp,"aw",%nobits
+ 2210              	UartTmp:
+ 2211 0000 00       		.space	1
+ 2212              		.global	UartCount
+ 2213              		.section	.data.UartCount,"aw"
+ 2214              		.align	1
+ 2217              	UartCount:
+ 2218 0000 0D00     		.short	13
+ 2219              		.global	UartBuff
+ 2220              		.section	.data.UartBuff,"aw"
+ 2221              		.align	2
+ 2224              	UartBuff:
+ 2225 0000 23503132 		.ascii	"#P12345674HT0001$\000"
+ 2225      33343536 
+ 2225      37344854 
+ 2225      30303031 
+ 2225      2400
+ 2226 0012 00000000 		.space	382
+ 2226      00000000 
+ 2226      00000000 
+ 2226      00000000 
+ 2226      00000000 
+ 2227              		.global	beep
+ 2228              		.section	.bss.beep,"aw",%nobits
+ 2231              	beep:
+ 2232 0000 00       		.space	1
+ 2233              		.global	Tx_Num
+ 2234              		.section	.bss.Tx_Num,"aw",%nobits
+ 2237              	Tx_Num:
+ 2238 0000 00       		.space	1
+ 2239              		.global	TxBuff
+ 2240              		.section	.bss.TxBuff,"aw",%nobits
+ 2241              		.align	2
+ 2244              	TxBuff:
+ 2245 0000 00000000 		.space	800
+ 2245      00000000 
+ 2245      00000000 
+ 2245      00000000 
+ 2245      00000000 
+ 2246              		.text
+ 2247              	.Letext0:
+ 2248              		.file 2 "f:\\vscode-for-stm32\\gcc\\12.2-mpacbti-bet1\\arm-none-eabi\\include\\machine\\_default_t
+ 2249              		.file 3 "f:\\vscode-for-stm32\\gcc\\12.2-mpacbti-bet1\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 2250              		.file 4 "Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g030xx.h"
+ 2251              		.file 5 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_gpio.h"
+ 2252              		.file 6 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h"
+ 2253              		.file 7 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
+ 2254              		.file 8 "f:\\vscode-for-stm32\\gcc\\12.2-mpacbti-bet1\\arm-none-eabi\\include\\stdio.h"
+ 2255              		.file 9 "<built-in>"
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 51
+
+
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 52
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 pocsag.c
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:19     .text.calc_bch_and_parity:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:25     .text.calc_bch_and_parity:00000000 calc_bch_and_parity
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:148    .text.calc_bch_and_parity:00000048 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:154    .text.calc_addr:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:160    .text.calc_addr:00000000 calc_addr
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:205    .text.calc_addr:00000014 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2237   .bss.Tx_Num:00000000 Tx_Num
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:210    .text.Send_Num:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:216    .text.Send_Num:00000000 Send_Num
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:252    .text.Empty_Buff:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:258    .text.Empty_Buff:00000000 Empty_Buff
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:320    .text.Empty_Buff:0000002c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2224   .data.UartBuff:00000000 UartBuff
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2244   .bss.TxBuff:00000000 TxBuff
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:326    .text.GetAddrNumber:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:332    .text.GetAddrNumber:00000000 GetAddrNumber
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:504    .text.GetAddrNumber:0000009c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2231   .bss.beep:00000000 beep
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:518    .text.calc_NumberData:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:524    .text.calc_NumberData:00000000 calc_NumberData
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1082   .text.calc_NumberData:0000022c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2217   .data.UartCount:00000000 UartCount
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1097   .text.calc_TextData:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1103   .text.calc_TextData:00000000 calc_TextData
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1727   .text.calc_TextData:000002a0 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1739   .text.Delay200ms:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1745   .text.Delay200ms:00000000 Delay200ms
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1767   .rodata.UartSendString.str1.4:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1771   .text.UartSendString:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1777   .text.UartSendString:00000000 UartSendString
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1805   .text.UartSendString:00000010 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1810   .rodata.SendTxBuff.str1.4:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1825   .text.SendTxBuff:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:1831   .text.SendTxBuff:00000000 SendTxBuff
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2066   .text.SendTxBuff:0000010c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2192   .bss.SBUF:00000000 SBUF
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2186   .bss.TI:00000000 TI
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2180   .bss.Timer_Counter:00000000 Timer_Counter
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2173   .bss.txSpeed:00000000 txSpeed
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2085   .text.UART_RxData:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2091   .text.UART_RxData:00000000 UART_RxData
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2161   .text.UART_RxData:00000044 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2210   .bss.UartTmp:00000000 UartTmp
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2204   .bss.NewData:00000000 NewData
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2170   .bss.txSpeed:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2177   .bss.Timer_Counter:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2187   .bss.TI:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2193   .bss.SBUF:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2198   .bss.TM0_FLAG:00000000 TM0_FLAG
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2199   .bss.TM0_FLAG:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2205   .bss.NewData:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2211   .bss.UartTmp:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2214   .data.UartCount:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2221   .data.UartBuff:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2232   .bss.beep:00000000 $d
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s 			page 53
+
+
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2238   .bss.Tx_Num:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccmN6g4a.s:2241   .bss.TxBuff:00000000 $d
+
+UNDEFINED SYMBOLS
+__aeabi_i2f
+__aeabi_fcmple
+__aeabi_fadd
+memset
+__aeabi_f2d
+__aeabi_dadd
+__aeabi_d2f
+HAL_Delay
+printf
+__aeabi_uidiv
+__aeabi_uidivmod
+HAL_GPIO_WritePin

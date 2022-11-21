@@ -1,0 +1,33 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Build STM32",
+			"command": "make",
+			"args": [],
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		},
+		{
+			"type": "shell",
+			"label": "Build and Download",
+			"command": "openocd",
+			"args": [
+				"-f",
+				"F:/VSCode-for-STM32/OpenOCD/share/openocd/scripts/interface/cmsis-dap.cfg",
+				"-f",
+				"F:/VSCode-for-STM32/OpenOCD/share/openocd/scripts/target/stm32g0x.cfg",
+				"-c",
+				"program build/STM32G030C8T6_SI4463.elf verify reset exit"
+			],
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"dependsOn": "Build STM32 Firmware"
+		}
+	]
+}
