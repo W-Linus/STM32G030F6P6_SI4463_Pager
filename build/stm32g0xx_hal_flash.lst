@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
   30:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****       (+) 32 cache lines of 4*64 bits on I-Code
   31:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****       (+) Error code correction (ECC) : Data in flash are 72-bits word
   32:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****           (8 bits added per double word)
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 2
 
 
   33:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
   87:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
   88:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** /** @addtogroup STM32G0xx_HAL_Driver
   89:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   * @{
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 3
 
 
   90:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  144:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     This subsection provides a set of functions allowing to manage the FLASH
  145:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     program operations.
  146:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 4
 
 
  147:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** @endverbatim
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  201:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
  202:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     /* If the program operation is completed, disable the PG or FSTPG Bit */
  203:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     CLEAR_BIT(FLASH->CR, TypeProgram);
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 5
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 5
 
 
  204:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   }
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  258:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****       /* Check the parameters */
  259:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****       assert_param(IS_FLASH_PROGRAM_ADDRESS(Address));
  260:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 6
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 6
 
 
  261:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****       /* Program double-word (64-bit) at a specified address */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  315:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   if (error != 0x00U)
  316:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   {
  317:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     /*Save the error code*/
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 7
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 7
 
 
  318:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     pFlash.ErrorCode |= error;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  372:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** }
  373:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
  374:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** /**
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 8
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 8
 
 
  375:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   * @brief  FLASH end of operation interrupt callback.
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  429:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** /**
  430:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   * @brief  Unlock the FLASH control register access.
  431:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   * @retval HAL Status
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 9
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 9
 
 
  432:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  486:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
  487:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     /* verify option bytes are unlocked */
  488:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     if (READ_BIT(FLASH->CR, FLASH_CR_OPTLOCK) == 0x00U)
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 10
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 10
 
 
  489:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  543:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     This subsection permits to get in run-time Errors of the FLASH peripheral.
  544:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
  545:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** @endverbatim
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 11
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 11
 
 
  546:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   * @{
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  600:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   error = (FLASH_SR_BSY1 | FLASH_SR_BSY2);
  601:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** #else
  602:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   error = FLASH_SR_BSY1;
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 12
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 12
 
 
  603:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** #endif /* FLASH_DBANK_SUPPORT */
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
   36              		.cfi_offset 5, -8
   37              		.cfi_offset 14, -4
  648:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   /* Set PG bit */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 13
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 13
 
 
  649:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   SET_BIT(FLASH->CR, FLASH_CR_PG);
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
   34:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
   35:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
   36:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 14
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 14
 
 
   37:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
   91:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
   92:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
   93:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 15
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 15
 
 
   94:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  148:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_start__;
  149:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_end__;
  150:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 16
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 16
 
 
  151:Drivers/CMSIS/Include/cmsis_gcc.h ****   for (__copy_table_t const* pTable = &__copy_table_start__; pTable < &__copy_table_end__; ++pTable
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  205:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  206:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  207:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 17
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 17
 
 
  208:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  262:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR control_ns, %0" : : "r" (control) : "memory");
  263:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  264:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 18
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 18
 
 
  265:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  319:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  320:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  321:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 19
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 19
 
 
  322:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  376:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  377:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
  378:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 20
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 20
 
 
  379:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Main Stack Pointer (non-secure)
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  433:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Stack Pointer (non-secure)
  434:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Stack Pointer (SP) when in secure state.
  435:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    topOfStack  Stack Pointer value to set
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 21
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 21
 
 
  436:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  490:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  491:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_PRIMASK_NS(uint32_t priMask)
  492:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 22
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 22
 
 
  493:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR primask_ns, %0" : : "r" (priMask) : "memory");
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  547:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, basepri_ns" : "=r" (result) );
  548:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  549:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 23
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 23
 
 
  550:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  604:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  605:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Fault Mask (non-secure)
  606:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Fault Mask register when in secure state.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 24
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 24
 
 
  607:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Fault Mask register value
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  661:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
  662:Drivers/CMSIS/Include/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
  663:Drivers/CMSIS/Include/cmsis_gcc.h ****     // without main extensions, the non-secure PSPLIM is RAZ/WI
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 25
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 25
 
 
  664:Drivers/CMSIS/Include/cmsis_gcc.h ****   return 0U;
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  718:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Process Stack Pointer (non-secure)
  719:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
  720:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 26
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 26
 
 
  721:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  775:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  776:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msplim_ns" : "=r" (result) );
  777:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 27
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 27
 
 
  778:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  832:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  833:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_FPSCR(void)
  834:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 28
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 28
 
 
  835:Drivers/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  889:Drivers/CMSIS/Include/cmsis_gcc.h **** #if defined (__thumb__) && !defined (__thumb2__)
  890:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_OUT_REG(r) "=l" (r)
  891:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_RW_REG(r) "+l" (r)
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 29
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 29
 
 
  892:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_USE_REG(r) "l" (r)
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
   61              	.LBE10:
  657:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
  658:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   /* Program second word */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 30
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 30
 
 
  659:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   *(uint32_t *)(Address + 4U) = (uint32_t)(Data >> 32U);
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  100 0002 0C4A     		ldr	r2, .L9
  101 0004 5469     		ldr	r4, [r2, #20]
  102 0006 8023     		movs	r3, #128
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 31
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 31
 
 
  103 0008 DB02     		lsls	r3, r3, #11
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  144              	.LVL4:
  145              	.L6:
  210:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 32
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 32
 
 
  146              		.loc 2 210 1 view .LVU29
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  698:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** #endif /* FLASH_DBANK_SUPPORT */
  176              		.loc 1 698 38 discriminator 1 view .LVU42
  177 0028 DB03     		lsls	r3, r3, #15
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 33
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 33
 
 
  178 002a FBD4     		bmi	.L7
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  225              	.LFE293:
  227              		.section	.text.HAL_FLASH_OperationErrorCallback,"ax",%progbits
  228              		.align	1
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 34
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 34
 
 
  229              		.weak	HAL_FLASH_OperationErrorCallback
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  292:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   {
  277              		.loc 1 292 3 is_stmt 1 view .LVU60
  292:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 35
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 35
 
 
  278              		.loc 1 292 14 is_stmt 0 view .LVU61
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  317 0030 204B     		ldr	r3, .L27+8
  318 0032 0022     		movs	r2, #0
  319 0034 9A60     		str	r2, [r3, #8]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 36
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 36
 
 
  320              	.L21:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  360              		.loc 1 302 5 view .LVU90
  302:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     {
  361              		.loc 1 302 34 is_stmt 0 view .LVU91
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 37
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 37
 
 
  362 005e 1749     		ldr	r1, .L27+16
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  327:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   }
  401              		.loc 1 327 5 is_stmt 1 view .LVU107
  402 0082 2000     		movs	r0, r4
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 38
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 38
 
 
  403 0084 FFF7FEFF 		bl	HAL_FLASH_OperationErrorCallback
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  447              		.section	.text.HAL_FLASH_Unlock,"ax",%progbits
  448              		.align	1
  449              		.global	HAL_FLASH_Unlock
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 39
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 39
 
 
  450              		.syntax unified
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  492 001a 01DB     		blt	.L32
  435:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
  493              		.loc 1 435 21 view .LVU132
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 40
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 40
 
 
  494 001c 0020     		movs	r0, #0
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  470:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** }
  542              		.loc 1 470 3 is_stmt 1 view .LVU141
  471:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 41
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 41
 
 
  543              		.loc 1 471 1 is_stmt 0 view .LVU142
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  589              		.loc 1 488 9 is_stmt 0 view .LVU152
  590 0012 5B69     		ldr	r3, [r3, #20]
  488:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 42
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 42
 
 
  591              		.loc 1 488 8 view .LVU153
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  640 0008 0A43     		orrs	r2, r1
  641 000a 5A61     		str	r2, [r3, #20]
  509:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 43
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 43
 
 
  642              		.loc 1 509 3 view .LVU161
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  689              		.loc 1 528 3 view .LVU170
  529:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
  690              		.loc 1 529 1 is_stmt 0 view .LVU171
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 44
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 44
 
 
  691 000c 0120     		movs	r0, #1
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  743              		.loc 1 591 1 is_stmt 0 view .LVU177
  744 0000 70B5     		push	{r4, r5, r6, lr}
  745              	.LCFI3:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 45
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 45
 
 
  746              		.cfi_def_cfa_offset 16
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  614:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
  786              		.loc 1 614 3 is_stmt 1 view .LVU192
  614:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 46
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 46
 
 
  787              		.loc 1 614 17 is_stmt 0 view .LVU193
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  825 003e 064B     		ldr	r3, .L69
  826 0040 1B69     		ldr	r3, [r3, #16]
  629:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****   {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 47
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 47
 
 
  827              		.loc 1 629 40 view .LVU210
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  876              		.cfi_offset 7, -8
  877              		.cfi_offset 14, -4
  878 0002 0700     		movs	r7, r0
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 48
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 48
 
 
  879 0004 0C00     		movs	r4, r1
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  193:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
  917              		.loc 1 193 7 is_stmt 1 view .LVU234
  196:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 49
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 49
 
 
  918              		.loc 1 196 7 view .LVU235
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  960 0050 2000     		movs	r0, r4
  961              	.LVL60:
  188:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 50
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 50
 
 
  962              		.loc 1 188 7 is_stmt 0 view .LVU248
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  1012              		.loc 1 231 3 view .LVU254
  234:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
  1013              		.loc 1 234 3 view .LVU255
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 51
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 51
 
 
  234:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  1053              		@ sp needed
  1054              	.LVL69:
  1055              	.LVL70:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 52
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 52
 
 
  276:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c **** 
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  1095 005a 3000     		movs	r0, r6
  1096              	.LVL75:
  262:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c ****     }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 53
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 53
 
 
  1097              		.loc 1 262 7 is_stmt 0 view .LVU286
@@ -3157,53 +3157,53 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 1
  1128              		.file 8 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
  1129              		.file 9 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h"
  1130              		.file 10 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_flash_ex.h"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s 			page 54
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s 			page 54
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g0xx_hal_flash.c
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:19     .text.FLASH_Program_DoubleWord:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:24     .text.FLASH_Program_DoubleWord:00000000 FLASH_Program_DoubleWord
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:71     .text.FLASH_Program_DoubleWord:00000018 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:76     .RamFunc:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:81     .RamFunc:00000000 FLASH_Program_Fast
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:201    .RamFunc:00000034 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:206    .text.HAL_FLASH_EndOfOperationCallback:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:212    .text.HAL_FLASH_EndOfOperationCallback:00000000 HAL_FLASH_EndOfOperationCallback
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:228    .text.HAL_FLASH_OperationErrorCallback:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:234    .text.HAL_FLASH_OperationErrorCallback:00000000 HAL_FLASH_OperationErrorCallback
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:250    .text.HAL_FLASH_IRQHandler:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:256    .text.HAL_FLASH_IRQHandler:00000000 HAL_FLASH_IRQHandler
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:439    .text.HAL_FLASH_IRQHandler:000000ac $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:1119   .bss.pFlash:00000000 pFlash
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:448    .text.HAL_FLASH_Unlock:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:454    .text.HAL_FLASH_Unlock:00000000 HAL_FLASH_Unlock
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:503    .text.HAL_FLASH_Unlock:00000024 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:510    .text.HAL_FLASH_Lock:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:516    .text.HAL_FLASH_Lock:00000000 HAL_FLASH_Lock
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:554    .text.HAL_FLASH_Lock:0000001c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:559    .text.HAL_FLASH_OB_Unlock:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:565    .text.HAL_FLASH_OB_Unlock:00000000 HAL_FLASH_OB_Unlock
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:613    .text.HAL_FLASH_OB_Unlock:00000024 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:620    .text.HAL_FLASH_OB_Lock:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:626    .text.HAL_FLASH_OB_Lock:00000000 HAL_FLASH_OB_Lock
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:664    .text.HAL_FLASH_OB_Lock:0000001c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:669    .text.HAL_FLASH_OB_Launch:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:675    .text.HAL_FLASH_OB_Launch:00000000 HAL_FLASH_OB_Launch
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:697    .text.HAL_FLASH_OB_Launch:00000010 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:702    .text.HAL_FLASH_GetError:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:708    .text.HAL_FLASH_GetError:00000000 HAL_FLASH_GetError
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:725    .text.HAL_FLASH_GetError:00000008 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:730    .text.FLASH_WaitForLastOperation:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:736    .text.FLASH_WaitForLastOperation:00000000 FLASH_WaitForLastOperation
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:847    .text.FLASH_WaitForLastOperation:00000058 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:855    .text.HAL_FLASH_Program:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:861    .text.HAL_FLASH_Program:00000000 HAL_FLASH_Program
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:976    .text.HAL_FLASH_Program:0000005c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:982    .text.HAL_FLASH_Program_IT:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:988    .text.HAL_FLASH_Program_IT:00000000 HAL_FLASH_Program_IT
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:1109   .text.HAL_FLASH_Program_IT:00000068 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccY9UHo0.s:1116   .bss.pFlash:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:19     .text.FLASH_Program_DoubleWord:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:24     .text.FLASH_Program_DoubleWord:00000000 FLASH_Program_DoubleWord
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:71     .text.FLASH_Program_DoubleWord:00000018 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:76     .RamFunc:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:81     .RamFunc:00000000 FLASH_Program_Fast
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:201    .RamFunc:00000034 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:206    .text.HAL_FLASH_EndOfOperationCallback:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:212    .text.HAL_FLASH_EndOfOperationCallback:00000000 HAL_FLASH_EndOfOperationCallback
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:228    .text.HAL_FLASH_OperationErrorCallback:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:234    .text.HAL_FLASH_OperationErrorCallback:00000000 HAL_FLASH_OperationErrorCallback
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:250    .text.HAL_FLASH_IRQHandler:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:256    .text.HAL_FLASH_IRQHandler:00000000 HAL_FLASH_IRQHandler
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:439    .text.HAL_FLASH_IRQHandler:000000ac $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:1119   .bss.pFlash:00000000 pFlash
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:448    .text.HAL_FLASH_Unlock:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:454    .text.HAL_FLASH_Unlock:00000000 HAL_FLASH_Unlock
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:503    .text.HAL_FLASH_Unlock:00000024 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:510    .text.HAL_FLASH_Lock:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:516    .text.HAL_FLASH_Lock:00000000 HAL_FLASH_Lock
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:554    .text.HAL_FLASH_Lock:0000001c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:559    .text.HAL_FLASH_OB_Unlock:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:565    .text.HAL_FLASH_OB_Unlock:00000000 HAL_FLASH_OB_Unlock
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:613    .text.HAL_FLASH_OB_Unlock:00000024 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:620    .text.HAL_FLASH_OB_Lock:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:626    .text.HAL_FLASH_OB_Lock:00000000 HAL_FLASH_OB_Lock
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:664    .text.HAL_FLASH_OB_Lock:0000001c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:669    .text.HAL_FLASH_OB_Launch:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:675    .text.HAL_FLASH_OB_Launch:00000000 HAL_FLASH_OB_Launch
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:697    .text.HAL_FLASH_OB_Launch:00000010 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:702    .text.HAL_FLASH_GetError:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:708    .text.HAL_FLASH_GetError:00000000 HAL_FLASH_GetError
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:725    .text.HAL_FLASH_GetError:00000008 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:730    .text.FLASH_WaitForLastOperation:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:736    .text.FLASH_WaitForLastOperation:00000000 FLASH_WaitForLastOperation
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:847    .text.FLASH_WaitForLastOperation:00000058 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:855    .text.HAL_FLASH_Program:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:861    .text.HAL_FLASH_Program:00000000 HAL_FLASH_Program
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:976    .text.HAL_FLASH_Program:0000005c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:982    .text.HAL_FLASH_Program_IT:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:988    .text.HAL_FLASH_Program_IT:00000000 HAL_FLASH_Program_IT
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:1109   .text.HAL_FLASH_Program_IT:00000068 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccqPoBei.s:1116   .bss.pFlash:00000000 $d
 
 UNDEFINED SYMBOLS
 FLASH_PageErase

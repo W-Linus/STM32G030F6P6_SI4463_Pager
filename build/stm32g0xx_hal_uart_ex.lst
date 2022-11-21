@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
   30:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     (#) For the UART RS485 Driver Enable mode, initialize the UART registers
   31:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****         by calling the HAL_RS485Ex_Init() API.
   32:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 2
 
 
   33:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     (#) FIFO mode enabling/disabling and RX/TX FIFO threshold programming.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
   87:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   */
   88:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
   89:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** /** @defgroup UARTEx_Exported_Functions_Group1 Initialization and de-initialization functions
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 3
 
 
   90:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   * @brief    Extended Initialization and Configuration Functions
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  144:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   * @{
  145:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   */
  146:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 4
 
 
  147:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** /**
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  201:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     /* Init the low level hardware */
  202:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     huart->MspInitCallback(huart);
  203:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** #else
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 5
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 5
 
 
  204:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     /* Init the low level hardware : GPIO, CLOCK, CORTEX */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  258:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  259:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     (#) TX/RX Fifos Callbacks:
  260:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****         (+) HAL_UARTEx_RxFifoFullCallback()
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 6
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 6
 
 
  261:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****         (+) HAL_UARTEx_TxFifoEmptyCallback()
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  315:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  316:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** /** @defgroup UARTEx_Exported_Functions_Group3 Peripheral Control functions
  317:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   * @brief    Extended Peripheral Control functions
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 7
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 7
 
 
  318:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   *
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  372:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   */
  373:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  374:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** /**
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 8
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 8
 
 
  375:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   * @brief By default in multiprocessor mode, when the wake up method is set
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  429:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  430:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   /* check the wake-up from stop mode UART instance */
  431:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   assert_param(IS_UART_WAKEUP_FROMSTOP_INSTANCE(huart->Instance));
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 9
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 9
 
 
  432:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   /* check the wake-up selection parameter */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  486:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   ATOMIC_SET_BIT(huart->Instance->CR1, USART_CR1_UESM);
  487:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  488:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   /* Process Unlocked */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 10
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 10
 
 
  489:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   __HAL_UNLOCK(huart);
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  543:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   /* Determine the number of data to process during RX/TX ISR execution */
  544:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   UARTEx_SetNbDataToProcess(huart);
  545:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 11
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 11
 
 
  546:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   huart->gState = HAL_UART_STATE_READY;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  600:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   *            @arg @ref UART_TXFIFO_THRESHOLD_3_4
  601:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   *            @arg @ref UART_TXFIFO_THRESHOLD_7_8
  602:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   *            @arg @ref UART_TXFIFO_THRESHOLD_8_8
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 12
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 12
 
 
  603:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   * @retval HAL status
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  657:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  658:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   /* Check the parameters */
  659:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   assert_param(IS_UART_FIFO_INSTANCE(huart->Instance));
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 13
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 13
 
 
  660:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   assert_param(IS_UART_RXFIFO_THRESHOLD(Threshold));
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  714:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   * @retval HAL status
  715:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   */
  716:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** HAL_StatusTypeDef HAL_UARTEx_ReceiveToIdle(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 14
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 14
 
 
  717:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****                                            uint32_t Timeout)
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  771:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     *RxLen = 0U;
  772:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  773:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     /* as long as data have to be received */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 15
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 15
 
 
  774:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     while (huart->RxXferCount > 0U)
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  828:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     return HAL_OK;
  829:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   }
  830:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   else
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 16
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 16
 
 
  831:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   {
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  885:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     if (status == HAL_OK)
  886:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     {
  887:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****       if (huart->ReceptionType == HAL_UART_RECEPTION_TOIDLE)
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 17
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 17
 
 
  888:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****       {
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  942:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     }
  943:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  944:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     /* In case of 9bits/No Parity transfer, pData buffer provided as input parameter
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 18
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 18
 
 
  945:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****        should be aligned on a uint16_t frontier, as data copy from RDR will be
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  999:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   *             received data is lower than expected one)
 1000:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   *        In DMA Mode :
 1001:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   *           - HAL_UART_RXEVENT_TC : when Reception has been completed (expected nb of data has be
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 19
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 19
 
 
 1002:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   *           - HAL_UART_RXEVENT_HT : when half of expected nb of data has been received
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
   42 000a 1021     		movs	r1, #16
   43 000c 8B43     		bics	r3, r1
   44 000e 6946     		mov	r1, sp
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 20
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 20
 
 
   45 0010 8988     		ldrh	r1, [r1, #4]
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
   87              		.cfi_offset 7, -8
   88              		.cfi_offset 14, -4
   89 0002 0400     		movs	r4, r0
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 21
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 21
 
 
 1055:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   uint8_t rx_fifo_depth;
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
 1069:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     tx_fifo_depth = TX_FIFO_DEPTH;
  120              		.loc 1 1069 5 is_stmt 1 view .LVU23
 1070:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     rx_fifo_threshold = (uint8_t)(READ_BIT(huart->Instance->CR3, USART_CR3_RXFTCFG) >> USART_CR3_RX
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 22
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 22
 
 
  121              		.loc 1 1070 5 view .LVU24
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
 1075:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****                                (uint16_t)denominator[rx_fifo_threshold];
  159              		.loc 1 1075 57 view .LVU41
  160 003a C000     		lsls	r0, r0, #3
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 23
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 23
 
 
 1076:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   }
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  209              		.loc 1 172 6 is_stmt 0 view .LVU50
  210 000a 0028     		cmp	r0, #0
  211 000c 3BD0     		beq	.L11
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 24
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 24
 
 
  177:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  249              		.loc 1 220 6 view .LVU67
  250 0032 002B     		cmp	r3, #0
  251 0034 23D1     		bne	.L13
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 25
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 25
 
 
  252              	.L10:
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  295              	.LVL17:
  296              	.L8:
  241:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 26
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 26
 
 
  297              		.loc 1 241 1 view .LVU79
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  343              		.thumb_func
  345              	HAL_UARTEx_WakeupCallback:
  346              	.LVL26:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 27
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 27
 
 
  347              	.LFB291:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  397              		.loc 1 305 3 view .LVU96
  310:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  398              		.loc 1 310 1 is_stmt 0 view .LVU97
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 28
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 28
 
 
  399              		@ sp needed
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  445              		.loc 1 404 3 view .LVU107
  446 0018 0268     		ldr	r2, [r0]
  447 001a 5168     		ldr	r1, [r2, #4]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 29
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 29
 
 
  448 001c 1025     		movs	r5, #16
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  495              		.cfi_offset 4, -8
  496              		.cfi_offset 14, -4
  497 0002 84B0     		sub	sp, sp, #16
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 30
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 30
 
 
  498              	.LCFI5:
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  538              		.loc 1 446 6 is_stmt 0 discriminator 2 view .LVU130
  539 0034 002A     		cmp	r2, #0
  540 0036 15D0     		beq	.L28
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 31
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 31
 
 
  541              	.LVL37:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  584 006c E4E7     		b	.L24
  585              	.LVL44:
  586              	.L27:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 32
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 32
 
 
  460:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   }
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  633              		@ args = 0, pretend = 0, frame = 0
  634              		@ frame_needed = 0, uses_anonymous_args = 0
  481:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   /* Process Locked */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 33
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 33
 
 
  635              		.loc 1 481 1 is_stmt 0 view .LVU152
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
   24:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   25:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __CMSIS_GCC_H
   26:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_H
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 34
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 34
 
 
   27:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
   81:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   82:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
   83:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 35
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 35
 
 
   84:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  138:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t  wlen;
  139:Drivers/CMSIS/Include/cmsis_gcc.h ****   } __copy_table_t;
  140:Drivers/CMSIS/Include/cmsis_gcc.h ****   
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 36
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 36
 
 
  141:Drivers/CMSIS/Include/cmsis_gcc.h ****   typedef struct {
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  195:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  196:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
  197:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 37
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 37
 
 
  198:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  252:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  253:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  254:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 38
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 38
 
 
  255:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  309:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  310:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Process Stack Pointer
  311:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Process Stack Pointer (PSP).
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 39
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 39
 
 
  312:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               PSP Register value
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  366:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               MSP Register value
  367:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  368:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_MSP(void)
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 40
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 40
 
 
  369:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  423:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_SP_NS(void)
  424:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  425:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 41
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 41
 
 
  426:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  461:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current state of the non-secure priority mask bit from the Priority Mask Reg
  462:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Priority Mask value
  463:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 42
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 42
 
 
  464:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_PRIMASK_NS(void)
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  710              		.syntax unified
  711              	.LBE36:
  712              	.LBE35:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 43
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 43
 
 
  713              	.LBE30:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  502:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  758              		.loc 1 502 3 is_stmt 1 view .LVU185
  502:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 44
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 44
 
 
  759              		.loc 1 502 3 view .LVU186
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  801              		.loc 2 481 3 is_stmt 0 discriminator 2 view .LVU200
  802              		.thumb
  803              		.syntax unified
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 45
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 45
 
 
  804              	.LBE41:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  847 002e 0220     		movs	r0, #2
  848              	.LVL65:
  502:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 46
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 46
 
 
  849              		.loc 1 502 3 view .LVU214
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  894 0012 8826     		movs	r6, #136
  895 0014 2423     		movs	r3, #36
  896 0016 A351     		str	r3, [r4, r6]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 47
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 47
 
 
  531:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  935              	.L38:
  552:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  936              		.loc 1 552 1 view .LVU242
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 48
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 48
 
 
  937              		@ sp needed
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  983 000c 0126     		movs	r6, #1
  984 000e 0655     		strb	r6, [r0, r4]
  567:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 49
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 49
 
 
  985              		.loc 1 567 3 discriminator 2 view .LVU253
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  589:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** }
  1023              		.loc 1 589 3 discriminator 2 view .LVU270
  589:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 50
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 50
 
 
  1024              		.loc 1 589 10 is_stmt 0 discriminator 2 view .LVU271
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  611:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  1073              		.loc 1 611 3 view .LVU279
  614:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 51
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 51
 
 
  1074              		.loc 1 614 3 view .LVU280
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  631:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  1115              		.loc 1 631 3 discriminator 2 view .LVU294
  1116 0036 2368     		ldr	r3, [r4]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 52
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 52
 
 
  1117 0038 1F60     		str	r7, [r3]
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  655:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   uint32_t tmpcr1;
  1161              		.loc 1 655 1 is_stmt 0 view .LVU307
  1162 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 53
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 53
 
 
  1163              	.LCFI11:
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  671:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  1203              		.loc 1 671 3 is_stmt 0 discriminator 2 view .LVU322
  1204 0020 8143     		bics	r1, r0
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 54
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 54
 
 
  1205 0022 1160     		str	r1, [r2]
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1245 0048 FCE7     		b	.L49
  1246              	.L52:
  1247 004a C046     		.align	2
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 55
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 55
 
 
  1248              	.L51:
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1297              		.loc 1 725 3 view .LVU343
  725:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   {
  1298              		.loc 1 725 12 is_stmt 0 view .LVU344
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 56
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 56
 
 
  1299 0016 8C23     		movs	r3, #140
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1340              		.loc 1 743 5 is_stmt 1 view .LVU357
  743:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     huart->RxState = HAL_UART_STATE_BUSY_RX;
  1341              		.loc 1 743 22 is_stmt 0 view .LVU358
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 57
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 57
 
 
  1342 0042 0023     		movs	r3, #0
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1380 006a 9342     		cmp	r3, r2
  1381 006c 08D0     		beq	.L81
  755:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     uhMask = huart->Mask;
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 58
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 58
 
 
  1382              		.loc 1 755 5 discriminator 2 view .LVU375
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1427              		.loc 1 755 5 discriminator 13 view .LVU384
  756:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
  1428              		.loc 1 756 5 discriminator 13 view .LVU385
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 59
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 59
 
 
  756:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c **** 
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1471              		.loc 1 759 71 is_stmt 0 discriminator 1 view .LVU397
  1472 00da 2369     		ldr	r3, [r4, #16]
  759:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 60
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 60
 
 
  1473              		.loc 1 759 56 discriminator 1 view .LVU398
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  799:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****         }
  1513              		.loc 1 799 11 is_stmt 1 view .LVU413
  799:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****         }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 61
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 61
 
 
  1514              		.loc 1 799 22 is_stmt 0 view .LVU414
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1554              		.loc 1 780 9 is_stmt 1 view .LVU428
  1555 0130 1023     		movs	r3, #16
  1556 0132 1362     		str	r3, [r2, #32]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 62
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 62
 
 
  784:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****         {
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1593              		.loc 1 814 15 is_stmt 0 view .LVU446
  1594 0154 FFF7FEFF 		bl	HAL_GetTick
  1595              	.LVL115:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 63
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 63
 
 
  814:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****         {
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  828:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   }
  1635              		.loc 1 828 5 is_stmt 1 view .LVU462
  828:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 64
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 64
 
 
  1636              		.loc 1 828 12 is_stmt 0 view .LVU463
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1681              		.cfi_endproc
  1682              	.LFE302:
  1684              		.section	.text.HAL_UARTEx_ReceiveToIdle_IT,"ax",%progbits
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 65
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 65
 
 
  1685              		.align	1
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1728 001c 04D1     		bne	.L92
  870:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     {
  1729              		.loc 1 870 71 discriminator 1 view .LVU485
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 66
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 66
 
 
  1730 001e 2369     		ldr	r3, [r4, #16]
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1767 0042 0FE0     		b	.L91
  1768              	.LVL132:
  1769              	.L99:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 67
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 67
 
 
  889:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****         ATOMIC_SET_BIT(huart->Instance->CR1, USART_CR1_IDLEIE);
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1812              		.loc 1 890 9 is_stmt 1 view .LVU516
  1813 0054 2268     		ldr	r2, [r4]
  1814 0056 1368     		ldr	r3, [r2]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 68
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 68
 
 
  1815 0058 0B43     		orrs	r3, r1
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1859              		.loc 1 864 14 view .LVU528
  1860 006c FAE7     		b	.L91
  1861              	.L97:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 69
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 69
 
 
  874:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****       }
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1906 0014 8068     		ldr	r0, [r0, #8]
  1907              	.LVL144:
  947:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****     {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 70
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 70
 
 
  1908              		.loc 1 947 8 view .LVU541
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1946              		.loc 1 975 16 view .LVU557
  1947 0040 0120     		movs	r0, #1
  1948              	.LVL146:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 71
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 71
 
 
  979:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c ****   }
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  1989              	@ 0 "" 2
  1990              	.LVL149:
  481:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 72
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 72
 
 
  1991              		.loc 2 481 3 is_stmt 0 view .LVU572
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  2036              		.loc 1 941 14 view .LVU583
  2037 0068 FCE7     		b	.L101
  2038              	.LVL156:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 73
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 73
 
 
  2039              	.L106:
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  2091              		.file 3 "f:\\vscode-for-stm32\\gcc\\12.2-mpacbti-bet1\\arm-none-eabi\\include\\machine\\_default_t
  2092              		.file 4 "f:\\vscode-for-stm32\\gcc\\12.2-mpacbti-bet1\\arm-none-eabi\\include\\sys\\_stdint.h"
  2093              		.file 5 "Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g030xx.h"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 74
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 74
 
 
  2094              		.file 6 "Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g0xx.h"
@@ -4388,57 +4388,57 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 1
  2098              		.file 10 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h"
  2099              		.file 11 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
  2100              		.file 12 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 75
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 75
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g0xx_hal_uart_ex.c
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:19     .text.UARTEx_Wakeup_AddressConfig:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:24     .text.UARTEx_Wakeup_AddressConfig:00000000 UARTEx_Wakeup_AddressConfig
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:67     .text.UARTEx_SetNbDataToProcess:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:72     .text.UARTEx_SetNbDataToProcess:00000000 UARTEx_SetNbDataToProcess
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:174    .text.UARTEx_SetNbDataToProcess:00000048 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:2087   .rodata.numerator.1:00000000 numerator.1
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:2081   .rodata.denominator.0:00000000 denominator.0
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:180    .text.HAL_RS485Ex_Init:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:186    .text.HAL_RS485Ex_Init:00000000 HAL_RS485Ex_Init
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:333    .text.HAL_RS485Ex_Init:0000008c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:339    .text.HAL_UARTEx_WakeupCallback:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:345    .text.HAL_UARTEx_WakeupCallback:00000000 HAL_UARTEx_WakeupCallback
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:361    .text.HAL_UARTEx_RxFifoFullCallback:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:367    .text.HAL_UARTEx_RxFifoFullCallback:00000000 HAL_UARTEx_RxFifoFullCallback
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:383    .text.HAL_UARTEx_TxFifoEmptyCallback:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:389    .text.HAL_UARTEx_TxFifoEmptyCallback:00000000 HAL_UARTEx_TxFifoEmptyCallback
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:405    .text.HAL_MultiProcessorEx_AddressLength_Set:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:411    .text.HAL_MultiProcessorEx_AddressLength_Set:00000000 HAL_MultiProcessorEx_AddressLength_Set
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:478    .text.HAL_UARTEx_StopModeWakeUpSourceConfig:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:484    .text.HAL_UARTEx_StopModeWakeUpSourceConfig:00000000 HAL_UARTEx_StopModeWakeUpSourceConfig
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:616    .text.HAL_UARTEx_StopModeWakeUpSourceConfig:00000080 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:622    .text.HAL_UARTEx_EnableStopMode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:628    .text.HAL_UARTEx_EnableStopMode:00000000 HAL_UARTEx_EnableStopMode
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:739    .text.HAL_UARTEx_DisableStopMode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:745    .text.HAL_UARTEx_DisableStopMode:00000000 HAL_UARTEx_DisableStopMode
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:855    .text.HAL_UARTEx_EnableFifoMode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:861    .text.HAL_UARTEx_EnableFifoMode:00000000 HAL_UARTEx_EnableFifoMode
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:952    .text.HAL_UARTEx_DisableFifoMode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:958    .text.HAL_UARTEx_DisableFifoMode:00000000 HAL_UARTEx_DisableFifoMode
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1041   .text.HAL_UARTEx_DisableFifoMode:0000003c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1046   .text.HAL_UARTEx_SetTxFifoThreshold:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1052   .text.HAL_UARTEx_SetTxFifoThreshold:00000000 HAL_UARTEx_SetTxFifoThreshold
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1148   .text.HAL_UARTEx_SetRxFifoThreshold:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1154   .text.HAL_UARTEx_SetRxFifoThreshold:00000000 HAL_UARTEx_SetRxFifoThreshold
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1249   .text.HAL_UARTEx_SetRxFifoThreshold:0000004c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1254   .text.HAL_UARTEx_ReceiveToIdle:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1260   .text.HAL_UARTEx_ReceiveToIdle:00000000 HAL_UARTEx_ReceiveToIdle
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1680   .text.HAL_UARTEx_ReceiveToIdle:000001a0 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1685   .text.HAL_UARTEx_ReceiveToIdle_IT:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1691   .text.HAL_UARTEx_ReceiveToIdle_IT:00000000 HAL_UARTEx_ReceiveToIdle_IT
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1869   .text.HAL_UARTEx_ReceiveToIdle_DMA:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:1875   .text.HAL_UARTEx_ReceiveToIdle_DMA:00000000 HAL_UARTEx_ReceiveToIdle_DMA
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:2053   .text.HAL_UARTEx_GetRxEventType:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:2059   .text.HAL_UARTEx_GetRxEventType:00000000 HAL_UARTEx_GetRxEventType
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:2078   .rodata.denominator.0:00000000 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s:2084   .rodata.numerator.1:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:19     .text.UARTEx_Wakeup_AddressConfig:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:24     .text.UARTEx_Wakeup_AddressConfig:00000000 UARTEx_Wakeup_AddressConfig
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:67     .text.UARTEx_SetNbDataToProcess:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:72     .text.UARTEx_SetNbDataToProcess:00000000 UARTEx_SetNbDataToProcess
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:174    .text.UARTEx_SetNbDataToProcess:00000048 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:2087   .rodata.numerator.1:00000000 numerator.1
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:2081   .rodata.denominator.0:00000000 denominator.0
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:180    .text.HAL_RS485Ex_Init:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:186    .text.HAL_RS485Ex_Init:00000000 HAL_RS485Ex_Init
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:333    .text.HAL_RS485Ex_Init:0000008c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:339    .text.HAL_UARTEx_WakeupCallback:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:345    .text.HAL_UARTEx_WakeupCallback:00000000 HAL_UARTEx_WakeupCallback
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:361    .text.HAL_UARTEx_RxFifoFullCallback:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:367    .text.HAL_UARTEx_RxFifoFullCallback:00000000 HAL_UARTEx_RxFifoFullCallback
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:383    .text.HAL_UARTEx_TxFifoEmptyCallback:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:389    .text.HAL_UARTEx_TxFifoEmptyCallback:00000000 HAL_UARTEx_TxFifoEmptyCallback
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:405    .text.HAL_MultiProcessorEx_AddressLength_Set:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:411    .text.HAL_MultiProcessorEx_AddressLength_Set:00000000 HAL_MultiProcessorEx_AddressLength_Set
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:478    .text.HAL_UARTEx_StopModeWakeUpSourceConfig:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:484    .text.HAL_UARTEx_StopModeWakeUpSourceConfig:00000000 HAL_UARTEx_StopModeWakeUpSourceConfig
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:616    .text.HAL_UARTEx_StopModeWakeUpSourceConfig:00000080 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:622    .text.HAL_UARTEx_EnableStopMode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:628    .text.HAL_UARTEx_EnableStopMode:00000000 HAL_UARTEx_EnableStopMode
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:739    .text.HAL_UARTEx_DisableStopMode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:745    .text.HAL_UARTEx_DisableStopMode:00000000 HAL_UARTEx_DisableStopMode
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:855    .text.HAL_UARTEx_EnableFifoMode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:861    .text.HAL_UARTEx_EnableFifoMode:00000000 HAL_UARTEx_EnableFifoMode
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:952    .text.HAL_UARTEx_DisableFifoMode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:958    .text.HAL_UARTEx_DisableFifoMode:00000000 HAL_UARTEx_DisableFifoMode
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1041   .text.HAL_UARTEx_DisableFifoMode:0000003c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1046   .text.HAL_UARTEx_SetTxFifoThreshold:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1052   .text.HAL_UARTEx_SetTxFifoThreshold:00000000 HAL_UARTEx_SetTxFifoThreshold
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1148   .text.HAL_UARTEx_SetRxFifoThreshold:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1154   .text.HAL_UARTEx_SetRxFifoThreshold:00000000 HAL_UARTEx_SetRxFifoThreshold
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1249   .text.HAL_UARTEx_SetRxFifoThreshold:0000004c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1254   .text.HAL_UARTEx_ReceiveToIdle:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1260   .text.HAL_UARTEx_ReceiveToIdle:00000000 HAL_UARTEx_ReceiveToIdle
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1680   .text.HAL_UARTEx_ReceiveToIdle:000001a0 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1685   .text.HAL_UARTEx_ReceiveToIdle_IT:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1691   .text.HAL_UARTEx_ReceiveToIdle_IT:00000000 HAL_UARTEx_ReceiveToIdle_IT
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1869   .text.HAL_UARTEx_ReceiveToIdle_DMA:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:1875   .text.HAL_UARTEx_ReceiveToIdle_DMA:00000000 HAL_UARTEx_ReceiveToIdle_DMA
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:2053   .text.HAL_UARTEx_GetRxEventType:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:2059   .text.HAL_UARTEx_GetRxEventType:00000000 HAL_UARTEx_GetRxEventType
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:2078   .rodata.denominator.0:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s:2084   .rodata.numerator.1:00000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_idiv
@@ -4448,7 +4448,7 @@ HAL_UART_MspInit
 UART_AdvFeatureConfig
 HAL_GetTick
 UART_WaitOnFlagUntilTimeout
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQ78mwl.s 			page 76
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8RncDK.s 			page 76
 
 
 UART_Start_Receive_IT

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
   30:Core/Src/usart.c **** /* USART1 init function */
   31:Core/Src/usart.c **** 
   32:Core/Src/usart.c **** void MX_USART1_UART_Init(void)
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 2
 
 
   33:Core/Src/usart.c **** {
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
   64              		.loc 1 49 28 is_stmt 0 view .LVU16
   65 001c C361     		str	r3, [r0, #28]
   50:Core/Src/usart.c ****   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 3
 
 
   66              		.loc 1 50 3 is_stmt 1 view .LVU17
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
  105 0044 0848     		ldr	r0, .L10
  106 0046 FFF7FEFF 		bl	HAL_UARTEx_DisableFifoMode
  107              	.LVL3:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 4
 
 
  108              		.loc 1 65 6 view .LVU34
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
  152              	.LVL8:
  153              	.LFB291:
   74:Core/Src/usart.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 5
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 5
 
 
   75:Core/Src/usart.c **** void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
   90:Core/Src/usart.c ****     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   91:Core/Src/usart.c ****     {
   92:Core/Src/usart.c ****       Error_Handler();
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 6
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 6
 
 
   93:Core/Src/usart.c ****     }
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
  202              		.loc 1 88 40 is_stmt 0 view .LVU54
  203 0026 0123     		movs	r3, #1
  204 0028 0393     		str	r3, [sp, #12]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 7
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 7
 
 
   89:Core/Src/usart.c ****     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
   98:Core/Src/usart.c ****     /**USART1 GPIO Configuration
  245              		.loc 1 98 5 view .LVU69
  246 0056 029B     		ldr	r3, [sp, #8]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 8
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 8
 
 
  247              	.LBE3:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
  114:Core/Src/usart.c ****     hdma_usart1_rx.Init.PeriphInc = DMA_PINC_DISABLE;
  284              		.loc 1 114 35 is_stmt 0 view .LVU87
  285 007e 8560     		str	r5, [r0, #8]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 9
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 9
 
 
  115:Core/Src/usart.c ****     hdma_usart1_rx.Init.MemInc = DMA_MINC_ENABLE;
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
  321              		.loc 1 126 5 view .LVU106
  129:Core/Src/usart.c ****     HAL_NVIC_EnableIRQ(USART1_IRQn);
  322              		.loc 1 129 5 view .LVU107
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 10
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 10
 
 
  323 00a0 0022     		movs	r2, #0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
  373              		.cfi_offset 14, -4
  374 0002 0400     		movs	r4, r0
  139:Core/Src/usart.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 11
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 11
 
 
  140:Core/Src/usart.c ****   if(uartHandle->Instance==USART1)
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
  402 001c C900     		lsls	r1, r1, #3
  403 001e C005     		lsls	r0, r0, #23
  404 0020 FFF7FEFF 		bl	HAL_GPIO_DeInit
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 12
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 12
 
 
  405              	.LVL26:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
  453              	.LVL31:
  454              		.loc 1 169 3 view .LVU129
  455 000a 5B42     		rsbs	r3, r3, #0
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 13
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 13
 
 
  456 000c FFF7FEFF 		bl	HAL_UART_Transmit
@@ -772,27 +772,27 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 1
  499              		.file 13 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
  500              		.file 14 "Core/Inc/main.h"
  501              		.file 15 "<built-in>"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s 			page 14
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usart.c
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:19     .text.MX_USART1_UART_Init:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:25     .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:139    .text.MX_USART1_UART_Init:00000068 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:484    .bss.huart1:00000000 huart1
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:145    .text.HAL_UART_MspInit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:151    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:347    .text.HAL_UART_MspInit:000000c0 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:477    .bss.hdma_usart1_rx:00000000 hdma_usart1_rx
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:355    .text.HAL_UART_MspDeInit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:361    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:420    .text.HAL_UART_MspDeInit:00000034 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:427    .text._write:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:433    .text._write:00000000 _write
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:468    .text._write:00000014 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:474    .bss.hdma_usart1_rx:00000000 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cc68G0yC.s:481    .bss.huart1:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:19     .text.MX_USART1_UART_Init:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:25     .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:139    .text.MX_USART1_UART_Init:00000068 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:484    .bss.huart1:00000000 huart1
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:145    .text.HAL_UART_MspInit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:151    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:347    .text.HAL_UART_MspInit:000000c0 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:477    .bss.hdma_usart1_rx:00000000 hdma_usart1_rx
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:355    .text.HAL_UART_MspDeInit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:361    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:420    .text.HAL_UART_MspDeInit:00000034 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:427    .text._write:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:433    .text._write:00000000 _write
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:468    .text._write:00000014 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:474    .bss.hdma_usart1_rx:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccymGbRW.s:481    .bss.huart1:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Init

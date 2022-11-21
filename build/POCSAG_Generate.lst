@@ -1,0 +1,2538 @@
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"POCSAG_Generate.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "Drivers/POCSAG/POCSAG_Generate.c"
+  18              		.section	.text.CheckParamSanity,"ax",%progbits
+  19              		.align	1
+  20              		.syntax unified
+  21              		.code	16
+  22              		.thumb_func
+  24              	CheckParamSanity:
+  25              	.LVL0:
+  26              	.LFB293:
+   1:Drivers/POCSAG/POCSAG_Generate.c **** /*-----------------------------------------------------------------------
+   2:Drivers/POCSAG/POCSAG_Generate.c **** *@file     POCSAG_Generate.c
+   3:Drivers/POCSAG/POCSAG_Generate.c **** *@brief    POCSAG寻呼码生成程序
+   4:Drivers/POCSAG/POCSAG_Generate.c **** *@author   谢英男(xieyingnan1994@163.com）
+   5:Drivers/POCSAG/POCSAG_Generate.c **** *@version  1.0
+   6:Drivers/POCSAG/POCSAG_Generate.c **** *@date     2020/07/22
+   7:Drivers/POCSAG/POCSAG_Generate.c **** -----------------------------------------------------------------------*/
+   8:Drivers/POCSAG/POCSAG_Generate.c **** #include <stdint.h>
+   9:Drivers/POCSAG/POCSAG_Generate.c **** #include <string.h>
+  10:Drivers/POCSAG/POCSAG_Generate.c **** #include <stdbool.h>
+  11:Drivers/POCSAG/POCSAG_Generate.c **** #include <stdarg.h>
+  12:Drivers/POCSAG/POCSAG_Generate.c **** #include <stdio.h>
+  13:Drivers/POCSAG/POCSAG_Generate.c **** #include "POCSAG_Generate.h"
+  14:Drivers/POCSAG/POCSAG_Generate.c **** 
+  15:Drivers/POCSAG/POCSAG_Generate.c **** uint32_t POCSAG_Batch1[16] = {0};	//码组1，包含16个码字
+  16:Drivers/POCSAG/POCSAG_Generate.c **** uint32_t POCSAG_Batch2[16] = {0};	//码组2，包含16个码字
+  17:Drivers/POCSAG/POCSAG_Generate.c **** //定义各个位数对应的掩码表
+  18:Drivers/POCSAG/POCSAG_Generate.c **** const uint8_t SizeToMask[7] = {0x01, 0x03, 0x07, 0x0f, 0x1f, 0x3f, 0x7f};
+  19:Drivers/POCSAG/POCSAG_Generate.c **** //用于大小端判断的共用体和宏
+  20:Drivers/POCSAG/POCSAG_Generate.c **** static union{uint8_t c[4];uint32_t l;}endian_test = {{ 'L', '?', '?', 'B' }};
+  21:Drivers/POCSAG/POCSAG_Generate.c **** #define ENDIAN_TEST() ((char)endian_test.l)//大端时为B,小端时为L
+  22:Drivers/POCSAG/POCSAG_Generate.c **** 
+  23:Drivers/POCSAG/POCSAG_Generate.c **** /*-----------------------------------------------------------------------
+  24:Drivers/POCSAG/POCSAG_Generate.c **** *@brief		检查输入参数的合法性
+  25:Drivers/POCSAG/POCSAG_Generate.c **** *@param		与上层函数POCSAG_MakeCodeWords()相同
+  26:Drivers/POCSAG/POCSAG_Generate.c **** *@retval	错误码，在头文件中定义，无错误时返回POCSAG_ERR_NONE(0)
+  27:Drivers/POCSAG/POCSAG_Generate.c **** -----------------------------------------------------------------------*/
+  28:Drivers/POCSAG/POCSAG_Generate.c **** static int8_t CheckParamSanity(uint32_t Address, int8_t FuncCode, int8_t Batch2Opt)
+  29:Drivers/POCSAG/POCSAG_Generate.c **** {
+  27              		.loc 1 29 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 2
+
+
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  30:Drivers/POCSAG/POCSAG_Generate.c **** 	if((Address > 0x1FFFFF)||(Address == 0))
+  32              		.loc 1 30 2 view .LVU1
+  33              		.loc 1 30 25 is_stmt 0 view .LVU2
+  34 0000 0138     		subs	r0, r0, #1
+  35              	.LVL1:
+  36              		.loc 1 30 4 view .LVU3
+  37 0002 0A4B     		ldr	r3, .L6
+  38 0004 9842     		cmp	r0, r3
+  39 0006 07D8     		bhi	.L3
+  31:Drivers/POCSAG/POCSAG_Generate.c **** 		return(POCSAG_ERR_INVALID_ADDRESS);	//地址为21位，且不能为0
+  32:Drivers/POCSAG/POCSAG_Generate.c **** 	if((FuncCode < FUNC_A_NUMERIC)||(FuncCode > FUNC_D_ALPHANUMRIC))
+  40              		.loc 1 32 2 is_stmt 1 view .LVU4
+  41              		.loc 1 32 32 is_stmt 0 view .LVU5
+  42 0008 C9B2     		uxtb	r1, r1
+  43              		.loc 1 32 4 view .LVU6
+  44 000a 0329     		cmp	r1, #3
+  45 000c 07D8     		bhi	.L4
+  33:Drivers/POCSAG/POCSAG_Generate.c **** 		return(POCSAG_ERR_INVALID_FUNCCODE); //功能码为0-3
+  34:Drivers/POCSAG/POCSAG_Generate.c **** 	if((Batch2Opt < BATCH2_TRUNCATE)||(Batch2Opt > BATCH2_LEAVE_IDLE))
+  46              		.loc 1 34 2 is_stmt 1 view .LVU7
+  47              		.loc 1 34 34 is_stmt 0 view .LVU8
+  48 000e D2B2     		uxtb	r2, r2
+  49              		.loc 1 34 4 view .LVU9
+  50 0010 022A     		cmp	r2, #2
+  51 0012 07D8     		bhi	.L5
+  35:Drivers/POCSAG/POCSAG_Generate.c **** 		return(POCSAG_ERR_INVALID_BATCH2OPT);	//码组2选项为0-2
+  36:Drivers/POCSAG/POCSAG_Generate.c **** 	return(POCSAG_ERR_NONE);//参数无错误时返回POCSAG_ERR_NONE(0)
+  52              		.loc 1 36 8 view .LVU10
+  53 0014 0020     		movs	r0, #0
+  54              	.LVL2:
+  55              	.L2:
+  37:Drivers/POCSAG/POCSAG_Generate.c **** }
+  56              		.loc 1 37 1 view .LVU11
+  57              		@ sp needed
+  58 0016 7047     		bx	lr
+  59              	.LVL3:
+  60              	.L3:
+  31:Drivers/POCSAG/POCSAG_Generate.c **** 	if((FuncCode < FUNC_A_NUMERIC)||(FuncCode > FUNC_D_ALPHANUMRIC))
+  61              		.loc 1 31 9 view .LVU12
+  62 0018 0120     		movs	r0, #1
+  63 001a 4042     		rsbs	r0, r0, #0
+  64 001c FBE7     		b	.L2
+  65              	.L4:
+  33:Drivers/POCSAG/POCSAG_Generate.c **** 	if((Batch2Opt < BATCH2_TRUNCATE)||(Batch2Opt > BATCH2_LEAVE_IDLE))
+  66              		.loc 1 33 9 view .LVU13
+  67 001e 0220     		movs	r0, #2
+  68 0020 4042     		rsbs	r0, r0, #0
+  69 0022 F8E7     		b	.L2
+  70              	.L5:
+  35:Drivers/POCSAG/POCSAG_Generate.c **** 	return(POCSAG_ERR_NONE);//参数无错误时返回POCSAG_ERR_NONE(0)
+  71              		.loc 1 35 9 view .LVU14
+  72 0024 0320     		movs	r0, #3
+  73 0026 4042     		rsbs	r0, r0, #0
+  74 0028 F5E7     		b	.L2
+  75              	.L7:
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 3
+
+
+  76 002a C046     		.align	2
+  77              	.L6:
+  78 002c FEFF1F00 		.word	2097150
+  79              		.cfi_endproc
+  80              	.LFE293:
+  82              		.section	.text.CreateBCHandParity,"ax",%progbits
+  83              		.align	1
+  84              		.syntax unified
+  85              		.code	16
+  86              		.thumb_func
+  88              	CreateBCHandParity:
+  89              	.LVL4:
+  90              	.LFB295:
+  38:Drivers/POCSAG/POCSAG_Generate.c **** /*-----------------------------------------------------------------------
+  39:Drivers/POCSAG/POCSAG_Generate.c **** *@brief		将已生成的码字填入码字数组POCSAG_Batch1/2
+  40:Drivers/POCSAG/POCSAG_Generate.c **** *@param		codeword_index - 码字在码组中的编号，0-15表示位于第一码组
+  41:Drivers/POCSAG/POCSAG_Generate.c **** *           POCSAG_Batch1[]，16-31表示位于第二码组POCSAG_Batch2[]
+  42:Drivers/POCSAG/POCSAG_Generate.c **** *           in_codeword - 要填入的码字
+  43:Drivers/POCSAG/POCSAG_Generate.c **** *@retval	无
+  44:Drivers/POCSAG/POCSAG_Generate.c **** -----------------------------------------------------------------------*/
+  45:Drivers/POCSAG/POCSAG_Generate.c **** void StuffCodeWordItem(uint8_t codeword_index, uint32_t in_codeword)
+  46:Drivers/POCSAG/POCSAG_Generate.c **** {
+  47:Drivers/POCSAG/POCSAG_Generate.c **** 	if(codeword_index > 31)
+  48:Drivers/POCSAG/POCSAG_Generate.c **** 		return;	//范围检查：0-31
+  49:Drivers/POCSAG/POCSAG_Generate.c **** 	POCSAG_DEBUG_MSG("Stuffed POCSAG_Batch");
+  50:Drivers/POCSAG/POCSAG_Generate.c **** 	if(codeword_index < 16)
+  51:Drivers/POCSAG/POCSAG_Generate.c **** 		POCSAG_Batch1[codeword_index] = in_codeword;//0-15表示位于第一码组
+  52:Drivers/POCSAG/POCSAG_Generate.c **** 	else
+  53:Drivers/POCSAG/POCSAG_Generate.c **** 		POCSAG_Batch2[codeword_index - 16] = in_codeword;
+  54:Drivers/POCSAG/POCSAG_Generate.c **** 													//16-31表示位于第二码组
+  55:Drivers/POCSAG/POCSAG_Generate.c **** 	POCSAG_DEBUG_MSG("%hhu[%hhu] ",(codeword_index<16)?1:2,
+  56:Drivers/POCSAG/POCSAG_Generate.c **** 					  codeword_index);
+  57:Drivers/POCSAG/POCSAG_Generate.c **** 	POCSAG_DEBUG_MSG("with %08Xh (",in_codeword);
+  58:Drivers/POCSAG/POCSAG_Generate.c **** #ifdef POCSAG_DEBUG_MSG_ON
+  59:Drivers/POCSAG/POCSAG_Generate.c **** 	for(uint8_t bit=1;bit<=32;bit++,in_codeword<<=1)
+  60:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+  61:Drivers/POCSAG/POCSAG_Generate.c **** 		if(in_codeword & 0x80000000)
+  62:Drivers/POCSAG/POCSAG_Generate.c **** 			POCSAG_DEBUG_MSG("1");
+  63:Drivers/POCSAG/POCSAG_Generate.c **** 		else
+  64:Drivers/POCSAG/POCSAG_Generate.c **** 			POCSAG_DEBUG_MSG("0");
+  65:Drivers/POCSAG/POCSAG_Generate.c **** 		if((bit%8==0) && (bit!=32))
+  66:Drivers/POCSAG/POCSAG_Generate.c **** 			POCSAG_DEBUG_MSG(" ");
+  67:Drivers/POCSAG/POCSAG_Generate.c **** 		if(bit == 32)
+  68:Drivers/POCSAG/POCSAG_Generate.c **** 			POCSAG_DEBUG_MSG("b)\r\n");
+  69:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+  70:Drivers/POCSAG/POCSAG_Generate.c **** #endif
+  71:Drivers/POCSAG/POCSAG_Generate.c **** }
+  72:Drivers/POCSAG/POCSAG_Generate.c **** /*-----------------------------------------------------------------------
+  73:Drivers/POCSAG/POCSAG_Generate.c **** *@brief		计算BCH(31,21),计算偶校验位
+  74:Drivers/POCSAG/POCSAG_Generate.c **** *@param		带待计算的码字（低11位已清空为0）
+  75:Drivers/POCSAG/POCSAG_Generate.c **** *@retval	计算结果，作为最终填入码字数组中的值
+  76:Drivers/POCSAG/POCSAG_Generate.c **** -----------------------------------------------------------------------*/
+  77:Drivers/POCSAG/POCSAG_Generate.c **** static uint32_t CreateBCHandParity(uint32_t in)
+  78:Drivers/POCSAG/POCSAG_Generate.c **** {
+  91              		.loc 1 78 1 is_stmt 1 view -0
+  92              		.cfi_startproc
+  93              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 4
+
+
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95              		.loc 1 78 1 is_stmt 0 view .LVU16
+  96 0000 10B5     		push	{r4, lr}
+  97              	.LCFI0:
+  98              		.cfi_def_cfa_offset 8
+  99              		.cfi_offset 4, -8
+ 100              		.cfi_offset 14, -4
+ 101 0002 0400     		movs	r4, r0
+  79:Drivers/POCSAG/POCSAG_Generate.c ****     uint32_t work_cw = in;	//计算用
+ 102              		.loc 1 79 5 is_stmt 1 view .LVU17
+ 103              	.LVL5:
+  80:Drivers/POCSAG/POCSAG_Generate.c ****     uint32_t local_cw = in;	//储存结果用
+ 104              		.loc 1 80 5 view .LVU18
+  81:Drivers/POCSAG/POCSAG_Generate.c ****     uint8_t parity = 0;	//奇偶校验用计数变量
+ 105              		.loc 1 81 5 view .LVU19
+  82:Drivers/POCSAG/POCSAG_Generate.c **** 
+  83:Drivers/POCSAG/POCSAG_Generate.c ****     //1.计算BCH(31,21)
+  84:Drivers/POCSAG/POCSAG_Generate.c ****     for (uint8_t bit = 1; bit <= 21; bit++, work_cw <<= 1)
+ 106              		.loc 1 84 5 view .LVU20
+ 107              	.LBB2:
+ 108              		.loc 1 84 10 view .LVU21
+ 109              		.loc 1 84 18 is_stmt 0 view .LVU22
+ 110 0004 0123     		movs	r3, #1
+ 111              		.loc 1 84 5 view .LVU23
+ 112 0006 02E0     		b	.L9
+ 113              	.LVL6:
+ 114              	.L10:
+ 115              		.loc 1 84 43 is_stmt 1 discriminator 2 view .LVU24
+ 116              		.loc 1 84 41 is_stmt 0 discriminator 2 view .LVU25
+ 117 0008 0133     		adds	r3, r3, #1
+ 118              	.LVL7:
+ 119              		.loc 1 84 41 discriminator 2 view .LVU26
+ 120 000a DBB2     		uxtb	r3, r3
+ 121              	.LVL8:
+ 122              		.loc 1 84 53 discriminator 2 view .LVU27
+ 123 000c 4000     		lsls	r0, r0, #1
+ 124              	.LVL9:
+ 125              	.L9:
+ 126              		.loc 1 84 31 is_stmt 1 discriminator 1 view .LVU28
+ 127 000e 152B     		cmp	r3, #21
+ 128 0010 04D8     		bhi	.L17
+  85:Drivers/POCSAG/POCSAG_Generate.c ****     {
+  86:Drivers/POCSAG/POCSAG_Generate.c ****         if (work_cw & 0x80000000)
+ 129              		.loc 1 86 9 view .LVU29
+ 130              		.loc 1 86 12 is_stmt 0 view .LVU30
+ 131 0012 0028     		cmp	r0, #0
+ 132 0014 F8DA     		bge	.L10
+  87:Drivers/POCSAG/POCSAG_Generate.c ****             work_cw ^= 0xED200000;
+ 133              		.loc 1 87 13 is_stmt 1 view .LVU31
+ 134              		.loc 1 87 21 is_stmt 0 view .LVU32
+ 135 0016 0B49     		ldr	r1, .L19
+ 136 0018 4840     		eors	r0, r1
+ 137              	.LVL10:
+ 138              		.loc 1 87 21 view .LVU33
+ 139 001a F5E7     		b	.L10
+ 140              	.L17:
+ 141              		.loc 1 87 21 view .LVU34
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 5
+
+
+ 142              	.LBE2:
+  88:Drivers/POCSAG/POCSAG_Generate.c ****     }
+  89:Drivers/POCSAG/POCSAG_Generate.c ****     local_cw |= (work_cw >> 21);	//保存计算结果
+ 143              		.loc 1 89 5 is_stmt 1 view .LVU35
+ 144              		.loc 1 89 26 is_stmt 0 view .LVU36
+ 145 001c 400D     		lsrs	r0, r0, #21
+ 146              	.LVL11:
+ 147              		.loc 1 89 14 view .LVU37
+ 148 001e 2043     		orrs	r0, r4
+ 149              	.LVL12:
+  90:Drivers/POCSAG/POCSAG_Generate.c **** 
+  91:Drivers/POCSAG/POCSAG_Generate.c ****     //2.计算奇偶校验
+  92:Drivers/POCSAG/POCSAG_Generate.c ****     work_cw = local_cw;
+ 150              		.loc 1 92 5 is_stmt 1 view .LVU38
+  93:Drivers/POCSAG/POCSAG_Generate.c ****     for (int bit = 1; bit <= 32; bit++, work_cw <<= 1)
+ 151              		.loc 1 93 5 view .LVU39
+ 152              	.LBB3:
+ 153              		.loc 1 93 10 view .LVU40
+ 154              		.loc 1 93 10 is_stmt 0 view .LVU41
+ 155              	.LBE3:
+  92:Drivers/POCSAG/POCSAG_Generate.c ****     for (int bit = 1; bit <= 32; bit++, work_cw <<= 1)
+ 156              		.loc 1 92 13 view .LVU42
+ 157 0020 0200     		movs	r2, r0
+ 158              	.LBB4:
+ 159              		.loc 1 93 14 view .LVU43
+ 160 0022 0123     		movs	r3, #1
+ 161              	.LVL13:
+ 162              		.loc 1 93 14 view .LVU44
+ 163              	.LBE4:
+  81:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 164              		.loc 1 81 13 view .LVU45
+ 165 0024 0021     		movs	r1, #0
+ 166              	.LBB5:
+ 167              		.loc 1 93 5 view .LVU46
+ 168 0026 01E0     		b	.L12
+ 169              	.LVL14:
+ 170              	.L13:
+ 171              		.loc 1 93 39 is_stmt 1 discriminator 2 view .LVU47
+ 172              		.loc 1 93 37 is_stmt 0 discriminator 2 view .LVU48
+ 173 0028 0133     		adds	r3, r3, #1
+ 174              	.LVL15:
+ 175              		.loc 1 93 49 discriminator 2 view .LVU49
+ 176 002a 5200     		lsls	r2, r2, #1
+ 177              	.LVL16:
+ 178              	.L12:
+ 179              		.loc 1 93 27 is_stmt 1 discriminator 1 view .LVU50
+ 180 002c 202B     		cmp	r3, #32
+ 181 002e 04DC     		bgt	.L18
+  94:Drivers/POCSAG/POCSAG_Generate.c ****     {
+  95:Drivers/POCSAG/POCSAG_Generate.c ****         if (work_cw & 0x80000000)
+ 182              		.loc 1 95 9 view .LVU51
+ 183              		.loc 1 95 12 is_stmt 0 view .LVU52
+ 184 0030 002A     		cmp	r2, #0
+ 185 0032 F9DA     		bge	.L13
+  96:Drivers/POCSAG/POCSAG_Generate.c ****             parity++;
+ 186              		.loc 1 96 13 is_stmt 1 view .LVU53
+ 187              		.loc 1 96 19 is_stmt 0 view .LVU54
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 6
+
+
+ 188 0034 0131     		adds	r1, r1, #1
+ 189              	.LVL17:
+ 190              		.loc 1 96 19 view .LVU55
+ 191 0036 C9B2     		uxtb	r1, r1
+ 192              	.LVL18:
+ 193              		.loc 1 96 19 view .LVU56
+ 194 0038 F6E7     		b	.L13
+ 195              	.L18:
+ 196              		.loc 1 96 19 view .LVU57
+ 197              	.LBE5:
+  97:Drivers/POCSAG/POCSAG_Generate.c ****     }
+  98:Drivers/POCSAG/POCSAG_Generate.c ****     if (parity % 2)	//偶校验：如果1-31位有奇数个1
+ 198              		.loc 1 98 5 is_stmt 1 view .LVU58
+ 199              		.loc 1 98 8 is_stmt 0 view .LVU59
+ 200 003a C907     		lsls	r1, r1, #31
+ 201 003c 00D5     		bpl	.L8
+ 202              	.LVL19:
+  99:Drivers/POCSAG/POCSAG_Generate.c ****         local_cw++;//则将末尾32位设为1，以保证整个码字中有偶数个1
+ 203              		.loc 1 99 9 is_stmt 1 view .LVU60
+ 204              		.loc 1 99 17 is_stmt 0 view .LVU61
+ 205 003e 0130     		adds	r0, r0, #1
+ 206              	.LVL20:
+ 100:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 101:Drivers/POCSAG/POCSAG_Generate.c ****     return (local_cw);	//返回结果
+ 207              		.loc 1 101 5 is_stmt 1 view .LVU62
+ 208              	.L8:
+ 102:Drivers/POCSAG/POCSAG_Generate.c **** }
+ 209              		.loc 1 102 1 is_stmt 0 view .LVU63
+ 210              		@ sp needed
+ 211              	.LVL21:
+ 212              		.loc 1 102 1 view .LVU64
+ 213 0040 10BD     		pop	{r4, pc}
+ 214              	.L20:
+ 215 0042 C046     		.align	2
+ 216              	.L19:
+ 217 0044 000020ED 		.word	-316669952
+ 218              		.cfi_endproc
+ 219              	.LFE295:
+ 221              		.section	.text.CharToBCD,"ax",%progbits
+ 222              		.align	1
+ 223              		.syntax unified
+ 224              		.code	16
+ 225              		.thumb_func
+ 227              	CharToBCD:
+ 228              	.LVL22:
+ 229              	.LFB296:
+ 103:Drivers/POCSAG/POCSAG_Generate.c **** /*-----------------------------------------------------------------------
+ 104:Drivers/POCSAG/POCSAG_Generate.c **** *@brief		纯数字类型消息，将ASCII数字字符和部分字母符号转换为非压缩BCD码
+ 105:Drivers/POCSAG/POCSAG_Generate.c **** *@param		ch - 待转换的字符
+ 106:Drivers/POCSAG/POCSAG_Generate.c **** *@retval	转换结果，非压缩的BCD码
+ 107:Drivers/POCSAG/POCSAG_Generate.c **** -----------------------------------------------------------------------*/
+ 108:Drivers/POCSAG/POCSAG_Generate.c **** static uint8_t CharToBCD(uint8_t ch)
+ 109:Drivers/POCSAG/POCSAG_Generate.c **** {
+ 230              		.loc 1 109 1 is_stmt 1 view -0
+ 231              		.cfi_startproc
+ 232              		@ args = 0, pretend = 0, frame = 0
+ 233              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 7
+
+
+ 234              		@ link register save eliminated.
+ 235              		.loc 1 109 1 is_stmt 0 view .LVU66
+ 236 0000 0300     		movs	r3, r0
+ 110:Drivers/POCSAG/POCSAG_Generate.c **** 	uint8_t retval;
+ 237              		.loc 1 110 2 is_stmt 1 view .LVU67
+ 111:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 112:Drivers/POCSAG/POCSAG_Generate.c **** 	if(ch >= '0' && ch <= '9')
+ 238              		.loc 1 112 2 view .LVU68
+ 239              		.loc 1 112 15 is_stmt 0 view .LVU69
+ 240 0002 3038     		subs	r0, r0, #48
+ 241              	.LVL23:
+ 242              		.loc 1 112 15 view .LVU70
+ 243 0004 C0B2     		uxtb	r0, r0
+ 244              		.loc 1 112 4 view .LVU71
+ 245 0006 0928     		cmp	r0, #9
+ 246 0008 0DD9     		bls	.L22
+ 113:Drivers/POCSAG/POCSAG_Generate.c **** 		retval = ch - '0';
+ 114:Drivers/POCSAG/POCSAG_Generate.c **** 	else
+ 115:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+ 116:Drivers/POCSAG/POCSAG_Generate.c **** 		switch(ch)
+ 247              		.loc 1 116 3 is_stmt 1 view .LVU72
+ 248 000a 292B     		cmp	r3, #41
+ 249 000c 0CD0     		beq	.L24
+ 250 000e 05D9     		bls	.L29
+ 251 0010 2D2B     		cmp	r3, #45
+ 252 0012 0FD0     		beq	.L27
+ 253 0014 552B     		cmp	r3, #85
+ 254 0016 0FD1     		bne	.L28
+ 117:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 118:Drivers/POCSAG/POCSAG_Generate.c **** 			case '*': retval = 0x0A; break;
+ 119:Drivers/POCSAG/POCSAG_Generate.c **** 			case 'U': retval = 0x0B; break;
+ 255              		.loc 1 119 21 is_stmt 0 view .LVU73
+ 256 0018 0B20     		movs	r0, #11
+ 257 001a 04E0     		b	.L22
+ 258              	.L29:
+ 116:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 259              		.loc 1 116 3 view .LVU74
+ 260 001c 202B     		cmp	r3, #32
+ 261 001e 05D0     		beq	.L25
+ 262 0020 282B     		cmp	r3, #40
+ 263 0022 05D1     		bne	.L26
+ 120:Drivers/POCSAG/POCSAG_Generate.c **** 			case '\x20':retval = 0x0C; break;
+ 121:Drivers/POCSAG/POCSAG_Generate.c **** 			case '-': retval = 0x0D; break;
+ 122:Drivers/POCSAG/POCSAG_Generate.c **** 			case '(': retval = 0x0E; break;
+ 264              		.loc 1 122 21 view .LVU75
+ 265 0024 0E20     		movs	r0, #14
+ 266              	.L22:
+ 267              	.LVL24:
+ 123:Drivers/POCSAG/POCSAG_Generate.c **** 			case ')': retval = 0x0F; break;
+ 124:Drivers/POCSAG/POCSAG_Generate.c **** 			default: retval = 0x0A; break;
+ 125:Drivers/POCSAG/POCSAG_Generate.c **** 		}
+ 126:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+ 127:Drivers/POCSAG/POCSAG_Generate.c **** 	return retval;
+ 268              		.loc 1 127 2 is_stmt 1 view .LVU76
+ 128:Drivers/POCSAG/POCSAG_Generate.c **** }
+ 269              		.loc 1 128 1 is_stmt 0 view .LVU77
+ 270              		@ sp needed
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 8
+
+
+ 271 0026 7047     		bx	lr
+ 272              	.LVL25:
+ 273              	.L24:
+ 123:Drivers/POCSAG/POCSAG_Generate.c **** 			case ')': retval = 0x0F; break;
+ 274              		.loc 1 123 21 view .LVU78
+ 275 0028 0F20     		movs	r0, #15
+ 276 002a FCE7     		b	.L22
+ 277              	.L25:
+ 120:Drivers/POCSAG/POCSAG_Generate.c **** 			case '\x20':retval = 0x0C; break;
+ 278              		.loc 1 120 23 view .LVU79
+ 279 002c 0C20     		movs	r0, #12
+ 280 002e FAE7     		b	.L22
+ 281              	.L26:
+ 116:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 282              		.loc 1 116 3 view .LVU80
+ 283 0030 0A20     		movs	r0, #10
+ 284 0032 F8E7     		b	.L22
+ 285              	.L27:
+ 121:Drivers/POCSAG/POCSAG_Generate.c **** 			case '(': retval = 0x0E; break;
+ 286              		.loc 1 121 21 view .LVU81
+ 287 0034 0D20     		movs	r0, #13
+ 288 0036 F6E7     		b	.L22
+ 289              	.L28:
+ 116:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 290              		.loc 1 116 3 view .LVU82
+ 291 0038 0A20     		movs	r0, #10
+ 292 003a F4E7     		b	.L22
+ 293              		.cfi_endproc
+ 294              	.LFE296:
+ 296              		.section	.text.FlipCharBitOrder,"ax",%progbits
+ 297              		.align	1
+ 298              		.syntax unified
+ 299              		.code	16
+ 300              		.thumb_func
+ 302              	FlipCharBitOrder:
+ 303              	.LVL26:
+ 304              	.LFB297:
+ 129:Drivers/POCSAG/POCSAG_Generate.c **** /*-----------------------------------------------------------------------
+ 130:Drivers/POCSAG/POCSAG_Generate.c **** *@brief		翻转7位字符位序，对于中文半字符，先减去0xA0，变为区位码后再翻�
+ 131:Drivers/POCSAG/POCSAG_Generate.c **** *@param		ch - 待转换的字符 FuncCode - 类型，中文半字符还是ASCII
+ 132:Drivers/POCSAG/POCSAG_Generate.c **** *@retval	翻转位序后的结果
+ 133:Drivers/POCSAG/POCSAG_Generate.c **** -----------------------------------------------------------------------*/
+ 134:Drivers/POCSAG/POCSAG_Generate.c **** static uint8_t FlipCharBitOrder(uint8_t ch, int8_t FuncCode)
+ 135:Drivers/POCSAG/POCSAG_Generate.c **** {
+ 305              		.loc 1 135 1 is_stmt 1 view -0
+ 306              		.cfi_startproc
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309              		.loc 1 135 1 is_stmt 0 view .LVU84
+ 310 0000 10B5     		push	{r4, lr}
+ 311              	.LCFI1:
+ 312              		.cfi_def_cfa_offset 8
+ 313              		.cfi_offset 4, -8
+ 314              		.cfi_offset 14, -4
+ 315 0002 0400     		movs	r4, r0
+ 136:Drivers/POCSAG/POCSAG_Generate.c **** 	uint8_t result = 0;
+ 316              		.loc 1 136 2 is_stmt 1 view .LVU85
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 9
+
+
+ 317              	.LVL27:
+ 137:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 138:Drivers/POCSAG/POCSAG_Generate.c **** 	if(FuncCode == FUNC_B_CHINESE && ch != '\x04')
+ 318              		.loc 1 138 2 view .LVU86
+ 319              		.loc 1 138 4 is_stmt 0 view .LVU87
+ 320 0004 0129     		cmp	r1, #1
+ 321 0006 02D0     		beq	.L36
+ 322              	.LVL28:
+ 323              	.L31:
+ 139:Drivers/POCSAG/POCSAG_Generate.c **** 		ch -= 0xA0;//如果字符是中文半字符，需要转换为汉字区位码
+ 140:Drivers/POCSAG/POCSAG_Generate.c **** 	for(uint8_t i = 7;i > 0;i--)//i=7->1,因此i-1=6->0
+ 324              		.loc 1 140 2 is_stmt 1 view .LVU88
+ 325              	.LBB6:
+ 326              		.loc 1 140 6 view .LVU89
+ 327              		.loc 1 140 14 is_stmt 0 view .LVU90
+ 328 0008 0723     		movs	r3, #7
+ 329              	.LBE6:
+ 136:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 330              		.loc 1 136 10 view .LVU91
+ 331 000a 0020     		movs	r0, #0
+ 332              	.LBB7:
+ 333              		.loc 1 140 2 view .LVU92
+ 334 000c 06E0     		b	.L32
+ 335              	.LVL29:
+ 336              	.L36:
+ 337              		.loc 1 140 2 view .LVU93
+ 338              	.LBE7:
+ 138:Drivers/POCSAG/POCSAG_Generate.c **** 		ch -= 0xA0;//如果字符是中文半字符，需要转换为汉字区位码
+ 339              		.loc 1 138 32 discriminator 1 view .LVU94
+ 340 000e 0428     		cmp	r0, #4
+ 341 0010 FAD0     		beq	.L31
+ 139:Drivers/POCSAG/POCSAG_Generate.c **** 		ch -= 0xA0;//如果字符是中文半字符，需要转换为汉字区位码
+ 342              		.loc 1 139 3 is_stmt 1 view .LVU95
+ 139:Drivers/POCSAG/POCSAG_Generate.c **** 		ch -= 0xA0;//如果字符是中文半字符，需要转换为汉字区位码
+ 343              		.loc 1 139 6 is_stmt 0 view .LVU96
+ 344 0012 6034     		adds	r4, r4, #96
+ 345 0014 E4B2     		uxtb	r4, r4
+ 346              	.LVL30:
+ 139:Drivers/POCSAG/POCSAG_Generate.c **** 		ch -= 0xA0;//如果字符是中文半字符，需要转换为汉字区位码
+ 347              		.loc 1 139 6 view .LVU97
+ 348 0016 F7E7     		b	.L31
+ 349              	.LVL31:
+ 350              	.L33:
+ 351              	.LBB8:
+ 352              		.loc 1 140 27 is_stmt 1 discriminator 2 view .LVU98
+ 353 0018 013B     		subs	r3, r3, #1
+ 354              	.LVL32:
+ 355              		.loc 1 140 27 is_stmt 0 discriminator 2 view .LVU99
+ 356 001a DBB2     		uxtb	r3, r3
+ 357              	.LVL33:
+ 358              	.L32:
+ 359              		.loc 1 140 22 is_stmt 1 discriminator 1 view .LVU100
+ 360 001c 002B     		cmp	r3, #0
+ 361 001e 0CD0     		beq	.L37
+ 141:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+ 142:Drivers/POCSAG/POCSAG_Generate.c **** 		if(ch & (1<<(i-1)))	//bit6->bit0遍历
+ 362              		.loc 1 142 3 view .LVU101
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 10
+
+
+ 363              		.loc 1 142 17 is_stmt 0 view .LVU102
+ 364 0020 5A1E     		subs	r2, r3, #1
+ 365              		.loc 1 142 6 view .LVU103
+ 366 0022 2100     		movs	r1, r4
+ 367 0024 1141     		asrs	r1, r1, r2
+ 368 0026 0A00     		movs	r2, r1
+ 369              		.loc 1 142 5 view .LVU104
+ 370 0028 D207     		lsls	r2, r2, #31
+ 371 002a F5D5     		bpl	.L33
+ 143:Drivers/POCSAG/POCSAG_Generate.c **** 			result |= 1<<6-(i-1);//bit0-bit6判断是否写1
+ 372              		.loc 1 143 4 is_stmt 1 view .LVU105
+ 373              		.loc 1 143 18 is_stmt 0 view .LVU106
+ 374 002c 0721     		movs	r1, #7
+ 375 002e C91A     		subs	r1, r1, r3
+ 376              		.loc 1 143 15 view .LVU107
+ 377 0030 0122     		movs	r2, #1
+ 378 0032 8A40     		lsls	r2, r2, r1
+ 379              		.loc 1 143 11 view .LVU108
+ 380 0034 1043     		orrs	r0, r2
+ 381              	.LVL34:
+ 382              		.loc 1 143 11 view .LVU109
+ 383 0036 C0B2     		uxtb	r0, r0
+ 384              	.LVL35:
+ 385              		.loc 1 143 11 view .LVU110
+ 386 0038 EEE7     		b	.L33
+ 387              	.L37:
+ 388              		.loc 1 143 11 view .LVU111
+ 389              	.LBE8:
+ 144:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+ 145:Drivers/POCSAG/POCSAG_Generate.c **** 	return result;
+ 390              		.loc 1 145 2 is_stmt 1 view .LVU112
+ 146:Drivers/POCSAG/POCSAG_Generate.c **** }
+ 391              		.loc 1 146 1 is_stmt 0 view .LVU113
+ 392              		@ sp needed
+ 393              	.LVL36:
+ 394              		.loc 1 146 1 view .LVU114
+ 395 003a 10BD     		pop	{r4, pc}
+ 396              		.cfi_endproc
+ 397              	.LFE297:
+ 399              		.section	.text.StuffCodeWordItem,"ax",%progbits
+ 400              		.align	1
+ 401              		.global	StuffCodeWordItem
+ 402              		.syntax unified
+ 403              		.code	16
+ 404              		.thumb_func
+ 406              	StuffCodeWordItem:
+ 407              	.LVL37:
+ 408              	.LFB294:
+  46:Drivers/POCSAG/POCSAG_Generate.c **** 	if(codeword_index > 31)
+ 409              		.loc 1 46 1 is_stmt 1 view -0
+ 410              		.cfi_startproc
+ 411              		@ args = 0, pretend = 0, frame = 0
+ 412              		@ frame_needed = 0, uses_anonymous_args = 0
+ 413              		@ link register save eliminated.
+  47:Drivers/POCSAG/POCSAG_Generate.c **** 		return;	//范围检查：0-31
+ 414              		.loc 1 47 2 view .LVU116
+  47:Drivers/POCSAG/POCSAG_Generate.c **** 		return;	//范围检查：0-31
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 11
+
+
+ 415              		.loc 1 47 4 is_stmt 0 view .LVU117
+ 416 0000 1F28     		cmp	r0, #31
+ 417 0002 04D8     		bhi	.L38
+  49:Drivers/POCSAG/POCSAG_Generate.c **** 	if(codeword_index < 16)
+ 418              		.loc 1 49 42 is_stmt 1 view .LVU118
+  50:Drivers/POCSAG/POCSAG_Generate.c **** 		POCSAG_Batch1[codeword_index] = in_codeword;//0-15表示位于第一码组
+ 419              		.loc 1 50 2 view .LVU119
+  50:Drivers/POCSAG/POCSAG_Generate.c **** 		POCSAG_Batch1[codeword_index] = in_codeword;//0-15表示位于第一码组
+ 420              		.loc 1 50 4 is_stmt 0 view .LVU120
+ 421 0004 0F28     		cmp	r0, #15
+ 422 0006 03D8     		bhi	.L40
+  51:Drivers/POCSAG/POCSAG_Generate.c **** 	else
+ 423              		.loc 1 51 3 is_stmt 1 view .LVU121
+  51:Drivers/POCSAG/POCSAG_Generate.c **** 	else
+ 424              		.loc 1 51 33 is_stmt 0 view .LVU122
+ 425 0008 044B     		ldr	r3, .L41
+ 426 000a 8000     		lsls	r0, r0, #2
+ 427              	.LVL38:
+  51:Drivers/POCSAG/POCSAG_Generate.c **** 	else
+ 428              		.loc 1 51 33 view .LVU123
+ 429 000c C150     		str	r1, [r0, r3]
+ 430              	.L38:
+  71:Drivers/POCSAG/POCSAG_Generate.c **** /*-----------------------------------------------------------------------
+ 431              		.loc 1 71 1 view .LVU124
+ 432              		@ sp needed
+ 433 000e 7047     		bx	lr
+ 434              	.LVL39:
+ 435              	.L40:
+  53:Drivers/POCSAG/POCSAG_Generate.c **** 													//16-31表示位于第二码组
+ 436              		.loc 1 53 3 is_stmt 1 view .LVU125
+  53:Drivers/POCSAG/POCSAG_Generate.c **** 													//16-31表示位于第二码组
+ 437              		.loc 1 53 32 is_stmt 0 view .LVU126
+ 438 0010 1038     		subs	r0, r0, #16
+ 439              	.LVL40:
+  53:Drivers/POCSAG/POCSAG_Generate.c **** 													//16-31表示位于第二码组
+ 440              		.loc 1 53 38 view .LVU127
+ 441 0012 034B     		ldr	r3, .L41+4
+ 442 0014 8000     		lsls	r0, r0, #2
+ 443 0016 C150     		str	r1, [r0, r3]
+  56:Drivers/POCSAG/POCSAG_Generate.c **** 	POCSAG_DEBUG_MSG("with %08Xh (",in_codeword);
+ 444              		.loc 1 56 23 is_stmt 1 view .LVU128
+  57:Drivers/POCSAG/POCSAG_Generate.c **** #ifdef POCSAG_DEBUG_MSG_ON
+ 445              		.loc 1 57 46 view .LVU129
+ 446 0018 F9E7     		b	.L38
+ 447              	.L42:
+ 448 001a C046     		.align	2
+ 449              	.L41:
+ 450 001c 00000000 		.word	POCSAG_Batch1
+ 451 0020 00000000 		.word	POCSAG_Batch2
+ 452              		.cfi_endproc
+ 453              	.LFE294:
+ 455              		.global	__aeabi_idiv
+ 456              		.global	__aeabi_idivmod
+ 457              		.section	.text.POCSAG_MakeCodeWords,"ax",%progbits
+ 458              		.align	1
+ 459              		.global	POCSAG_MakeCodeWords
+ 460              		.syntax unified
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 12
+
+
+ 461              		.code	16
+ 462              		.thumb_func
+ 464              	POCSAG_MakeCodeWords:
+ 465              	.LVL41:
+ 466              	.LFB298:
+ 147:Drivers/POCSAG/POCSAG_Generate.c **** /*-----------------------------------------------------------------------
+ 148:Drivers/POCSAG/POCSAG_Generate.c **** *@brief		生成POCSAG码字
+ 149:Drivers/POCSAG/POCSAG_Generate.c **** *@detail 	1.该子程序只生成码字（包含地址码字和数据码字）。不生成前导码
+ 150:Drivers/POCSAG/POCSAG_Generate.c **** *			2.生成的1组或2组码字保存在数组POCSAG_Batch1/2中。
+ 151:Drivers/POCSAG/POCSAG_Generate.c **** *			3.未使用的码字按照POCSAG标准，用空闲码字填充。
+ 152:Drivers/POCSAG/POCSAG_Generate.c **** *			4.输入字符串的长度：ASCII/纯数字ASCII为40个，纯汉字20个(标点和数字
+ 153:Drivers/POCSAG/POCSAG_Generate.c **** *			应使用全角字符)。
+ 154:Drivers/POCSAG/POCSAG_Generate.c **** *@param		Address - 地址码，其中低3位表示地址码字开始位置在码组中所在的帧
+ 155:Drivers/POCSAG/POCSAG_Generate.c **** *           FuncCode - 功能码，表明发送纯数字字符、纯汉字、还是ASCII字符
+ 156:Drivers/POCSAG/POCSAG_Generate.c **** *           text* - 指向文本的指针，最长40个字符
+ 157:Drivers/POCSAG/POCSAG_Generate.c **** *           Batch2Opt - 当码字个数<=16时（仅使用1个码组时）码组2的处置方法
+ 158:Drivers/POCSAG/POCSAG_Generate.c **** *           （截断、重复码组1内容、还是保留并填为空闲码字）          
+ 159:Drivers/POCSAG/POCSAG_Generate.c **** *           InvertOpt - 数据位是否翻转
+ 160:Drivers/POCSAG/POCSAG_Generate.c **** *@retval	<=0时为错误码。>0时为生成的码字数据占用的码组个数（1或2）
+ 161:Drivers/POCSAG/POCSAG_Generate.c **** -----------------------------------------------------------------------*/
+ 162:Drivers/POCSAG/POCSAG_Generate.c **** int8_t POCSAG_MakeCodeWords(uint32_t Address, int8_t FuncCode, uint8_t* text,
+ 163:Drivers/POCSAG/POCSAG_Generate.c **** 							int8_t Batch2Opt, bool InvertOpt)
+ 164:Drivers/POCSAG/POCSAG_Generate.c **** {
+ 467              		.loc 1 164 1 view -0
+ 468              		.cfi_startproc
+ 469              		@ args = 4, pretend = 0, frame = 80
+ 470              		@ frame_needed = 0, uses_anonymous_args = 0
+ 471              		.loc 1 164 1 is_stmt 0 view .LVU131
+ 472 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 473              	.LCFI2:
+ 474              		.cfi_def_cfa_offset 20
+ 475              		.cfi_offset 4, -20
+ 476              		.cfi_offset 5, -16
+ 477              		.cfi_offset 6, -12
+ 478              		.cfi_offset 7, -8
+ 479              		.cfi_offset 14, -4
+ 480 0002 DE46     		mov	lr, fp
+ 481 0004 5746     		mov	r7, r10
+ 482 0006 4E46     		mov	r6, r9
+ 483 0008 4546     		mov	r5, r8
+ 484 000a E0B5     		push	{r5, r6, r7, lr}
+ 485              	.LCFI3:
+ 486              		.cfi_def_cfa_offset 36
+ 487              		.cfi_offset 8, -36
+ 488              		.cfi_offset 9, -32
+ 489              		.cfi_offset 10, -28
+ 490              		.cfi_offset 11, -24
+ 491 000c 95B0     		sub	sp, sp, #84
+ 492              	.LCFI4:
+ 493              		.cfi_def_cfa_offset 120
+ 494 000e 0500     		movs	r5, r0
+ 495 0010 0291     		str	r1, [sp, #8]
+ 496 0012 9046     		mov	r8, r2
+ 497 0014 1A00     		movs	r2, r3
+ 498              	.LVL42:
+ 499              		.loc 1 164 1 view .LVU132
+ 500 0016 0693     		str	r3, [sp, #24]
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 13
+
+
+ 501 0018 1EAB     		add	r3, sp, #120
+ 502              	.LVL43:
+ 503              		.loc 1 164 1 view .LVU133
+ 504 001a 1878     		ldrb	r0, [r3]
+ 505              	.LVL44:
+ 506              		.loc 1 164 1 view .LVU134
+ 507 001c 0590     		str	r0, [sp, #20]
+ 165:Drivers/POCSAG/POCSAG_Generate.c **** 	uint8_t txt_len;	//文本长度
+ 508              		.loc 1 165 2 is_stmt 1 view .LVU135
+ 166:Drivers/POCSAG/POCSAG_Generate.c **** 	uint8_t current_cw_index;	//当前码字序号，从0开始，最大31
+ 509              		.loc 1 166 2 view .LVU136
+ 167:Drivers/POCSAG/POCSAG_Generate.c **** 	uint8_t coded_len;	//已编码的数据的长度，最大45
+ 510              		.loc 1 167 2 view .LVU137
+ 168:Drivers/POCSAG/POCSAG_Generate.c **** 	uint8_t coded_buf[45];//储存已编码的数据
+ 511              		.loc 1 168 2 view .LVU138
+ 169:Drivers/POCSAG/POCSAG_Generate.c **** 	//注：40字符*每字符7位=280位，280位/每码字内储存20位=14码字，
+ 170:Drivers/POCSAG/POCSAG_Generate.c **** 	//每个码字内编码部分占用3个字节，因此编码数据占用空间为14*3=42字节
+ 171:Drivers/POCSAG/POCSAG_Generate.c **** 	//EOT字符还要另占7位，因此向上圆整，coded_buf数组的容量取45字节
+ 172:Drivers/POCSAG/POCSAG_Generate.c **** 	//==========Part0:准备工作==========
+ 173:Drivers/POCSAG/POCSAG_Generate.c **** 	//=====Part0.0:检查参数合法性
+ 174:Drivers/POCSAG/POCSAG_Generate.c **** 	POCSAG_ASSERT(CheckParamSanity(Address,FuncCode,Batch2Opt));
+ 512              		.loc 1 174 2 view .LVU139
+ 513 001e 2800     		movs	r0, r5
+ 514 0020 FFF7FEFF 		bl	CheckParamSanity
+ 515              	.LVL45:
+ 516              		.loc 1 174 2 is_stmt 0 view .LVU140
+ 517 0024 0490     		str	r0, [sp, #16]
+ 518 0026 0028     		cmp	r0, #0
+ 519 0028 00D0     		beq	.LCB490
+ 520 002a 8AE1     		b	.L44	@long jump
+ 521              	.LCB490:
+ 522              		.loc 1 174 61 is_stmt 1 discriminator 2 view .LVU141
+ 175:Drivers/POCSAG/POCSAG_Generate.c **** 	//=====Part0.1:计算本文长度并在结尾填入EOT控制符
+ 176:Drivers/POCSAG/POCSAG_Generate.c **** 	if((txt_len = strlen((char*)text)) > 40)
+ 523              		.loc 1 176 2 discriminator 2 view .LVU142
+ 524              		.loc 1 176 16 is_stmt 0 discriminator 2 view .LVU143
+ 525 002c 4046     		mov	r0, r8
+ 526 002e FFF7FEFF 		bl	strlen
+ 527              	.LVL46:
+ 528              		.loc 1 176 14 discriminator 2 view .LVU144
+ 529 0032 C0B2     		uxtb	r0, r0
+ 530              	.LVL47:
+ 531              		.loc 1 176 4 discriminator 2 view .LVU145
+ 532 0034 2828     		cmp	r0, #40
+ 533 0036 00D9     		bls	.L45
+ 177:Drivers/POCSAG/POCSAG_Generate.c **** 		txt_len = 40;	//文本限制在最长40个字符
+ 534              		.loc 1 177 11 view .LVU146
+ 535 0038 2820     		movs	r0, #40
+ 536              	.LVL48:
+ 537              	.L45:
+ 178:Drivers/POCSAG/POCSAG_Generate.c **** 	uint8_t lastchar = text[txt_len];	//保存字符串最后一个字符的下一个字符
+ 538              		.loc 1 178 2 is_stmt 1 view .LVU147
+ 539              		.loc 1 178 10 is_stmt 0 view .LVU148
+ 540 003a 4346     		mov	r3, r8
+ 541 003c 1B5C     		ldrb	r3, [r3, r0]
+ 542 003e 0793     		str	r3, [sp, #28]
+ 543              	.LVL49:
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 14
+
+
+ 179:Drivers/POCSAG/POCSAG_Generate.c **** 	text[txt_len] = '\x04';	//替换该字符为End-Of-Tranfer控制字符0x04
+ 544              		.loc 1 179 2 is_stmt 1 view .LVU149
+ 545              		.loc 1 179 16 is_stmt 0 view .LVU150
+ 546 0040 0423     		movs	r3, #4
+ 547 0042 4246     		mov	r2, r8
+ 548 0044 1354     		strb	r3, [r2, r0]
+ 180:Drivers/POCSAG/POCSAG_Generate.c **** 	txt_len++;	//将EOT字符计入字符串总长度
+ 549              		.loc 1 180 2 is_stmt 1 view .LVU151
+ 550              		.loc 1 180 9 is_stmt 0 view .LVU152
+ 551 0046 0130     		adds	r0, r0, #1
+ 552              	.LVL50:
+ 553              		.loc 1 180 9 view .LVU153
+ 554 0048 C3B2     		uxtb	r3, r0
+ 555 004a 0393     		str	r3, [sp, #12]
+ 556              	.LVL51:
+ 181:Drivers/POCSAG/POCSAG_Generate.c **** 	//=====Part0.2:将两个码组内的所有码字都填为空闲码字0x7a89c197
+ 182:Drivers/POCSAG/POCSAG_Generate.c **** 	for(uint8_t i = 0;i < 16;i++)
+ 557              		.loc 1 182 2 is_stmt 1 view .LVU154
+ 558              	.LBB9:
+ 559              		.loc 1 182 6 view .LVU155
+ 560              		.loc 1 182 14 is_stmt 0 view .LVU156
+ 561 004c 0023     		movs	r3, #0
+ 562              		.loc 1 182 2 view .LVU157
+ 563 004e 07E0     		b	.L46
+ 564              	.LVL52:
+ 565              	.L47:
+ 183:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+ 184:Drivers/POCSAG/POCSAG_Generate.c **** 		POCSAG_Batch1[i] = 0x7A89C197;	//将码组1的16个码字填为空闲码字
+ 566              		.loc 1 184 3 is_stmt 1 discriminator 3 view .LVU158
+ 567              		.loc 1 184 20 is_stmt 0 discriminator 3 view .LVU159
+ 568 0050 C14A     		ldr	r2, .L82
+ 569 0052 9900     		lsls	r1, r3, #2
+ 570 0054 C148     		ldr	r0, .L82+4
+ 571 0056 8850     		str	r0, [r1, r2]
+ 185:Drivers/POCSAG/POCSAG_Generate.c **** 		POCSAG_Batch2[i] = 0x7A89C197;	//将码组2的16个码字填为空闲码字
+ 572              		.loc 1 185 3 is_stmt 1 discriminator 3 view .LVU160
+ 573              		.loc 1 185 20 is_stmt 0 discriminator 3 view .LVU161
+ 574 0058 C14A     		ldr	r2, .L82+8
+ 575 005a 8850     		str	r0, [r1, r2]
+ 182:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+ 576              		.loc 1 182 28 is_stmt 1 discriminator 3 view .LVU162
+ 577 005c 0133     		adds	r3, r3, #1
+ 578              	.LVL53:
+ 182:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+ 579              		.loc 1 182 28 is_stmt 0 discriminator 3 view .LVU163
+ 580 005e DBB2     		uxtb	r3, r3
+ 581              	.LVL54:
+ 582              	.L46:
+ 182:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+ 583              		.loc 1 182 22 is_stmt 1 discriminator 1 view .LVU164
+ 584 0060 0F2B     		cmp	r3, #15
+ 585 0062 F5D9     		bls	.L47
+ 586              	.LBE9:
+ 186:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+ 187:Drivers/POCSAG/POCSAG_Generate.c **** 	//==========Part1:生成地址码字==========
+ 188:Drivers/POCSAG/POCSAG_Generate.c **** 	//关于地址码字，其格式如下所示：
+ 189:Drivers/POCSAG/POCSAG_Generate.c **** 	//0aaaaaaa aaaaaaaa aaaffccc cccccccp
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 15
+
+
+ 190:Drivers/POCSAG/POCSAG_Generate.c **** 	//"0" = 固定，表示当前码字包含地址信息
+ 191:Drivers/POCSAG/POCSAG_Generate.c **** 	//a[18] = 地址的高18位
+ 192:Drivers/POCSAG/POCSAG_Generate.c **** 	//f[2] = 两位功能码，表示功能0-3，也表示4个不同的“地址空间”
+ 193:Drivers/POCSAG/POCSAG_Generate.c **** 	//c[10] = 10位BCH(31,21)校验码
+ 194:Drivers/POCSAG/POCSAG_Generate.c **** 	//p = 偶校验位，前面31位中的1位偶数时该位为0，为奇数时该位为1
+ 195:Drivers/POCSAG/POCSAG_Generate.c **** 	//注意：地址的低三位并未在码字中编码。这三位用来表示本地址码字在码
+ 196:Drivers/POCSAG/POCSAG_Generate.c **** 	//的起始位置（帧编号，范围0-7）
+ 197:Drivers/POCSAG/POCSAG_Generate.c **** 	uint32_t address_cw = 0;	//地址码字
+ 587              		.loc 1 197 2 view .LVU165
+ 588              	.LVL55:
+ 198:Drivers/POCSAG/POCSAG_Generate.c **** 	current_cw_index = (Address&0x7)<<1;//由原始地址低3位算出起始码字位置
+ 589              		.loc 1 198 2 view .LVU166
+ 590              		.loc 1 198 34 is_stmt 0 view .LVU167
+ 591 0064 6F00     		lsls	r7, r5, #1
+ 592              		.loc 1 198 19 view .LVU168
+ 593 0066 0E23     		movs	r3, #14
+ 594              	.LVL56:
+ 595              		.loc 1 198 19 view .LVU169
+ 596 0068 1F40     		ands	r7, r3
+ 597              	.LVL57:
+ 199:Drivers/POCSAG/POCSAG_Generate.c **** 	address_cw = Address >> 3;	//地址码字为原始地址的高18位
+ 598              		.loc 1 199 2 is_stmt 1 view .LVU170
+ 599              		.loc 1 199 13 is_stmt 0 view .LVU171
+ 600 006a ED08     		lsrs	r5, r5, #3
+ 601              	.LVL58:
+ 200:Drivers/POCSAG/POCSAG_Generate.c **** 	address_cw <<= 2;	//为功能码空出位置
+ 602              		.loc 1 200 2 is_stmt 1 view .LVU172
+ 603              		.loc 1 200 13 is_stmt 0 view .LVU173
+ 604 006c AD00     		lsls	r5, r5, #2
+ 605              	.LVL59:
+ 201:Drivers/POCSAG/POCSAG_Generate.c **** 	address_cw |= FuncCode&0x03;	//在地址码字的后面附加2位功能码
+ 606              		.loc 1 201 2 is_stmt 1 view .LVU174
+ 607              		.loc 1 201 24 is_stmt 0 view .LVU175
+ 608 006e 0320     		movs	r0, #3
+ 609 0070 029E     		ldr	r6, [sp, #8]
+ 610 0072 3040     		ands	r0, r6
+ 611              		.loc 1 201 13 view .LVU176
+ 612 0074 2843     		orrs	r0, r5
+ 613              	.LVL60:
+ 202:Drivers/POCSAG/POCSAG_Generate.c **** 	StuffCodeWordItem(current_cw_index,CreateBCHandParity(address_cw<<11));
+ 614              		.loc 1 202 2 is_stmt 1 view .LVU177
+ 615 0076 C002     		lsls	r0, r0, #11
+ 616              	.LVL61:
+ 617              		.loc 1 202 2 is_stmt 0 view .LVU178
+ 618 0078 FFF7FEFF 		bl	CreateBCHandParity
+ 619              	.LVL62:
+ 620 007c 0100     		movs	r1, r0
+ 621 007e 3800     		movs	r0, r7
+ 622 0080 FFF7FEFF 		bl	StuffCodeWordItem
+ 623              	.LVL63:
+ 203:Drivers/POCSAG/POCSAG_Generate.c **** 							//计算BCH和校验位，填入码字数组
+ 204:Drivers/POCSAG/POCSAG_Generate.c **** 	//==========Part2:转换POCSAG格式编码==========
+ 205:Drivers/POCSAG/POCSAG_Generate.c **** 	//关于消息码字，其格式如下所示：
+ 206:Drivers/POCSAG/POCSAG_Generate.c **** 	//1ttttttt tttttttt tttttccc cccccccp
+ 207:Drivers/POCSAG/POCSAG_Generate.c **** 	//"1" = 固定值，表示当前码字包含已编码的信息
+ 208:Drivers/POCSAG/POCSAG_Generate.c **** 	//t[20] = 20位ASCII文本/BCD格式的数字/汉字区位码
+ 209:Drivers/POCSAG/POCSAG_Generate.c **** 	//c[10] = 10位BCH(31,21)校验码
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 16
+
+
+ 210:Drivers/POCSAG/POCSAG_Generate.c **** 	//p = 偶校验位，前面31位中的1位偶数时该位为0，为奇数时该位为1
+ 211:Drivers/POCSAG/POCSAG_Generate.c **** 	//=====Part2.1:纯数字类型，将数字字符转换为BCD码，每个码字存储5个BCD码
+ 212:Drivers/POCSAG/POCSAG_Generate.c **** 	if(FuncCode == FUNC_A_NUMERIC)
+ 624              		.loc 1 212 2 is_stmt 1 view .LVU179
+ 625              		.loc 1 212 4 is_stmt 0 view .LVU180
+ 626 0084 002E     		cmp	r6, #0
+ 627 0086 71D1     		bne	.L48
+ 628              	.LBB10:
+ 213:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+ 214:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t group_cnt = (txt_len-1)/5;//5个数字一组，求出分组数
+ 629              		.loc 1 214 3 is_stmt 1 view .LVU181
+ 630              		.loc 1 214 31 is_stmt 0 view .LVU182
+ 631 0088 039B     		ldr	r3, [sp, #12]
+ 632 008a 5D1E     		subs	r5, r3, #1
+ 633              	.LVL64:
+ 634              		.loc 1 214 34 view .LVU183
+ 635 008c 0521     		movs	r1, #5
+ 636 008e 2800     		movs	r0, r5
+ 637 0090 FFF7FEFF 		bl	__aeabi_idiv
+ 638              	.LVL65:
+ 639 0094 0190     		str	r0, [sp, #4]
+ 640              		.loc 1 214 11 view .LVU184
+ 641 0096 C3B2     		uxtb	r3, r0
+ 642 0098 9A46     		mov	r10, r3
+ 643              	.LVL66:
+ 215:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t residual_cnt = (txt_len-1)%5;//剩下落单的数字数
+ 644              		.loc 1 215 3 is_stmt 1 view .LVU185
+ 645              		.loc 1 215 37 is_stmt 0 view .LVU186
+ 646 009a 0521     		movs	r1, #5
+ 647 009c 2800     		movs	r0, r5
+ 648 009e FFF7FEFF 		bl	__aeabi_idivmod
+ 649              	.LVL67:
+ 650 00a2 0291     		str	r1, [sp, #8]
+ 651              		.loc 1 215 11 view .LVU187
+ 652 00a4 CBB2     		uxtb	r3, r1
+ 653 00a6 9B46     		mov	fp, r3
+ 654              	.LVL68:
+ 216:Drivers/POCSAG/POCSAG_Generate.c **** 		//注意：txten-1为字符串从开头到EOT字符（不含）前的所有字符长度
+ 217:Drivers/POCSAG/POCSAG_Generate.c **** 		uint32_t message_bcd_cw;	//保存纯数字BCD码的消息码字
+ 655              		.loc 1 217 3 is_stmt 1 view .LVU188
+ 218:Drivers/POCSAG/POCSAG_Generate.c **** 		for(uint8_t group = 0;group < group_cnt;group++)//先解决成组的数字
+ 656              		.loc 1 218 3 view .LVU189
+ 657              	.LBB11:
+ 658              		.loc 1 218 7 view .LVU190
+ 659              		.loc 1 218 15 is_stmt 0 view .LVU191
+ 660 00a8 0023     		movs	r3, #0
+ 661              	.LVL69:
+ 662              		.loc 1 218 15 view .LVU192
+ 663 00aa 2200     		movs	r2, r4
+ 664 00ac 1C00     		movs	r4, r3
+ 665              	.LVL70:
+ 666              		.loc 1 218 15 view .LVU193
+ 667 00ae 4346     		mov	r3, r8
+ 668 00b0 B846     		mov	r8, r7
+ 669              	.LVL71:
+ 670              		.loc 1 218 15 view .LVU194
+ 671 00b2 1F00     		movs	r7, r3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 17
+
+
+ 672              	.LVL72:
+ 673              		.loc 1 218 15 view .LVU195
+ 674 00b4 9146     		mov	r9, r2
+ 675              		.loc 1 218 3 view .LVU196
+ 676 00b6 1DE0     		b	.L49
+ 677              	.LVL73:
+ 678              	.L50:
+ 679              	.LBB12:
+ 219:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 220:Drivers/POCSAG/POCSAG_Generate.c **** 			message_bcd_cw = 0;//每5个数字为一组，生成5个BCD占用一个码字
+ 221:Drivers/POCSAG/POCSAG_Generate.c **** 			for(uint8_t i = 0;i < 5;i++)
+ 222:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 223:Drivers/POCSAG/POCSAG_Generate.c **** 				message_bcd_cw <<= 4;//左移4位让出位置
+ 680              		.loc 1 223 5 is_stmt 1 discriminator 3 view .LVU197
+ 681              		.loc 1 223 20 is_stmt 0 discriminator 3 view .LVU198
+ 682 00b8 3601     		lsls	r6, r6, #4
+ 683              	.LVL74:
+ 224:Drivers/POCSAG/POCSAG_Generate.c **** 				message_bcd_cw |= CharToBCD(text[group*5+i])&0x0F;
+ 684              		.loc 1 224 5 is_stmt 1 discriminator 3 view .LVU199
+ 685              		.loc 1 224 43 is_stmt 0 discriminator 3 view .LVU200
+ 686 00ba A300     		lsls	r3, r4, #2
+ 687 00bc 1B19     		adds	r3, r3, r4
+ 688              		.loc 1 224 45 discriminator 3 view .LVU201
+ 689 00be EB18     		adds	r3, r5, r3
+ 690              		.loc 1 224 23 discriminator 3 view .LVU202
+ 691 00c0 F85C     		ldrb	r0, [r7, r3]
+ 692 00c2 FFF7FEFF 		bl	CharToBCD
+ 693              	.LVL75:
+ 694              		.loc 1 224 49 discriminator 3 view .LVU203
+ 695 00c6 0F23     		movs	r3, #15
+ 696 00c8 0340     		ands	r3, r0
+ 697              		.loc 1 224 20 discriminator 3 view .LVU204
+ 698 00ca 1E43     		orrs	r6, r3
+ 699              	.LVL76:
+ 221:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 700              		.loc 1 221 29 is_stmt 1 discriminator 3 view .LVU205
+ 701 00cc 0135     		adds	r5, r5, #1
+ 702              	.LVL77:
+ 221:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 703              		.loc 1 221 29 is_stmt 0 discriminator 3 view .LVU206
+ 704 00ce EDB2     		uxtb	r5, r5
+ 705              	.LVL78:
+ 706              	.L51:
+ 221:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 707              		.loc 1 221 24 is_stmt 1 discriminator 1 view .LVU207
+ 708 00d0 042D     		cmp	r5, #4
+ 709 00d2 F1D9     		bls	.L50
+ 710              	.LBE12:
+ 225:Drivers/POCSAG/POCSAG_Generate.c **** 					//数字字符转换为BCD码，按位追加到码字后面，以便左对齐
+ 226:Drivers/POCSAG/POCSAG_Generate.c **** 			}
+ 227:Drivers/POCSAG/POCSAG_Generate.c **** 			message_bcd_cw <<= 11;//填入5个BCD码后，给BCH和偶校验位让出位置
+ 711              		.loc 1 227 4 discriminator 2 view .LVU208
+ 712              		.loc 1 227 19 is_stmt 0 discriminator 2 view .LVU209
+ 713 00d4 F602     		lsls	r6, r6, #11
+ 714              	.LVL79:
+ 228:Drivers/POCSAG/POCSAG_Generate.c **** 			message_bcd_cw |= 0x80000000;//最高位置1表示此码字为消息码字
+ 715              		.loc 1 228 4 is_stmt 1 discriminator 2 view .LVU210
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 18
+
+
+ 716              		.loc 1 228 19 is_stmt 0 discriminator 2 view .LVU211
+ 717 00d6 8020     		movs	r0, #128
+ 718 00d8 0006     		lsls	r0, r0, #24
+ 719 00da 3043     		orrs	r0, r6
+ 720              	.LVL80:
+ 229:Drivers/POCSAG/POCSAG_Generate.c **** 			StuffCodeWordItem(++current_cw_index,
+ 721              		.loc 1 229 4 is_stmt 1 discriminator 2 view .LVU212
+ 722 00dc 4346     		mov	r3, r8
+ 723 00de 0133     		adds	r3, r3, #1
+ 724 00e0 DBB2     		uxtb	r3, r3
+ 725 00e2 9846     		mov	r8, r3
+ 726              	.LVL81:
+ 727              		.loc 1 229 4 is_stmt 0 discriminator 2 view .LVU213
+ 728 00e4 FFF7FEFF 		bl	CreateBCHandParity
+ 729              	.LVL82:
+ 730              		.loc 1 229 4 discriminator 2 view .LVU214
+ 731 00e8 0100     		movs	r1, r0
+ 732 00ea 4046     		mov	r0, r8
+ 733 00ec FFF7FEFF 		bl	StuffCodeWordItem
+ 734              	.LVL83:
+ 218:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 735              		.loc 1 218 48 is_stmt 1 discriminator 2 view .LVU215
+ 736 00f0 0134     		adds	r4, r4, #1
+ 737              	.LVL84:
+ 218:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 738              		.loc 1 218 48 is_stmt 0 discriminator 2 view .LVU216
+ 739 00f2 E4B2     		uxtb	r4, r4
+ 740              	.LVL85:
+ 741              	.L49:
+ 218:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 742              		.loc 1 218 31 is_stmt 1 discriminator 1 view .LVU217
+ 743 00f4 5445     		cmp	r4, r10
+ 744 00f6 02D2     		bcs	.L81
+ 745              	.LBB13:
+ 221:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 746              		.loc 1 221 16 is_stmt 0 view .LVU218
+ 747 00f8 0025     		movs	r5, #0
+ 748              	.LBE13:
+ 220:Drivers/POCSAG/POCSAG_Generate.c **** 			for(uint8_t i = 0;i < 5;i++)
+ 749              		.loc 1 220 19 view .LVU219
+ 750 00fa 0026     		movs	r6, #0
+ 751 00fc E8E7     		b	.L51
+ 752              	.L81:
+ 753              	.LBE11:
+ 230:Drivers/POCSAG/POCSAG_Generate.c **** 							  CreateBCHandParity(message_bcd_cw));	
+ 231:Drivers/POCSAG/POCSAG_Generate.c **** 		}	//生成BCH和偶校验位后将码字填入码组数组中，总码字计数+1
+ 232:Drivers/POCSAG/POCSAG_Generate.c **** 		if(residual_cnt !=0)//如果有落单的数字，再解决落单的数字
+ 754              		.loc 1 232 5 view .LVU220
+ 755 00fe 4C46     		mov	r4, r9
+ 756              	.LVL86:
+ 757              		.loc 1 232 5 view .LVU221
+ 758 0100 3B00     		movs	r3, r7
+ 759 0102 4746     		mov	r7, r8
+ 760              	.LVL87:
+ 761              		.loc 1 232 5 view .LVU222
+ 762 0104 9846     		mov	r8, r3
+ 763              	.LVL88:
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 19
+
+
+ 764              		.loc 1 232 3 is_stmt 1 view .LVU223
+ 765              		.loc 1 232 5 is_stmt 0 view .LVU224
+ 766 0106 5B46     		mov	r3, fp
+ 767              	.LVL89:
+ 768              		.loc 1 232 5 view .LVU225
+ 769 0108 002B     		cmp	r3, #0
+ 770 010a 34D0     		beq	.L53
+ 771              	.LBB14:
+ 233:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 234:Drivers/POCSAG/POCSAG_Generate.c **** 			message_bcd_cw = 0;//这些数字的BCD靠左对齐填入码字，后部空位用0补齐
+ 235:Drivers/POCSAG/POCSAG_Generate.c **** 			for(uint8_t i = 0;i < residual_cnt;i++)
+ 772              		.loc 1 235 16 view .LVU226
+ 773 010c 0025     		movs	r5, #0
+ 774              	.LBE14:
+ 234:Drivers/POCSAG/POCSAG_Generate.c **** 			for(uint8_t i = 0;i < residual_cnt;i++)
+ 775              		.loc 1 234 19 view .LVU227
+ 776 010e 0020     		movs	r0, #0
+ 777 0110 B946     		mov	r9, r7
+ 778 0112 019F     		ldr	r7, [sp, #4]
+ 779 0114 0600     		movs	r6, r0
+ 780              	.LVL90:
+ 234:Drivers/POCSAG/POCSAG_Generate.c **** 			for(uint8_t i = 0;i < residual_cnt;i++)
+ 781              		.loc 1 234 19 view .LVU228
+ 782 0116 A246     		mov	r10, r4
+ 783              	.LVL91:
+ 234:Drivers/POCSAG/POCSAG_Generate.c **** 			for(uint8_t i = 0;i < residual_cnt;i++)
+ 784              		.loc 1 234 19 view .LVU229
+ 785 0118 5C46     		mov	r4, fp
+ 786              	.LVL92:
+ 234:Drivers/POCSAG/POCSAG_Generate.c **** 			for(uint8_t i = 0;i < residual_cnt;i++)
+ 787              		.loc 1 234 19 view .LVU230
+ 788 011a 0EE0     		b	.L52
+ 789              	.LVL93:
+ 790              	.L54:
+ 791              	.LBB15:
+ 236:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 237:Drivers/POCSAG/POCSAG_Generate.c **** 				message_bcd_cw <<= 4;
+ 792              		.loc 1 237 5 is_stmt 1 discriminator 3 view .LVU231
+ 793              		.loc 1 237 20 is_stmt 0 discriminator 3 view .LVU232
+ 794 011c 3601     		lsls	r6, r6, #4
+ 795              	.LVL94:
+ 238:Drivers/POCSAG/POCSAG_Generate.c **** 				message_bcd_cw |= CharToBCD(text[group_cnt*5+i])&0x0F;
+ 796              		.loc 1 238 5 is_stmt 1 discriminator 3 view .LVU233
+ 797              		.loc 1 238 47 is_stmt 0 discriminator 3 view .LVU234
+ 798 011e FF22     		movs	r2, #255
+ 799              	.LVL95:
+ 800              		.loc 1 238 47 discriminator 3 view .LVU235
+ 801 0120 3A40     		ands	r2, r7
+ 802 0122 9300     		lsls	r3, r2, #2
+ 803 0124 9B18     		adds	r3, r3, r2
+ 804              		.loc 1 238 49 discriminator 3 view .LVU236
+ 805 0126 EB18     		adds	r3, r5, r3
+ 806              		.loc 1 238 23 discriminator 3 view .LVU237
+ 807 0128 4246     		mov	r2, r8
+ 808 012a D05C     		ldrb	r0, [r2, r3]
+ 809 012c FFF7FEFF 		bl	CharToBCD
+ 810              	.LVL96:
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 20
+
+
+ 811              		.loc 1 238 53 discriminator 3 view .LVU238
+ 812 0130 0F23     		movs	r3, #15
+ 813 0132 0340     		ands	r3, r0
+ 814              		.loc 1 238 20 discriminator 3 view .LVU239
+ 815 0134 1E43     		orrs	r6, r3
+ 816              	.LVL97:
+ 235:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 817              		.loc 1 235 40 is_stmt 1 discriminator 3 view .LVU240
+ 818 0136 0135     		adds	r5, r5, #1
+ 819              	.LVL98:
+ 235:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 820              		.loc 1 235 40 is_stmt 0 discriminator 3 view .LVU241
+ 821 0138 EDB2     		uxtb	r5, r5
+ 822              	.LVL99:
+ 823              	.L52:
+ 235:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 824              		.loc 1 235 24 is_stmt 1 discriminator 1 view .LVU242
+ 825 013a A542     		cmp	r5, r4
+ 826 013c EED3     		bcc	.L54
+ 827              	.LBE15:
+ 239:Drivers/POCSAG/POCSAG_Generate.c **** 			}
+ 240:Drivers/POCSAG/POCSAG_Generate.c **** 			message_bcd_cw <<= (5 - residual_cnt)*4;//将后部空位用0补齐
+ 828              		.loc 1 240 26 is_stmt 0 view .LVU243
+ 829 013e 4F46     		mov	r7, r9
+ 830 0140 3000     		movs	r0, r6
+ 831 0142 5446     		mov	r4, r10
+ 832              		.loc 1 240 4 is_stmt 1 view .LVU244
+ 833              		.loc 1 240 26 is_stmt 0 view .LVU245
+ 834 0144 FF22     		movs	r2, #255
+ 835              	.LVL100:
+ 836              		.loc 1 240 26 view .LVU246
+ 837 0146 029B     		ldr	r3, [sp, #8]
+ 838 0148 1A40     		ands	r2, r3
+ 839 014a 0523     		movs	r3, #5
+ 840 014c 9B1A     		subs	r3, r3, r2
+ 841              		.loc 1 240 41 view .LVU247
+ 842 014e 9B00     		lsls	r3, r3, #2
+ 843              		.loc 1 240 19 view .LVU248
+ 844 0150 9840     		lsls	r0, r0, r3
+ 845              	.LVL101:
+ 241:Drivers/POCSAG/POCSAG_Generate.c **** 			message_bcd_cw <<= 11;//填入5个BCD码后，给BCH和偶校验位让出位置
+ 846              		.loc 1 241 4 is_stmt 1 view .LVU249
+ 847              		.loc 1 241 19 is_stmt 0 view .LVU250
+ 848 0152 C302     		lsls	r3, r0, #11
+ 849              	.LVL102:
+ 242:Drivers/POCSAG/POCSAG_Generate.c **** 			message_bcd_cw |= 0x80000000;//最高位置1表示此码字为消息码字
+ 850              		.loc 1 242 4 is_stmt 1 view .LVU251
+ 851              		.loc 1 242 19 is_stmt 0 view .LVU252
+ 852 0154 8020     		movs	r0, #128
+ 853 0156 0006     		lsls	r0, r0, #24
+ 854 0158 1843     		orrs	r0, r3
+ 855              	.LVL103:
+ 243:Drivers/POCSAG/POCSAG_Generate.c **** 			StuffCodeWordItem(++current_cw_index,
+ 856              		.loc 1 243 4 is_stmt 1 view .LVU253
+ 857 015a 0137     		adds	r7, r7, #1
+ 858 015c FFB2     		uxtb	r7, r7
+ 859              	.LVL104:
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 21
+
+
+ 860              		.loc 1 243 4 is_stmt 0 view .LVU254
+ 861 015e FFF7FEFF 		bl	CreateBCHandParity
+ 862              	.LVL105:
+ 863              		.loc 1 243 4 view .LVU255
+ 864 0162 0100     		movs	r1, r0
+ 865 0164 3800     		movs	r0, r7
+ 866 0166 FFF7FEFF 		bl	StuffCodeWordItem
+ 867              	.LVL106:
+ 868 016a 04E0     		b	.L53
+ 869              	.LVL107:
+ 870              	.L48:
+ 871              		.loc 1 243 4 view .LVU256
+ 872              	.LBE10:
+ 244:Drivers/POCSAG/POCSAG_Generate.c **** 							  CreateBCHandParity(message_bcd_cw));	
+ 245:Drivers/POCSAG/POCSAG_Generate.c **** 		}	//生成BCH和偶校验位后将码字填入码组数组中，总码字计数+1
+ 246:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+ 247:Drivers/POCSAG/POCSAG_Generate.c **** 	//=====Part2.2:纯汉字或ASCII字符
+ 248:Drivers/POCSAG/POCSAG_Generate.c **** 	//1.ASCII文本消息使用7位ASCII码(注意：码字中的ASCII码，位序是反的).
+ 249:Drivers/POCSAG/POCSAG_Generate.c **** 	//2.纯中文消息则使用汉字区位码(GB2312-1980国标信息交换用汉字编码)表示。
+ 250:Drivers/POCSAG/POCSAG_Generate.c **** 	//将汉字机内码减去0xA0A0即可得到区位码，例如汉字“谢”的机内码为0xD0,0
+ 251:Drivers/POCSAG/POCSAG_Generate.c **** 	//将其减去0xA0,0xA0后为0x30,0x1B,换算为10进制后为区位码48,27.
+ 252:Drivers/POCSAG/POCSAG_Generate.c **** 	//3.由于每个码字中最多智能存储20位编码文本数据，相当于3个字符-1位。
+ 253:Drivers/POCSAG/POCSAG_Generate.c **** 	//因此各个7位ASCII字符或区位码头尾相连压缩存储在各个码字中。
+ 254:Drivers/POCSAG/POCSAG_Generate.c **** 	else if((FuncCode == FUNC_B_CHINESE)||
+ 873              		.loc 1 254 7 is_stmt 1 view .LVU257
+ 874              		.loc 1 254 9 is_stmt 0 view .LVU258
+ 875 016c 029B     		ldr	r3, [sp, #8]
+ 876 016e 012B     		cmp	r3, #1
+ 877 0170 08D0     		beq	.L55
+ 878              		.loc 1 254 38 discriminator 1 view .LVU259
+ 879 0172 032B     		cmp	r3, #3
+ 880 0174 06D0     		beq	.L55
+ 881              	.LVL108:
+ 882              	.L53:
+ 255:Drivers/POCSAG/POCSAG_Generate.c **** 			(FuncCode == FUNC_D_ALPHANUMRIC))
+ 256:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+ 257:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t bitcount_out = 7;//能复制的位个数，初始化为7
+ 258:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t bytecount_out = 0;	//已复制的字节计数
+ 259:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t bitcount_in = 7;	//能提供的位个数，初始化为7
+ 260:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t bytecount_in = 0;	//已读入的字节个数
+ 261:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t ch = FlipCharBitOrder(text[0],FuncCode);
+ 262:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t t;	//临时保存掩码运算结果，包含已提取的几个位
+ 263:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t bits2copy;	//要复制多少位
+ 264:Drivers/POCSAG/POCSAG_Generate.c **** 		//保存字符各位翻转后的结果，从输入字串的第一个字符开始
+ 265:Drivers/POCSAG/POCSAG_Generate.c **** 		//对于中文字符，在该函数中将机内码转为区位码后再翻转位序列
+ 266:Drivers/POCSAG/POCSAG_Generate.c **** 		memset(coded_buf,0,sizeof(coded_buf));//清空已编码的数据缓存
+ 267:Drivers/POCSAG/POCSAG_Generate.c **** 		coded_buf[0] = 0x80;	//消息码字的最高位为1
+ 268:Drivers/POCSAG/POCSAG_Generate.c **** 		coded_len = 0;	//已编码的数据长度清零
+ 269:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 270:Drivers/POCSAG/POCSAG_Generate.c **** 		while(true)
+ 271:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 272:Drivers/POCSAG/POCSAG_Generate.c **** 			//要复制多少个位?地方够么?
+ 273:Drivers/POCSAG/POCSAG_Generate.c **** 			if(bitcount_in > bitcount_out)	//如果能复制的位数比提供的位数少
+ 274:Drivers/POCSAG/POCSAG_Generate.c **** 				bits2copy = bitcount_out;	//将要复制的位数限制在能复制的位数
+ 275:Drivers/POCSAG/POCSAG_Generate.c **** 			else							//如果能复制的位数比提供的位数多
+ 276:Drivers/POCSAG/POCSAG_Generate.c **** 				bits2copy = bitcount_in;	//把提供的位数全部复制
+ 277:Drivers/POCSAG/POCSAG_Generate.c **** 			//复制bits2copy个位，如果需要就左移。掩码运算
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 22
+
+
+ 278:Drivers/POCSAG/POCSAG_Generate.c **** 			t = ch & (SizeToMask[bits2copy-1]<<(bitcount_in-bits2copy));
+ 279:Drivers/POCSAG/POCSAG_Generate.c **** 			//放哪?如果需要就左移
+ 280:Drivers/POCSAG/POCSAG_Generate.c **** 			if(bitcount_in > bitcount_out)
+ 281:Drivers/POCSAG/POCSAG_Generate.c **** 				t >>= (bitcount_in - bitcount_out);	//右对齐
+ 282:Drivers/POCSAG/POCSAG_Generate.c **** 			else if(bitcount_in < bitcount_out)
+ 283:Drivers/POCSAG/POCSAG_Generate.c **** 				t <<= (bitcount_out - bitcount_in);	//左对齐
+ 284:Drivers/POCSAG/POCSAG_Generate.c **** 			coded_buf[coded_len] |= t;	//存储已提取的位
+ 285:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 286:Drivers/POCSAG/POCSAG_Generate.c **** 			bitcount_in -= bits2copy;
+ 287:Drivers/POCSAG/POCSAG_Generate.c **** 			bitcount_out -= bits2copy;	//位计数变量减去已复制的位数
+ 288:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 289:Drivers/POCSAG/POCSAG_Generate.c **** 			if(bitcount_out == 0)	//如果装满了一个字节
+ 290:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 291:Drivers/POCSAG/POCSAG_Generate.c **** 				bytecount_out++;	//已复制的字节计数+1
+ 292:Drivers/POCSAG/POCSAG_Generate.c **** 				coded_len++;	//已编码的数据长度+1
+ 293:Drivers/POCSAG/POCSAG_Generate.c **** 				switch(bytecount_out)	//根据已复制的字节数散转，决定下一步工作
+ 294:Drivers/POCSAG/POCSAG_Generate.c **** 				{
+ 295:Drivers/POCSAG/POCSAG_Generate.c **** 				case 1:	//已经复制完第1字节，准备复制第2字节
+ 296:Drivers/POCSAG/POCSAG_Generate.c **** 					coded_buf[coded_len] = 0;//将第2字节清零
+ 297:Drivers/POCSAG/POCSAG_Generate.c **** 					bitcount_out = 8;//第2字节要复制8个位
+ 298:Drivers/POCSAG/POCSAG_Generate.c **** 					break;
+ 299:Drivers/POCSAG/POCSAG_Generate.c **** 				case 2: //已经复制完第2字节，准备复制第3字节
+ 300:Drivers/POCSAG/POCSAG_Generate.c **** 					coded_buf[coded_len] = 0;//将第3字节清零
+ 301:Drivers/POCSAG/POCSAG_Generate.c **** 					bitcount_out = 5;//第3字节要复制5个位
+ 302:Drivers/POCSAG/POCSAG_Generate.c **** 					break;
+ 303:Drivers/POCSAG/POCSAG_Generate.c **** 				case 3: default://已经复制完第3字节，回滚复制第1字节
+ 304:Drivers/POCSAG/POCSAG_Generate.c **** 					coded_buf[coded_len] = 0x80;//第一字节最高位填1
+ 305:Drivers/POCSAG/POCSAG_Generate.c **** 					bitcount_out = 7;//第1字节复制7个位
+ 306:Drivers/POCSAG/POCSAG_Generate.c **** 					bytecount_out = 0;//清空字节计数变量，准备回滚
+ 307:Drivers/POCSAG/POCSAG_Generate.c **** 					break;
+ 308:Drivers/POCSAG/POCSAG_Generate.c **** 				}
+ 309:Drivers/POCSAG/POCSAG_Generate.c **** 			}
+ 310:Drivers/POCSAG/POCSAG_Generate.c **** 			if(bitcount_in == 0)	//如果读完了一个字节
+ 311:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 312:Drivers/POCSAG/POCSAG_Generate.c **** 				bytecount_in++;	//已读取字节计数+1
+ 313:Drivers/POCSAG/POCSAG_Generate.c **** 				if(bytecount_in < txt_len)//如果还有字符要读入
+ 314:Drivers/POCSAG/POCSAG_Generate.c **** 				{
+ 315:Drivers/POCSAG/POCSAG_Generate.c **** 					ch = FlipCharBitOrder(text[bytecount_in],FuncCode);
+ 316:Drivers/POCSAG/POCSAG_Generate.c **** 										//读入一个字符并翻转位序
+ 317:Drivers/POCSAG/POCSAG_Generate.c **** 					bitcount_in = 7;	//设置可提供的位数为7个
+ 318:Drivers/POCSAG/POCSAG_Generate.c **** 				}
+ 319:Drivers/POCSAG/POCSAG_Generate.c **** 				else	//如果没有更多字符要读入了
+ 320:Drivers/POCSAG/POCSAG_Generate.c **** 				{
+ 321:Drivers/POCSAG/POCSAG_Generate.c **** 					break;	//跳出while循环
+ 322:Drivers/POCSAG/POCSAG_Generate.c **** 				}
+ 323:Drivers/POCSAG/POCSAG_Generate.c **** 			}
+ 324:Drivers/POCSAG/POCSAG_Generate.c **** 		}
+ 325:Drivers/POCSAG/POCSAG_Generate.c **** 		coded_len++;	//将表示下标的变量+1，变为表示长度
+ 326:Drivers/POCSAG/POCSAG_Generate.c **** 		//将已编码数据缓存中每三个字节组成为一组，合成消息码字
+ 327:Drivers/POCSAG/POCSAG_Generate.c **** 		for(uint8_t i = 0;i < coded_len;i += 3)
+ 328:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 329:Drivers/POCSAG/POCSAG_Generate.c **** 			uint32_t message_ascii_cw;
+ 330:Drivers/POCSAG/POCSAG_Generate.c **** 			message_ascii_cw = (uint32_t)coded_buf[i]<<24;
+ 331:Drivers/POCSAG/POCSAG_Generate.c **** 			message_ascii_cw |= (uint32_t)coded_buf[i+1]<<16;
+ 332:Drivers/POCSAG/POCSAG_Generate.c **** 			message_ascii_cw |= (uint32_t)coded_buf[i+2]<<11;
+ 333:Drivers/POCSAG/POCSAG_Generate.c **** 			StuffCodeWordItem(++current_cw_index,
+ 334:Drivers/POCSAG/POCSAG_Generate.c **** 							  CreateBCHandParity(message_ascii_cw));
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 23
+
+
+ 335:Drivers/POCSAG/POCSAG_Generate.c **** 		}
+ 336:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+ 337:Drivers/POCSAG/POCSAG_Generate.c **** 	//==========Part3:后处理==========
+ 338:Drivers/POCSAG/POCSAG_Generate.c **** 	//=====Part3.1:根据选项，决定是否对码组数据进行相位反向
+ 339:Drivers/POCSAG/POCSAG_Generate.c **** 	if(InvertOpt)//如果需要反向，则将每个码字与0xFFFFFFFF异或进行反向
+ 883              		.loc 1 339 2 is_stmt 1 view .LVU260
+ 884              		.loc 1 339 4 is_stmt 0 view .LVU261
+ 885 0176 059B     		ldr	r3, [sp, #20]
+ 886 0178 002B     		cmp	r3, #0
+ 887 017a 00D0     		beq	.LCB851
+ 888 017c 93E0     		b	.L77	@long jump
+ 889              	.LCB851:
+ 890              	.L69:
+ 340:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+ 341:Drivers/POCSAG/POCSAG_Generate.c **** 		for(uint8_t i = 0;i < 16;i++)
+ 342:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 343:Drivers/POCSAG/POCSAG_Generate.c **** 			POCSAG_Batch1[i] ^= 0xFFFFFFFF;
+ 344:Drivers/POCSAG/POCSAG_Generate.c **** 			POCSAG_Batch2[i] ^= 0xFFFFFFFF;
+ 345:Drivers/POCSAG/POCSAG_Generate.c **** 		}
+ 346:Drivers/POCSAG/POCSAG_Generate.c **** 		POCSAG_DEBUG_MSG("Bit phase is inverted!\r\n");
+ 891              		.loc 1 346 49 is_stmt 1 view .LVU262
+ 347:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+ 348:Drivers/POCSAG/POCSAG_Generate.c **** 	//=====Part3.2:POCSAG_Batch1/2的数组元素仅为容器，需转为大端格式
+ 349:Drivers/POCSAG/POCSAG_Generate.c **** 	if(ENDIAN_TEST() == 'L')//如果本机是小端存储结构
+ 892              		.loc 1 349 2 view .LVU263
+ 893              	.LBB16:
+ 894              	.LBB17:
+ 350:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+ 351:Drivers/POCSAG/POCSAG_Generate.c **** 		uint32_t temp1;
+ 352:Drivers/POCSAG/POCSAG_Generate.c **** 		union{uint32_t i; uint8_t bytes[4];}temp2;
+ 353:Drivers/POCSAG/POCSAG_Generate.c **** 		for(uint8_t i = 0;i < 16;i++)
+ 895              		.loc 1 353 15 is_stmt 0 view .LVU264
+ 896 017e 0022     		movs	r2, #0
+ 897 0180 BC46     		mov	ip, r7
+ 898              	.LBE17:
+ 899              	.LBE16:
+ 900 0182 C4E0     		b	.L71
+ 901              	.LVL109:
+ 902              	.L55:
+ 903              	.LBB19:
+ 257:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t bytecount_out = 0;	//已复制的字节计数
+ 904              		.loc 1 257 3 is_stmt 1 view .LVU265
+ 258:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t bitcount_in = 7;	//能提供的位个数，初始化为7
+ 905              		.loc 1 258 3 view .LVU266
+ 259:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t bytecount_in = 0;	//已读入的字节个数
+ 906              		.loc 1 259 3 view .LVU267
+ 260:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t ch = FlipCharBitOrder(text[0],FuncCode);
+ 907              		.loc 1 260 3 view .LVU268
+ 261:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t t;	//临时保存掩码运算结果，包含已提取的几个位
+ 908              		.loc 1 261 3 view .LVU269
+ 261:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t t;	//临时保存掩码运算结果，包含已提取的几个位
+ 909              		.loc 1 261 16 is_stmt 0 view .LVU270
+ 910 0184 4346     		mov	r3, r8
+ 911 0186 1878     		ldrb	r0, [r3]
+ 912 0188 0299     		ldr	r1, [sp, #8]
+ 913 018a FFF7FEFF 		bl	FlipCharBitOrder
+ 914              	.LVL110:
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 24
+
+
+ 915 018e 0190     		str	r0, [sp, #4]
+ 916              	.LVL111:
+ 262:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t bits2copy;	//要复制多少位
+ 917              		.loc 1 262 3 is_stmt 1 view .LVU271
+ 263:Drivers/POCSAG/POCSAG_Generate.c **** 		//保存字符各位翻转后的结果，从输入字串的第一个字符开始
+ 918              		.loc 1 263 3 view .LVU272
+ 266:Drivers/POCSAG/POCSAG_Generate.c **** 		coded_buf[0] = 0x80;	//消息码字的最高位为1
+ 919              		.loc 1 266 3 view .LVU273
+ 920 0190 2D22     		movs	r2, #45
+ 921 0192 0021     		movs	r1, #0
+ 922 0194 08A8     		add	r0, sp, #32
+ 923              	.LVL112:
+ 266:Drivers/POCSAG/POCSAG_Generate.c **** 		coded_buf[0] = 0x80;	//消息码字的最高位为1
+ 924              		.loc 1 266 3 is_stmt 0 view .LVU274
+ 925 0196 FFF7FEFF 		bl	memset
+ 926              	.LVL113:
+ 267:Drivers/POCSAG/POCSAG_Generate.c **** 		coded_len = 0;	//已编码的数据长度清零
+ 927              		.loc 1 267 3 is_stmt 1 view .LVU275
+ 267:Drivers/POCSAG/POCSAG_Generate.c **** 		coded_len = 0;	//已编码的数据长度清零
+ 928              		.loc 1 267 16 is_stmt 0 view .LVU276
+ 929 019a 8023     		movs	r3, #128
+ 930 019c 08AA     		add	r2, sp, #32
+ 931 019e 1370     		strb	r3, [r2]
+ 268:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 932              		.loc 1 268 3 is_stmt 1 view .LVU277
+ 933              	.LVL114:
+ 260:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t ch = FlipCharBitOrder(text[0],FuncCode);
+ 934              		.loc 1 260 11 is_stmt 0 view .LVU278
+ 935 01a0 0023     		movs	r3, #0
+ 936 01a2 9B46     		mov	fp, r3
+ 259:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t bytecount_in = 0;	//已读入的字节个数
+ 937              		.loc 1 259 11 view .LVU279
+ 938 01a4 0725     		movs	r5, #7
+ 939              	.LVL115:
+ 257:Drivers/POCSAG/POCSAG_Generate.c **** 		uint8_t bytecount_out = 0;	//已复制的字节计数
+ 940              		.loc 1 257 11 view .LVU280
+ 941 01a6 0726     		movs	r6, #7
+ 942              	.LVL116:
+ 268:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 943              		.loc 1 268 13 view .LVU281
+ 944 01a8 2300     		movs	r3, r4
+ 945 01aa 5C46     		mov	r4, fp
+ 946              	.LVL117:
+ 268:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 947              		.loc 1 268 13 view .LVU282
+ 948 01ac B946     		mov	r9, r7
+ 949 01ae 5F46     		mov	r7, fp
+ 950              	.LVL118:
+ 268:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 951              		.loc 1 268 13 view .LVU283
+ 952 01b0 9A46     		mov	r10, r3
+ 953 01b2 1CE0     		b	.L56
+ 954              	.LVL119:
+ 955              	.L76:
+ 276:Drivers/POCSAG/POCSAG_Generate.c **** 			//复制bits2copy个位，如果需要就左移。掩码运算
+ 956              		.loc 1 276 15 view .LVU284
+ 957 01b4 2900     		movs	r1, r5
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 25
+
+
+ 958 01b6 1DE0     		b	.L57
+ 959              	.LVL120:
+ 960              	.L58:
+ 282:Drivers/POCSAG/POCSAG_Generate.c **** 				t <<= (bitcount_out - bitcount_in);	//左对齐
+ 961              		.loc 1 282 9 is_stmt 1 view .LVU285
+ 282:Drivers/POCSAG/POCSAG_Generate.c **** 				t <<= (bitcount_out - bitcount_in);	//左对齐
+ 962              		.loc 1 282 11 is_stmt 0 view .LVU286
+ 963 01b8 AE42     		cmp	r6, r5
+ 964 01ba 28D9     		bls	.L59
+ 283:Drivers/POCSAG/POCSAG_Generate.c **** 			coded_buf[coded_len] |= t;	//存储已提取的位
+ 965              		.loc 1 283 5 is_stmt 1 view .LVU287
+ 283:Drivers/POCSAG/POCSAG_Generate.c **** 			coded_buf[coded_len] |= t;	//存储已提取的位
+ 966              		.loc 1 283 25 is_stmt 0 view .LVU288
+ 967 01bc 721B     		subs	r2, r6, r5
+ 283:Drivers/POCSAG/POCSAG_Generate.c **** 			coded_buf[coded_len] |= t;	//存储已提取的位
+ 968              		.loc 1 283 7 view .LVU289
+ 969 01be 9340     		lsls	r3, r3, r2
+ 970              	.LVL121:
+ 283:Drivers/POCSAG/POCSAG_Generate.c **** 			coded_buf[coded_len] |= t;	//存储已提取的位
+ 971              		.loc 1 283 7 view .LVU290
+ 972 01c0 DBB2     		uxtb	r3, r3
+ 973              	.LVL122:
+ 283:Drivers/POCSAG/POCSAG_Generate.c **** 			coded_buf[coded_len] |= t;	//存储已提取的位
+ 974              		.loc 1 283 7 view .LVU291
+ 975 01c2 24E0     		b	.L59
+ 976              	.LVL123:
+ 977              	.L61:
+ 296:Drivers/POCSAG/POCSAG_Generate.c **** 					bitcount_out = 8;//第2字节要复制8个位
+ 978              		.loc 1 296 6 is_stmt 1 view .LVU292
+ 296:Drivers/POCSAG/POCSAG_Generate.c **** 					bitcount_out = 8;//第2字节要复制8个位
+ 979              		.loc 1 296 27 is_stmt 0 view .LVU293
+ 980 01c4 0023     		movs	r3, #0
+ 981 01c6 08AA     		add	r2, sp, #32
+ 982 01c8 1355     		strb	r3, [r2, r4]
+ 297:Drivers/POCSAG/POCSAG_Generate.c **** 					break;
+ 983              		.loc 1 297 6 is_stmt 1 view .LVU294
+ 984              	.LVL124:
+ 298:Drivers/POCSAG/POCSAG_Generate.c **** 				case 2: //已经复制完第2字节，准备复制第3字节
+ 985              		.loc 1 298 6 view .LVU295
+ 297:Drivers/POCSAG/POCSAG_Generate.c **** 					break;
+ 986              		.loc 1 297 19 is_stmt 0 view .LVU296
+ 987 01ca 0826     		movs	r6, #8
+ 988              	.LVL125:
+ 989              	.L60:
+ 310:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 990              		.loc 1 310 4 is_stmt 1 view .LVU297
+ 310:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 991              		.loc 1 310 6 is_stmt 0 view .LVU298
+ 992 01cc 002D     		cmp	r5, #0
+ 993 01ce 0ED1     		bne	.L56
+ 312:Drivers/POCSAG/POCSAG_Generate.c **** 				if(bytecount_in < txt_len)//如果还有字符要读入
+ 994              		.loc 1 312 5 is_stmt 1 view .LVU299
+ 312:Drivers/POCSAG/POCSAG_Generate.c **** 				if(bytecount_in < txt_len)//如果还有字符要读入
+ 995              		.loc 1 312 17 is_stmt 0 view .LVU300
+ 996 01d0 5B46     		mov	r3, fp
+ 997 01d2 0133     		adds	r3, r3, #1
+ 998 01d4 DBB2     		uxtb	r3, r3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 26
+
+
+ 999 01d6 9B46     		mov	fp, r3
+ 1000              	.LVL126:
+ 313:Drivers/POCSAG/POCSAG_Generate.c **** 				{
+ 1001              		.loc 1 313 5 is_stmt 1 view .LVU301
+ 313:Drivers/POCSAG/POCSAG_Generate.c **** 				{
+ 1002              		.loc 1 313 7 is_stmt 0 view .LVU302
+ 1003 01d8 039B     		ldr	r3, [sp, #12]
+ 1004 01da 5B45     		cmp	r3, fp
+ 1005 01dc 35D9     		bls	.L65
+ 315:Drivers/POCSAG/POCSAG_Generate.c **** 										//读入一个字符并翻转位序
+ 1006              		.loc 1 315 6 is_stmt 1 view .LVU303
+ 315:Drivers/POCSAG/POCSAG_Generate.c **** 										//读入一个字符并翻转位序
+ 1007              		.loc 1 315 11 is_stmt 0 view .LVU304
+ 1008 01de 4346     		mov	r3, r8
+ 1009 01e0 5A46     		mov	r2, fp
+ 1010 01e2 985C     		ldrb	r0, [r3, r2]
+ 1011 01e4 0299     		ldr	r1, [sp, #8]
+ 1012              	.LVL127:
+ 315:Drivers/POCSAG/POCSAG_Generate.c **** 										//读入一个字符并翻转位序
+ 1013              		.loc 1 315 11 view .LVU305
+ 1014 01e6 FFF7FEFF 		bl	FlipCharBitOrder
+ 1015              	.LVL128:
+ 1016 01ea 0190     		str	r0, [sp, #4]
+ 1017              	.LVL129:
+ 317:Drivers/POCSAG/POCSAG_Generate.c **** 				}
+ 1018              		.loc 1 317 6 is_stmt 1 view .LVU306
+ 317:Drivers/POCSAG/POCSAG_Generate.c **** 				}
+ 1019              		.loc 1 317 18 is_stmt 0 view .LVU307
+ 1020 01ec 0735     		adds	r5, r5, #7
+ 1021              	.LVL130:
+ 1022              	.L56:
+ 270:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1023              		.loc 1 270 3 is_stmt 1 view .LVU308
+ 273:Drivers/POCSAG/POCSAG_Generate.c **** 				bits2copy = bitcount_out;	//将要复制的位数限制在能复制的位数
+ 1024              		.loc 1 273 4 view .LVU309
+ 273:Drivers/POCSAG/POCSAG_Generate.c **** 				bits2copy = bitcount_out;	//将要复制的位数限制在能复制的位数
+ 1025              		.loc 1 273 6 is_stmt 0 view .LVU310
+ 1026 01ee AE42     		cmp	r6, r5
+ 1027 01f0 E0D2     		bcs	.L76
+ 274:Drivers/POCSAG/POCSAG_Generate.c **** 			else							//如果能复制的位数比提供的位数多
+ 1028              		.loc 1 274 15 view .LVU311
+ 1029 01f2 3100     		movs	r1, r6
+ 1030              	.L57:
+ 1031              	.LVL131:
+ 278:Drivers/POCSAG/POCSAG_Generate.c **** 			//放哪?如果需要就左移
+ 1032              		.loc 1 278 4 is_stmt 1 view .LVU312
+ 278:Drivers/POCSAG/POCSAG_Generate.c **** 			//放哪?如果需要就左移
+ 1033              		.loc 1 278 34 is_stmt 0 view .LVU313
+ 1034 01f4 4B1E     		subs	r3, r1, #1
+ 1035              	.LVL132:
+ 278:Drivers/POCSAG/POCSAG_Generate.c **** 			//放哪?如果需要就左移
+ 1036              		.loc 1 278 24 view .LVU314
+ 1037 01f6 5B4A     		ldr	r2, .L82+12
+ 1038 01f8 D35C     		ldrb	r3, [r2, r3]
+ 278:Drivers/POCSAG/POCSAG_Generate.c **** 			//放哪?如果需要就左移
+ 1039              		.loc 1 278 51 view .LVU315
+ 1040 01fa 681A     		subs	r0, r5, r1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 27
+
+
+ 278:Drivers/POCSAG/POCSAG_Generate.c **** 			//放哪?如果需要就左移
+ 1041              		.loc 1 278 37 view .LVU316
+ 1042 01fc 8340     		lsls	r3, r3, r0
+ 278:Drivers/POCSAG/POCSAG_Generate.c **** 			//放哪?如果需要就左移
+ 1043              		.loc 1 278 6 view .LVU317
+ 1044 01fe 0198     		ldr	r0, [sp, #4]
+ 1045 0200 0340     		ands	r3, r0
+ 1046 0202 DBB2     		uxtb	r3, r3
+ 1047              	.LVL133:
+ 280:Drivers/POCSAG/POCSAG_Generate.c **** 				t >>= (bitcount_in - bitcount_out);	//右对齐
+ 1048              		.loc 1 280 4 is_stmt 1 view .LVU318
+ 280:Drivers/POCSAG/POCSAG_Generate.c **** 				t >>= (bitcount_in - bitcount_out);	//右对齐
+ 1049              		.loc 1 280 6 is_stmt 0 view .LVU319
+ 1050 0204 AE42     		cmp	r6, r5
+ 1051 0206 D7D2     		bcs	.L58
+ 281:Drivers/POCSAG/POCSAG_Generate.c **** 			else if(bitcount_in < bitcount_out)
+ 1052              		.loc 1 281 5 is_stmt 1 view .LVU320
+ 281:Drivers/POCSAG/POCSAG_Generate.c **** 			else if(bitcount_in < bitcount_out)
+ 1053              		.loc 1 281 24 is_stmt 0 view .LVU321
+ 1054 0208 AA1B     		subs	r2, r5, r6
+ 281:Drivers/POCSAG/POCSAG_Generate.c **** 			else if(bitcount_in < bitcount_out)
+ 1055              		.loc 1 281 7 view .LVU322
+ 1056 020a 1341     		asrs	r3, r3, r2
+ 1057              	.LVL134:
+ 281:Drivers/POCSAG/POCSAG_Generate.c **** 			else if(bitcount_in < bitcount_out)
+ 1058              		.loc 1 281 7 view .LVU323
+ 1059 020c DBB2     		uxtb	r3, r3
+ 1060              	.LVL135:
+ 1061              	.L59:
+ 284:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 1062              		.loc 1 284 4 is_stmt 1 view .LVU324
+ 284:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 1063              		.loc 1 284 13 is_stmt 0 view .LVU325
+ 1064 020e 08AA     		add	r2, sp, #32
+ 1065 0210 125D     		ldrb	r2, [r2, r4]
+ 284:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 1066              		.loc 1 284 25 view .LVU326
+ 1067 0212 1343     		orrs	r3, r2
+ 1068              	.LVL136:
+ 284:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 1069              		.loc 1 284 25 view .LVU327
+ 1070 0214 08AA     		add	r2, sp, #32
+ 1071 0216 1355     		strb	r3, [r2, r4]
+ 286:Drivers/POCSAG/POCSAG_Generate.c **** 			bitcount_out -= bits2copy;	//位计数变量减去已复制的位数
+ 1072              		.loc 1 286 4 is_stmt 1 view .LVU328
+ 286:Drivers/POCSAG/POCSAG_Generate.c **** 			bitcount_out -= bits2copy;	//位计数变量减去已复制的位数
+ 1073              		.loc 1 286 16 is_stmt 0 view .LVU329
+ 1074 0218 6D1A     		subs	r5, r5, r1
+ 1075              	.LVL137:
+ 286:Drivers/POCSAG/POCSAG_Generate.c **** 			bitcount_out -= bits2copy;	//位计数变量减去已复制的位数
+ 1076              		.loc 1 286 16 view .LVU330
+ 1077 021a EDB2     		uxtb	r5, r5
+ 1078              	.LVL138:
+ 287:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 1079              		.loc 1 287 4 is_stmt 1 view .LVU331
+ 287:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 1080              		.loc 1 287 17 is_stmt 0 view .LVU332
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 28
+
+
+ 1081 021c 761A     		subs	r6, r6, r1
+ 1082              	.LVL139:
+ 287:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 1083              		.loc 1 287 17 view .LVU333
+ 1084 021e F6B2     		uxtb	r6, r6
+ 1085              	.LVL140:
+ 289:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 1086              		.loc 1 289 4 is_stmt 1 view .LVU334
+ 289:Drivers/POCSAG/POCSAG_Generate.c **** 			{
+ 1087              		.loc 1 289 6 is_stmt 0 view .LVU335
+ 1088 0220 002E     		cmp	r6, #0
+ 1089 0222 D3D1     		bne	.L60
+ 291:Drivers/POCSAG/POCSAG_Generate.c **** 				coded_len++;	//已编码的数据长度+1
+ 1090              		.loc 1 291 5 is_stmt 1 view .LVU336
+ 291:Drivers/POCSAG/POCSAG_Generate.c **** 				coded_len++;	//已编码的数据长度+1
+ 1091              		.loc 1 291 18 is_stmt 0 view .LVU337
+ 1092 0224 0137     		adds	r7, r7, #1
+ 1093              	.LVL141:
+ 291:Drivers/POCSAG/POCSAG_Generate.c **** 				coded_len++;	//已编码的数据长度+1
+ 1094              		.loc 1 291 18 view .LVU338
+ 1095 0226 FFB2     		uxtb	r7, r7
+ 1096              	.LVL142:
+ 292:Drivers/POCSAG/POCSAG_Generate.c **** 				switch(bytecount_out)	//根据已复制的字节数散转，决定下一步工作
+ 1097              		.loc 1 292 5 is_stmt 1 view .LVU339
+ 292:Drivers/POCSAG/POCSAG_Generate.c **** 				switch(bytecount_out)	//根据已复制的字节数散转，决定下一步工作
+ 1098              		.loc 1 292 14 is_stmt 0 view .LVU340
+ 1099 0228 0134     		adds	r4, r4, #1
+ 1100              	.LVL143:
+ 292:Drivers/POCSAG/POCSAG_Generate.c **** 				switch(bytecount_out)	//根据已复制的字节数散转，决定下一步工作
+ 1101              		.loc 1 292 14 view .LVU341
+ 1102 022a E4B2     		uxtb	r4, r4
+ 1103              	.LVL144:
+ 293:Drivers/POCSAG/POCSAG_Generate.c **** 				{
+ 1104              		.loc 1 293 5 is_stmt 1 view .LVU342
+ 1105 022c 012F     		cmp	r7, #1
+ 1106 022e C9D0     		beq	.L61
+ 1107 0230 022F     		cmp	r7, #2
+ 1108 0232 05D0     		beq	.L62
+ 304:Drivers/POCSAG/POCSAG_Generate.c **** 					bitcount_out = 7;//第1字节复制7个位
+ 1109              		.loc 1 304 6 view .LVU343
+ 304:Drivers/POCSAG/POCSAG_Generate.c **** 					bitcount_out = 7;//第1字节复制7个位
+ 1110              		.loc 1 304 27 is_stmt 0 view .LVU344
+ 1111 0234 8023     		movs	r3, #128
+ 1112 0236 08AA     		add	r2, sp, #32
+ 1113 0238 1355     		strb	r3, [r2, r4]
+ 305:Drivers/POCSAG/POCSAG_Generate.c **** 					bytecount_out = 0;//清空字节计数变量，准备回滚
+ 1114              		.loc 1 305 6 is_stmt 1 view .LVU345
+ 1115              	.LVL145:
+ 306:Drivers/POCSAG/POCSAG_Generate.c **** 					break;
+ 1116              		.loc 1 306 6 view .LVU346
+ 307:Drivers/POCSAG/POCSAG_Generate.c **** 				}
+ 1117              		.loc 1 307 6 view .LVU347
+ 306:Drivers/POCSAG/POCSAG_Generate.c **** 					break;
+ 1118              		.loc 1 306 20 is_stmt 0 view .LVU348
+ 1119 023a 3700     		movs	r7, r6
+ 305:Drivers/POCSAG/POCSAG_Generate.c **** 					bytecount_out = 0;//清空字节计数变量，准备回滚
+ 1120              		.loc 1 305 19 view .LVU349
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 29
+
+
+ 1121 023c 0726     		movs	r6, #7
+ 307:Drivers/POCSAG/POCSAG_Generate.c **** 				}
+ 1122              		.loc 1 307 6 view .LVU350
+ 1123 023e C5E7     		b	.L60
+ 1124              	.LVL146:
+ 1125              	.L62:
+ 300:Drivers/POCSAG/POCSAG_Generate.c **** 					bitcount_out = 5;//第3字节要复制5个位
+ 1126              		.loc 1 300 6 is_stmt 1 view .LVU351
+ 300:Drivers/POCSAG/POCSAG_Generate.c **** 					bitcount_out = 5;//第3字节要复制5个位
+ 1127              		.loc 1 300 27 is_stmt 0 view .LVU352
+ 1128 0240 0023     		movs	r3, #0
+ 1129 0242 08AA     		add	r2, sp, #32
+ 1130 0244 1355     		strb	r3, [r2, r4]
+ 301:Drivers/POCSAG/POCSAG_Generate.c **** 					break;
+ 1131              		.loc 1 301 6 is_stmt 1 view .LVU353
+ 1132              	.LVL147:
+ 302:Drivers/POCSAG/POCSAG_Generate.c **** 				case 3: default://已经复制完第3字节，回滚复制第1字节
+ 1133              		.loc 1 302 6 view .LVU354
+ 301:Drivers/POCSAG/POCSAG_Generate.c **** 					break;
+ 1134              		.loc 1 301 19 is_stmt 0 view .LVU355
+ 1135 0246 0526     		movs	r6, #5
+ 302:Drivers/POCSAG/POCSAG_Generate.c **** 				case 3: default://已经复制完第3字节，回滚复制第1字节
+ 1136              		.loc 1 302 6 view .LVU356
+ 1137 0248 C0E7     		b	.L60
+ 1138              	.LVL148:
+ 1139              	.L65:
+ 325:Drivers/POCSAG/POCSAG_Generate.c **** 		//将已编码数据缓存中每三个字节组成为一组，合成消息码字
+ 1140              		.loc 1 325 12 view .LVU357
+ 1141 024a 4F46     		mov	r7, r9
+ 1142              	.LVL149:
+ 325:Drivers/POCSAG/POCSAG_Generate.c **** 		//将已编码数据缓存中每三个字节组成为一组，合成消息码字
+ 1143              		.loc 1 325 12 view .LVU358
+ 1144 024c A146     		mov	r9, r4
+ 1145              	.LVL150:
+ 325:Drivers/POCSAG/POCSAG_Generate.c **** 		//将已编码数据缓存中每三个字节组成为一组，合成消息码字
+ 1146              		.loc 1 325 12 view .LVU359
+ 1147 024e 5446     		mov	r4, r10
+ 1148              	.LVL151:
+ 325:Drivers/POCSAG/POCSAG_Generate.c **** 		//将已编码数据缓存中每三个字节组成为一组，合成消息码字
+ 1149              		.loc 1 325 3 is_stmt 1 view .LVU360
+ 325:Drivers/POCSAG/POCSAG_Generate.c **** 		//将已编码数据缓存中每三个字节组成为一组，合成消息码字
+ 1150              		.loc 1 325 12 is_stmt 0 view .LVU361
+ 1151 0250 4E46     		mov	r6, r9
+ 1152              	.LVL152:
+ 325:Drivers/POCSAG/POCSAG_Generate.c **** 		//将已编码数据缓存中每三个字节组成为一组，合成消息码字
+ 1153              		.loc 1 325 12 view .LVU362
+ 1154 0252 0136     		adds	r6, r6, #1
+ 1155 0254 F6B2     		uxtb	r6, r6
+ 1156              	.LVL153:
+ 327:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1157              		.loc 1 327 3 is_stmt 1 view .LVU363
+ 1158              	.LBB20:
+ 327:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1159              		.loc 1 327 7 view .LVU364
+ 327:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1160              		.loc 1 327 3 is_stmt 0 view .LVU365
+ 1161 0256 15E0     		b	.L66
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 30
+
+
+ 1162              	.LVL154:
+ 1163              	.L67:
+ 1164              	.LBB21:
+ 329:Drivers/POCSAG/POCSAG_Generate.c **** 			message_ascii_cw = (uint32_t)coded_buf[i]<<24;
+ 1165              		.loc 1 329 4 is_stmt 1 discriminator 3 view .LVU366
+ 330:Drivers/POCSAG/POCSAG_Generate.c **** 			message_ascii_cw |= (uint32_t)coded_buf[i+1]<<16;
+ 1166              		.loc 1 330 4 discriminator 3 view .LVU367
+ 330:Drivers/POCSAG/POCSAG_Generate.c **** 			message_ascii_cw |= (uint32_t)coded_buf[i+1]<<16;
+ 1167              		.loc 1 330 42 is_stmt 0 discriminator 3 view .LVU368
+ 1168 0258 08AB     		add	r3, sp, #32
+ 1169 025a 5A5D     		ldrb	r2, [r3, r5]
+ 330:Drivers/POCSAG/POCSAG_Generate.c **** 			message_ascii_cw |= (uint32_t)coded_buf[i+1]<<16;
+ 1170              		.loc 1 330 21 discriminator 3 view .LVU369
+ 1171 025c 1206     		lsls	r2, r2, #24
+ 1172              	.LVL155:
+ 331:Drivers/POCSAG/POCSAG_Generate.c **** 			message_ascii_cw |= (uint32_t)coded_buf[i+2]<<11;
+ 1173              		.loc 1 331 4 is_stmt 1 discriminator 3 view .LVU370
+ 331:Drivers/POCSAG/POCSAG_Generate.c **** 			message_ascii_cw |= (uint32_t)coded_buf[i+2]<<11;
+ 1174              		.loc 1 331 45 is_stmt 0 discriminator 3 view .LVU371
+ 1175 025e 6B1C     		adds	r3, r5, #1
+ 331:Drivers/POCSAG/POCSAG_Generate.c **** 			message_ascii_cw |= (uint32_t)coded_buf[i+2]<<11;
+ 1176              		.loc 1 331 43 discriminator 3 view .LVU372
+ 1177 0260 08A9     		add	r1, sp, #32
+ 1178 0262 CB5C     		ldrb	r3, [r1, r3]
+ 331:Drivers/POCSAG/POCSAG_Generate.c **** 			message_ascii_cw |= (uint32_t)coded_buf[i+2]<<11;
+ 1179              		.loc 1 331 48 discriminator 3 view .LVU373
+ 1180 0264 1B04     		lsls	r3, r3, #16
+ 331:Drivers/POCSAG/POCSAG_Generate.c **** 			message_ascii_cw |= (uint32_t)coded_buf[i+2]<<11;
+ 1181              		.loc 1 331 21 discriminator 3 view .LVU374
+ 1182 0266 1343     		orrs	r3, r2
+ 1183              	.LVL156:
+ 332:Drivers/POCSAG/POCSAG_Generate.c **** 			StuffCodeWordItem(++current_cw_index,
+ 1184              		.loc 1 332 4 is_stmt 1 discriminator 3 view .LVU375
+ 332:Drivers/POCSAG/POCSAG_Generate.c **** 			StuffCodeWordItem(++current_cw_index,
+ 1185              		.loc 1 332 45 is_stmt 0 discriminator 3 view .LVU376
+ 1186 0268 AA1C     		adds	r2, r5, #2
+ 332:Drivers/POCSAG/POCSAG_Generate.c **** 			StuffCodeWordItem(++current_cw_index,
+ 1187              		.loc 1 332 43 discriminator 3 view .LVU377
+ 1188 026a 885C     		ldrb	r0, [r1, r2]
+ 332:Drivers/POCSAG/POCSAG_Generate.c **** 			StuffCodeWordItem(++current_cw_index,
+ 1189              		.loc 1 332 48 discriminator 3 view .LVU378
+ 1190 026c C002     		lsls	r0, r0, #11
+ 332:Drivers/POCSAG/POCSAG_Generate.c **** 			StuffCodeWordItem(++current_cw_index,
+ 1191              		.loc 1 332 21 discriminator 3 view .LVU379
+ 1192 026e 1843     		orrs	r0, r3
+ 1193              	.LVL157:
+ 333:Drivers/POCSAG/POCSAG_Generate.c **** 							  CreateBCHandParity(message_ascii_cw));
+ 1194              		.loc 1 333 4 is_stmt 1 discriminator 3 view .LVU380
+ 1195 0270 0137     		adds	r7, r7, #1
+ 1196              	.LVL158:
+ 333:Drivers/POCSAG/POCSAG_Generate.c **** 							  CreateBCHandParity(message_ascii_cw));
+ 1197              		.loc 1 333 4 is_stmt 0 discriminator 3 view .LVU381
+ 1198 0272 FFB2     		uxtb	r7, r7
+ 1199              	.LVL159:
+ 333:Drivers/POCSAG/POCSAG_Generate.c **** 							  CreateBCHandParity(message_ascii_cw));
+ 1200              		.loc 1 333 4 discriminator 3 view .LVU382
+ 1201 0274 FFF7FEFF 		bl	CreateBCHandParity
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 31
+
+
+ 1202              	.LVL160:
+ 333:Drivers/POCSAG/POCSAG_Generate.c **** 							  CreateBCHandParity(message_ascii_cw));
+ 1203              		.loc 1 333 4 discriminator 3 view .LVU383
+ 1204 0278 0100     		movs	r1, r0
+ 1205 027a 3800     		movs	r0, r7
+ 1206 027c FFF7FEFF 		bl	StuffCodeWordItem
+ 1207              	.LVL161:
+ 1208              	.LBE21:
+ 327:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1209              		.loc 1 327 37 is_stmt 1 discriminator 3 view .LVU384
+ 1210 0280 0335     		adds	r5, r5, #3
+ 1211              	.LVL162:
+ 327:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1212              		.loc 1 327 37 is_stmt 0 discriminator 3 view .LVU385
+ 1213 0282 EDB2     		uxtb	r5, r5
+ 1214              	.LVL163:
+ 1215              	.L66:
+ 327:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1216              		.loc 1 327 23 is_stmt 1 discriminator 1 view .LVU386
+ 1217 0284 B542     		cmp	r5, r6
+ 1218 0286 E7D3     		bcc	.L67
+ 1219 0288 75E7     		b	.L53
+ 1220              	.LVL164:
+ 1221              	.L70:
+ 327:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1222              		.loc 1 327 23 is_stmt 0 discriminator 1 view .LVU387
+ 1223              	.LBE20:
+ 1224              	.LBE19:
+ 1225              	.LBB22:
+ 343:Drivers/POCSAG/POCSAG_Generate.c **** 			POCSAG_Batch2[i] ^= 0xFFFFFFFF;
+ 1226              		.loc 1 343 4 is_stmt 1 discriminator 3 view .LVU388
+ 343:Drivers/POCSAG/POCSAG_Generate.c **** 			POCSAG_Batch2[i] ^= 0xFFFFFFFF;
+ 1227              		.loc 1 343 17 is_stmt 0 discriminator 3 view .LVU389
+ 1228 028a 3348     		ldr	r0, .L82
+ 1229 028c 9A00     		lsls	r2, r3, #2
+ 1230 028e 1158     		ldr	r1, [r2, r0]
+ 343:Drivers/POCSAG/POCSAG_Generate.c **** 			POCSAG_Batch2[i] ^= 0xFFFFFFFF;
+ 1231              		.loc 1 343 21 discriminator 3 view .LVU390
+ 1232 0290 C943     		mvns	r1, r1
+ 1233 0292 1150     		str	r1, [r2, r0]
+ 344:Drivers/POCSAG/POCSAG_Generate.c **** 		}
+ 1234              		.loc 1 344 4 is_stmt 1 discriminator 3 view .LVU391
+ 344:Drivers/POCSAG/POCSAG_Generate.c **** 		}
+ 1235              		.loc 1 344 17 is_stmt 0 discriminator 3 view .LVU392
+ 1236 0294 3248     		ldr	r0, .L82+8
+ 1237 0296 1158     		ldr	r1, [r2, r0]
+ 344:Drivers/POCSAG/POCSAG_Generate.c **** 		}
+ 1238              		.loc 1 344 21 discriminator 3 view .LVU393
+ 1239 0298 C943     		mvns	r1, r1
+ 1240 029a 1150     		str	r1, [r2, r0]
+ 341:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1241              		.loc 1 341 29 is_stmt 1 discriminator 3 view .LVU394
+ 1242 029c 0133     		adds	r3, r3, #1
+ 1243              	.LVL165:
+ 341:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1244              		.loc 1 341 29 is_stmt 0 discriminator 3 view .LVU395
+ 1245 029e DBB2     		uxtb	r3, r3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 32
+
+
+ 1246              	.LVL166:
+ 1247              	.L68:
+ 341:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1248              		.loc 1 341 23 is_stmt 1 discriminator 1 view .LVU396
+ 1249 02a0 0F2B     		cmp	r3, #15
+ 1250 02a2 F2D9     		bls	.L70
+ 1251 02a4 6BE7     		b	.L69
+ 1252              	.LVL167:
+ 1253              	.L77:
+ 341:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1254              		.loc 1 341 15 is_stmt 0 view .LVU397
+ 1255 02a6 0023     		movs	r3, #0
+ 1256 02a8 FAE7     		b	.L68
+ 1257              	.LVL168:
+ 1258              	.L72:
+ 341:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1259              		.loc 1 341 15 view .LVU398
+ 1260              	.LBE22:
+ 1261              	.LBB23:
+ 1262              	.LBB18:
+ 354:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 355:Drivers/POCSAG/POCSAG_Generate.c **** 			temp1 = POCSAG_Batch1[i];//从数组抽取
+ 1263              		.loc 1 355 4 is_stmt 1 discriminator 3 view .LVU399
+ 1264              		.loc 1 355 10 is_stmt 0 discriminator 3 view .LVU400
+ 1265 02aa 2B4E     		ldr	r6, .L82
+ 1266 02ac 9000     		lsls	r0, r2, #2
+ 1267 02ae 8359     		ldr	r3, [r0, r6]
+ 1268              	.LVL169:
+ 356:Drivers/POCSAG/POCSAG_Generate.c **** 			temp2.bytes[0] = (temp1>>24)&0xFF;//颠倒大小端
+ 1269              		.loc 1 356 4 is_stmt 1 discriminator 3 view .LVU401
+ 1270              		.loc 1 356 19 is_stmt 0 discriminator 3 view .LVU402
+ 1271 02b0 190E     		lsrs	r1, r3, #24
+ 1272 02b2 FF25     		movs	r5, #255
+ 1273 02b4 A946     		mov	r9, r5
+ 1274 02b6 AC43     		bics	r4, r5
+ 1275 02b8 0C43     		orrs	r4, r1
+ 1276              	.LVL170:
+ 357:Drivers/POCSAG/POCSAG_Generate.c **** 			temp2.bytes[1] = (temp1>>16)&0xFF;
+ 1277              		.loc 1 357 4 is_stmt 1 discriminator 3 view .LVU403
+ 1278              		.loc 1 357 27 is_stmt 0 discriminator 3 view .LVU404
+ 1279 02ba 190C     		lsrs	r1, r3, #16
+ 1280              		.loc 1 357 19 discriminator 3 view .LVU405
+ 1281 02bc C9B2     		uxtb	r1, r1
+ 1282 02be 0902     		lsls	r1, r1, #8
+ 1283 02c0 294F     		ldr	r7, .L82+16
+ 1284              	.LVL171:
+ 1285              		.loc 1 357 19 discriminator 3 view .LVU406
+ 1286 02c2 3C40     		ands	r4, r7
+ 1287              	.LVL172:
+ 1288              		.loc 1 357 19 discriminator 3 view .LVU407
+ 1289 02c4 0C43     		orrs	r4, r1
+ 358:Drivers/POCSAG/POCSAG_Generate.c **** 			temp2.bytes[2] = (temp1>>8)&0xFF;
+ 1290              		.loc 1 358 4 is_stmt 1 discriminator 3 view .LVU408
+ 1291              		.loc 1 358 27 is_stmt 0 discriminator 3 view .LVU409
+ 1292 02c6 190A     		lsrs	r1, r3, #8
+ 1293              		.loc 1 358 19 discriminator 3 view .LVU410
+ 1294 02c8 C9B2     		uxtb	r1, r1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 33
+
+
+ 1295 02ca 0904     		lsls	r1, r1, #16
+ 1296 02cc 274D     		ldr	r5, .L82+20
+ 1297              	.LVL173:
+ 1298              		.loc 1 358 19 discriminator 3 view .LVU411
+ 1299 02ce 2C40     		ands	r4, r5
+ 1300              	.LVL174:
+ 1301              		.loc 1 358 19 discriminator 3 view .LVU412
+ 1302 02d0 0C43     		orrs	r4, r1
+ 359:Drivers/POCSAG/POCSAG_Generate.c **** 			temp2.bytes[3] = temp1&0xFF;
+ 1303              		.loc 1 359 4 is_stmt 1 discriminator 3 view .LVU413
+ 1304              		.loc 1 359 19 is_stmt 0 discriminator 3 view .LVU414
+ 1305 02d2 1B06     		lsls	r3, r3, #24
+ 1306              	.LVL175:
+ 1307              		.loc 1 359 19 discriminator 3 view .LVU415
+ 1308 02d4 2402     		lsls	r4, r4, #8
+ 1309              	.LVL176:
+ 1310              		.loc 1 359 19 discriminator 3 view .LVU416
+ 1311 02d6 240A     		lsrs	r4, r4, #8
+ 1312 02d8 1C43     		orrs	r4, r3
+ 360:Drivers/POCSAG/POCSAG_Generate.c **** 			POCSAG_Batch1[i] = temp2.i;//存回数组
+ 1313              		.loc 1 360 4 is_stmt 1 discriminator 3 view .LVU417
+ 1314              	.LVL177:
+ 1315              		.loc 1 360 21 is_stmt 0 discriminator 3 view .LVU418
+ 1316 02da 8451     		str	r4, [r0, r6]
+ 1317              	.LVL178:
+ 361:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 362:Drivers/POCSAG/POCSAG_Generate.c **** 			temp1 = POCSAG_Batch2[i];//从数组抽取
+ 1318              		.loc 1 362 4 is_stmt 1 discriminator 3 view .LVU419
+ 1319              		.loc 1 362 10 is_stmt 0 discriminator 3 view .LVU420
+ 1320 02dc 204E     		ldr	r6, .L82+8
+ 1321 02de 8359     		ldr	r3, [r0, r6]
+ 1322              	.LVL179:
+ 363:Drivers/POCSAG/POCSAG_Generate.c **** 			temp2.bytes[0] = (temp1>>24)&0xFF;//颠倒大小端
+ 1323              		.loc 1 363 4 is_stmt 1 discriminator 3 view .LVU421
+ 1324              		.loc 1 363 19 is_stmt 0 discriminator 3 view .LVU422
+ 1325 02e0 190E     		lsrs	r1, r3, #24
+ 1326 02e2 8A46     		mov	r10, r1
+ 1327 02e4 4946     		mov	r1, r9
+ 1328 02e6 8C43     		bics	r4, r1
+ 1329              	.LVL180:
+ 1330              		.loc 1 363 19 discriminator 3 view .LVU423
+ 1331 02e8 5146     		mov	r1, r10
+ 1332 02ea 0C43     		orrs	r4, r1
+ 364:Drivers/POCSAG/POCSAG_Generate.c **** 			temp2.bytes[1] = (temp1>>16)&0xFF;
+ 1333              		.loc 1 364 4 is_stmt 1 discriminator 3 view .LVU424
+ 1334              		.loc 1 364 27 is_stmt 0 discriminator 3 view .LVU425
+ 1335 02ec 190C     		lsrs	r1, r3, #16
+ 1336              		.loc 1 364 19 discriminator 3 view .LVU426
+ 1337 02ee C9B2     		uxtb	r1, r1
+ 1338 02f0 0902     		lsls	r1, r1, #8
+ 1339              	.LVL181:
+ 1340              		.loc 1 364 19 discriminator 3 view .LVU427
+ 1341 02f2 3C40     		ands	r4, r7
+ 1342              	.LVL182:
+ 1343              		.loc 1 364 19 discriminator 3 view .LVU428
+ 1344 02f4 0C43     		orrs	r4, r1
+ 365:Drivers/POCSAG/POCSAG_Generate.c **** 			temp2.bytes[2] = (temp1>>8)&0xFF;
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 34
+
+
+ 1345              		.loc 1 365 4 is_stmt 1 discriminator 3 view .LVU429
+ 1346              		.loc 1 365 27 is_stmt 0 discriminator 3 view .LVU430
+ 1347 02f6 190A     		lsrs	r1, r3, #8
+ 1348              		.loc 1 365 19 discriminator 3 view .LVU431
+ 1349 02f8 C9B2     		uxtb	r1, r1
+ 1350 02fa 0904     		lsls	r1, r1, #16
+ 1351              	.LVL183:
+ 1352              		.loc 1 365 19 discriminator 3 view .LVU432
+ 1353 02fc 2C40     		ands	r4, r5
+ 1354              	.LVL184:
+ 1355              		.loc 1 365 19 discriminator 3 view .LVU433
+ 1356 02fe 0C43     		orrs	r4, r1
+ 366:Drivers/POCSAG/POCSAG_Generate.c **** 			temp2.bytes[3] = temp1&0xFF;
+ 1357              		.loc 1 366 4 is_stmt 1 discriminator 3 view .LVU434
+ 1358              		.loc 1 366 19 is_stmt 0 discriminator 3 view .LVU435
+ 1359 0300 1B06     		lsls	r3, r3, #24
+ 1360              	.LVL185:
+ 1361              		.loc 1 366 19 discriminator 3 view .LVU436
+ 1362 0302 2402     		lsls	r4, r4, #8
+ 1363              	.LVL186:
+ 1364              		.loc 1 366 19 discriminator 3 view .LVU437
+ 1365 0304 240A     		lsrs	r4, r4, #8
+ 1366 0306 1C43     		orrs	r4, r3
+ 367:Drivers/POCSAG/POCSAG_Generate.c **** 			POCSAG_Batch2[i] = temp2.i;//存回数组
+ 1367              		.loc 1 367 4 is_stmt 1 discriminator 3 view .LVU438
+ 1368              	.LVL187:
+ 1369              		.loc 1 367 21 is_stmt 0 discriminator 3 view .LVU439
+ 1370 0308 8451     		str	r4, [r0, r6]
+ 1371              	.LVL188:
+ 353:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1372              		.loc 1 353 29 is_stmt 1 discriminator 3 view .LVU440
+ 1373 030a 0132     		adds	r2, r2, #1
+ 1374              	.LVL189:
+ 353:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1375              		.loc 1 353 29 is_stmt 0 discriminator 3 view .LVU441
+ 1376 030c D2B2     		uxtb	r2, r2
+ 1377              	.LVL190:
+ 1378              	.L71:
+ 353:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 1379              		.loc 1 353 23 is_stmt 1 discriminator 1 view .LVU442
+ 1380 030e 0F2A     		cmp	r2, #15
+ 1381 0310 CBD9     		bls	.L72
+ 1382              	.LBE18:
+ 1383              	.LBE23:
+ 368:Drivers/POCSAG/POCSAG_Generate.c **** 		}
+ 369:Drivers/POCSAG/POCSAG_Generate.c **** 		POCSAG_DEBUG_MSG("Little endian is changed to "
+ 370:Drivers/POCSAG/POCSAG_Generate.c **** 						 "big endian!\r\n");
+ 371:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+ 372:Drivers/POCSAG/POCSAG_Generate.c **** 	//=====Part3.3:恢复结尾字符，返回码组个数，程序执行结束
+ 373:Drivers/POCSAG/POCSAG_Generate.c **** 	text[txt_len-1] = lastchar;	//将EOT符号替换回原来字符
+ 1384              		.loc 1 373 6 is_stmt 0 view .LVU443
+ 1385 0312 6746     		mov	r7, ip
+ 1386              	.LBB24:
+ 370:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+ 1387              		.loc 1 370 26 is_stmt 1 view .LVU444
+ 1388              	.LBE24:
+ 1389              		.loc 1 373 2 view .LVU445
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 35
+
+
+ 1390              		.loc 1 373 6 is_stmt 0 view .LVU446
+ 1391 0314 039B     		ldr	r3, [sp, #12]
+ 1392 0316 013B     		subs	r3, r3, #1
+ 1393              		.loc 1 373 18 view .LVU447
+ 1394 0318 4246     		mov	r2, r8
+ 1395              	.LVL191:
+ 1396              		.loc 1 373 18 view .LVU448
+ 1397 031a 0799     		ldr	r1, [sp, #28]
+ 1398 031c D154     		strb	r1, [r2, r3]
+ 374:Drivers/POCSAG/POCSAG_Generate.c **** 	int8_t retval;
+ 1399              		.loc 1 374 2 is_stmt 1 view .LVU449
+ 375:Drivers/POCSAG/POCSAG_Generate.c **** 	if(current_cw_index < 16)	//如果码字占用小于一个码组
+ 1400              		.loc 1 375 2 view .LVU450
+ 1401              		.loc 1 375 4 is_stmt 0 view .LVU451
+ 1402 031e 0F2F     		cmp	r7, #15
+ 1403 0320 0DD8     		bhi	.L78
+ 1404              	.LVL192:
+ 376:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+ 377:Drivers/POCSAG/POCSAG_Generate.c **** 		if(Batch2Opt == BATCH2_TRUNCATE)
+ 1405              		.loc 1 377 3 is_stmt 1 view .LVU452
+ 1406              		.loc 1 377 5 is_stmt 0 view .LVU453
+ 1407 0322 069B     		ldr	r3, [sp, #24]
+ 1408 0324 002B     		cmp	r3, #0
+ 1409 0326 14D0     		beq	.L79
+ 378:Drivers/POCSAG/POCSAG_Generate.c **** 			retval = 1;	//返回“占用一个码组”，程序结束
+ 379:Drivers/POCSAG/POCSAG_Generate.c **** 		else if(Batch2Opt == BATCH2_COPY_BATCH1)
+ 1410              		.loc 1 379 8 is_stmt 1 view .LVU454
+ 1411              		.loc 1 379 10 is_stmt 0 view .LVU455
+ 1412 0328 012B     		cmp	r3, #1
+ 1413 032a 0AD1     		bne	.L44
+ 380:Drivers/POCSAG/POCSAG_Generate.c **** 		{
+ 381:Drivers/POCSAG/POCSAG_Generate.c **** 			memcpy(POCSAG_Batch2,POCSAG_Batch1,
+ 1414              		.loc 1 381 4 is_stmt 1 view .LVU456
+ 1415 032c 0C4A     		ldr	r2, .L82+8
+ 1416              	.LVL193:
+ 1417              		.loc 1 381 4 is_stmt 0 view .LVU457
+ 1418 032e 0A4B     		ldr	r3, .L82
+ 1419 0330 31CB     		ldmia	r3!, {r0, r4, r5}
+ 1420 0332 31C2     		stmia	r2!, {r0, r4, r5}
+ 1421 0334 1B68     		ldr	r3, [r3]
+ 1422 0336 1360     		str	r3, [r2]
+ 382:Drivers/POCSAG/POCSAG_Generate.c **** 					16);//将码组1拷贝到码组2
+ 383:Drivers/POCSAG/POCSAG_Generate.c **** 			retval = 2;	//返回“占用两个码组”，程序结束
+ 1423              		.loc 1 383 4 is_stmt 1 view .LVU458
+ 1424              	.LVL194:
+ 1425              		.loc 1 383 11 is_stmt 0 view .LVU459
+ 1426 0338 0223     		movs	r3, #2
+ 1427 033a 0493     		str	r3, [sp, #16]
+ 1428 033c 01E0     		b	.L44
+ 1429              	.LVL195:
+ 1430              	.L78:
+ 384:Drivers/POCSAG/POCSAG_Generate.c **** 		}
+ 385:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+ 386:Drivers/POCSAG/POCSAG_Generate.c **** 	else
+ 387:Drivers/POCSAG/POCSAG_Generate.c **** 	{
+ 388:Drivers/POCSAG/POCSAG_Generate.c **** 		retval = 2;	//返回“占用两个码组”，程序结束
+ 1431              		.loc 1 388 10 view .LVU460
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 36
+
+
+ 1432 033e 0223     		movs	r3, #2
+ 1433 0340 0493     		str	r3, [sp, #16]
+ 1434              	.LVL196:
+ 1435              	.L44:
+ 389:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+ 390:Drivers/POCSAG/POCSAG_Generate.c **** 	return retval;
+ 391:Drivers/POCSAG/POCSAG_Generate.c **** }
+ 1436              		.loc 1 391 1 view .LVU461
+ 1437 0342 0498     		ldr	r0, [sp, #16]
+ 1438 0344 15B0     		add	sp, sp, #84
+ 1439              		@ sp needed
+ 1440              	.LVL197:
+ 1441              	.LVL198:
+ 1442              		.loc 1 391 1 view .LVU462
+ 1443 0346 F0BC     		pop	{r4, r5, r6, r7}
+ 1444 0348 BB46     		mov	fp, r7
+ 1445 034a B246     		mov	r10, r6
+ 1446 034c A946     		mov	r9, r5
+ 1447 034e A046     		mov	r8, r4
+ 1448 0350 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1449              	.LVL199:
+ 1450              	.L79:
+ 378:Drivers/POCSAG/POCSAG_Generate.c **** 		else if(Batch2Opt == BATCH2_COPY_BATCH1)
+ 1451              		.loc 1 378 11 view .LVU463
+ 1452 0352 0123     		movs	r3, #1
+ 1453 0354 0493     		str	r3, [sp, #16]
+ 1454 0356 F4E7     		b	.L44
+ 1455              	.L83:
+ 1456              		.align	2
+ 1457              	.L82:
+ 1458 0358 00000000 		.word	POCSAG_Batch1
+ 1459 035c 97C1897A 		.word	2055848343
+ 1460 0360 00000000 		.word	POCSAG_Batch2
+ 1461 0364 00000000 		.word	SizeToMask
+ 1462 0368 FF00FFFF 		.word	-65281
+ 1463 036c FFFF00FF 		.word	-16711681
+ 1464              		.cfi_endproc
+ 1465              	.LFE298:
+ 1467              		.section	.text.prepare_POCSAG_Data,"ax",%progbits
+ 1468              		.align	1
+ 1469              		.global	prepare_POCSAG_Data
+ 1470              		.syntax unified
+ 1471              		.code	16
+ 1472              		.thumb_func
+ 1474              	prepare_POCSAG_Data:
+ 1475              	.LVL200:
+ 1476              	.LFB299:
+ 392:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 393:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 394:Drivers/POCSAG/POCSAG_Generate.c **** /*-----------------------------------------------------------------------
+ 395:Drivers/POCSAG/POCSAG_Generate.c **** *@brief		将串口接收到的原始数据包进行处理
+ 396:Drivers/POCSAG/POCSAG_Generate.c **** *@param		*OriginalPack 原始数据包
+ 397:Drivers/POCSAG/POCSAG_Generate.c **** *			Pager POCSAG信息结构体
+ 398:Drivers/POCSAG/POCSAG_Generate.c **** *@retval	POCSAG_MAG结构体
+ 399:Drivers/POCSAG/POCSAG_Generate.c **** -----------------------------------------------------------------------*/
+ 400:Drivers/POCSAG/POCSAG_Generate.c **** POCSAG_MSG prepare_POCSAG_Data(uint8_t* OriginalPack, POCSAG_MSG MSG){
+ 1477              		.loc 1 400 70 is_stmt 1 view -0
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 37
+
+
+ 1478              		.cfi_startproc
+ 1479              		@ args = 48, pretend = 8, frame = 0
+ 1480              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1481              		.loc 1 400 70 is_stmt 0 view .LVU465
+ 1482 0000 82B0     		sub	sp, sp, #8
+ 1483              	.LCFI5:
+ 1484              		.cfi_def_cfa_offset 8
+ 1485 0002 30B5     		push	{r4, r5, lr}
+ 1486              	.LCFI6:
+ 1487              		.cfi_def_cfa_offset 20
+ 1488              		.cfi_offset 4, -20
+ 1489              		.cfi_offset 5, -16
+ 1490              		.cfi_offset 14, -12
+ 1491 0004 0392     		str	r2, [sp, #12]
+ 1492 0006 0493     		str	r3, [sp, #16]
+ 401:Drivers/POCSAG/POCSAG_Generate.c **** 	MSG.FuncCode=(OriginalPack[TEXT_OR_NUM]=='N')?FUNC_A_NUMERIC:FUNC_B_CHINESE;
+ 1493              		.loc 1 401 2 is_stmt 1 view .LVU466
+ 1494              		.loc 1 401 28 is_stmt 0 view .LVU467
+ 1495 0008 CB7A     		ldrb	r3, [r1, #11]
+ 1496              		.loc 1 401 62 view .LVU468
+ 1497 000a 4E3B     		subs	r3, r3, #78
+ 1498 000c 5A1E     		subs	r2, r3, #1
+ 1499 000e 9341     		sbcs	r3, r3, r2
+ 1500              		.loc 1 401 14 view .LVU469
+ 1501 0010 03AA     		add	r2, sp, #12
+ 1502 0012 1371     		strb	r3, [r2, #4]
+ 402:Drivers/POCSAG/POCSAG_Generate.c **** 	MSG.InvertOpt=(OriginalPack[1]=='P')?false:true;
+ 1503              		.loc 1 402 2 is_stmt 1 view .LVU470
+ 1504              		.loc 1 402 29 is_stmt 0 view .LVU471
+ 1505 0014 4B78     		ldrb	r3, [r1, #1]
+ 1506              		.loc 1 402 44 view .LVU472
+ 1507 0016 503B     		subs	r3, r3, #80
+ 1508 0018 5A1E     		subs	r2, r3, #1
+ 1509 001a 9341     		sbcs	r3, r3, r2
+ 1510              		.loc 1 402 15 view .LVU473
+ 1511 001c 03AC     		add	r4, sp, #12
+ 1512 001e 2F22     		movs	r2, #47
+ 1513 0020 A354     		strb	r3, [r4, r2]
+ 403:Drivers/POCSAG/POCSAG_Generate.c **** 	
+ 404:Drivers/POCSAG/POCSAG_Generate.c **** 	switch(OriginalPack[TEXT_OR_NUM-1]){
+ 1514              		.loc 1 404 2 is_stmt 1 view .LVU474
+ 1515              		.loc 1 404 21 is_stmt 0 view .LVU475
+ 1516 0022 8B7A     		ldrb	r3, [r1, #10]
+ 1517              		.loc 1 404 2 view .LVU476
+ 1518 0024 492B     		cmp	r3, #73
+ 1519 0026 43D0     		beq	.L85
+ 1520 0028 542B     		cmp	r3, #84
+ 1521 002a 06D0     		beq	.L86
+ 1522 002c 432B     		cmp	r3, #67
+ 1523 002e 3AD0     		beq	.L95
+ 405:Drivers/POCSAG/POCSAG_Generate.c **** 		case 'T':
+ 406:Drivers/POCSAG/POCSAG_Generate.c **** 			MSG.Batch20pt=BATCH2_TRUNCATE;
+ 407:Drivers/POCSAG/POCSAG_Generate.c **** 		break;
+ 408:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 409:Drivers/POCSAG/POCSAG_Generate.c **** 		case 'C':
+ 410:Drivers/POCSAG/POCSAG_Generate.c **** 			MSG.Batch20pt=BATCH2_COPY_BATCH1;
+ 411:Drivers/POCSAG/POCSAG_Generate.c **** 		break;
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 38
+
+
+ 412:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 413:Drivers/POCSAG/POCSAG_Generate.c **** 		case 'I':
+ 414:Drivers/POCSAG/POCSAG_Generate.c **** 			MSG.Batch20pt=BATCH2_LEAVE_IDLE;
+ 415:Drivers/POCSAG/POCSAG_Generate.c **** 		break;
+ 416:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 417:Drivers/POCSAG/POCSAG_Generate.c **** 		default:
+ 418:Drivers/POCSAG/POCSAG_Generate.c **** 			MSG.Batch20pt=BATCH2_TRUNCATE;
+ 1524              		.loc 1 418 4 is_stmt 1 view .LVU477
+ 1525              		.loc 1 418 17 is_stmt 0 view .LVU478
+ 1526 0030 03AA     		add	r2, sp, #12
+ 1527 0032 2E23     		movs	r3, #46
+ 1528 0034 0024     		movs	r4, #0
+ 1529 0036 D454     		strb	r4, [r2, r3]
+ 419:Drivers/POCSAG/POCSAG_Generate.c **** 		break;
+ 1530              		.loc 1 419 3 is_stmt 1 view .LVU479
+ 1531 0038 03E0     		b	.L89
+ 1532              	.L86:
+ 406:Drivers/POCSAG/POCSAG_Generate.c **** 		break;
+ 1533              		.loc 1 406 4 view .LVU480
+ 406:Drivers/POCSAG/POCSAG_Generate.c **** 		break;
+ 1534              		.loc 1 406 17 is_stmt 0 view .LVU481
+ 1535 003a 03AA     		add	r2, sp, #12
+ 1536 003c 2E23     		movs	r3, #46
+ 1537 003e 0024     		movs	r4, #0
+ 1538 0040 D454     		strb	r4, [r2, r3]
+ 407:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 1539              		.loc 1 407 3 is_stmt 1 view .LVU482
+ 1540              	.L89:
+ 420:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+ 421:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 422:Drivers/POCSAG/POCSAG_Generate.c **** 	MSG.Pager_Address = (OriginalPack[2] - '0')*1000000;//提取地址码
+ 1541              		.loc 1 422 2 view .LVU483
+ 1542              		.loc 1 422 35 is_stmt 0 view .LVU484
+ 1543 0042 8A78     		ldrb	r2, [r1, #2]
+ 1544              		.loc 1 422 39 view .LVU485
+ 1545 0044 303A     		subs	r2, r2, #48
+ 1546              		.loc 1 422 45 view .LVU486
+ 1547 0046 5401     		lsls	r4, r2, #5
+ 1548 0048 A41A     		subs	r4, r4, r2
+ 1549 004a A301     		lsls	r3, r4, #6
+ 1550 004c 1B1B     		subs	r3, r3, r4
+ 1551 004e DB00     		lsls	r3, r3, #3
+ 1552 0050 9B18     		adds	r3, r3, r2
+ 1553 0052 9B01     		lsls	r3, r3, #6
+ 1554              		.loc 1 422 20 view .LVU487
+ 1555 0054 0393     		str	r3, [sp, #12]
+ 423:Drivers/POCSAG/POCSAG_Generate.c ****     MSG.Pager_Address += (OriginalPack[3] - '0')*100000;
+ 1556              		.loc 1 423 5 is_stmt 1 view .LVU488
+ 1557              		.loc 1 423 39 is_stmt 0 view .LVU489
+ 1558 0056 CC78     		ldrb	r4, [r1, #3]
+ 1559              		.loc 1 423 43 view .LVU490
+ 1560 0058 303C     		subs	r4, r4, #48
+ 1561              		.loc 1 423 49 view .LVU491
+ 1562 005a 274A     		ldr	r2, .L96
+ 1563 005c 6243     		muls	r2, r4
+ 1564              		.loc 1 423 23 view .LVU492
+ 1565 005e 9B18     		adds	r3, r3, r2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 39
+
+
+ 1566 0060 0393     		str	r3, [sp, #12]
+ 424:Drivers/POCSAG/POCSAG_Generate.c ****     MSG.Pager_Address += (OriginalPack[4] - '0')*10000;
+ 1567              		.loc 1 424 5 is_stmt 1 view .LVU493
+ 1568              		.loc 1 424 39 is_stmt 0 view .LVU494
+ 1569 0062 0C79     		ldrb	r4, [r1, #4]
+ 1570              		.loc 1 424 43 view .LVU495
+ 1571 0064 303C     		subs	r4, r4, #48
+ 1572              		.loc 1 424 49 view .LVU496
+ 1573 0066 254A     		ldr	r2, .L96+4
+ 1574 0068 6243     		muls	r2, r4
+ 1575              		.loc 1 424 23 view .LVU497
+ 1576 006a 9B18     		adds	r3, r3, r2
+ 1577 006c 0393     		str	r3, [sp, #12]
+ 425:Drivers/POCSAG/POCSAG_Generate.c ****     MSG.Pager_Address += (OriginalPack[5] - '0')*1000;
+ 1578              		.loc 1 425 5 is_stmt 1 view .LVU498
+ 1579              		.loc 1 425 39 is_stmt 0 view .LVU499
+ 1580 006e 4C79     		ldrb	r4, [r1, #5]
+ 1581              		.loc 1 425 43 view .LVU500
+ 1582 0070 303C     		subs	r4, r4, #48
+ 1583              		.loc 1 425 49 view .LVU501
+ 1584 0072 6201     		lsls	r2, r4, #5
+ 1585 0074 121B     		subs	r2, r2, r4
+ 1586 0076 9200     		lsls	r2, r2, #2
+ 1587 0078 1219     		adds	r2, r2, r4
+ 1588 007a D200     		lsls	r2, r2, #3
+ 1589              		.loc 1 425 23 view .LVU502
+ 1590 007c 9B18     		adds	r3, r3, r2
+ 1591 007e 0393     		str	r3, [sp, #12]
+ 426:Drivers/POCSAG/POCSAG_Generate.c ****     MSG.Pager_Address += (OriginalPack[6] - '0')*100;
+ 1592              		.loc 1 426 5 is_stmt 1 view .LVU503
+ 1593              		.loc 1 426 39 is_stmt 0 view .LVU504
+ 1594 0080 8C79     		ldrb	r4, [r1, #6]
+ 1595              		.loc 1 426 43 view .LVU505
+ 1596 0082 303C     		subs	r4, r4, #48
+ 1597              		.loc 1 426 49 view .LVU506
+ 1598 0084 6422     		movs	r2, #100
+ 1599 0086 6243     		muls	r2, r4
+ 1600              		.loc 1 426 23 view .LVU507
+ 1601 0088 9B18     		adds	r3, r3, r2
+ 1602 008a 0393     		str	r3, [sp, #12]
+ 427:Drivers/POCSAG/POCSAG_Generate.c ****     MSG.Pager_Address += (OriginalPack[7] - '0')*10;
+ 1603              		.loc 1 427 5 is_stmt 1 view .LVU508
+ 1604              		.loc 1 427 39 is_stmt 0 view .LVU509
+ 1605 008c CC79     		ldrb	r4, [r1, #7]
+ 1606              		.loc 1 427 43 view .LVU510
+ 1607 008e 303C     		subs	r4, r4, #48
+ 1608              		.loc 1 427 49 view .LVU511
+ 1609 0090 A200     		lsls	r2, r4, #2
+ 1610 0092 1219     		adds	r2, r2, r4
+ 1611 0094 5200     		lsls	r2, r2, #1
+ 1612              		.loc 1 427 23 view .LVU512
+ 1613 0096 9B18     		adds	r3, r3, r2
+ 1614 0098 0393     		str	r3, [sp, #12]
+ 428:Drivers/POCSAG/POCSAG_Generate.c ****     MSG.Pager_Address += (OriginalPack[8] - '0');
+ 1615              		.loc 1 428 5 is_stmt 1 view .LVU513
+ 1616              		.loc 1 428 39 is_stmt 0 view .LVU514
+ 1617 009a 0A7A     		ldrb	r2, [r1, #8]
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 40
+
+
+ 1618              		.loc 1 428 23 view .LVU515
+ 1619 009c D318     		adds	r3, r2, r3
+ 1620 009e 303B     		subs	r3, r3, #48
+ 1621 00a0 0393     		str	r3, [sp, #12]
+ 429:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 430:Drivers/POCSAG/POCSAG_Generate.c **** 	for(int i=DATA_START;i<41;i++){
+ 1622              		.loc 1 430 2 is_stmt 1 view .LVU516
+ 1623              	.LBB25:
+ 1624              		.loc 1 430 6 view .LVU517
+ 1625              	.LVL201:
+ 1626              		.loc 1 430 10 is_stmt 0 view .LVU518
+ 1627 00a2 0C23     		movs	r3, #12
+ 1628              		.loc 1 430 2 view .LVU519
+ 1629 00a4 10E0     		b	.L90
+ 1630              	.LVL202:
+ 1631              	.L95:
+ 1632              		.loc 1 430 2 view .LVU520
+ 1633              	.LBE25:
+ 410:Drivers/POCSAG/POCSAG_Generate.c **** 		break;
+ 1634              		.loc 1 410 4 is_stmt 1 view .LVU521
+ 410:Drivers/POCSAG/POCSAG_Generate.c **** 		break;
+ 1635              		.loc 1 410 17 is_stmt 0 view .LVU522
+ 1636 00a6 03AA     		add	r2, sp, #12
+ 1637 00a8 2E23     		movs	r3, #46
+ 1638 00aa 0124     		movs	r4, #1
+ 1639 00ac D454     		strb	r4, [r2, r3]
+ 411:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 1640              		.loc 1 411 3 is_stmt 1 view .LVU523
+ 1641 00ae C8E7     		b	.L89
+ 1642              	.L85:
+ 414:Drivers/POCSAG/POCSAG_Generate.c **** 		break;
+ 1643              		.loc 1 414 4 view .LVU524
+ 414:Drivers/POCSAG/POCSAG_Generate.c **** 		break;
+ 1644              		.loc 1 414 17 is_stmt 0 view .LVU525
+ 1645 00b0 03AA     		add	r2, sp, #12
+ 1646 00b2 2E23     		movs	r3, #46
+ 1647 00b4 0224     		movs	r4, #2
+ 1648 00b6 D454     		strb	r4, [r2, r3]
+ 415:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 1649              		.loc 1 415 3 is_stmt 1 view .LVU526
+ 1650 00b8 C3E7     		b	.L89
+ 1651              	.LVL203:
+ 1652              	.L91:
+ 1653              	.LBB26:
+ 431:Drivers/POCSAG/POCSAG_Generate.c **** 		if(OriginalPack[i]==0x00&&OriginalPack[i+1]==0x00){
+ 432:Drivers/POCSAG/POCSAG_Generate.c **** 			break;	
+ 433:Drivers/POCSAG/POCSAG_Generate.c **** 		}
+ 434:Drivers/POCSAG/POCSAG_Generate.c **** 		MSG.Text[i-DATA_START]=OriginalPack[i];	
+ 1654              		.loc 1 434 3 discriminator 2 view .LVU527
+ 1655              		.loc 1 434 13 is_stmt 0 discriminator 2 view .LVU528
+ 1656 00ba 1A00     		movs	r2, r3
+ 1657 00bc 0C3A     		subs	r2, r2, #12
+ 1658              		.loc 1 434 25 discriminator 2 view .LVU529
+ 1659 00be 0C25     		movs	r5, #12
+ 1660 00c0 5219     		adds	r2, r2, r5
+ 1661 00c2 6A44     		add	r2, r2, sp
+ 1662 00c4 5471     		strb	r4, [r2, #5]
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 41
+
+
+ 430:Drivers/POCSAG/POCSAG_Generate.c **** 		if(OriginalPack[i]==0x00&&OriginalPack[i+1]==0x00){
+ 1663              		.loc 1 430 29 is_stmt 1 discriminator 2 view .LVU530
+ 1664 00c6 0133     		adds	r3, r3, #1
+ 1665              	.LVL204:
+ 1666              	.L90:
+ 430:Drivers/POCSAG/POCSAG_Generate.c **** 		if(OriginalPack[i]==0x00&&OriginalPack[i+1]==0x00){
+ 1667              		.loc 1 430 24 discriminator 1 view .LVU531
+ 1668 00c8 282B     		cmp	r3, #40
+ 1669 00ca 06DC     		bgt	.L92
+ 431:Drivers/POCSAG/POCSAG_Generate.c **** 		if(OriginalPack[i]==0x00&&OriginalPack[i+1]==0x00){
+ 1670              		.loc 1 431 3 view .LVU532
+ 431:Drivers/POCSAG/POCSAG_Generate.c **** 		if(OriginalPack[i]==0x00&&OriginalPack[i+1]==0x00){
+ 1671              		.loc 1 431 18 is_stmt 0 view .LVU533
+ 1672 00cc CC5C     		ldrb	r4, [r1, r3]
+ 431:Drivers/POCSAG/POCSAG_Generate.c **** 		if(OriginalPack[i]==0x00&&OriginalPack[i+1]==0x00){
+ 1673              		.loc 1 431 5 view .LVU534
+ 1674 00ce 002C     		cmp	r4, #0
+ 1675 00d0 F3D1     		bne	.L91
+ 431:Drivers/POCSAG/POCSAG_Generate.c **** 		if(OriginalPack[i]==0x00&&OriginalPack[i+1]==0x00){
+ 1676              		.loc 1 431 41 discriminator 1 view .LVU535
+ 1677 00d2 CA18     		adds	r2, r1, r3
+ 1678 00d4 5278     		ldrb	r2, [r2, #1]
+ 431:Drivers/POCSAG/POCSAG_Generate.c **** 		if(OriginalPack[i]==0x00&&OriginalPack[i+1]==0x00){
+ 1679              		.loc 1 431 27 discriminator 1 view .LVU536
+ 1680 00d6 002A     		cmp	r2, #0
+ 1681 00d8 EFD1     		bne	.L91
+ 1682              	.L92:
+ 431:Drivers/POCSAG/POCSAG_Generate.c **** 		if(OriginalPack[i]==0x00&&OriginalPack[i+1]==0x00){
+ 1683              		.loc 1 431 27 discriminator 1 view .LVU537
+ 1684              	.LBE26:
+ 435:Drivers/POCSAG/POCSAG_Generate.c **** 	}
+ 436:Drivers/POCSAG/POCSAG_Generate.c **** 
+ 437:Drivers/POCSAG/POCSAG_Generate.c **** 	return MSG;
+ 1685              		.loc 1 437 2 is_stmt 1 view .LVU538
+ 1686              		.loc 1 437 9 is_stmt 0 view .LVU539
+ 1687 00da 0300     		movs	r3, r0
+ 1688              	.LVL205:
+ 1689              		.loc 1 437 9 view .LVU540
+ 1690 00dc 03AA     		add	r2, sp, #12
+ 1691 00de 32CA     		ldmia	r2!, {r1, r4, r5}
+ 1692 00e0 32C3     		stmia	r3!, {r1, r4, r5}
+ 1693              	.LVL206:
+ 1694              		.loc 1 437 9 view .LVU541
+ 1695 00e2 32CA     		ldmia	r2!, {r1, r4, r5}
+ 1696 00e4 32C3     		stmia	r3!, {r1, r4, r5}
+ 1697 00e6 32CA     		ldmia	r2!, {r1, r4, r5}
+ 1698 00e8 32C3     		stmia	r3!, {r1, r4, r5}
+ 1699 00ea 32CA     		ldmia	r2!, {r1, r4, r5}
+ 1700 00ec 32C3     		stmia	r3!, {r1, r4, r5}
+ 438:Drivers/POCSAG/POCSAG_Generate.c **** }
+ 1701              		.loc 1 438 1 view .LVU542
+ 1702              		@ sp needed
+ 1703 00ee 30BC     		pop	{r4, r5}
+ 1704 00f0 08BC     		pop	{r3}
+ 1705 00f2 02B0     		add	sp, sp, #8
+ 1706 00f4 1847     		bx	r3
+ 1707              	.L97:
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 42
+
+
+ 1708 00f6 C046     		.align	2
+ 1709              	.L96:
+ 1710 00f8 A0860100 		.word	100000
+ 1711 00fc 10270000 		.word	10000
+ 1712              		.cfi_endproc
+ 1713              	.LFE299:
+ 1715              		.global	SizeToMask
+ 1716              		.section	.rodata.SizeToMask,"a"
+ 1717              		.align	2
+ 1720              	SizeToMask:
+ 1721 0000 0103070F 		.ascii	"\001\003\007\017\037?\177"
+ 1721      1F3F7F
+ 1722              		.global	POCSAG_Batch2
+ 1723              		.section	.bss.POCSAG_Batch2,"aw",%nobits
+ 1724              		.align	2
+ 1727              	POCSAG_Batch2:
+ 1728 0000 00000000 		.space	64
+ 1728      00000000 
+ 1728      00000000 
+ 1728      00000000 
+ 1728      00000000 
+ 1729              		.global	POCSAG_Batch1
+ 1730              		.section	.bss.POCSAG_Batch1,"aw",%nobits
+ 1731              		.align	2
+ 1734              	POCSAG_Batch1:
+ 1735 0000 00000000 		.space	64
+ 1735      00000000 
+ 1735      00000000 
+ 1735      00000000 
+ 1735      00000000 
+ 1736              		.text
+ 1737              	.Letext0:
+ 1738              		.file 2 "f:\\vscode-for-stm32\\gcc\\12.2-mpacbti-bet1\\arm-none-eabi\\include\\machine\\_default_t
+ 1739              		.file 3 "f:\\vscode-for-stm32\\gcc\\12.2-mpacbti-bet1\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 1740              		.file 4 "f:\\vscode-for-stm32\\gcc\\12.2-mpacbti-bet1\\lib\\gcc\\arm-none-eabi\\12.2.0\\include\\s
+ 1741              		.file 5 "Drivers/POCSAG/POCSAG_Generate.h"
+ 1742              		.file 6 "f:\\vscode-for-stm32\\gcc\\12.2-mpacbti-bet1\\arm-none-eabi\\include\\string.h"
+ 1743              		.file 7 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
+ 1744              		.file 8 "<built-in>"
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s 			page 43
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 POCSAG_Generate.c
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:19     .text.CheckParamSanity:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:24     .text.CheckParamSanity:00000000 CheckParamSanity
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:78     .text.CheckParamSanity:0000002c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:83     .text.CreateBCHandParity:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:88     .text.CreateBCHandParity:00000000 CreateBCHandParity
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:217    .text.CreateBCHandParity:00000044 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:222    .text.CharToBCD:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:227    .text.CharToBCD:00000000 CharToBCD
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:297    .text.FlipCharBitOrder:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:302    .text.FlipCharBitOrder:00000000 FlipCharBitOrder
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:400    .text.StuffCodeWordItem:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:406    .text.StuffCodeWordItem:00000000 StuffCodeWordItem
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:450    .text.StuffCodeWordItem:0000001c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:1734   .bss.POCSAG_Batch1:00000000 POCSAG_Batch1
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:1727   .bss.POCSAG_Batch2:00000000 POCSAG_Batch2
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:458    .text.POCSAG_MakeCodeWords:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:464    .text.POCSAG_MakeCodeWords:00000000 POCSAG_MakeCodeWords
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:1458   .text.POCSAG_MakeCodeWords:00000358 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:1720   .rodata.SizeToMask:00000000 SizeToMask
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:1468   .text.prepare_POCSAG_Data:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:1474   .text.prepare_POCSAG_Data:00000000 prepare_POCSAG_Data
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:1710   .text.prepare_POCSAG_Data:000000f8 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:1717   .rodata.SizeToMask:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:1724   .bss.POCSAG_Batch2:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZoOBEY.s:1731   .bss.POCSAG_Batch1:00000000 $d
+
+UNDEFINED SYMBOLS
+__aeabi_idiv
+__aeabi_idivmod
+strlen
+memset

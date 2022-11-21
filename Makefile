@@ -65,7 +65,7 @@ Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c \
 Core/Src/system_stm32g0xx.c \
 Core/Src/si446x.c \
 Core/Src/dma.c \
-Drivers/POCSAG/pocsag.c
+Drivers/POCSAG/POCSAG_Generate.c
 
 # ASM sources
 ASM_SOURCES =  \

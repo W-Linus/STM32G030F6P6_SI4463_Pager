@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
   29:Drivers/CMSIS/Include/core_cm0plus.h **** #endif
   30:Drivers/CMSIS/Include/core_cm0plus.h **** 
   31:Drivers/CMSIS/Include/core_cm0plus.h **** #ifndef __CORE_CM0PLUS_H_GENERIC
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 2
 
 
   32:Drivers/CMSIS/Include/core_cm0plus.h **** #define __CORE_CM0PLUS_H_GENERIC
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
   86:Drivers/CMSIS/Include/core_cm0plus.h ****   #endif
   87:Drivers/CMSIS/Include/core_cm0plus.h **** 
   88:Drivers/CMSIS/Include/core_cm0plus.h **** #elif defined ( __GNUC__ )
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 3
 
 
   89:Drivers/CMSIS/Include/core_cm0plus.h ****   #if defined (__VFP_FP__) && !defined(__SOFTFP__)
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  143:Drivers/CMSIS/Include/core_cm0plus.h ****   #endif
  144:Drivers/CMSIS/Include/core_cm0plus.h **** 
  145:Drivers/CMSIS/Include/core_cm0plus.h ****   #ifndef __VTOR_PRESENT
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 4
 
 
  146:Drivers/CMSIS/Include/core_cm0plus.h ****     #define __VTOR_PRESENT            0U
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  200:Drivers/CMSIS/Include/core_cm0plus.h **** /**
  201:Drivers/CMSIS/Include/core_cm0plus.h ****   \ingroup    CMSIS_core_register
  202:Drivers/CMSIS/Include/core_cm0plus.h ****   \defgroup   CMSIS_CORE  Status and Control Registers
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 5
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 5
 
 
  203:Drivers/CMSIS/Include/core_cm0plus.h ****   \brief      Core Register type definitions.
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  257:Drivers/CMSIS/Include/core_cm0plus.h ****  */
  258:Drivers/CMSIS/Include/core_cm0plus.h **** typedef union
  259:Drivers/CMSIS/Include/core_cm0plus.h **** {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 6
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 6
 
 
  260:Drivers/CMSIS/Include/core_cm0plus.h ****   struct
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  314:Drivers/CMSIS/Include/core_cm0plus.h **** 
  315:Drivers/CMSIS/Include/core_cm0plus.h **** /*@} end of group CMSIS_CORE */
  316:Drivers/CMSIS/Include/core_cm0plus.h **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 7
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 7
 
 
  317:Drivers/CMSIS/Include/core_cm0plus.h **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  371:Drivers/CMSIS/Include/core_cm0plus.h **** 
  372:Drivers/CMSIS/Include/core_cm0plus.h **** /* SCB CPUID Register Definitions */
  373:Drivers/CMSIS/Include/core_cm0plus.h **** #define SCB_CPUID_IMPLEMENTER_Pos          24U                                            /*!< SCB 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 8
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 8
 
 
  374:Drivers/CMSIS/Include/core_cm0plus.h **** #define SCB_CPUID_IMPLEMENTER_Msk          (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)          /*!< SCB 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  428:Drivers/CMSIS/Include/core_cm0plus.h **** 
  429:Drivers/CMSIS/Include/core_cm0plus.h **** #define SCB_AIRCR_ENDIANESS_Pos            15U                                            /*!< SCB 
  430:Drivers/CMSIS/Include/core_cm0plus.h **** #define SCB_AIRCR_ENDIANESS_Msk            (1UL << SCB_AIRCR_ENDIANESS_Pos)               /*!< SCB 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 9
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 9
 
 
  431:Drivers/CMSIS/Include/core_cm0plus.h **** 
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  485:Drivers/CMSIS/Include/core_cm0plus.h **** #define SysTick_CTRL_CLKSOURCE_Msk         (1UL << SysTick_CTRL_CLKSOURCE_Pos)            /*!< SysT
  486:Drivers/CMSIS/Include/core_cm0plus.h **** 
  487:Drivers/CMSIS/Include/core_cm0plus.h **** #define SysTick_CTRL_TICKINT_Pos            1U                                            /*!< SysT
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 10
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 10
 
 
  488:Drivers/CMSIS/Include/core_cm0plus.h **** #define SysTick_CTRL_TICKINT_Msk           (1UL << SysTick_CTRL_TICKINT_Pos)              /*!< SysT
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  542:Drivers/CMSIS/Include/core_cm0plus.h **** #define MPU_TYPE_SEPARATE_Pos               0U                                            /*!< MPU 
  543:Drivers/CMSIS/Include/core_cm0plus.h **** #define MPU_TYPE_SEPARATE_Msk              (1UL /*<< MPU_TYPE_SEPARATE_Pos*/)             /*!< MPU 
  544:Drivers/CMSIS/Include/core_cm0plus.h **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 11
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 11
 
 
  545:Drivers/CMSIS/Include/core_cm0plus.h **** /* MPU Control Register Definitions */
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  599:Drivers/CMSIS/Include/core_cm0plus.h **** 
  600:Drivers/CMSIS/Include/core_cm0plus.h **** /*@} end of group CMSIS_MPU */
  601:Drivers/CMSIS/Include/core_cm0plus.h **** #endif
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 12
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 12
 
 
  602:Drivers/CMSIS/Include/core_cm0plus.h **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  656:Drivers/CMSIS/Include/core_cm0plus.h **** 
  657:Drivers/CMSIS/Include/core_cm0plus.h **** #if defined (__MPU_PRESENT) && (__MPU_PRESENT == 1U)
  658:Drivers/CMSIS/Include/core_cm0plus.h ****   #define MPU_BASE          (SCS_BASE +  0x0D90UL)                    /*!< Memory Protection Unit *
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 13
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 13
 
 
  659:Drivers/CMSIS/Include/core_cm0plus.h ****   #define MPU               ((MPU_Type       *)     MPU_BASE      )   /*!< Memory Protection Unit *
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  713:Drivers/CMSIS/Include/core_cm0plus.h ****   #define NVIC_SetVector              __NVIC_SetVector
  714:Drivers/CMSIS/Include/core_cm0plus.h ****   #define NVIC_GetVector              __NVIC_GetVector
  715:Drivers/CMSIS/Include/core_cm0plus.h **** #endif  /* (CMSIS_VECTAB_VIRTUAL) */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 14
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 14
 
 
  716:Drivers/CMSIS/Include/core_cm0plus.h **** 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  770:Drivers/CMSIS/Include/core_cm0plus.h **** }
  771:Drivers/CMSIS/Include/core_cm0plus.h **** 
  772:Drivers/CMSIS/Include/core_cm0plus.h **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 15
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 15
 
 
  773:Drivers/CMSIS/Include/core_cm0plus.h **** /**
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  827:Drivers/CMSIS/Include/core_cm0plus.h ****   \brief   Clear Pending Interrupt
  828:Drivers/CMSIS/Include/core_cm0plus.h ****   \details Clears the pending bit of a device specific interrupt in the NVIC pending register.
  829:Drivers/CMSIS/Include/core_cm0plus.h ****   \param [in]      IRQn  Device specific interrupt number.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 16
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 16
 
 
  830:Drivers/CMSIS/Include/core_cm0plus.h ****   \note    IRQn must not be negative.
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
   57 0014 C000     		lsls	r0, r0, #3
   58              		.loc 2 854 80 view .LVU9
   59 0016 FC32     		adds	r2, r2, #252
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 17
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 17
 
 
   60 0018 1600     		movs	r6, r2
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
   99 0042 C000     		lsls	r0, r0, #3
  859:Drivers/CMSIS/Include/core_cm0plus.h ****        (((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQn)));
  100              		.loc 2 859 80 view .LVU22
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 18
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 18
 
 
  101 0044 FC32     		adds	r2, r2, #252
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  138              		@ args = 0, pretend = 0, frame = 0
  139              		@ frame_needed = 0, uses_anonymous_args = 0
  140              		@ link register save eliminated.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 19
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 19
 
 
  876:Drivers/CMSIS/Include/core_cm0plus.h **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  182 002e 6344     		add	r3, r3, ip
  183 0030 5B68     		ldr	r3, [r3, #4]
  883:Drivers/CMSIS/Include/core_cm0plus.h ****   }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 20
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 20
 
 
  184              		.loc 2 883 53 view .LVU44
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  910:Drivers/CMSIS/Include/core_cm0plus.h ****            ((SubPriority     & (uint32_t)((1UL << (SubPriorityBits    )) - 1UL)))
  911:Drivers/CMSIS/Include/core_cm0plus.h ****          );
  912:Drivers/CMSIS/Include/core_cm0plus.h **** }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 21
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 21
 
 
  913:Drivers/CMSIS/Include/core_cm0plus.h **** 
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  967:Drivers/CMSIS/Include/core_cm0plus.h ****   \param [in]   IRQn      Interrupt number.
  968:Drivers/CMSIS/Include/core_cm0plus.h ****   \return                 Address of interrupt handler function
  969:Drivers/CMSIS/Include/core_cm0plus.h ****  */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 22
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 22
 
 
  970:Drivers/CMSIS/Include/core_cm0plus.h **** __STATIC_INLINE uint32_t __NVIC_GetVector(IRQn_Type IRQn)
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
   27:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   28:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ignore some GCC warnings */
   29:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 23
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 23
 
 
   30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
   84:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
   85:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   86:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 24
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 24
 
 
   87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  141:Drivers/CMSIS/Include/cmsis_gcc.h ****   typedef struct {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t* dest;
  143:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t  wlen;
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 25
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 25
 
 
  144:Drivers/CMSIS/Include/cmsis_gcc.h ****   } __zero_table_t;
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  198:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
  199:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  200:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 26
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 26
 
 
  201:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  255:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  256:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Control Register (non-secure)
  257:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Writes the given value to the non-secure Control Register when in secure state.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 27
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 27
 
 
  258:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    control  Control Register value to set
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  312:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               PSP Register value
  313:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  314:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_PSP(void)
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 28
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 28
 
 
  315:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  369:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  370:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  371:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 29
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 29
 
 
  372:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp" : "=r" (result) );
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  426:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  427:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, sp_ns" : "=r" (result) );
  428:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 30
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 30
 
 
  429:Drivers/CMSIS/Include/cmsis_gcc.h **** }
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  483:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  484:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  485:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 31
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 31
 
 
  486:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  540:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Base Priority register when in secure state.
  541:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Base Priority register value
  542:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 32
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 32
 
 
  543:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_BASEPRI_NS(void)
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  597:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  598:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, faultmask" : "=r" (result) );
  599:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 33
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 33
 
 
  600:Drivers/CMSIS/Include/cmsis_gcc.h **** }
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  654:Drivers/CMSIS/Include/cmsis_gcc.h ****   mode.
  655:Drivers/CMSIS/Include/cmsis_gcc.h ****   
  656:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Process Stack Pointer Limit (PSPLIM).
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 34
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 34
 
 
  657:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               PSPLIM Register value
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  711:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR psplim, %0" : : "r" (ProcStackPtrLimit));
  712:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  713:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 35
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 35
 
 
  714:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  768:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  769:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_MSPLIM_NS(void)
  770:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 36
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 36
 
 
  771:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  825:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
  826:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  827:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 37
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 37
 
 
  828:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  882:Drivers/CMSIS/Include/cmsis_gcc.h ****   Access to dedicated instructions
  883:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
  884:Drivers/CMSIS/Include/cmsis_gcc.h **** */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 38
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 38
 
 
  885:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  939:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  940:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Data Synchronization Barrier
  941:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Acts as a special kind of Data Memory Barrier.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 39
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 39
 
 
  942:Drivers/CMSIS/Include/cmsis_gcc.h ****            It completes when all explicit memory accesses before this instruction complete.
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  262              		.syntax unified
  263 0010 FDE7     		b	.L12
  264              	.L14:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 40
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 40
 
 
  265 0012 C046     		.align	2
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
 1036:Drivers/CMSIS/Include/core_cm0plus.h **** /**
 1037:Drivers/CMSIS/Include/core_cm0plus.h ****   \ingroup  CMSIS_Core_FunctionInterface
 1038:Drivers/CMSIS/Include/core_cm0plus.h ****   \defgroup CMSIS_Core_SysTickFunctions SysTick Functions
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 41
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 41
 
 
 1039:Drivers/CMSIS/Include/core_cm0plus.h ****   \brief    Functions that configure the System.
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  306              		.loc 2 859 5 view .LVU69
  859:Drivers/CMSIS/Include/core_cm0plus.h ****        (((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQn)));
  307              		.loc 2 859 52 is_stmt 0 view .LVU70
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 42
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 42
 
 
  308 000e 0948     		ldr	r0, .L18+4
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  350              	.LFE48:
  352              		.section	.text.HAL_NVIC_SetPriority,"ax",%progbits
  353              		.align	1
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 43
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 43
 
 
  354              		.global	HAL_NVIC_SetPriority
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
   48:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c **** 
   49:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****    (+) You can change the SysTick Clock source to be HCLK_Div8 by calling the macro
   50:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****        __HAL_CORTEX_SYSTICKCLK_CONFIG(SYSTICK_CLKSOURCE_HCLK_DIV8) just after the
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 44
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 44
 
 
   51:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****        HAL_SYSTICK_Config() function call. The __HAL_CORTEX_SYSTICKCLK_CONFIG() macro is defined
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  105:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****  *
  106:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c **** @verbatim
  107:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   ==============================================================================
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 45
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 45
 
 
  108:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****               ##### Initialization and Configuration functions #####
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  385              		.global	HAL_NVIC_EnableIRQ
  386              		.syntax unified
  387              		.code	16
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 46
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 46
 
 
  388              		.thumb_func
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  419              		.loc 2 747 5 is_stmt 1 view .LVU101
  420              	.LVL18:
  421              	.L21:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 47
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 47
 
 
  747:Drivers/CMSIS/Include/core_cm0plus.h ****   }
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  458 0000 0028     		cmp	r0, #0
  459 0002 0ADB     		blt	.L25
  783:Drivers/CMSIS/Include/core_cm0plus.h ****     __DSB();
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 48
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 48
 
 
  460              		.loc 2 783 5 is_stmt 1 view .LVU110
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  504              		.loc 1 171 1 view .LVU121
  505              		@ sp needed
  506 001a 7047     		bx	lr
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 49
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 49
 
 
  507              	.L28:
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  188:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   *                  - 1  Function failed.
  189:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   */
  190:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c **** uint32_t HAL_SYSTICK_Config(uint32_t TicksNumb)
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 50
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 50
 
 
  191:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c **** {
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  217:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   *         This parameter can be an enumerator of IRQn_Type enumeration
  218:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   *         (For the complete STM32 Devices IRQ Channels list, please refer to the appropriate CMSI
  219:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   * @retval None
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 51
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 51
 
 
  220:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   */
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  240:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   NVIC_SetPendingIRQ(IRQn);
  615              		.loc 1 240 3 view .LVU136
  616              	.LBB46:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 52
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 52
 
 
  617              	.LBI46:
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  245:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   *         and return the pending bit for the specified interrupt).
  246:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   * @param  IRQn External interrupt number.
  247:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   *         This parameter can be an enumerator of IRQn_Type enumeration
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 53
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 53
 
 
  248:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   *         (For the complete STM32 Devices IRQ Channels list, please refer to the appropriate CMSI
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  694              		.loc 2 802 12 view .LVU158
  695              	.LBE49:
  696              	.LBE48:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 54
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 54
 
 
  259:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c **** }
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  274:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   NVIC_ClearPendingIRQ(IRQn);
  735              		.loc 1 274 3 view .LVU165
  736              	.LBB52:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 55
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 55
 
 
  737              	.LBI52:
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  279:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   * @param CLKSource specifies the SysTick clock source.
  280:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   *         This parameter can be one of the following values:
  281:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   *             @arg SYSTICK_CLKSOURCE_HCLK_DIV8: AHB clock divided by 8 selected as SysTick clock 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 56
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 56
 
 
  282:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   *             @arg SYSTICK_CLKSOURCE_HCLK: AHB clock selected as SysTick clock source.
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  816 001c 10E000E0 		.word	-536813552
  817              		.cfi_endproc
  818              	.LFE299:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 57
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 57
 
 
  820              		.section	.text.HAL_SYSTICK_Callback,"ax",%progbits
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  856              		.cfi_offset 4, -8
  857              		.cfi_offset 14, -4
  305:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c **** }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 58
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 58
 
 
  858              		.loc 1 305 3 view .LVU189
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  944:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  893              		.loc 3 944 27 view .LVU196
  894              	.LBB55:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 59
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 59
 
 
  895              		.loc 3 946 3 view .LVU197
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  939              		@ args = 0, pretend = 0, frame = 0
  940              		@ frame_needed = 0, uses_anonymous_args = 0
  941              		@ link register save eliminated.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 60
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 60
 
 
  348:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   /* Make sure outstanding transfers are done */
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  354:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c **** 
  355:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c **** 
  356:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c **** /**
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 61
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 61
 
 
  357:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****   * @brief  Initialize and configure the Region and the memory to be protected.
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  1008              		.loc 1 383 5 view .LVU226
  1009              		.loc 1 383 25 is_stmt 0 view .LVU227
  1010 000c 4368     		ldr	r3, [r0, #4]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 62
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 62
 
 
  1011              		.loc 1 383 15 view .LVU228
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  389:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsBufferable            << MPU_RASR_B_Pos)    |
  1053              		.loc 1 389 84 view .LVU249
  1054 0038 1343     		orrs	r3, r2
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 63
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 63
 
 
  391:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->Size                    << MPU_RASR_SIZE_Pos) |
@@ -3777,61 +3777,61 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 1
  1093              		.file 6 "f:\\vscode-for-stm32\\gcc\\12.2-mpacbti-bet1\\arm-none-eabi\\include\\sys\\_stdint.h"
  1094              		.file 7 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_cortex.h"
  1095              		.file 8 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s 			page 64
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s 			page 64
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g0xx_hal_cortex.c
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:19     .text.__NVIC_SetPriority:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:24     .text.__NVIC_SetPriority:00000000 __NVIC_SetPriority
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:122    .text.__NVIC_SetPriority:00000058 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:128    .text.__NVIC_GetPriority:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:133    .text.__NVIC_GetPriority:00000000 __NVIC_GetPriority
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:200    .text.__NVIC_GetPriority:00000044 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:206    .text.__NVIC_SystemReset:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:211    .text.__NVIC_SystemReset:00000000 __NVIC_SystemReset
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:267    .text.__NVIC_SystemReset:00000014 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:273    .text.SysTick_Config:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:278    .text.SysTick_Config:00000000 SysTick_Config
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:347    .text.SysTick_Config:00000030 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:353    .text.HAL_NVIC_SetPriority:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:359    .text.HAL_NVIC_SetPriority:00000000 HAL_NVIC_SetPriority
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:384    .text.HAL_NVIC_EnableIRQ:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:390    .text.HAL_NVIC_EnableIRQ:00000000 HAL_NVIC_EnableIRQ
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:431    .text.HAL_NVIC_EnableIRQ:00000014 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:436    .text.HAL_NVIC_DisableIRQ:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:442    .text.HAL_NVIC_DisableIRQ:00000000 HAL_NVIC_DisableIRQ
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:510    .text.HAL_NVIC_DisableIRQ:0000001c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:515    .text.HAL_NVIC_SystemReset:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:521    .text.HAL_NVIC_SystemReset:00000000 HAL_NVIC_SystemReset
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:540    .text.HAL_SYSTICK_Config:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:546    .text.HAL_SYSTICK_Config:00000000 HAL_SYSTICK_Config
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:570    .text.HAL_NVIC_GetPriority:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:576    .text.HAL_NVIC_GetPriority:00000000 HAL_NVIC_GetPriority
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:600    .text.HAL_NVIC_SetPendingIRQ:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:606    .text.HAL_NVIC_SetPendingIRQ:00000000 HAL_NVIC_SetPendingIRQ
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:647    .text.HAL_NVIC_SetPendingIRQ:00000018 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:652    .text.HAL_NVIC_GetPendingIRQ:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:658    .text.HAL_NVIC_GetPendingIRQ:00000000 HAL_NVIC_GetPendingIRQ
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:715    .text.HAL_NVIC_GetPendingIRQ:0000001c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:720    .text.HAL_NVIC_ClearPendingIRQ:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:726    .text.HAL_NVIC_ClearPendingIRQ:00000000 HAL_NVIC_ClearPendingIRQ
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:767    .text.HAL_NVIC_ClearPendingIRQ:00000018 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:772    .text.HAL_SYSTICK_CLKSourceConfig:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:778    .text.HAL_SYSTICK_CLKSourceConfig:00000000 HAL_SYSTICK_CLKSourceConfig
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:816    .text.HAL_SYSTICK_CLKSourceConfig:0000001c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:821    .text.HAL_SYSTICK_Callback:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:827    .text.HAL_SYSTICK_Callback:00000000 HAL_SYSTICK_Callback
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:841    .text.HAL_SYSTICK_IRQHandler:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:847    .text.HAL_SYSTICK_IRQHandler:00000000 HAL_SYSTICK_IRQHandler
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:868    .text.HAL_MPU_Enable:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:874    .text.HAL_MPU_Enable:00000000 HAL_MPU_Enable
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:924    .text.HAL_MPU_Enable:00000014 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:929    .text.HAL_MPU_Disable:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:935    .text.HAL_MPU_Disable:00000000 HAL_MPU_Disable
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:967    .text.HAL_MPU_Disable:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:972    .text.HAL_MPU_ConfigRegion:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:978    .text.HAL_MPU_ConfigRegion:00000000 HAL_MPU_ConfigRegion
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdHnJ07.s:1085   .text.HAL_MPU_ConfigRegion:00000054 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:19     .text.__NVIC_SetPriority:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:24     .text.__NVIC_SetPriority:00000000 __NVIC_SetPriority
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:122    .text.__NVIC_SetPriority:00000058 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:128    .text.__NVIC_GetPriority:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:133    .text.__NVIC_GetPriority:00000000 __NVIC_GetPriority
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:200    .text.__NVIC_GetPriority:00000044 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:206    .text.__NVIC_SystemReset:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:211    .text.__NVIC_SystemReset:00000000 __NVIC_SystemReset
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:267    .text.__NVIC_SystemReset:00000014 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:273    .text.SysTick_Config:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:278    .text.SysTick_Config:00000000 SysTick_Config
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:347    .text.SysTick_Config:00000030 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:353    .text.HAL_NVIC_SetPriority:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:359    .text.HAL_NVIC_SetPriority:00000000 HAL_NVIC_SetPriority
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:384    .text.HAL_NVIC_EnableIRQ:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:390    .text.HAL_NVIC_EnableIRQ:00000000 HAL_NVIC_EnableIRQ
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:431    .text.HAL_NVIC_EnableIRQ:00000014 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:436    .text.HAL_NVIC_DisableIRQ:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:442    .text.HAL_NVIC_DisableIRQ:00000000 HAL_NVIC_DisableIRQ
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:510    .text.HAL_NVIC_DisableIRQ:0000001c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:515    .text.HAL_NVIC_SystemReset:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:521    .text.HAL_NVIC_SystemReset:00000000 HAL_NVIC_SystemReset
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:540    .text.HAL_SYSTICK_Config:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:546    .text.HAL_SYSTICK_Config:00000000 HAL_SYSTICK_Config
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:570    .text.HAL_NVIC_GetPriority:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:576    .text.HAL_NVIC_GetPriority:00000000 HAL_NVIC_GetPriority
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:600    .text.HAL_NVIC_SetPendingIRQ:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:606    .text.HAL_NVIC_SetPendingIRQ:00000000 HAL_NVIC_SetPendingIRQ
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:647    .text.HAL_NVIC_SetPendingIRQ:00000018 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:652    .text.HAL_NVIC_GetPendingIRQ:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:658    .text.HAL_NVIC_GetPendingIRQ:00000000 HAL_NVIC_GetPendingIRQ
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:715    .text.HAL_NVIC_GetPendingIRQ:0000001c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:720    .text.HAL_NVIC_ClearPendingIRQ:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:726    .text.HAL_NVIC_ClearPendingIRQ:00000000 HAL_NVIC_ClearPendingIRQ
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:767    .text.HAL_NVIC_ClearPendingIRQ:00000018 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:772    .text.HAL_SYSTICK_CLKSourceConfig:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:778    .text.HAL_SYSTICK_CLKSourceConfig:00000000 HAL_SYSTICK_CLKSourceConfig
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:816    .text.HAL_SYSTICK_CLKSourceConfig:0000001c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:821    .text.HAL_SYSTICK_Callback:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:827    .text.HAL_SYSTICK_Callback:00000000 HAL_SYSTICK_Callback
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:841    .text.HAL_SYSTICK_IRQHandler:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:847    .text.HAL_SYSTICK_IRQHandler:00000000 HAL_SYSTICK_IRQHandler
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:868    .text.HAL_MPU_Enable:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:874    .text.HAL_MPU_Enable:00000000 HAL_MPU_Enable
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:924    .text.HAL_MPU_Enable:00000014 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:929    .text.HAL_MPU_Disable:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:935    .text.HAL_MPU_Disable:00000000 HAL_MPU_Disable
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:967    .text.HAL_MPU_Disable:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:972    .text.HAL_MPU_ConfigRegion:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:978    .text.HAL_MPU_ConfigRegion:00000000 HAL_MPU_ConfigRegion
+C:\Users\W_LINU~1\AppData\Local\Temp\ccAvczJk.s:1085   .text.HAL_MPU_ConfigRegion:00000054 $d
 
 NO UNDEFINED SYMBOLS

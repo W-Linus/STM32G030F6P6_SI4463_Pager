@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccMzgQmF.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 1
   30:Core/Src/gpio.c **** /*----------------------------------------------------------------------------*/
   31:Core/Src/gpio.c **** /* USER CODE BEGIN 1 */
   32:Core/Src/gpio.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccMzgQmF.s 			page 2
 
 
   33:Core/Src/gpio.c **** /* USER CODE END 1 */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 1
   65 001e 5A63     		str	r2, [r3, #52]
   66              		.loc 1 48 3 view .LVU6
   67 0020 5A6B     		ldr	r2, [r3, #52]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccMzgQmF.s 			page 3
 
 
   68 0022 0A40     		ands	r2, r1
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 1
  114              		.loc 1 56 3 view .LVU22
  115 0056 194B     		ldr	r3, .L2+4
  116 0058 9946     		mov	r9, r3
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccMzgQmF.s 			page 4
 
 
  117 005a 0122     		movs	r2, #1
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 1
   71:Core/Src/gpio.c ****   /*Configure GPIO pin : PtPin */
   72:Core/Src/gpio.c ****   GPIO_InitStruct.Pin = SI4463_EN_Pin;
  157              		.loc 1 72 3 view .LVU39
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 5
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccMzgQmF.s 			page 5
 
 
  158              		.loc 1 72 23 is_stmt 0 view .LVU40
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 1
  199              	.L3:
  200 00b6 C046     		.align	2
  201              	.L2:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 6
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccMzgQmF.s 			page 6
 
 
  202 00b8 00100240 		.word	1073876992
@@ -313,14 +313,14 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 1
  212              		.file 5 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_gpio.h"
  213              		.file 6 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
  214              		.file 7 "<built-in>"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s 			page 7
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccMzgQmF.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 gpio.c
-C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s:19     .text.MX_GPIO_Init:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s:25     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\Users\W_LINU~1\AppData\Local\Temp\ccwwc9ho.s:202    .text.MX_GPIO_Init:000000b8 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccMzgQmF.s:19     .text.MX_GPIO_Init:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccMzgQmF.s:25     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\W_LINU~1\AppData\Local\Temp\ccMzgQmF.s:202    .text.MX_GPIO_Init:000000b8 $d
 
 UNDEFINED SYMBOLS
 memset

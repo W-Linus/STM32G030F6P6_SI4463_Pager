@@ -26,7 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <si446x.h>
-#include <pocsag.h>
+#include <POCSAG_Generate.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -49,33 +49,23 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-const char *text="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-uint8_t g_TxMode = 0, g_UartRxFlag = 0;
 uint8_t g_UartRxBuffer[ 400 ] = { 0 };
-uint8_t uartBuffer[400]={0};
-uint8_t g_SI4463ItStatus[ 9 ] = { 0 };
-uint8_t g_SI4463RxBuffer[ 255 ] = { 0 }; 
 uint16_t i=0;
 
 uint8_t strLength=0;
-
-uint32_t test32int=0x7CD215D8;
-
-uint32_t test1,test2,test3,test4;
-
-extern uint32_t TxBuff[TXBUFF_SIZE]; 
 uint32_t TxBuffer[TXBUFF_SIZE];
-extern uint8_t UartBuff[UARTBUFF_SIZE];
-extern uint8_t UartTmp;
-extern uint8_t NewData;
-
-uint32_t SendBuffer_Temp[TXBUFF_SIZE*4]={0};
-uint8_t  SendBuffer[TXBUFF_SIZE*4]={0};
 
 uint8_t txSize=0;
 
 uint8_t rxChar;
 uint8_t rxOKFlag[4]={0,0,0,0}; // 00-rx not start yet. 10-rx started but not finish. 11-rx finished. rxOKFlag[2]=Index. rxOKFlag[3]=rx finished.
+uint8_t UartBuffer[256]={0};
+
+POCSAG_MSG Pager; //Pager Data Struct
+int8_t POCSAG_Message_Generated_Status;
+
+extern uint32_t POCSAG_Batch1[16];	//码组1，包含16个码字
+extern uint32_t POCSAG_Batch2[16];	//码组2，包含16个码字
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -124,95 +114,38 @@ int main(void)
 	SI446x_Init();
   HAL_UART_Receive_DMA(&huart1,&rxChar,1);
 
-  test1=test32int & 0x000000FF;
-  test2=(test32int>>8)&0x000000FF;
-  test3=(test32int>>16)&0x000000FF;
-  test4=test32int>>24;
-
-  test1=__RBIT(test1);
-  test2=__RBIT(test2);
-  test3=__RBIT(test3);
-  test4=__RBIT(test4);
-
-  test1=__REV(test1);
-  test2=__REV(test2);
-  test3=__REV(test3);
-  test4=__REV(test4);
-
-/*
-  test1>>=5;
-  test2>>=5;
-  test3>>=5;
-  test4>>=5;
-*/
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    if(/*rxOKFlag[3]==1*/NewData==1&&(UartBuff[TEXT_OR_NUM]=='N'||UartBuff[TEXT_OR_NUM]=='T')){
-      GetAddrNumber();
-      if(UartBuff[TEXT_OR_NUM]=='N'){
+    if(/*rxOKFlag[3]==1*/rxOKFlag[3]==1&&(UartBuffer[TEXT_OR_NUM]=='N'||UartBuffer[TEXT_OR_NUM]=='T')){
+      prepare_POCSAG_Data(UartBuffer,Pager);
+
+      if(UartBuffer[TEXT_OR_NUM]=='N'){
         printf("Numberic Data Detected!\r\n");
-        calc_NumberData();
-      }
-      if(UartBuff[TEXT_OR_NUM]=='T'){
-        printf("Text Data Detected!\r\n");
-        calc_TextData();
-      }
-      rxOKFlag[3]=0;
-      for(int i=0;i<TXBUFF_SIZE;i++){
-        printf("%d:%ld\r\n",i,TxBuff[i]);
-      }
-
-      /*
-      memset(SendBuffer,0xAA,144);
-      SendBuffer[144]=0x3E;
-      SendBuffer[145]=0x4B;
-      SendBuffer[146]=0xA8;
-      SendBuffer[147]=0x1B;
-      */
-      for(int i=0;i<TXBUFF_SIZE;i++){
-        SendBuffer_Temp[((i*4)+0)]=TxBuff[i]>>24;
-        SendBuffer_Temp[((i*4)+1)]=(TxBuff[i]>>16)&0x000000FF;
-        SendBuffer_Temp[((i*4)+2)]=(TxBuff[i]>>8)&0x000000FF;
-        SendBuffer_Temp[((i*4)+3)]=TxBuff[i]&0x000000FF;
-
-        TxBuff[i]=__REV(TxBuff[i]);
-        TxBuff[i]=__RBIT(TxBuff[i]);
         
-
-        SendBuffer_Temp[(i*4)+0]=__RBIT(SendBuffer_Temp[(i*4)+0]);
-        SendBuffer_Temp[(i*4)+1]=__RBIT(SendBuffer_Temp[(i*4)+1]);
-        SendBuffer_Temp[(i*4)+2]=__RBIT(SendBuffer_Temp[(i*4)+2]);
-        SendBuffer_Temp[(i*4)+3]=__RBIT(SendBuffer_Temp[(i*4)+3]);
-
-        SendBuffer[(i*4)+0]=__REV(SendBuffer_Temp[(i*4)+0]);
-        SendBuffer[(i*4)+1]=__REV(SendBuffer_Temp[(i*4)+1]);
-        SendBuffer[(i*4)+2]=__REV(SendBuffer_Temp[(i*4)+2]);
-        SendBuffer[(i*4)+3]=__REV(SendBuffer_Temp[(i*4)+3]);
       }
 
-      if(UartBuff[1]=='N'){
-        for(int i=0;i<TXBUFF_SIZE*4;i++){
-          SendBuffer[i]^=0xFFFFFFFF/*SendBuffer[i]*/;
-        }
+      if(UartBuffer[TEXT_OR_NUM]=='T'){
+        printf("Text Data Detected!\r\n");
       }
 
-      for(int i=0;i<TXBUFF_SIZE*4;i++){
-        if(SendBuffer[i]==0x00&&SendBuffer[i+1]==0x00&&SendBuffer[i+2]==0x00&&SendBuffer[i+3]==0x00)break;
-        txSize+=1;
+      Pager=prepare_POCSAG_Data(UartBuffer,Pager);
+
+      POCSAG_Message_Generated_Status=POCSAG_MakeCodeWords(Pager.Pager_Address,Pager.FuncCode,Pager.Text,\
+      Pager.Batch20pt,Pager.InvertOpt);
+
+      if(POCSAG_Message_Generated_Status>POCSAG_ERR_NONE){
+        SI446x_Send_Packet((uint8_t*)POCSAG_Batch1,64,0,0);
       }
+      memset(POCSAG_Batch1,0,sizeof(POCSAG_Batch1));
+     // SI446x_Send_Packet((uint8_t*)TxBuff,sizeof(TxBuff),0,0);
 
-      SI446x_Send_Packet((uint8_t*)TxBuff,sizeof(TxBuff),0,0);
-
-      printf("Data:%x,%x,%x,%x\r\n",test4,test3,test2,test1);
-      Empty_Buff();
+     // printf("Data:%x,%x,%x,%x\r\n",test4,test3,test2,test1);
       txSize=0;
-      memset(SendBuffer,0,sizeof(SendBuffer));
-      memset(SendBuffer_Temp,0,sizeof(SendBuffer_Temp));
-      NewData=0;
+      rxOKFlag[3]=0;
     }
 	
     /* USER CODE END WHILE */
@@ -269,26 +202,21 @@ void SystemClock_Config(void)
   void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
     g_UartRxBuffer[rxOKFlag[2]]=rxChar;
     rxOKFlag[2]+=1;
-
-    UartTmp=rxChar;
-
-    UART_RxData();
     
-    /*if(rxChar=='$'){
-      memset(uartBuffer,0,sizeof(uartBuffer));
+    if(rxChar=='$'){
+      memset(UartBuffer,0,sizeof(UartBuffer));
       for(int i=0;i<256;i++){
         if(g_UartRxBuffer[i]=='$'){
             strLength=i+1;
             break;
           }
       }
-      memcpy(uartBuffer,g_UartRxBuffer,strLength);
-      memcpy(UartBuff,uartBuffer,UARTBUFF_SIZE);
-      memset(g_UartRxBuffer,0,sizeof(g_SI4463RxBuffer));
+      memcpy(UartBuffer,g_UartRxBuffer,strLength);
+      memset(g_UartRxBuffer,0,sizeof(g_UartRxBuffer));
       rxOKFlag[2]=0;
       rxOKFlag[3]=1;
-      printf("Received:%s\r\n",uartBuffer);
-    }*/
+      printf("Received:%s\r\n",UartBuffer);
+    }
   }
 /* USER CODE END 4 */
 

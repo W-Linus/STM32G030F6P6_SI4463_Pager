@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cco4N9iT.s 			page 1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccUpNll9.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cco4N9iT.s 			page 1
   30:Core/Src/stm32g0xx_hal_msp.c **** /* USER CODE END TD */
   31:Core/Src/stm32g0xx_hal_msp.c **** 
   32:Core/Src/stm32g0xx_hal_msp.c **** /* Private define ------------------------------------------------------------*/
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cco4N9iT.s 			page 2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccUpNll9.s 			page 2
 
 
   33:Core/Src/stm32g0xx_hal_msp.c **** /* USER CODE BEGIN Define */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cco4N9iT.s 			page 1
   44              		.loc 1 69 3 view .LVU4
   45 000c 196C     		ldr	r1, [r3, #64]
   46 000e 0A40     		ands	r2, r1
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cco4N9iT.s 			page 3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccUpNll9.s 			page 3
 
 
   47 0010 0092     		str	r2, [sp]
@@ -167,13 +167,13 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cco4N9iT.s 			page 1
   83              		.file 3 "f:\\vscode-for-stm32\\gcc\\12.2-mpacbti-bet1\\arm-none-eabi\\include\\sys\\_stdint.h"
   84              		.file 4 "Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g030xx.h"
   85              		.file 5 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cco4N9iT.s 			page 4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccUpNll9.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g0xx_hal_msp.c
-C:\Users\W_LINU~1\AppData\Local\Temp\cco4N9iT.s:19     .text.HAL_MspInit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cco4N9iT.s:25     .text.HAL_MspInit:00000000 HAL_MspInit
-C:\Users\W_LINU~1\AppData\Local\Temp\cco4N9iT.s:76     .text.HAL_MspInit:0000002c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccUpNll9.s:19     .text.HAL_MspInit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccUpNll9.s:25     .text.HAL_MspInit:00000000 HAL_MspInit
+C:\Users\W_LINU~1\AppData\Local\Temp\ccUpNll9.s:76     .text.HAL_MspInit:0000002c $d
 
 NO UNDEFINED SYMBOLS

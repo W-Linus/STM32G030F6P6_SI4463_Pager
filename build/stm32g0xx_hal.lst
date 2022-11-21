@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
   30:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** 
   31:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   @endverbatim
   32:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   ******************************************************************************
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 2
 
 
   33:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
   87:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** /* Private function prototypes -----------------------------------------------*/
   88:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** /* Exported functions --------------------------------------------------------*/
   89:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 3
 
 
   90:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** /** @addtogroup HAL_Exported_Functions
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  144:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** {
  145:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   HAL_StatusTypeDef  status = HAL_OK;
  146:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 4
 
 
  147:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   /* Configure Flash prefetch, Instruction cache             */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  201:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** 
  202:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** /**
  203:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   * @brief  Initialize the MSP.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 5
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 5
 
 
  204:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   * @retval None
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
   66              	.LFB291:
  181:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   /* Reset of all peripherals */
   67              		.loc 1 181 1 view -0
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 6
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 6
 
 
   68              		.cfi_startproc
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  112              		.section	.text.HAL_InitTick,"ax",%progbits
  113              		.align	1
  114              		.weak	HAL_InitTick
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 7
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 7
 
 
  115              		.syntax unified
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  251:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****       if (TickPriority < (1UL << __NVIC_PRIO_BITS))
  252:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****       {
  253:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****         HAL_NVIC_SetPriority(SysTick_IRQn, TickPriority, 0U);
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 8
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 8
 
 
  254:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****         uwTickPrio = TickPriority;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  171 0026 0028     		cmp	r0, #0
  172 0028 0DD1     		bne	.L9
  251:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****       {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 9
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 9
 
 
  173              		.loc 1 251 7 is_stmt 1 view .LVU31
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  221 0000 10B5     		push	{r4, lr}
  222              	.LCFI2:
  223              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 10
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 10
 
 
  224              		.cfi_offset 4, -8
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  269              		.weak	HAL_IncTick
  270              		.syntax unified
  271              		.code	16
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 11
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 11
 
 
  272              		.thumb_func
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  311:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** }
  290              		.loc 1 311 1 view .LVU54
  291              		@ sp needed
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 12
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 12
 
 
  292 000c 7047     		bx	lr
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  324:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** /**
  325:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   * @brief This function returns a tick priority.
  326:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   * @retval tick priority
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 13
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 13
 
 
  327:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   */
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  341:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   assert_param(IS_TICKFREQ(Freq));
  380              		.loc 1 341 3 view .LVU67
  342:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 14
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 14
 
 
  343:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   if (uwTickFreq != Freq)
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  409              	.LVL22:
  353:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****     {
  410              		.loc 1 353 5 is_stmt 1 view .LVU80
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 15
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 15
 
 
  353:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****     {
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  456              		.align	1
  457              		.weak	HAL_Delay
  458              		.syntax unified
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 16
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 16
 
 
  459              		.code	16
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  493 0010 1B78     		ldrb	r3, [r3]
  494              		.loc 1 391 10 view .LVU98
  495 0012 E418     		adds	r4, r4, r3
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 17
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 17
 
 
  496              	.LVL26:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  410:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** {
  530              		.loc 1 410 1 is_stmt 1 view -0
  531              		.cfi_startproc
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 18
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 18
 
 
  532              		@ args = 0, pretend = 0, frame = 0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  570 0008 1360     		str	r3, [r2]
  429:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** }
  571              		.loc 1 429 1 is_stmt 0 view .LVU111
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 19
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 19
 
 
  572              		@ sp needed
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  444:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** uint32_t HAL_GetREVID(void)
  445:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** {
  616              		.loc 1 445 1 is_stmt 1 view -0
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 20
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 20
 
 
  617              		.cfi_startproc
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  662 000a C046     		.align	2
  663              	.L58:
  664 000c 00580140 		.word	1073829888
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 21
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 21
 
 
  665              		.cfi_endproc
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  707              		@ args = 0, pretend = 0, frame = 0
  708              		@ frame_needed = 0, uses_anonymous_args = 0
  709              		@ link register save eliminated.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 22
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 22
 
 
  473:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   return (READ_REG(*((uint32_t *)(UID_BASE + 4U))));
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  756              		.code	16
  757              		.thumb_func
  759              	HAL_DBGMCU_EnableDBGStopMode:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 23
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 23
 
 
  760              	.LFB309:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  787              		.thumb_func
  789              	HAL_DBGMCU_DisableDBGStopMode:
  790              	.LFB310:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 24
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 24
 
 
  512:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  830 0006 0B43     		orrs	r3, r1
  831 0008 5360     		str	r3, [r2, #4]
  529:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 25
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 25
 
 
  832              		.loc 1 529 1 is_stmt 0 view .LVU145
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  539:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** 
  540:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** /**
  541:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   * @}
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 26
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 26
 
 
  542:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   */
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  596:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   * @note   VrefBuf voltage scale is calibrated in production for each device,
  597:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   *         using voltage scale 1. This calibration value is loaded
  598:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   *         as default trimming value at device power up.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 27
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 27
 
 
  599:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   *         This trimming value can be fine tuned for voltage scales 0 and 1
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  881              		.loc 1 652 1 is_stmt 1 view -0
  882              		.cfi_startproc
  883              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 28
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 28
 
 
  884              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  929 000c 00000140 		.word	1073807360
  930 0010 FFFEFFFF 		.word	-257
  931              		.cfi_endproc
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 29
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 29
 
 
  932              	.LFE314:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  679:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** 
  680:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c **** /**
  681:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   * @brief  Disable the remap on PA11_PA12
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 30
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 30
 
 
  682:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   * @param  PinRemap specifies which pins will behave normally
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  1008              		@ args = 0, pretend = 0, frame = 0
  1009              		@ frame_needed = 0, uses_anonymous_args = 0
  1010              		@ link register save eliminated.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 31
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 31
 
 
  705:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c ****   /* Check the parameter */
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  1049              		@ sp needed
  1050 0008 7047     		bx	lr
  1051              	.L98:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 32
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 32
 
 
  1052 000a C046     		.align	2
@@ -1891,104 +1891,104 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 1
  1086              		.file 8 "Drivers/CMSIS/Device/ST/STM32G0xx/Include/system_stm32g0xx.h"
  1087              		.file 9 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
  1088              		.file 10 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_cortex.h"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 33
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 33
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g0xx_hal.c
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:19     .text.HAL_MspInit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:25     .text.HAL_MspInit:00000000 HAL_MspInit
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:39     .text.HAL_MspDeInit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:45     .text.HAL_MspDeInit:00000000 HAL_MspDeInit
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:59     .text.HAL_DeInit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:65     .text.HAL_DeInit:00000000 HAL_DeInit
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:107    .text.HAL_DeInit:00000024 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:113    .text.HAL_InitTick:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:119    .text.HAL_InitTick:00000000 HAL_InitTick
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:202    .text.HAL_InitTick:0000004c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:1062   .data.uwTickFreq:00000000 uwTickFreq
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:1069   .data.uwTickPrio:00000000 uwTickPrio
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:209    .text.HAL_Init:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:215    .text.HAL_Init:00000000 HAL_Init
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:263    .text.HAL_Init:00000024 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:268    .text.HAL_IncTick:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:274    .text.HAL_IncTick:00000000 HAL_IncTick
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:296    .text.HAL_IncTick:00000010 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:1076   .bss.uwTick:00000000 uwTick
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:302    .text.HAL_GetTick:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:308    .text.HAL_GetTick:00000000 HAL_GetTick
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:325    .text.HAL_GetTick:00000008 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:330    .text.HAL_GetTickPrio:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:336    .text.HAL_GetTickPrio:00000000 HAL_GetTickPrio
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:353    .text.HAL_GetTickPrio:00000008 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:358    .text.HAL_SetTickFreq:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:364    .text.HAL_SetTickFreq:00000000 HAL_SetTickFreq
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:422    .text.HAL_SetTickFreq:00000024 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:428    .text.HAL_GetTickFreq:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:434    .text.HAL_GetTickFreq:00000000 HAL_GetTickFreq
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:451    .text.HAL_GetTickFreq:00000008 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:456    .text.HAL_Delay:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:462    .text.HAL_Delay:00000000 HAL_Delay
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:517    .text.HAL_Delay:00000020 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:522    .text.HAL_SuspendTick:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:528    .text.HAL_SuspendTick:00000000 HAL_SuspendTick
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:547    .text.HAL_SuspendTick:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:552    .text.HAL_ResumeTick:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:558    .text.HAL_ResumeTick:00000000 HAL_ResumeTick
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:577    .text.HAL_ResumeTick:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:582    .text.HAL_GetHalVersion:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:588    .text.HAL_GetHalVersion:00000000 HAL_GetHalVersion
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:603    .text.HAL_GetHalVersion:00000004 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:608    .text.HAL_GetREVID:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:614    .text.HAL_GetREVID:00000000 HAL_GetREVID
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:633    .text.HAL_GetREVID:00000008 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:638    .text.HAL_GetDEVID:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:644    .text.HAL_GetDEVID:00000000 HAL_GetDEVID
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:664    .text.HAL_GetDEVID:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:669    .text.HAL_GetUIDw0:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:675    .text.HAL_GetUIDw0:00000000 HAL_GetUIDw0
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:692    .text.HAL_GetUIDw0:00000008 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:697    .text.HAL_GetUIDw1:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:703    .text.HAL_GetUIDw1:00000000 HAL_GetUIDw1
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:720    .text.HAL_GetUIDw1:00000008 $d
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s 			page 34
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:19     .text.HAL_MspInit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:25     .text.HAL_MspInit:00000000 HAL_MspInit
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:39     .text.HAL_MspDeInit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:45     .text.HAL_MspDeInit:00000000 HAL_MspDeInit
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:59     .text.HAL_DeInit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:65     .text.HAL_DeInit:00000000 HAL_DeInit
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:107    .text.HAL_DeInit:00000024 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:113    .text.HAL_InitTick:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:119    .text.HAL_InitTick:00000000 HAL_InitTick
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:202    .text.HAL_InitTick:0000004c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:1062   .data.uwTickFreq:00000000 uwTickFreq
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:1069   .data.uwTickPrio:00000000 uwTickPrio
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:209    .text.HAL_Init:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:215    .text.HAL_Init:00000000 HAL_Init
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:263    .text.HAL_Init:00000024 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:268    .text.HAL_IncTick:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:274    .text.HAL_IncTick:00000000 HAL_IncTick
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:296    .text.HAL_IncTick:00000010 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:1076   .bss.uwTick:00000000 uwTick
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:302    .text.HAL_GetTick:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:308    .text.HAL_GetTick:00000000 HAL_GetTick
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:325    .text.HAL_GetTick:00000008 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:330    .text.HAL_GetTickPrio:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:336    .text.HAL_GetTickPrio:00000000 HAL_GetTickPrio
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:353    .text.HAL_GetTickPrio:00000008 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:358    .text.HAL_SetTickFreq:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:364    .text.HAL_SetTickFreq:00000000 HAL_SetTickFreq
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:422    .text.HAL_SetTickFreq:00000024 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:428    .text.HAL_GetTickFreq:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:434    .text.HAL_GetTickFreq:00000000 HAL_GetTickFreq
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:451    .text.HAL_GetTickFreq:00000008 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:456    .text.HAL_Delay:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:462    .text.HAL_Delay:00000000 HAL_Delay
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:517    .text.HAL_Delay:00000020 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:522    .text.HAL_SuspendTick:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:528    .text.HAL_SuspendTick:00000000 HAL_SuspendTick
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:547    .text.HAL_SuspendTick:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:552    .text.HAL_ResumeTick:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:558    .text.HAL_ResumeTick:00000000 HAL_ResumeTick
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:577    .text.HAL_ResumeTick:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:582    .text.HAL_GetHalVersion:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:588    .text.HAL_GetHalVersion:00000000 HAL_GetHalVersion
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:603    .text.HAL_GetHalVersion:00000004 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:608    .text.HAL_GetREVID:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:614    .text.HAL_GetREVID:00000000 HAL_GetREVID
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:633    .text.HAL_GetREVID:00000008 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:638    .text.HAL_GetDEVID:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:644    .text.HAL_GetDEVID:00000000 HAL_GetDEVID
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:664    .text.HAL_GetDEVID:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:669    .text.HAL_GetUIDw0:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:675    .text.HAL_GetUIDw0:00000000 HAL_GetUIDw0
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:692    .text.HAL_GetUIDw0:00000008 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:697    .text.HAL_GetUIDw1:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:703    .text.HAL_GetUIDw1:00000000 HAL_GetUIDw1
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:720    .text.HAL_GetUIDw1:00000008 $d
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s 			page 34
 
 
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:725    .text.HAL_GetUIDw2:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:731    .text.HAL_GetUIDw2:00000000 HAL_GetUIDw2
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:748    .text.HAL_GetUIDw2:00000008 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:753    .text.HAL_DBGMCU_EnableDBGStopMode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:759    .text.HAL_DBGMCU_EnableDBGStopMode:00000000 HAL_DBGMCU_EnableDBGStopMode
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:778    .text.HAL_DBGMCU_EnableDBGStopMode:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:783    .text.HAL_DBGMCU_DisableDBGStopMode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:789    .text.HAL_DBGMCU_DisableDBGStopMode:00000000 HAL_DBGMCU_DisableDBGStopMode
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:808    .text.HAL_DBGMCU_DisableDBGStopMode:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:813    .text.HAL_DBGMCU_EnableDBGStandbyMode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:819    .text.HAL_DBGMCU_EnableDBGStandbyMode:00000000 HAL_DBGMCU_EnableDBGStandbyMode
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:838    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:843    .text.HAL_DBGMCU_DisableDBGStandbyMode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:849    .text.HAL_DBGMCU_DisableDBGStandbyMode:00000000 HAL_DBGMCU_DisableDBGStandbyMode
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:868    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:873    .text.HAL_SYSCFG_EnableIOAnalogSwitchBooster:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:879    .text.HAL_SYSCFG_EnableIOAnalogSwitchBooster:00000000 HAL_SYSCFG_EnableIOAnalogSwitchBooster
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:899    .text.HAL_SYSCFG_EnableIOAnalogSwitchBooster:00000010 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:904    .text.HAL_SYSCFG_DisableIOAnalogSwitchBooster:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:910    .text.HAL_SYSCFG_DisableIOAnalogSwitchBooster:00000000 HAL_SYSCFG_DisableIOAnalogSwitchBooster
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:929    .text.HAL_SYSCFG_DisableIOAnalogSwitchBooster:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:935    .text.HAL_SYSCFG_EnableRemap:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:941    .text.HAL_SYSCFG_EnableRemap:00000000 HAL_SYSCFG_EnableRemap
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:961    .text.HAL_SYSCFG_EnableRemap:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:966    .text.HAL_SYSCFG_DisableRemap:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:972    .text.HAL_SYSCFG_DisableRemap:00000000 HAL_SYSCFG_DisableRemap
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:992    .text.HAL_SYSCFG_DisableRemap:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:997    .text.HAL_SYSCFG_EnableClampingDiode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:1003   .text.HAL_SYSCFG_EnableClampingDiode:00000000 HAL_SYSCFG_EnableClampingDiode
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:1023   .text.HAL_SYSCFG_EnableClampingDiode:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:1028   .text.HAL_SYSCFG_DisableClampingDiode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:1034   .text.HAL_SYSCFG_DisableClampingDiode:00000000 HAL_SYSCFG_DisableClampingDiode
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:1054   .text.HAL_SYSCFG_DisableClampingDiode:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:1066   .data.uwTickPrio:00000000 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cchhUbWg.s:1073   .bss.uwTick:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:725    .text.HAL_GetUIDw2:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:731    .text.HAL_GetUIDw2:00000000 HAL_GetUIDw2
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:748    .text.HAL_GetUIDw2:00000008 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:753    .text.HAL_DBGMCU_EnableDBGStopMode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:759    .text.HAL_DBGMCU_EnableDBGStopMode:00000000 HAL_DBGMCU_EnableDBGStopMode
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:778    .text.HAL_DBGMCU_EnableDBGStopMode:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:783    .text.HAL_DBGMCU_DisableDBGStopMode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:789    .text.HAL_DBGMCU_DisableDBGStopMode:00000000 HAL_DBGMCU_DisableDBGStopMode
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:808    .text.HAL_DBGMCU_DisableDBGStopMode:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:813    .text.HAL_DBGMCU_EnableDBGStandbyMode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:819    .text.HAL_DBGMCU_EnableDBGStandbyMode:00000000 HAL_DBGMCU_EnableDBGStandbyMode
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:838    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:843    .text.HAL_DBGMCU_DisableDBGStandbyMode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:849    .text.HAL_DBGMCU_DisableDBGStandbyMode:00000000 HAL_DBGMCU_DisableDBGStandbyMode
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:868    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:873    .text.HAL_SYSCFG_EnableIOAnalogSwitchBooster:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:879    .text.HAL_SYSCFG_EnableIOAnalogSwitchBooster:00000000 HAL_SYSCFG_EnableIOAnalogSwitchBooster
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:899    .text.HAL_SYSCFG_EnableIOAnalogSwitchBooster:00000010 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:904    .text.HAL_SYSCFG_DisableIOAnalogSwitchBooster:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:910    .text.HAL_SYSCFG_DisableIOAnalogSwitchBooster:00000000 HAL_SYSCFG_DisableIOAnalogSwitchBooster
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:929    .text.HAL_SYSCFG_DisableIOAnalogSwitchBooster:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:935    .text.HAL_SYSCFG_EnableRemap:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:941    .text.HAL_SYSCFG_EnableRemap:00000000 HAL_SYSCFG_EnableRemap
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:961    .text.HAL_SYSCFG_EnableRemap:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:966    .text.HAL_SYSCFG_DisableRemap:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:972    .text.HAL_SYSCFG_DisableRemap:00000000 HAL_SYSCFG_DisableRemap
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:992    .text.HAL_SYSCFG_DisableRemap:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:997    .text.HAL_SYSCFG_EnableClampingDiode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:1003   .text.HAL_SYSCFG_EnableClampingDiode:00000000 HAL_SYSCFG_EnableClampingDiode
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:1023   .text.HAL_SYSCFG_EnableClampingDiode:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:1028   .text.HAL_SYSCFG_DisableClampingDiode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:1034   .text.HAL_SYSCFG_DisableClampingDiode:00000000 HAL_SYSCFG_DisableClampingDiode
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:1054   .text.HAL_SYSCFG_DisableClampingDiode:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:1066   .data.uwTickPrio:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccEtGzAt.s:1073   .bss.uwTick:00000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_uidiv

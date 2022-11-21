@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
   30:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****        necessary). Please refer to the Reference manual for connection between peripherals
   31:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****        and DMA requests.
   32:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 2
 
 
   33:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****    (#) For a given Channel, program the required configuration through the following parameters:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
   87:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   */
   88:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
   89:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** /* Includes ------------------------------------------------------------------*/
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 3
 
 
   90:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** #include "stm32g0xx_hal.h"
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  144:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  145:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** /**
  146:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   * @brief Initialize the DMA according to the specified
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 4
 
 
  147:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   *        parameters in the DMA_InitTypeDef and initialize the associated handle.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  201:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****                                 hdma->Init.PeriphDataAlignment | hdma->Init.MemDataAlignment | \
  202:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****                                 hdma->Init.Mode                | hdma->Init.Priority));
  203:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 5
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 5
 
 
  204:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   /* Initialize parameters for DMAMUX channel :
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  258:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   */
  259:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** HAL_StatusTypeDef HAL_DMA_DeInit(DMA_HandleTypeDef *hdma)
  260:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 6
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 6
 
 
  261:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   /* Check the DMA handle allocation */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  315:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     /* Initialize parameters for DMAMUX request generator :
  316:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****        DMAmuxRequestGen, DMAmuxRequestGenStatus and DMAmuxRequestGenStatusMask
  317:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 7
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 7
 
 
  318:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     DMA_CalcDMAMUXRequestGenBaseAndMask(hdma);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  372:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  373:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** /**
  374:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   * @brief Start the DMA Transfer.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 8
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 8
 
 
  375:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   * @param hdma Pointer to a DMA_HandleTypeDef structure that contains
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  429:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   * @param DstAddress The destination memory Buffer address
  430:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   * @param DataLength The length of data to be transferred from source to destination
  431:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   * @retval HAL status
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 9
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 9
 
 
  432:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  486:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   else
  487:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   {
  488:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     /* Change the error code */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 10
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 10
 
 
  489:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     hdma->ErrorCode = HAL_DMA_ERROR_BUSY;
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  543:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     /* Clear the DMAMUX synchro overrun flag */
  544:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
  545:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 11
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 11
 
 
  546:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     if (hdma->DMAmuxRequestGen != 0U)
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  600:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  601:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     /* Clear the DMAMUX synchro overrun flag */
  602:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 12
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 12
 
 
  603:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  657:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  658:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   /* Get the level transfer complete flag */
  659:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   if (HAL_DMA_FULL_TRANSFER == CompleteLevel)
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 13
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 13
 
 
  660:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   {
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  714:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     }
  715:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** #endif /* DMA2 */
  716:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     /* Check for the Timeout */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 14
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 14
 
 
  717:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     if (Timeout != HAL_MAX_DELAY)
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  771:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     /* Process unlocked */
  772:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     __HAL_UNLOCK(hdma);
  773:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 15
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 15
 
 
  774:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     /* The selected Channelx EN bit is cleared (DMA is disabled and
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  828:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****         hdma->XferHalfCpltCallback(hdma);
  829:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****       }
  830:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 16
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 16
 
 
  831:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  885:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   }
  886:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   else
  887:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 17
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 17
 
 
  888:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     /* Nothing To Do */
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  942:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  943:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   return status;
  944:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 18
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 18
 
 
  945:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  999:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   __HAL_UNLOCK(hdma);
 1000:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
 1001:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   return status;
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 19
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 19
 
 
 1002:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** }
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
 1056:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   */
 1057:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
 1058:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** /** @addtogroup DMA_Private_Functions
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 20
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 20
 
 
 1059:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   * @{
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
   60              	.L2:
 1080:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   }
 1081:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 21
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 21
 
 
 1082:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   /* Clear all flags */
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
 1108:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     hdma->Instance->CMAR = DstAddress;
   89              		.loc 1 1108 5 is_stmt 1 view .LVU23
   90              		.loc 1 1108 9 is_stmt 0 view .LVU24
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 22
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 22
 
 
   91 0034 0368     		ldr	r3, [r0]
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  130              		.cfi_startproc
  131              		@ args = 0, pretend = 0, frame = 0
  132              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 23
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 23
 
 
  133              		.loc 1 1119 1 is_stmt 0 view .LVU34
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  159              		.loc 1 1147 47 view .LVU44
  160 0016 1840     		ands	r0, r3
  161              		.loc 1 1147 56 view .LVU45
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 24
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 24
 
 
  162 0018 0838     		subs	r0, r0, #8
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
 1163:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
 1164:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** static void DMA_CalcDMAMUXRequestGenBaseAndMask(DMA_HandleTypeDef *hdma)
 1165:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 25
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 25
 
 
  203              		.loc 1 1165 1 is_stmt 1 view -0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  247 0024 40090240 		.word	1073875264
  248              		.cfi_endproc
  249              	.LFE304:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 26
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 26
 
 
  251              		.section	.text.HAL_DMA_Init,"ax",%progbits
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  290 0008 274B     		ldr	r3, .L22
  291 000a E818     		adds	r0, r5, r3
  292              	.LVL15:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 27
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 27
 
 
  187:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** #endif /* DMA2 */
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  336              		.loc 1 209 6 view .LVU97
  337 004e 8023     		movs	r3, #128
  338 0050 DB01     		lsls	r3, r3, #7
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 28
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 28
 
 
  339 0052 9A42     		cmp	r2, r3
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  238:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   }
  375              		.loc 1 238 38 is_stmt 0 view .LVU116
  376 0074 A365     		str	r3, [r4, #88]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 29
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 29
 
 
  377              	.L18:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  415 0094 236D     		ldr	r3, [r4, #80]
  229:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  416              		.loc 1 229 34 view .LVU133
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 30
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 30
 
 
  417 0096 0022     		movs	r2, #0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  465              		.cfi_offset 14, -4
  466 0002 041E     		subs	r4, r0, #0
  262:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 31
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 31
 
 
  467              		.loc 1 262 3 is_stmt 1 view .LVU142
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  508              	.LVL26:
  307:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  509              		.loc 1 307 3 view .LVU156
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 32
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 32
 
 
  307:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  544              		.loc 1 333 30 is_stmt 0 view .LVU176
  545 0056 2363     		str	r3, [r4, #48]
  334:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   hdma->XferAbortCallback = NULL;
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 33
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 33
 
 
  546              		.loc 1 334 3 is_stmt 1 view .LVU177
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  582              		.loc 1 321 34 view .LVU195
  583 0072 0022     		movs	r2, #0
  584 0074 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 34
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 34
 
 
  324:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   }
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  632              	.LVL33:
  387:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  633              		.loc 1 387 3 view .LVU205
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 35
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 35
 
 
  390:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  671 0024 0120     		movs	r0, #1
  672              	.LVL38:
  673              	.L32:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 36
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 36
 
 
  422:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  718              		.global	HAL_DMA_Start_IT
  719              		.syntax unified
  720              		.code	16
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 37
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 37
 
 
  721              		.thumb_func
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  489:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  763              		.loc 1 489 21 is_stmt 0 view .LVU247
  764 001a 8023     		movs	r3, #128
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 38
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 38
 
 
  765              	.LVL46:
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  804              		.loc 1 454 5 view .LVU262
  805 003c 2000     		movs	r0, r4
  806 003e FFF7FEFF 		bl	DMA_SetConfig
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 39
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 39
 
 
  807              	.LVL52:
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  845              		.loc 1 480 29 is_stmt 0 view .LVU278
  846 006a 1968     		ldr	r1, [r3]
  480:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 40
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 40
 
 
  847              		.loc 1 480 36 view .LVU279
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  897              		@ frame_needed = 0, uses_anonymous_args = 0
  508:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   /* Check the DMA peripheral handle */
  898              		.loc 1 508 1 is_stmt 0 view .LVU286
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 41
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 41
 
 
  899 0000 30B5     		push	{r4, r5, lr}
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  939 0020 0E21     		movs	r1, #14
  940 0022 8B43     		bics	r3, r1
  941 0024 1360     		str	r3, [r2]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 42
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 42
 
 
  531:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  981 0056 1A68     		ldr	r2, [r3]
  550:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  982              		.loc 1 550 36 view .LVU316
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 43
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 43
 
 
  983 0058 0749     		ldr	r1, .L51
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1023              		.cfi_endproc
  1024              	.LFE294:
  1026              		.section	.text.HAL_DMA_Abort_IT,"ax",%progbits
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 44
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 44
 
 
  1027              		.align	1
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1070 0010 70BD     		pop	{r4, r5, r6, pc}
  1071              	.LVL64:
  1072              	.L54:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 45
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 45
 
 
  586:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1113              		.loc 1 604 8 view .LVU356
  1114 0048 002B     		cmp	r3, #0
  1115 004a 06D0     		beq	.L56
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 46
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 46
 
 
  608:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1153 0070 CEE7     		b	.L55
  1154              	.LVL66:
  1155              	.L57:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 47
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 47
 
 
  574:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  643:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   {
  1204              		.loc 1 643 6 view .LVU382
  1205 000e 022B     		cmp	r3, #2
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 48
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 48
 
 
  1206 0010 07D0     		beq	.L61
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1244 002c 2DD1     		bne	.L64
  662:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   }
  1245              		.loc 1 662 5 is_stmt 1 view .LVU399
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 49
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 49
 
 
  662:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   }
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  717:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****     {
  1286              		.loc 1 717 8 is_stmt 0 view .LVU414
  1287 0058 7B1C     		adds	r3, r7, #1
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 50
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 50
 
 
  1288 005a F0D0     		beq	.L68
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1326 0080 8023     		movs	r3, #128
  1327 0082 5B00     		lsls	r3, r3, #1
  1328 0084 C363     		str	r3, [r0, #60]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 51
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 51
 
 
  655:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   }
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1369              		.loc 1 711 7 is_stmt 1 view .LVU444
  711:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  1370              		.loc 1 711 7 view .LVU445
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 52
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 52
 
 
  1371 00ac 013B     		subs	r3, r3, #1
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1408              		.loc 1 745 49 view .LVU462
  1409 00d2 B26D     		ldr	r2, [r6, #88]
  745:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 53
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 53
 
 
  1410              		.loc 1 745 43 view .LVU463
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1448 00fa 0E48     		ldr	r0, .L78
  1449 00fc 4368     		ldr	r3, [r0, #4]
  1450 00fe 326C     		ldr	r2, [r6, #64]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 54
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 54
 
 
  1451 0100 1C21     		movs	r1, #28
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1498              		.syntax unified
  1499              		.code	16
  1500              		.thumb_func
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 55
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 55
 
 
  1502              	HAL_DMA_IRQHandler:
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  810:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****       {
  1543              		.loc 1 810 7 is_stmt 1 view .LVU501
  810:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****       {
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 56
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 56
 
 
  1544              		.loc 1 810 26 is_stmt 0 view .LVU502
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1586              		.loc 1 833 11 view .LVU514
  1587 004a 1142     		tst	r1, r2
  1588 004c 1CD0     		beq	.L84
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 57
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 57
 
 
  833:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****   {
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1629 007e C36A     		ldr	r3, [r0, #44]
  849:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c ****       {
  1630              		.loc 1 849 10 view .LVU529
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 58
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 58
 
 
  1631 0080 002B     		cmp	r3, #0
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  875:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  1673              		.loc 1 875 17 is_stmt 0 view .LVU542
  1674 00b2 2522     		movs	r2, #37
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 59
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 59
 
 
  1675 00b4 8354     		strb	r3, [r0, r2]
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1720              		.cfi_offset 14, -4
  1721 0002 0300     		movs	r3, r0
  905:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 60
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 60
 
 
  1722              		.loc 1 905 3 is_stmt 1 view .LVU554
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1761              	.L94:
  944:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  1762              		.loc 1 944 1 is_stmt 0 view .LVU570
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 61
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 61
 
 
  1763              		@ sp needed
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1801 0046 0800     		movs	r0, r1
  916:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  1802              		.loc 1 916 9 view .LVU587
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 62
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 62
 
 
  1803 0048 E9E7     		b	.L95
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1847 000c 0120     		movs	r0, #1
  1848              	.LVL112:
  959:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 63
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 63
 
 
  1849              		.loc 1 959 3 is_stmt 0 discriminator 2 view .LVU600
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1891 0004 38000000 		.word	.L111
  1892 0008 40000000 		.word	.L110
  1893 000c 48000000 		.word	.L109
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 64
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 64
 
 
  1894 0010 50000000 		.word	.L107
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  979:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
  1931              		.loc 1 979 9 is_stmt 1 view .LVU630
  956:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 65
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 65
 
 
  1932              		.loc 1 956 21 is_stmt 0 view .LVU631
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  1973              		.code	16
  1974              		.thumb_func
  1976              	HAL_DMA_GetState:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 66
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 66
 
 
  1977              	.LVL119:
@@ -3958,58 +3958,58 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 1
  2025              		.file 3 "f:\\vscode-for-stm32\\gcc\\12.2-mpacbti-bet1\\arm-none-eabi\\include\\sys\\_stdint.h"
  2026              		.file 4 "Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g030xx.h"
  2027              		.file 5 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 67
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 67
 
 
  2028              		.file 6 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_dma.h"
  2029              		.file 7 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
  2030              		.file 8 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s 			page 68
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s 			page 68
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g0xx_hal_dma.c
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:19     .text.DMA_SetConfig:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:24     .text.DMA_SetConfig:00000000 DMA_SetConfig
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:115    .text.DMA_SetConfig:00000044 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:121    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:126    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000000 DMA_CalcDMAMUXChannelBaseAndMask
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:189    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000030 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:195    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:200    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000000 DMA_CalcDMAMUXRequestGenBaseAndMask
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:246    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000020 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:252    .text.HAL_DMA_Init:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:258    .text.HAL_DMA_Init:00000000 HAL_DMA_Init
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:437    .text.HAL_DMA_Init:000000a8 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:443    .text.HAL_DMA_DeInit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:449    .text.HAL_DMA_DeInit:00000000 HAL_DMA_DeInit
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:603    .text.HAL_DMA_DeInit:00000084 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:609    .text.HAL_DMA_Start:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:615    .text.HAL_DMA_Start:00000000 HAL_DMA_Start
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:717    .text.HAL_DMA_Start_IT:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:723    .text.HAL_DMA_Start_IT:00000000 HAL_DMA_Start_IT
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:885    .text.HAL_DMA_Abort:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:891    .text.HAL_DMA_Abort:00000000 HAL_DMA_Abort
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1021   .text.HAL_DMA_Abort:00000078 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1027   .text.HAL_DMA_Abort_IT:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1033   .text.HAL_DMA_Abort_IT:00000000 HAL_DMA_Abort_IT
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1164   .text.HAL_DMA_Abort_IT:00000078 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1170   .text.HAL_DMA_PollForTransfer:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1176   .text.HAL_DMA_PollForTransfer:00000000 HAL_DMA_PollForTransfer
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1491   .text.HAL_DMA_PollForTransfer:00000134 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1496   .text.HAL_DMA_IRQHandler:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1502   .text.HAL_DMA_IRQHandler:00000000 HAL_DMA_IRQHandler
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1697   .text.HAL_DMA_IRQHandler:000000c8 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1702   .text.HAL_DMA_RegisterCallback:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1708   .text.HAL_DMA_RegisterCallback:00000000 HAL_DMA_RegisterCallback
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1821   .text.HAL_DMA_UnRegisterCallback:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1827   .text.HAL_DMA_UnRegisterCallback:00000000 HAL_DMA_UnRegisterCallback
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1888   .rodata.HAL_DMA_UnRegisterCallback:00000000 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1965   .text.HAL_DMA_UnRegisterCallback:00000064 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1970   .text.HAL_DMA_GetState:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1976   .text.HAL_DMA_GetState:00000000 HAL_DMA_GetState
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:1998   .text.HAL_DMA_GetError:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccdTkVBm.s:2004   .text.HAL_DMA_GetError:00000000 HAL_DMA_GetError
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:19     .text.DMA_SetConfig:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:24     .text.DMA_SetConfig:00000000 DMA_SetConfig
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:115    .text.DMA_SetConfig:00000044 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:121    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:126    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000000 DMA_CalcDMAMUXChannelBaseAndMask
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:189    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000030 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:195    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:200    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000000 DMA_CalcDMAMUXRequestGenBaseAndMask
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:246    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000020 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:252    .text.HAL_DMA_Init:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:258    .text.HAL_DMA_Init:00000000 HAL_DMA_Init
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:437    .text.HAL_DMA_Init:000000a8 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:443    .text.HAL_DMA_DeInit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:449    .text.HAL_DMA_DeInit:00000000 HAL_DMA_DeInit
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:603    .text.HAL_DMA_DeInit:00000084 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:609    .text.HAL_DMA_Start:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:615    .text.HAL_DMA_Start:00000000 HAL_DMA_Start
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:717    .text.HAL_DMA_Start_IT:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:723    .text.HAL_DMA_Start_IT:00000000 HAL_DMA_Start_IT
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:885    .text.HAL_DMA_Abort:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:891    .text.HAL_DMA_Abort:00000000 HAL_DMA_Abort
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1021   .text.HAL_DMA_Abort:00000078 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1027   .text.HAL_DMA_Abort_IT:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1033   .text.HAL_DMA_Abort_IT:00000000 HAL_DMA_Abort_IT
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1164   .text.HAL_DMA_Abort_IT:00000078 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1170   .text.HAL_DMA_PollForTransfer:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1176   .text.HAL_DMA_PollForTransfer:00000000 HAL_DMA_PollForTransfer
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1491   .text.HAL_DMA_PollForTransfer:00000134 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1496   .text.HAL_DMA_IRQHandler:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1502   .text.HAL_DMA_IRQHandler:00000000 HAL_DMA_IRQHandler
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1697   .text.HAL_DMA_IRQHandler:000000c8 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1702   .text.HAL_DMA_RegisterCallback:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1708   .text.HAL_DMA_RegisterCallback:00000000 HAL_DMA_RegisterCallback
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1821   .text.HAL_DMA_UnRegisterCallback:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1827   .text.HAL_DMA_UnRegisterCallback:00000000 HAL_DMA_UnRegisterCallback
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1888   .rodata.HAL_DMA_UnRegisterCallback:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1965   .text.HAL_DMA_UnRegisterCallback:00000064 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1970   .text.HAL_DMA_GetState:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1976   .text.HAL_DMA_GetState:00000000 HAL_DMA_GetState
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:1998   .text.HAL_DMA_GetError:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccZSlM1F.s:2004   .text.HAL_DMA_GetError:00000000 HAL_DMA_GetError
 
 UNDEFINED SYMBOLS
 __aeabi_uidiv

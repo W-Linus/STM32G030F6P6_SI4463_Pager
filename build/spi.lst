@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 1
   30:Core/Src/spi.c **** void MX_SPI1_Init(void)
   31:Core/Src/spi.c **** {
   27              		.loc 1 31 1 view -0
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s 			page 2
 
 
   28              		.cfi_startproc
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 1
   66              		.loc 1 47 3 is_stmt 1 view .LVU15
   67              		.loc 1 47 32 is_stmt 0 view .LVU16
   68 0022 D93A     		subs	r2, r2, #217
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s 			page 3
 
 
   69 0024 FF3A     		subs	r2, r2, #255
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 1
  107 0046 FBE7     		b	.L1
  108              	.L5:
  109              		.align	2
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s 			page 4
 
 
  110              	.L4:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 1
   72:Core/Src/spi.c ****   /* USER CODE END SPI1_MspInit 0 */
   73:Core/Src/spi.c ****     /* SPI1 clock enable */
   74:Core/Src/spi.c ****     __HAL_RCC_SPI1_CLK_ENABLE();
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 5
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s 			page 5
 
 
   75:Core/Src/spi.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 1
   76:Core/Src/spi.c ****     /**SPI1 GPIO Configuration
  185              		.loc 1 76 5 view .LVU52
   76:Core/Src/spi.c ****     /**SPI1 GPIO Configuration
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 6
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s 			page 6
 
 
  186              		.loc 1 76 5 view .LVU53
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 1
  230              		.code	16
  231              		.thumb_func
  233              	HAL_SPI_MspDeInit:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 7
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s 			page 7
 
 
  234              	.LVL8:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 1
  263 0010 0649     		ldr	r1, .L14+8
  264 0012 0B40     		ands	r3, r1
  265 0014 1364     		str	r3, [r2, #64]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 8
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s 			page 8
 
 
  111:Core/Src/spi.c **** 
@@ -463,22 +463,22 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 1
  302              		.file 10 "Core/Inc/spi.h"
  303              		.file 11 "Core/Inc/main.h"
  304              		.file 12 "<built-in>"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s 			page 9
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 spi.c
-C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s:19     .text.MX_SPI1_Init:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s:25     .text.MX_SPI1_Init:00000000 MX_SPI1_Init
-C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s:111    .text.MX_SPI1_Init:00000048 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s:290    .bss.hspi1:00000000 hspi1
-C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s:117    .text.HAL_SPI_MspInit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s:123    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
-C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s:221    .text.HAL_SPI_MspInit:00000054 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s:227    .text.HAL_SPI_MspDeInit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s:233    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
-C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s:279    .text.HAL_SPI_MspDeInit:00000024 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccYmfhiw.s:287    .bss.hspi1:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s:19     .text.MX_SPI1_Init:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s:25     .text.MX_SPI1_Init:00000000 MX_SPI1_Init
+C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s:111    .text.MX_SPI1_Init:00000048 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s:290    .bss.hspi1:00000000 hspi1
+C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s:117    .text.HAL_SPI_MspInit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s:123    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
+C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s:221    .text.HAL_SPI_MspInit:00000054 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s:227    .text.HAL_SPI_MspDeInit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s:233    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
+C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s:279    .text.HAL_SPI_MspDeInit:00000024 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccQZwaHM.s:287    .bss.hspi1:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Init

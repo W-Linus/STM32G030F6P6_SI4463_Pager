@@ -7,6 +7,7 @@
         "main.h": "c",
         "usart.h": "c",
         "si446x.h": "c",
-        "radio_config_si4463.h": "c"
+        "radio_config_si4463.h": "c",
+        "pocsag_generate.h": "c"
     }
 }

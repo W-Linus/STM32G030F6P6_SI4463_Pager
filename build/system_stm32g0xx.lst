@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 1
   30:Core/Src/system_stm32g0xx.c ****   *        SYSCLK(Hz)                             | 16000000
   31:Core/Src/system_stm32g0xx.c ****   *-----------------------------------------------------------------------------
   32:Core/Src/system_stm32g0xx.c ****   *        HCLK(Hz)                               | 16000000
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s 			page 2
 
 
   33:Core/Src/system_stm32g0xx.c ****   *-----------------------------------------------------------------------------
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 1
   87:Core/Src/system_stm32g0xx.c **** #if !defined  (LSI_VALUE)
   88:Core/Src/system_stm32g0xx.c ****  #define LSI_VALUE   (32000UL)     /*!< Value of LSI in Hz*/
   89:Core/Src/system_stm32g0xx.c **** #endif /* LSI_VALUE */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s 			page 3
 
 
   90:Core/Src/system_stm32g0xx.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 1
  144:Core/Src/system_stm32g0xx.c **** /**
  145:Core/Src/system_stm32g0xx.c ****   * @}
  146:Core/Src/system_stm32g0xx.c ****   */
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s 			page 4
 
 
  147:Core/Src/system_stm32g0xx.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 1
   36              	.LFE290:
   38              		.global	__aeabi_uidiv
   39              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 5
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s 			page 5
 
 
   40              		.align	1
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 1
   52 0000 10B5     		push	{r4, lr}
   53              	.LCFI0:
   54              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 6
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s 			page 6
 
 
   55              		.cfi_offset 4, -8
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 1
   82              		.loc 1 261 17 view .LVU15
   83 001c 0323     		movs	r3, #3
   84 001e 0B40     		ands	r3, r1
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 7
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s 			page 7
 
 
   85              	.LVL0:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 1
  125              		.loc 1 275 7 is_stmt 1 view .LVU32
  126              		.loc 1 275 31 is_stmt 0 view .LVU33
  127 0046 FFF7FEFF 		bl	__aeabi_uidiv
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 8
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s 			page 8
 
 
  128              	.LVL5:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 1
  164 006e 114A     		ldr	r2, .L13+16
  165 0070 9B00     		lsls	r3, r3, #2
  166 0072 9958     		ldr	r1, [r3, r2]
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 9
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s 			page 9
 
 
  167              	.LVL7:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 1
  281:Core/Src/system_stm32g0xx.c ****       break;
  208              		.loc 1 281 35 is_stmt 0 view .LVU60
  209 009a 034B     		ldr	r3, .L13+4
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 10
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s 			page 10
 
 
  210 009c D340     		lsrs	r3, r3, r2
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 1
  266              		.section	.data.SystemCoreClock,"aw"
  267              		.align	2
  270              	SystemCoreClock:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 11
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s 			page 11
 
 
  271 0000 0024F400 		.word	16000000
@@ -609,22 +609,22 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 1
  276              		.file 4 "Drivers/CMSIS/Device/ST/STM32G0xx/Include/system_stm32g0xx.h"
  277              		.file 5 "Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g030xx.h"
  278              		.file 6 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s 			page 12
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 system_stm32g0xx.c
-C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s:19     .text.SystemInit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s:25     .text.SystemInit:00000000 SystemInit
-C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s:40     .text.SystemCoreClockUpdate:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s:46     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
-C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s:221    .text.SystemCoreClockUpdate:000000a4 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s:270    .data.SystemCoreClock:00000000 SystemCoreClock
-C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s:248    .rodata.AHBPrescTable:00000000 AHBPrescTable
-C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s:234    .rodata.APBPrescTable:00000000 APBPrescTable
-C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s:231    .rodata.APBPrescTable:00000000 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s:245    .rodata.AHBPrescTable:00000000 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\cc6bx59A.s:267    .data.SystemCoreClock:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s:19     .text.SystemInit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s:25     .text.SystemInit:00000000 SystemInit
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s:40     .text.SystemCoreClockUpdate:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s:46     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s:221    .text.SystemCoreClockUpdate:000000a4 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s:270    .data.SystemCoreClock:00000000 SystemCoreClock
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s:248    .rodata.AHBPrescTable:00000000 AHBPrescTable
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s:234    .rodata.APBPrescTable:00000000 APBPrescTable
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s:231    .rodata.APBPrescTable:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s:245    .rodata.AHBPrescTable:00000000 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\cc8l6mVZ.s:267    .data.SystemCoreClock:00000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_uidiv

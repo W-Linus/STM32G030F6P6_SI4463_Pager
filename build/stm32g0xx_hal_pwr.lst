@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
   30:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c **** 
   31:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c **** /** @addtogroup PWR
   32:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   * @{
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 2
 
 
   33:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
   38 000a DA62     		str	r2, [r3, #44]
   76:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   __HAL_RCC_PWR_RELEASE_RESET();
   39              		.loc 1 76 3 view .LVU2
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 3
 
 
   40 000c DA6A     		ldr	r2, [r3, #44]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  109:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****           and regulator in low power mode.
  110:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****       (+) Stop 0 mode: all clocks are stopped except LSI and LSE, regulator is
  111:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****            main mode.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 4
 
 
  112:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****       (+) Stop 1 mode: all clocks are stopped except LSI and LSE, main regulator
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  166:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****                with corresponding interrupt enable in NVIC
  167:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****       (+) WFE Exit:
  168:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****           (++) Any EXTI line (internal or external) configured in event mode if
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 5
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 5
 
 
  169:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****                cortex is configured with SEVONPEND = 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  223:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   * @note   After reset, the backup domain is protected against
  224:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   *         possible unwanted write accesses. All RTC & TAMP registers (backup
  225:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   *         registers included) and RCC BDCR register are concerned.
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 6
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 6
 
 
  226:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   * @retval None
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  105 0008 1360     		str	r3, [r2]
  241:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c **** }
  106              		.loc 1 241 1 is_stmt 0 view .LVU9
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 7
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 7
 
 
  107              		@ sp needed
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  136 0004 2B23     		movs	r3, #43
  137 0006 0340     		ands	r3, r0
  138 0008 9A43     		bics	r2, r3
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 8
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 8
 
 
  139 000a 000A     		lsrs	r0, r0, #8
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  175 0000 0349     		ldr	r1, .L14
  176 0002 8B68     		ldr	r3, [r1, #8]
  177 0004 2B22     		movs	r2, #43
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 9
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 9
 
 
  178 0006 0240     		ands	r2, r0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  203              		@ args = 0, pretend = 0, frame = 0
  204              		@ frame_needed = 0, uses_anonymous_args = 0
  205              		.loc 1 319 1 is_stmt 0 view .LVU21
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 10
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 10
 
 
  206 0000 10B5     		push	{r4, lr}
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  232 0018 1361     		str	r3, [r2, #16]
  348:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c **** 
  349:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   /* Select SLEEP mode entry -------------------------------------------------*/
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 11
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 11
 
 
  350:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   if (SLEEPEntry == PWR_SLEEPENTRY_WFI)
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  269              		.loc 1 337 8 view .LVU40
  270 0030 9B05     		lsls	r3, r3, #22
  271 0032 EDD5     		bpl	.L18
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 12
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 12
 
 
  339:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****       {
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  380:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   *         wakeup event, the HSI RC oscillator is selected as system clock
  381:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   * @note   When the voltage regulator operates in low power mode (Stop 1),
  382:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   *         an additional startup delay is incurred when waking up. By keeping
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 13
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 13
 
 
  383:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   *         the internal regulator ON during Stop mode (Stop 0), the consumption
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  415:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   /* Set SLEEPDEEP bit of Cortex System Control Register */
  416:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   SET_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPDEEP_Msk));
  329              		.loc 1 416 3 is_stmt 1 view .LVU52
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 14
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 14
 
 
  330 0012 0D4A     		ldr	r2, .L33+4
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  366              	.LVL12:
  367              	.L28:
  412:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c ****   }
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 15
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 15
 
 
  368              		.loc 1 412 5 is_stmt 1 view .LVU61
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  454:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c **** {
  403              		.loc 1 454 1 view -0
  404              		.cfi_startproc
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 16
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 16
 
 
  405              		@ args = 0, pretend = 0, frame = 0
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  447              	HAL_PWR_EnableSleepOnExit:
  448              	.LFB298:
  469:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c **** 
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 17
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 17
 
 
  470:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c **** 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  479              		.loc 1 495 1 is_stmt 1 view -0
  480              		.cfi_startproc
  481              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 18
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 18
 
 
  482              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  521              		@ sp needed
  522 000a 7047     		bx	lr
  523              	.L46:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 19
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 19
 
 
  524              		.align	2
@@ -1136,47 +1136,47 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 1
  566              		.file 6 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h"
  567              		.file 7 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
  568              		.file 8 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s 			page 20
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g0xx_hal_pwr.c
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:19     .text.HAL_PWR_DeInit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:25     .text.HAL_PWR_DeInit:00000000 HAL_PWR_DeInit
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:50     .text.HAL_PWR_DeInit:00000018 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:56     .text.HAL_PWR_EnableBkUpAccess:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:62     .text.HAL_PWR_EnableBkUpAccess:00000000 HAL_PWR_EnableBkUpAccess
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:82     .text.HAL_PWR_EnableBkUpAccess:00000010 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:87     .text.HAL_PWR_DisableBkUpAccess:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:93     .text.HAL_PWR_DisableBkUpAccess:00000000 HAL_PWR_DisableBkUpAccess
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:112    .text.HAL_PWR_DisableBkUpAccess:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:118    .text.HAL_PWR_EnableWakeUpPin:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:124    .text.HAL_PWR_EnableWakeUpPin:00000000 HAL_PWR_EnableWakeUpPin
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:154    .text.HAL_PWR_EnableWakeUpPin:00000018 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:159    .text.HAL_PWR_DisableWakeUpPin:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:165    .text.HAL_PWR_DisableWakeUpPin:00000000 HAL_PWR_DisableWakeUpPin
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:187    .text.HAL_PWR_DisableWakeUpPin:00000010 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:192    .text.HAL_PWR_EnterSLEEPMode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:198    .text.HAL_PWR_EnterSLEEPMode:00000000 HAL_PWR_EnterSLEEPMode
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:292    .text.HAL_PWR_EnterSLEEPMode:00000044 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:298    .text.HAL_PWR_EnterSTOPMode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:304    .text.HAL_PWR_EnterSTOPMode:00000000 HAL_PWR_EnterSTOPMode
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:389    .text.HAL_PWR_EnterSTOPMode:00000044 $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:395    .text.HAL_PWR_EnterSTANDBYMode:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:401    .text.HAL_PWR_EnterSTANDBYMode:00000000 HAL_PWR_EnterSTANDBYMode
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:435    .text.HAL_PWR_EnterSTANDBYMode:0000001c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:441    .text.HAL_PWR_EnableSleepOnExit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:447    .text.HAL_PWR_EnableSleepOnExit:00000000 HAL_PWR_EnableSleepOnExit
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:466    .text.HAL_PWR_EnableSleepOnExit:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:471    .text.HAL_PWR_DisableSleepOnExit:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:477    .text.HAL_PWR_DisableSleepOnExit:00000000 HAL_PWR_DisableSleepOnExit
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:496    .text.HAL_PWR_DisableSleepOnExit:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:501    .text.HAL_PWR_EnableSEVOnPend:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:507    .text.HAL_PWR_EnableSEVOnPend:00000000 HAL_PWR_EnableSEVOnPend
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:526    .text.HAL_PWR_EnableSEVOnPend:0000000c $d
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:531    .text.HAL_PWR_DisableSEVOnPend:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:537    .text.HAL_PWR_DisableSEVOnPend:00000000 HAL_PWR_DisableSEVOnPend
-C:\Users\W_LINU~1\AppData\Local\Temp\ccpnfkqO.s:556    .text.HAL_PWR_DisableSEVOnPend:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:19     .text.HAL_PWR_DeInit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:25     .text.HAL_PWR_DeInit:00000000 HAL_PWR_DeInit
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:50     .text.HAL_PWR_DeInit:00000018 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:56     .text.HAL_PWR_EnableBkUpAccess:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:62     .text.HAL_PWR_EnableBkUpAccess:00000000 HAL_PWR_EnableBkUpAccess
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:82     .text.HAL_PWR_EnableBkUpAccess:00000010 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:87     .text.HAL_PWR_DisableBkUpAccess:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:93     .text.HAL_PWR_DisableBkUpAccess:00000000 HAL_PWR_DisableBkUpAccess
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:112    .text.HAL_PWR_DisableBkUpAccess:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:118    .text.HAL_PWR_EnableWakeUpPin:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:124    .text.HAL_PWR_EnableWakeUpPin:00000000 HAL_PWR_EnableWakeUpPin
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:154    .text.HAL_PWR_EnableWakeUpPin:00000018 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:159    .text.HAL_PWR_DisableWakeUpPin:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:165    .text.HAL_PWR_DisableWakeUpPin:00000000 HAL_PWR_DisableWakeUpPin
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:187    .text.HAL_PWR_DisableWakeUpPin:00000010 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:192    .text.HAL_PWR_EnterSLEEPMode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:198    .text.HAL_PWR_EnterSLEEPMode:00000000 HAL_PWR_EnterSLEEPMode
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:292    .text.HAL_PWR_EnterSLEEPMode:00000044 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:298    .text.HAL_PWR_EnterSTOPMode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:304    .text.HAL_PWR_EnterSTOPMode:00000000 HAL_PWR_EnterSTOPMode
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:389    .text.HAL_PWR_EnterSTOPMode:00000044 $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:395    .text.HAL_PWR_EnterSTANDBYMode:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:401    .text.HAL_PWR_EnterSTANDBYMode:00000000 HAL_PWR_EnterSTANDBYMode
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:435    .text.HAL_PWR_EnterSTANDBYMode:0000001c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:441    .text.HAL_PWR_EnableSleepOnExit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:447    .text.HAL_PWR_EnableSleepOnExit:00000000 HAL_PWR_EnableSleepOnExit
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:466    .text.HAL_PWR_EnableSleepOnExit:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:471    .text.HAL_PWR_DisableSleepOnExit:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:477    .text.HAL_PWR_DisableSleepOnExit:00000000 HAL_PWR_DisableSleepOnExit
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:496    .text.HAL_PWR_DisableSleepOnExit:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:501    .text.HAL_PWR_EnableSEVOnPend:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:507    .text.HAL_PWR_EnableSEVOnPend:00000000 HAL_PWR_EnableSEVOnPend
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:526    .text.HAL_PWR_EnableSEVOnPend:0000000c $d
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:531    .text.HAL_PWR_DisableSEVOnPend:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:537    .text.HAL_PWR_DisableSEVOnPend:00000000 HAL_PWR_DisableSEVOnPend
+C:\Users\W_LINU~1\AppData\Local\Temp\ccb3wIud.s:556    .text.HAL_PWR_DisableSEVOnPend:0000000c $d
 
 UNDEFINED SYMBOLS
 HAL_PWREx_EnableLowPowerRunMode

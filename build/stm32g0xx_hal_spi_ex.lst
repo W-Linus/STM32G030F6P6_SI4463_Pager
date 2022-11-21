@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc4yLaEo.s 			page 1
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccCHSdyG.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc4yLaEo.s 			page 1
   29:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.c **** 
   30:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.c **** /** @defgroup SPIEx SPIEx
   31:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.c ****   * @brief SPI Extended HAL module driver
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc4yLaEo.s 			page 2
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccCHSdyG.s 			page 2
 
 
   32:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.c ****   * @{
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc4yLaEo.s 			page 1
   33 0000 10B5     		push	{r4, lr}
   34              	.LCFI0:
   35              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc4yLaEo.s 			page 3
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccCHSdyG.s 			page 3
 
 
   36              		.cfi_offset 4, -8
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc4yLaEo.s 			page 1
   79 0020 0320     		movs	r0, #3
   80              	.LVL5:
   81              	.L3:
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc4yLaEo.s 			page 4
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccCHSdyG.s 			page 4
 
 
   91:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.c ****     }
@@ -209,12 +209,12 @@ ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc4yLaEo.s 			page 1
  102              		.file 6 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_dma.h"
  103              		.file 7 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_spi.h"
  104              		.file 8 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
-ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\cc4yLaEo.s 			page 5
+ARM GAS  C:\Users\W_LINU~1\AppData\Local\Temp\ccCHSdyG.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g0xx_hal_spi_ex.c
-C:\Users\W_LINU~1\AppData\Local\Temp\cc4yLaEo.s:19     .text.HAL_SPIEx_FlushRxFifo:00000000 $t
-C:\Users\W_LINU~1\AppData\Local\Temp\cc4yLaEo.s:25     .text.HAL_SPIEx_FlushRxFifo:00000000 HAL_SPIEx_FlushRxFifo
+C:\Users\W_LINU~1\AppData\Local\Temp\ccCHSdyG.s:19     .text.HAL_SPIEx_FlushRxFifo:00000000 $t
+C:\Users\W_LINU~1\AppData\Local\Temp\ccCHSdyG.s:25     .text.HAL_SPIEx_FlushRxFifo:00000000 HAL_SPIEx_FlushRxFifo
 
 NO UNDEFINED SYMBOLS
